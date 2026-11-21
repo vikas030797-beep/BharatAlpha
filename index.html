@@ -3533,10 +3533,30 @@
         nseAllStocks = Array.from(mapByKey.values());
         nseMarketUpdatedAt = 'Imported ' + (isBseUdiff ? 'BSE' : 'NSE') + ' CSV (' + new Date().toLocaleDateString('en-IN') + ')';
         nseVisibleCount = 50;
+
+        // Auto-update prices for all matching stocks in Featured, My Holdings & Trade Basket
+        const bySym = new Map();
+        const byBse = new Map();
+        nseAllStocks.forEach((item) => {
+          if (item.sym) bySym.set(item.sym.toUpperCase(), item);
+          if (item.bse) byBse.set(String(item.bse).trim(), item);
+        });
+        let updatedCount = 0;
+        state.stocks.forEach((s) => {
+          const match = bySym.get((s.nse || '').toUpperCase()) || (s.bse ? byBse.get(String(s.bse).trim()) : null);
+          if (match && match.cmp > 0) {
+            s.cmp = match.cmp;
+            if (match.high > s.high52) s.high52 = match.high;
+            if (match.low > 0 && (s.low52 <= 0 || match.low < s.low52)) s.low52 = match.low;
+            updatedCount++;
+          }
+        });
+        if (updatedCount > 0) saveState();
+
         const pill = document.querySelector('[data-stock-filter="AllNSE"]');
         if (pill && nseAllStocks.length > 50) pill.textContent = 'All NSE & BSE (' + nseAllStocks.length.toLocaleString('en-IN') + ')';
-        showToast('Loaded ' + nseAllStocks.length.toLocaleString('en-IN') + ' NSE/BSE listed shares!');
-        renderStocksTab();
+        showToast('Loaded ' + nseAllStocks.length.toLocaleString('en-IN') + ' shares' + (updatedCount > 0 ? ' & updated ' + updatedCount + ' tracked prices!' : '!'));
+        renderAll();
       }
 
       const nseCsvInput = document.getElementById('nseCsvFileInput');
