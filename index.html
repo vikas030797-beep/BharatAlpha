@@ -1,0 +1,2953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="BharatAlpha" />
+  <title>BharatAlpha — NSE &amp; BSE Trading, SIP &amp; Wealth Planner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+  <style>
+    :root {
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #F8FAFC;
+      color: #0F172A;
+      overflow-x: hidden;
+      padding-bottom: calc(84px + var(--safe-bottom));
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+    /* Dark Mode Overrides */
+    body.dark-mode {
+      background-color: #0B1120;
+      color: #F1F5F9;
+    }
+    body.dark-mode header,
+    body.dark-mode .bottom-nav {
+      background-color: rgba(15, 23, 42, 0.95) !important;
+      border-color: #1E293B !important;
+    }
+    body.dark-mode .bg-white {
+      background-color: #111827 !important;
+    }
+    body.dark-mode .bg-slate-50 {
+      background-color: #1E293B !important;
+    }
+    body.dark-mode .bg-slate-100 {
+      background-color: #1E293B !important;
+    }
+    body.dark-mode .border-slate-200,
+    body.dark-mode .border-slate-100 {
+      border-color: #334155 !important;
+    }
+    body.dark-mode .text-slate-900 {
+      color: #F8FAFC !important;
+    }
+    body.dark-mode .text-slate-800 {
+      color: #E2E8F0 !important;
+    }
+    body.dark-mode .text-slate-700 {
+      color: #CBD5E1 !important;
+    }
+    body.dark-mode .text-slate-600 {
+      color: #94A3B8 !important;
+    }
+    body.dark-mode .text-slate-500 {
+      color: #94A3B8 !important;
+    }
+    body.dark-mode input,
+    body.dark-mode select,
+    body.dark-mode textarea {
+      background-color: #0F172A !important;
+      color: #F8FAFC !important;
+      border-color: #334155 !important;
+    }
+    body.dark-mode .bg-blue-50\/60,
+    body.dark-mode .bg-blue-50\/70,
+    body.dark-mode .bg-blue-50 {
+      background-color: rgba(30, 58, 138, 0.28) !important;
+      border-color: rgba(59, 130, 246, 0.35) !important;
+    }
+    body.dark-mode .bg-emerald-50\/70,
+    body.dark-mode .bg-emerald-50\/80,
+    body.dark-mode .bg-emerald-50\/50,
+    body.dark-mode .bg-emerald-50\/40,
+    body.dark-mode .bg-emerald-50 {
+      background-color: rgba(6, 78, 59, 0.32) !important;
+      border-color: rgba(16, 185, 129, 0.35) !important;
+    }
+    body.dark-mode .bg-rose-50\/60,
+    body.dark-mode .bg-rose-50\/70,
+    body.dark-mode .bg-rose-50\/40,
+    body.dark-mode .bg-rose-50 {
+      background-color: rgba(136, 19, 55, 0.3) !important;
+      border-color: rgba(244, 63, 94, 0.35) !important;
+    }
+    body.dark-mode .bg-amber-50 {
+      background-color: rgba(120, 53, 15, 0.32) !important;
+      border-color: rgba(245, 158, 11, 0.35) !important;
+    }
+    body.dark-mode .text-emerald-700,
+    body.dark-mode .text-emerald-800,
+    body.dark-mode .text-emerald-900 {
+      color: #34D399 !important;
+    }
+    body.dark-mode .text-blue-700 {
+      color: #60A5FA !important;
+    }
+    body.dark-mode .text-rose-700,
+    body.dark-mode .text-rose-600 {
+      color: #FB7185 !important;
+    }
+    body.dark-mode .text-amber-700 {
+      color: #FBBF24 !important;
+    }
+
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    input[type="range"] { accent-color: #059669; }
+    .bottom-nav { padding-bottom: calc(8px + var(--safe-bottom)); }
+    .modal-backdrop {
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(4px);
+    }
+    @keyframes slideUp {
+      from { transform: translateY(24px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .animate-slide-up { animation: slideUp 0.22s ease-out; }
+  </style>
+</head>
+<body class="antialiased">
+
+  <!-- Sticky Top App Bar -->
+  <header class="sticky top-0 z-30 bg-white/95 backdrop-blur border-b border-slate-200">
+    <div class="max-w-3xl mx-auto px-3.5 py-2.5 flex items-center justify-between gap-2">
+      <div class="flex items-center gap-2 min-w-0">
+        <div class="w-9 h-9 rounded-xl bg-slate-900 text-emerald-400 flex items-center justify-center shrink-0 shadow-sm">
+          <i data-lucide="trending-up" class="w-5 h-5"></i>
+        </div>
+        <div class="min-w-0">
+          <div class="flex items-center gap-1.5">
+            <h1 class="text-base font-extrabold tracking-tight text-slate-900 truncate">BharatAlpha</h1>
+            <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200">NSE · BSE</span>
+          </div>
+          <p class="text-[11px] text-slate-500 truncate">Stocks · Tax · SIP · Wealth Plan</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-1.5 shrink-0">
+        <button id="headerBudgetBtn" type="button" class="flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 active:scale-95 transition text-xs font-semibold text-slate-800 border border-slate-200">
+          <span id="headerBudgetLabel">₹1,00,000</span>
+          <span class="text-emerald-600 font-bold" id="headerGoalLabel">+15%</span>
+        </button>
+        <button id="themeToggleBtn" type="button" aria-label="Toggle dark mode" class="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-600 transition">
+          <i id="themeIcon" data-lucide="moon" class="w-4 h-4"></i>
+        </button>
+        <button id="openInstallGuideBtn" type="button" aria-label="iPhone install guide" class="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-600 transition">
+          <i data-lucide="smartphone" class="w-4 h-4"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="max-w-3xl mx-auto px-3.5 pt-3.5 space-y-4">
+
+    <!-- Compact Top-Down Funnel Bar -->
+    <div class="grid grid-cols-5 gap-1 bg-white p-1.5 rounded-2xl border border-slate-200 shadow-sm text-center">
+      <button type="button" data-step-tab="news" class="step-pill py-1.5 px-1 rounded-xl text-[10px] sm:text-[11px] font-semibold transition truncate">1. News</button>
+      <button type="button" data-step-tab="flows" class="step-pill py-1.5 px-1 rounded-xl text-[10px] sm:text-[11px] font-semibold transition truncate">2. Flows</button>
+      <button type="button" data-step-tab="stocks" class="step-pill py-1.5 px-1 rounded-xl text-[10px] sm:text-[11px] font-semibold transition truncate">3. Stocks</button>
+      <button type="button" data-step-tab="sip" class="step-pill py-1.5 px-1 rounded-xl text-[10px] sm:text-[11px] font-semibold transition truncate">4. SIP/Goal</button>
+      <button type="button" data-step-tab="plan" class="step-pill py-1.5 px-1 rounded-xl text-[10px] sm:text-[11px] font-semibold transition truncate">5. Plan</button>
+    </div>
+
+    <!-- ==================== TAB 1: NEWS & POLICY ANALYZER ==================== -->
+    <section id="tab-news" class="tab-section space-y-4">
+      <div class="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm space-y-3">
+        <div class="flex items-center justify-between gap-2">
+          <div>
+            <h2 class="text-sm font-bold text-slate-900">Analyze Policy or Geopolitical News</h2>
+            <p class="text-xs text-slate-500">Paste any headline to detect impacted Indian sectors &amp; stocks</p>
+          </div>
+          <span class="text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">Instant</span>
+        </div>
+
+        <textarea id="newsInput" rows="2" placeholder="e.g. Cabinet approves ₹50,000 Cr defence aircraft order &amp; railway corridor..." class="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition"></textarea>
+
+        <div class="flex flex-wrap gap-1.5">
+          <button type="button" data-sample-news="Government boosts Union Budget defence indigenisation and LCA aircraft orders" class="sample-news-chip text-[11px] font-medium px-2.5 py-1 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700">+ Defence Order</button>
+          <button type="button" data-sample-news="RBI signals liquidity support and strong credit growth for private banks" class="sample-news-chip text-[11px] font-medium px-2.5 py-1 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700">+ RBI Banking</button>
+          <button type="button" data-sample-news="Global crude oil drops and US bond yields cool, triggering FII buying in IT and Auto" class="sample-news-chip text-[11px] font-medium px-2.5 py-1 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700">+ Crude, IT &amp; Auto</button>
+          <button type="button" data-sample-news="5G tariff hike and rural telecom expansion boost ARPU growth" class="sample-news-chip text-[11px] font-medium px-2.5 py-1 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700">+ Telecom 5G</button>
+        </div>
+
+        <button id="analyzeNewsBtn" type="button" class="w-full py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 active:scale-[0.99] text-white text-sm font-semibold flex items-center justify-center gap-2 transition">
+          <i data-lucide="sparkles" class="w-4 h-4 text-emerald-400"></i>
+          <span>Analyze &amp; Map to Sectors</span>
+        </button>
+
+        <div id="newsAnalysisResult" class="hidden rounded-xl bg-emerald-50/70 border border-emerald-200 p-3 space-y-2"></div>
+      </div>
+
+      <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
+        <button type="button" data-news-filter="All" class="news-filter-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold transition">All Catalysts</button>
+        <button type="button" data-news-filter="Policy" class="news-filter-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold transition">Govt Policy &amp; Budget</button>
+        <button type="button" data-news-filter="Geopolitics" class="news-filter-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold transition">Global &amp; Macro</button>
+        <button type="button" data-news-filter="Custom" class="news-filter-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold transition">My Analyzed News</button>
+      </div>
+
+      <div id="newsFeedList" class="space-y-3"></div>
+    </section>
+
+    <!-- ==================== TAB 2: SECTOR MONEY FLOWS ==================== -->
+    <section id="tab-flows" class="tab-section hidden space-y-4">
+      <div class="bg-slate-900 text-white rounded-2xl p-4 shadow-sm">
+        <div class="flex items-start justify-between gap-3">
+          <div>
+            <p class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">CDSL FPI Equity Flow · Nov 1–15, 2026</p>
+            <p class="text-2xl font-extrabold text-emerald-400 mt-0.5">+₹84,291 Cr</p>
+            <p class="text-xs text-slate-300 mt-1">Swung sharply up from +₹13,112 Cr (Oct 16–31). Financials, Telecom, Auto &amp; IT led foreign buying.</p>
+          </div>
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+            <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm space-y-3">
+        <div class="flex items-center justify-between gap-2">
+          <div>
+            <h2 class="text-sm font-bold text-slate-900">Where Big Investors Are Buying</h2>
+            <p class="text-xs text-slate-500">Net FPI Equity Flows (₹ Crore)</p>
+          </div>
+          <select id="flowPeriodSelect" class="text-xs font-semibold bg-slate-100 border border-slate-200 rounded-lg px-2.5 py-1.5 text-slate-700 focus:outline-none">
+            <option value="nov">Nov 1–15, 2026</option>
+            <option value="oct">Oct 16–31, 2026</option>
+          </select>
+        </div>
+        <div class="relative h-72 w-full">
+          <canvas id="sectorFlowChart"></canvas>
+        </div>
+      </div>
+
+      <div class="space-y-2.5">
+        <div class="flex items-center justify-between">
+          <h3 class="text-sm font-bold text-slate-900">Tap a Sector to Screen Top Stocks</h3>
+          <span class="text-[11px] text-slate-500">Source: CDSL / Finnovate</span>
+        </div>
+        <div id="sectorFlowCards" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5"></div>
+      </div>
+    </section>
+
+    <!-- ==================== TAB 3: STOCKS + TAX & BROKERAGE + RULES ==================== -->
+    <section id="tab-stocks" class="tab-section hidden space-y-3.5">
+      <!-- Search & Add Custom Stock -->
+      <div class="flex items-center gap-2">
+        <div class="relative flex-1">
+          <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none"></i>
+          <input id="stockSearchInput" type="text" placeholder="Search NSE, BSE code or sector..." class="w-full pl-10 pr-3 py-2.5 rounded-xl bg-white border border-slate-200 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+        </div>
+        <button id="toggleCustomRulesBtn" type="button" class="shrink-0 px-3 py-2.5 rounded-xl bg-white border border-slate-200 text-slate-700 text-xs font-semibold flex items-center gap-1 transition">
+          <i data-lucide="sliders-horizontal" class="w-4 h-4"></i>
+          <span>Rules</span>
+        </button>
+        <button id="openAddStockBtn" type="button" class="shrink-0 px-3 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold flex items-center gap-1 transition">
+          <i data-lucide="plus" class="w-4 h-4"></i>
+          <span>Add</span>
+        </button>
+      </div>
+
+      <!-- Tax Mode & Brokerage Bar (Swing STCG vs Long-Term LTCG) -->
+      <div class="bg-white rounded-2xl border border-slate-200 p-3 shadow-sm space-y-2.5">
+        <div class="flex items-center justify-between gap-2 flex-wrap">
+          <div class="flex items-center gap-1 bg-slate-100 p-1 rounded-xl">
+            <button type="button" data-holding-mode="short" class="holding-mode-btn px-2.5 py-1 rounded-lg text-[11px] font-bold transition">Swing &lt;1 Yr (STCG 20%)</button>
+            <button type="button" data-holding-mode="long" class="holding-mode-btn px-2.5 py-1 rounded-lg text-[11px] font-bold transition">Long-Term &gt;1 Yr (LTCG 12.5%)</button>
+          </div>
+          <select id="brokerPresetSelect" aria-label="Brokerage preset" class="text-[11px] font-semibold bg-slate-100 border border-slate-200 rounded-lg px-2 py-1.5 text-slate-700 focus:outline-none">
+            <option value="zero">₹0 Delivery (Zerodha)</option>
+            <option value="flat20">₹20/order (Groww/Upstox)</option>
+            <option value="full03">0.3% Full-Service Broker</option>
+          </select>
+        </div>
+        <p class="text-[11px] text-slate-500">
+          Net Profit includes <strong>0.1% STT (buy &amp; sell)</strong>, NSE txn (0.00307%), stamp duty (0.015% buy), 18% GST + FY26–27 <strong>STCG 20%</strong> or <strong>LTCG 12.5%</strong> (above ₹1.25L exemption) + 4% cess.
+        </p>
+      </div>
+
+      <!-- Collapsible Custom Screener Rules Panel -->
+      <div id="customRulesPanel" class="hidden bg-white rounded-2xl border border-slate-200 p-3.5 shadow-sm space-y-3">
+        <div class="flex items-center justify-between">
+          <h3 class="text-xs font-bold text-slate-900">Custom Fundamental Rules</h3>
+          <button id="resetRulesBtn" type="button" class="text-[11px] font-semibold text-emerald-700 underline">Reset Rules</button>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <div class="flex justify-between text-[11px] font-semibold text-slate-600 mb-1">
+              <label for="minRoeRange">Min ROE %</label>
+              <span id="minRoeVal" class="text-slate-900 font-bold">0%</span>
+            </div>
+            <input id="minRoeRange" type="range" min="0" max="25" step="1" value="0" class="w-full h-1.5" />
+          </div>
+          <div>
+            <div class="flex justify-between text-[11px] font-semibold text-slate-600 mb-1">
+              <label for="maxPeRange">Max P/E Ratio</label>
+              <span id="maxPeVal" class="text-slate-900 font-bold">60x</span>
+            </div>
+            <input id="maxPeRange" type="range" min="10" max="60" step="2" value="60" class="w-full h-1.5" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Screener Filter Pills -->
+      <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
+        <button type="button" data-stock-filter="All" class="stock-filter-btn shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold transition">All (10)</button>
+        <button type="button" data-stock-filter="Gold" class="stock-filter-btn shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold transition">Gold &amp; ETFs</button>
+        <button type="button" data-stock-filter="TopScore" class="stock-filter-btn shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold transition">Score 80+</button>
+        <button type="button" data-stock-filter="DebtFree" class="stock-filter-btn shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold transition">Low / Zero Debt</button>
+        <button type="button" data-stock-filter="OrderBook" class="stock-filter-btn shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold transition">Strong Order Book</button>
+        <button type="button" data-stock-filter="FpiBuying" class="stock-filter-btn shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold transition">FPI Buying Sector</button>
+      </div>
+
+      <!-- Active Sector Filter Banner -->
+      <div id="activeSectorBanner" class="hidden items-center justify-between bg-emerald-50 border border-emerald-200 rounded-xl px-3.5 py-2 text-xs">
+        <span class="font-semibold text-emerald-800">Showing sector: <strong id="activeSectorName"></strong></span>
+        <button id="clearSectorFilterBtn" type="button" class="text-emerald-700 font-bold underline">Show All</button>
+      </div>
+
+      <!-- Stock Cards List -->
+      <div id="stockCardsList" class="space-y-3"></div>
+    </section>
+
+    <!-- ==================== TAB 4: SIP & INVESTMENT PLANNING ==================== -->
+    <section id="tab-sip" class="tab-section hidden space-y-4">
+      <!-- Segmented Sub-Tab Control -->
+      <div class="grid grid-cols-3 gap-1 bg-white p-1.5 rounded-2xl border border-slate-200 shadow-sm">
+        <button type="button" data-wealth-subtab="sip-calc" class="wealth-subtab-btn py-2 px-1 rounded-xl text-[11px] font-bold transition">SIP Calculator</button>
+        <button type="button" data-wealth-subtab="invest-guide" class="wealth-subtab-btn py-2 px-1 rounded-xl text-[11px] font-bold transition">Gold &amp; MF Guide</button>
+        <button type="button" data-wealth-subtab="goal-plan" class="wealth-subtab-btn py-2 px-1 rounded-xl text-[11px] font-bold transition">Goal Planner</button>
+      </div>
+
+      <!-- SUB-VIEW 4A: SIP CALCULATOR -->
+      <div id="subtab-sip-calc" class="space-y-4">
+        <div class="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm space-y-3.5">
+          <div class="flex items-center justify-between">
+            <div>
+              <h2 class="text-sm font-bold text-slate-900">Monthly SIP &amp; Step-Up Planner</h2>
+              <p class="text-xs text-slate-500">Project equity SIP wealth &amp; post-LTCG net corpus</p>
+            </div>
+            <span class="text-[11px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">Compounding</span>
+          </div>
+
+          <!-- Monthly SIP -->
+          <div class="space-y-1.5">
+            <div class="flex justify-between text-xs font-semibold">
+              <label for="sipMonthlyInput" class="text-slate-700">Monthly SIP (₹)</label>
+              <span id="sipMonthlyLabel" class="text-slate-900 font-extrabold">₹10,000</span>
+            </div>
+            <input id="sipMonthlyInput" type="number" min="500" step="500" value="10000" class="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-bold text-slate-900" />
+            <div class="flex flex-wrap gap-1.5">
+              <button type="button" data-sip-preset="5000" class="sip-preset-btn px-2.5 py-1 rounded-lg bg-slate-100 text-xs font-semibold text-slate-700">₹5K</button>
+              <button type="button" data-sip-preset="10000" class="sip-preset-btn px-2.5 py-1 rounded-lg bg-slate-100 text-xs font-semibold text-slate-700">₹10K</button>
+              <button type="button" data-sip-preset="25000" class="sip-preset-btn px-2.5 py-1 rounded-lg bg-slate-100 text-xs font-semibold text-slate-700">₹25K</button>
+              <button type="button" data-sip-preset="50000" class="sip-preset-btn px-2.5 py-1 rounded-lg bg-slate-100 text-xs font-semibold text-slate-700">₹50K</button>
+            </div>
+          </div>
+
+          <!-- Sliders -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div>
+              <div class="flex justify-between text-xs font-semibold mb-1">
+                <label for="sipReturnRange" class="text-slate-700">Expected Return</label>
+                <span id="sipReturnVal" class="text-emerald-700 font-bold">12%</span>
+              </div>
+              <input id="sipReturnRange" type="range" min="6" max="24" step="0.5" value="12" class="w-full h-2" />
+            </div>
+            <div>
+              <div class="flex justify-between text-xs font-semibold mb-1">
+                <label for="sipYearsRange" class="text-slate-700">Duration</label>
+                <span id="sipYearsVal" class="text-slate-900 font-bold">10 Yrs</span>
+              </div>
+              <input id="sipYearsRange" type="range" min="1" max="30" step="1" value="10" class="w-full h-2" />
+            </div>
+            <div>
+              <div class="flex justify-between text-xs font-semibold mb-1">
+                <label for="sipStepUpRange" class="text-slate-700">Annual Step-Up</label>
+                <span id="sipStepUpVal" class="text-blue-700 font-bold">10%</span>
+              </div>
+              <input id="sipStepUpRange" type="range" min="0" max="25" step="1" value="10" class="w-full h-2" />
+            </div>
+          </div>
+
+          <div>
+            <label for="sipLumpsumInput" class="block text-xs font-semibold text-slate-700 mb-1">Optional Starting Lumpsum (₹)</label>
+            <input id="sipLumpsumInput" type="number" min="0" step="10000" value="0" class="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-bold text-slate-900" />
+          </div>
+        </div>
+
+        <!-- SIP Results KPIs -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+          <div class="bg-white rounded-2xl border border-slate-200 p-3 shadow-sm">
+            <p class="text-[11px] font-medium text-slate-500">Total Invested</p>
+            <p id="sipKpiInvested" class="text-sm sm:text-base font-extrabold text-slate-900 mt-0.5">₹0</p>
+          </div>
+          <div class="bg-white rounded-2xl border border-emerald-200 bg-emerald-50/40 p-3 shadow-sm">
+            <p class="text-[11px] font-medium text-emerald-700">Est. Wealth Gain</p>
+            <p id="sipKpiGain" class="text-sm sm:text-base font-extrabold text-emerald-700 mt-0.5">+₹0</p>
+          </div>
+          <div class="bg-white rounded-2xl border border-slate-200 p-3 shadow-sm">
+            <p class="text-[11px] font-medium text-slate-500">Est. LTCG Tax</p>
+            <p id="sipKpiTax" class="text-sm sm:text-base font-extrabold text-rose-600 mt-0.5">-₹0</p>
+          </div>
+          <div class="bg-slate-900 text-white rounded-2xl p-3 shadow-sm">
+            <p class="text-[11px] font-medium text-slate-400">Post-Tax Corpus</p>
+            <p id="sipKpiNet" class="text-sm sm:text-base font-extrabold text-emerald-400 mt-0.5">₹0</p>
+          </div>
+        </div>
+
+        <!-- SIP Growth Chart -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm space-y-2">
+          <div class="flex items-center justify-between">
+            <h3 class="text-sm font-bold text-slate-900">Year-by-Year SIP Growth</h3>
+            <span class="text-[11px] text-slate-500">Invested vs Total Value</span>
+          </div>
+          <div class="relative h-64 w-full">
+            <canvas id="sipGrowthChart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- SUB-VIEW 4C: GOLD SIP & MUTUAL FUND TYPES GUIDE -->
+      <div id="subtab-invest-guide" class="hidden space-y-4">
+        <!-- Monthly SIP Split Blueprint -->
+        <div class="bg-slate-900 text-white rounded-2xl p-4 shadow-sm space-y-3">
+          <div class="flex items-center justify-between gap-2">
+            <div>
+              <p class="text-[11px] uppercase tracking-wider text-emerald-400 font-bold">Where to Invest Your Monthly SIP</p>
+              <h2 class="text-sm font-extrabold mt-0.5">Smart Split for <span id="guideMonthlyLabel">₹10,000</span> / month</h2>
+            </div>
+            <select id="guideProfileSelect" aria-label="SIP risk profile" class="text-xs font-bold bg-slate-800 border border-slate-700 text-white rounded-lg px-2.5 py-1.5">
+              <option value="conservative">Conservative</option>
+              <option value="balanced" selected>Balanced</option>
+              <option value="growth">Growth</option>
+            </select>
+          </div>
+          <div id="guideMonthlySplitGrid" class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center"></div>
+        </div>
+
+        <!-- Gold Sector & Gold SIP Highlight Card -->
+        <div class="bg-amber-50 border border-amber-200 rounded-2xl p-4 space-y-3">
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <span class="text-[10px] font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-full bg-amber-200/70 text-amber-900">Gold Sector · Safe Haven</span>
+              <h3 class="text-sm font-extrabold text-slate-900 mt-1">Gold ETF vs Gold Mutual Fund (Gold SIP)</h3>
+              <p class="text-xs text-slate-600 mt-0.5">Ideal 10–15% hedge against inflation, rupee weakness &amp; geopolitics.</p>
+            </div>
+            <button type="button" data-open-detail="goldbees" class="shrink-0 px-3 py-1.5 rounded-xl bg-slate-900 text-white text-[11px] font-bold">View GOLDBEES</button>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
+            <div class="bg-white rounded-xl border border-amber-200 p-3 space-y-1">
+              <div class="flex items-center justify-between">
+                <strong class="text-slate-900">Gold ETF (e.g. GOLDBEES)</strong>
+                <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded">12M LTCG</span>
+              </div>
+              <p class="text-[11px] text-slate-600">Trades live on NSE/BSE (₹102.21, AUM ₹55,053 Cr). Lower expense ratio; reaches <strong>12.5% LTCG after 12 months</strong> (STCG at slab rate; no ₹1.25L exemption).</p>
+            </div>
+            <div class="bg-white rounded-xl border border-amber-200 p-3 space-y-1">
+              <div class="flex items-center justify-between">
+                <strong class="text-slate-900">Gold Mutual Fund (SIP)</strong>
+                <span class="text-[10px] font-bold text-amber-700 bg-amber-50 px-1.5 py-0.5 rounded">24M LTCG</span>
+              </div>
+              <p class="text-[11px] text-slate-600">Auto-debit monthly SIP without a Demat account. Reaches <strong>12.5% LTCG after 24 months</strong> (STCG at income slab rate).</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Popular Indian AMC SIP Funds (Verified Nov 2026 Shortlist) -->
+        <div class="space-y-2.5">
+          <div class="flex items-center justify-between gap-2 flex-wrap">
+            <div>
+              <h3 class="text-sm font-bold text-slate-900">Popular Indian AMC SIP Funds</h3>
+              <p class="text-[11px] text-slate-500">Direct Plan Growth examples (Nov 2026 data · Research shortlist, not advice)</p>
+            </div>
+            <div class="flex gap-1.5 flex-wrap">
+              <button type="button" data-amc-filter="All" class="amc-filter-btn px-2.5 py-1 rounded-full text-[11px] font-semibold transition">All (8)</button>
+              <button type="button" data-amc-filter="Index" class="amc-filter-btn px-2.5 py-1 rounded-full text-[11px] font-semibold transition">Index</button>
+              <button type="button" data-amc-filter="Flexi" class="amc-filter-btn px-2.5 py-1 rounded-full text-[11px] font-semibold transition">Flexi-Cap</button>
+              <button type="button" data-amc-filter="MidSmall" class="amc-filter-btn px-2.5 py-1 rounded-full text-[11px] font-semibold transition">Mid &amp; Small</button>
+              <button type="button" data-amc-filter="Gold" class="amc-filter-btn px-2.5 py-1 rounded-full text-[11px] font-semibold transition">Gold SIP/ETF</button>
+            </div>
+          </div>
+          <div id="amcSipFundsList" class="space-y-2.5"></div>
+        </div>
+
+        <!-- Direct Stock SIP Tip -->
+        <div class="rounded-2xl bg-blue-50/70 border border-blue-200 p-3.5 text-xs text-slate-700 space-y-1">
+          <p class="font-extrabold text-blue-700">Want a Direct Company Stock SIP instead?</p>
+          <p>Most Indian brokers (Zerodha, Groww, Upstox) let you set a monthly Stock SIP directly in large-cap NSE/BSE leaders like <strong>ICICIBANK</strong>, <strong>TCS</strong>, <strong>LT</strong>, <strong>HAL</strong>, or <strong>GOLDBEES</strong> from the <strong>Stocks</strong> tab.</p>
+        </div>
+
+        <!-- Mutual Fund & SIP Categories Explorer -->
+        <div class="space-y-2.5">
+          <div class="flex items-center justify-between gap-2 flex-wrap">
+            <h3 class="text-sm font-bold text-slate-900">Types of Mutual Funds &amp; SIPs in India</h3>
+            <div class="flex gap-1.5">
+              <button type="button" data-mf-filter="All" class="mf-filter-btn px-2.5 py-1 rounded-full text-[11px] font-semibold transition">All</button>
+              <button type="button" data-mf-filter="Equity" class="mf-filter-btn px-2.5 py-1 rounded-full text-[11px] font-semibold transition">Equity</button>
+              <button type="button" data-mf-filter="Gold" class="mf-filter-btn px-2.5 py-1 rounded-full text-[11px] font-semibold transition">Gold</button>
+              <button type="button" data-mf-filter="Debt" class="mf-filter-btn px-2.5 py-1 rounded-full text-[11px] font-semibold transition">Debt/Hybrid</button>
+            </div>
+          </div>
+          <div id="mfGuideCards" class="space-y-2.5"></div>
+        </div>
+      </div>
+
+      <!-- SUB-VIEW 4B: GOAL-BASED INVESTMENT PLANNING -->
+      <div id="subtab-goal-plan" class="hidden space-y-4">
+        <div class="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm space-y-3.5">
+          <div>
+            <h2 class="text-sm font-bold text-slate-900">Goal-Based Investment Planner</h2>
+            <p class="text-xs text-slate-500">Plan your asset mix across Equity SIP, Debt/FD, Gold &amp; Active Trading</p>
+          </div>
+
+          <div class="grid grid-cols-2 gap-2.5">
+            <div>
+              <label for="goalNameInput" class="block text-xs font-semibold text-slate-700 mb-1">Financial Goal</label>
+              <input id="goalNameInput" type="text" value="Financial Freedom" placeholder="e.g. Home, Retirement" class="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-semibold" />
+            </div>
+            <div>
+              <label for="goalRiskSelect" class="block text-xs font-semibold text-slate-700 mb-1">Risk Profile</label>
+              <select id="goalRiskSelect" class="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-semibold">
+                <option value="conservative">Conservative (9% exp)</option>
+                <option value="balanced" selected>Balanced (12% exp)</option>
+                <option value="growth">Aggressive Growth (14.5% exp)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-3 gap-2">
+            <div>
+              <label for="goalTargetInput" class="block text-[11px] font-semibold text-slate-700 mb-1">Target Goal (₹)</label>
+              <input id="goalTargetInput" type="number" min="50000" step="50000" value="2500000" class="w-full rounded-xl border border-slate-200 bg-slate-50 px-2.5 py-2 text-xs font-bold" />
+            </div>
+            <div>
+              <label for="goalCurrentInput" class="block text-[11px] font-semibold text-slate-700 mb-1">Saved So Far (₹)</label>
+              <input id="goalCurrentInput" type="number" min="0" step="25000" value="200000" class="w-full rounded-xl border border-slate-200 bg-slate-50 px-2.5 py-2 text-xs font-bold" />
+            </div>
+            <div>
+              <label for="goalYearsInput" class="block text-[11px] font-semibold text-slate-700 mb-1">Years Left</label>
+              <input id="goalYearsInput" type="number" min="1" max="35" value="8" class="w-full rounded-xl border border-slate-200 bg-slate-50 px-2.5 py-2 text-xs font-bold" />
+            </div>
+          </div>
+
+          <!-- Goal Output Highlight -->
+          <div class="rounded-2xl bg-slate-900 text-white p-4 space-y-2">
+            <div class="flex items-center justify-between gap-2">
+              <div>
+                <p class="text-[11px] text-slate-400">Required Monthly Investment</p>
+                <p id="goalMonthlyNeeded" class="text-2xl font-extrabold text-emerald-400">₹0 / mo</p>
+              </div>
+              <button id="saveGoalBtn" type="button" class="px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition">+ Save Goal</button>
+            </div>
+            <p id="goalSummaryLine" class="text-xs text-slate-300"></p>
+          </div>
+
+          <!-- Recommended Asset Allocation Chart -->
+          <div class="space-y-2">
+            <h3 class="text-xs font-bold uppercase tracking-wider text-slate-500">Recommended Asset Allocation</h3>
+            <div class="relative h-52 w-full">
+              <canvas id="goalAllocationChart"></canvas>
+            </div>
+            <div id="goalSplitCards" class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center"></div>
+          </div>
+        </div>
+
+        <!-- Saved Goals List -->
+        <div class="space-y-2.5">
+          <h3 class="text-sm font-bold text-slate-900">Your Saved Financial Goals</h3>
+          <div id="savedGoalsList" class="space-y-2.5"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== TAB 5: MY PLAN & TRADE JOURNAL ==================== -->
+    <section id="tab-plan" class="tab-section hidden space-y-4">
+      <!-- Segmented Sub-Tab Control -->
+      <div class="grid grid-cols-2 gap-1.5 bg-white p-1.5 rounded-2xl border border-slate-200 shadow-sm">
+        <button type="button" data-plan-subtab="basket" class="plan-subtab-btn py-2 rounded-xl text-xs font-bold transition">Trade Basket</button>
+        <button type="button" data-plan-subtab="journal" class="plan-subtab-btn py-2 rounded-xl text-xs font-bold transition">Journal &amp; Alerts</button>
+      </div>
+
+      <!-- SUB-VIEW 5A: TRADE BASKET -->
+      <div id="subtab-basket" class="space-y-4">
+        <div class="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm space-y-4">
+          <div class="flex items-center justify-between">
+            <div>
+              <h2 class="text-sm font-bold text-slate-900">Your Budget &amp; Profit Target</h2>
+              <p class="text-xs text-slate-500">Entry, exit, brokerage &amp; tax update automatically</p>
+            </div>
+            <span id="rrBadge" class="text-xs font-bold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">R:R 1:2.1</span>
+          </div>
+
+          <div class="space-y-2">
+            <label for="budgetInput" class="flex items-center justify-between text-xs font-semibold text-slate-700">
+              <span>Total Capital Budget (₹)</span>
+              <span id="budgetFormattedHint" class="text-slate-500">₹1,00,000</span>
+            </label>
+            <input id="budgetInput" type="number" min="5000" step="5000" value="100000" class="w-full rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2.5 text-base font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+            <div class="flex flex-wrap gap-1.5">
+              <button type="button" data-budget-preset="25000" class="budget-preset-btn px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-xs font-semibold text-slate-700">₹25K</button>
+              <button type="button" data-budget-preset="50000" class="budget-preset-btn px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-xs font-semibold text-slate-700">₹50K</button>
+              <button type="button" data-budget-preset="100000" class="budget-preset-btn px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-xs font-semibold text-slate-700">₹1L</button>
+              <button type="button" data-budget-preset="250000" class="budget-preset-btn px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-xs font-semibold text-slate-700">₹2.5L</button>
+              <button type="button" data-budget-preset="500000" class="budget-preset-btn px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-xs font-semibold text-slate-700">₹5L</button>
+            </div>
+          </div>
+
+          <div class="space-y-1.5">
+            <div class="flex items-center justify-between text-xs font-semibold">
+              <label for="profitGoalRange" class="text-slate-700">Profit Goal (%)</label>
+              <span class="text-emerald-700 font-bold"><span id="profitGoalPctVal">15</span>% (<span id="profitGoalRupeeVal">₹15,000</span>)</span>
+            </div>
+            <input id="profitGoalRange" type="range" min="5" max="40" step="1" value="15" class="w-full h-2 rounded-lg cursor-pointer" />
+          </div>
+
+          <div class="space-y-1.5">
+            <div class="flex items-center justify-between text-xs font-semibold">
+              <label for="stopLossRange" class="text-slate-700">Max Stop-Loss (%)</label>
+              <span class="text-rose-600 font-bold"><span id="stopLossPctVal">7</span>% (<span id="stopLossRupeeVal">₹7,000</span>)</span>
+            </div>
+            <input id="stopLossRange" type="range" min="3" max="15" step="1" value="7" class="w-full h-2 rounded-lg cursor-pointer" />
+          </div>
+
+          <div class="grid grid-cols-2 gap-2.5 pt-1">
+            <button id="autoBuildPlanBtn" type="button" class="py-2.5 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 active:scale-[0.99] text-white text-xs font-bold flex items-center justify-center gap-1.5 transition">
+              <i data-lucide="wand-2" class="w-4 h-4"></i>
+              <span>Auto-Build Basket</span>
+            </button>
+            <button id="clearPlanBtn" type="button" class="py-2.5 px-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold flex items-center justify-center gap-1.5 transition">
+              <i data-lucide="trash-2" class="w-4 h-4"></i>
+              <span>Reset Plan</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Portfolio Summary KPI Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+          <div class="bg-white rounded-2xl border border-slate-200 p-3 shadow-sm">
+            <p class="text-[11px] font-medium text-slate-500">Capital Used</p>
+            <p id="kpiDeployed" class="text-base font-extrabold text-slate-900 mt-0.5">₹0</p>
+          </div>
+          <div class="bg-white rounded-2xl border border-slate-200 p-3 shadow-sm">
+            <p class="text-[11px] font-medium text-slate-500">Cash Left</p>
+            <p id="kpiCashLeft" class="text-base font-extrabold text-slate-700 mt-0.5">₹1,00,000</p>
+          </div>
+          <div class="bg-white rounded-2xl border border-emerald-200 bg-emerald-50/40 p-3 shadow-sm">
+            <p class="text-[11px] font-medium text-emerald-700">Gross Target Profit</p>
+            <p id="kpiExpectedProfit" class="text-base font-extrabold text-emerald-700 mt-0.5">+₹0</p>
+          </div>
+          <div class="bg-white rounded-2xl border border-rose-200 bg-rose-50/40 p-3 shadow-sm">
+            <p class="text-[11px] font-medium text-rose-700">Max Risk (SL)</p>
+            <p id="kpiMaxRisk" class="text-base font-extrabold text-rose-600 mt-0.5">-₹0</p>
+          </div>
+        </div>
+
+        <!-- Net Post-Tax & Brokerage Summary Bar -->
+        <div class="bg-slate-900 text-white rounded-2xl p-3.5 grid grid-cols-2 gap-3">
+          <div>
+            <p class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold">Net After Brokerage + STCG (20%)</p>
+            <p id="kpiNetStcg" class="text-lg font-extrabold text-amber-400 mt-0.5">+₹0</p>
+            <p id="kpiChargesHint" class="text-[10px] text-slate-400 mt-0.5">Est. charges: ₹0</p>
+          </div>
+          <div class="border-l border-slate-700 pl-3">
+            <p class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold">Net After Brokerage + LTCG (12.5%)</p>
+            <p id="kpiNetLtcg" class="text-lg font-extrabold text-emerald-400 mt-0.5">+₹0</p>
+            <p class="text-[10px] text-slate-400 mt-0.5">Includes ₹1.25L annual exemption</p>
+          </div>
+        </div>
+
+        <!-- Allocation Donut Chart -->
+        <div id="planChartCard" class="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm space-y-2">
+          <div class="flex items-center justify-between">
+            <h3 class="text-sm font-bold text-slate-900">Portfolio Allocation</h3>
+            <span id="planCountLabel" class="text-xs font-semibold text-slate-500">0 stocks selected</span>
+          </div>
+          <div class="relative h-56 w-full">
+            <canvas id="planAllocationChart"></canvas>
+          </div>
+        </div>
+
+        <div id="planItemsList" class="space-y-3"></div>
+      </div>
+
+      <!-- SUB-VIEW 5B: TRADE JOURNAL & WATCHLIST ALERTS -->
+      <div id="subtab-journal" class="hidden space-y-4">
+        <!-- Active Price Alerts -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm space-y-2.5">
+          <div class="flex items-center justify-between">
+            <h3 class="text-sm font-bold text-slate-900">Watchlist Price Alerts</h3>
+            <span class="text-[11px] text-slate-500">Set inside any Stock Detail</span>
+          </div>
+          <div id="alertsList" class="space-y-2"></div>
+        </div>
+
+        <!-- Log a Trade Form -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm space-y-3">
+          <h3 class="text-sm font-bold text-slate-900">Log Trade in Journal</h3>
+          <form id="journalForm" class="space-y-2.5">
+            <div class="grid grid-cols-2 gap-2">
+              <div>
+                <label for="jSymbol" class="block text-[11px] font-semibold text-slate-700 mb-1">NSE / BSE Symbol</label>
+                <input id="jSymbol" type="text" required placeholder="e.g. HAL" class="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-xs font-bold uppercase" />
+              </div>
+              <div>
+                <label for="jType" class="block text-[11px] font-semibold text-slate-700 mb-1">Tax Type</label>
+                <select id="jType" class="w-full rounded-xl border border-slate-200 bg-slate-50 px-2.5 py-2 text-xs font-semibold">
+                  <option value="short">Short-Term (STCG 20%)</option>
+                  <option value="long">Long-Term (LTCG 12.5%)</option>
+                </select>
+              </div>
+            </div>
+            <div class="grid grid-cols-3 gap-2">
+              <div>
+                <label for="jQty" class="block text-[11px] font-semibold text-slate-700 mb-1">Qty</label>
+                <input id="jQty" type="number" min="1" required placeholder="10" class="w-full rounded-xl border border-slate-200 bg-slate-50 px-2.5 py-2 text-xs font-bold" />
+              </div>
+              <div>
+                <label for="jBuy" class="block text-[11px] font-semibold text-slate-700 mb-1">Buy (₹)</label>
+                <input id="jBuy" type="number" min="1" step="0.5" required placeholder="4600" class="w-full rounded-xl border border-slate-200 bg-slate-50 px-2.5 py-2 text-xs font-bold" />
+              </div>
+              <div>
+                <label for="jSell" class="block text-[11px] font-semibold text-slate-700 mb-1">Exit (₹)</label>
+                <input id="jSell" type="number" min="1" step="0.5" required placeholder="5290" class="w-full rounded-xl border border-slate-200 bg-slate-50 px-2.5 py-2 text-xs font-bold" />
+              </div>
+            </div>
+            <input id="jNotes" type="text" placeholder="Setup note (e.g. Budget defence breakout, 200 DMA support)" class="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-xs" />
+            <button type="submit" class="w-full py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold transition">Log Trade &amp; Calculate Net P&amp;L</button>
+          </form>
+        </div>
+
+        <!-- Logged Trades List -->
+        <div id="journalEntriesList" class="space-y-2.5"></div>
+      </div>
+    </section>
+
+    <!-- Footer Disclaimer -->
+    <footer class="pt-2 pb-4 text-center space-y-1">
+      <p class="text-[11px] text-slate-400">Snapshot data as of Nov 20, 2026 (Screener.in, CDSL/Finnovate, PIB). Tax rules reflect FY 2026–27 India rates.</p>
+      <p class="text-[11px] text-slate-400">Educational research &amp; planning tool only — not SEBI-registered investment advice.</p>
+    </footer>
+  </main>
+
+  <!-- Fixed iPhone-Style 5-Tab Bottom Navigation -->
+  <nav class="bottom-nav fixed bottom-0 inset-x-0 z-30 bg-white/95 backdrop-blur border-t border-slate-200">
+    <div class="max-w-3xl mx-auto grid grid-cols-5 px-1.5 pt-2">
+      <button type="button" data-nav-tab="news" class="nav-btn flex flex-col items-center justify-center gap-0.5 py-1 rounded-xl transition">
+        <i data-lucide="newspaper" class="w-5 h-5"></i>
+        <span class="text-[10px] font-semibold">News</span>
+      </button>
+      <button type="button" data-nav-tab="flows" class="nav-btn flex flex-col items-center justify-center gap-0.5 py-1 rounded-xl transition">
+        <i data-lucide="bar-chart-3" class="w-5 h-5"></i>
+        <span class="text-[10px] font-semibold">Flows</span>
+      </button>
+      <button type="button" data-nav-tab="stocks" class="nav-btn flex flex-col items-center justify-center gap-0.5 py-1 rounded-xl transition">
+        <i data-lucide="layers" class="w-5 h-5"></i>
+        <span class="text-[10px] font-semibold">Stocks</span>
+      </button>
+      <button type="button" data-nav-tab="sip" class="nav-btn flex flex-col items-center justify-center gap-0.5 py-1 rounded-xl transition">
+        <i data-lucide="piggy-bank" class="w-5 h-5"></i>
+        <span class="text-[10px] font-semibold">SIP/Goal</span>
+      </button>
+      <button type="button" data-nav-tab="plan" class="nav-btn relative flex flex-col items-center justify-center gap-0.5 py-1 rounded-xl transition">
+        <div class="relative">
+          <i data-lucide="pie-chart" class="w-5 h-5"></i>
+          <span id="navPlanBadge" class="hidden absolute -top-1.5 -right-2.5 min-w-[18px] h-[18px] px-1 rounded-full bg-emerald-600 text-white text-[10px] font-bold flex items-center justify-center">0</span>
+        </div>
+        <span class="text-[10px] font-semibold">My Plan</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ==================== MODAL: STOCK DETAIL, TAX, CHECKLIST & ALERTS ==================== -->
+  <div id="stockDetailModal" class="hidden fixed inset-0 z-50 modal-backdrop flex items-end sm:items-center justify-center p-0 sm:p-4">
+    <div class="bg-white w-full max-w-lg rounded-t-3xl sm:rounded-3xl max-h-[88vh] overflow-y-auto p-5 shadow-2xl animate-slide-up space-y-4">
+      <div class="flex items-start justify-between gap-3">
+        <div id="detailHeader"></div>
+        <button id="closeStockDetailBtn" type="button" aria-label="Close details" class="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-600 shrink-0">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+      <div id="detailBody" class="space-y-4"></div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL: ADD CUSTOM STOCK ==================== -->
+  <div id="addStockModal" class="hidden fixed inset-0 z-50 modal-backdrop flex items-end sm:items-center justify-center p-0 sm:p-4">
+    <div class="bg-white w-full max-w-md rounded-t-3xl sm:rounded-3xl max-h-[88vh] overflow-y-auto p-5 shadow-2xl animate-slide-up space-y-4">
+      <div class="flex items-center justify-between">
+        <h3 class="text-base font-bold text-slate-900">Add NSE / BSE Stock</h3>
+        <button id="closeAddStockBtn" type="button" aria-label="Close add stock" class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-600">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+      <form id="addStockForm" class="space-y-3">
+        <div class="grid grid-cols-2 gap-2.5">
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1" for="newStockName">Company Name</label>
+            <input id="newStockName" type="text" required placeholder="e.g. Bharat Electronics" class="w-full rounded-xl border border-slate-200 px-3 py-2 text-sm" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1" for="newStockNse">NSE Symbol</label>
+            <input id="newStockNse" type="text" required placeholder="e.g. BEL" class="w-full rounded-xl border border-slate-200 px-3 py-2 text-sm uppercase" />
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-2.5">
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1" for="newStockBse">BSE Code</label>
+            <input id="newStockBse" type="text" placeholder="e.g. 500049" class="w-full rounded-xl border border-slate-200 px-3 py-2 text-sm" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1" for="newStockSector">Sector</label>
+            <select id="newStockSector" class="w-full rounded-xl border border-slate-200 px-3 py-2 text-sm bg-white">
+              <option value="Financial Services">Financial Services</option>
+              <option value="Construction">Construction</option>
+              <option value="Capital Goods">Capital Goods</option>
+              <option value="Power">Power</option>
+              <option value="Healthcare">Healthcare</option>
+              <option value="Information Technology">Information Technology</option>
+              <option value="Telecommunication">Telecommunication</option>
+              <option value="Automobiles">Automobiles</option>
+              <option value="Gold &amp; Commodities">Gold &amp; Commodities</option>
+            </select>
+          </div>
+        </div>
+        <div class="grid grid-cols-3 gap-2">
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1" for="newStockCmp">Price (₹)</label>
+            <input id="newStockCmp" type="number" min="1" step="0.5" required placeholder="402" class="w-full rounded-xl border border-slate-200 px-3 py-2 text-sm" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1" for="newStockRoe">ROE (%)</label>
+            <input id="newStockRoe" type="number" step="0.1" required placeholder="24" class="w-full rounded-xl border border-slate-200 px-3 py-2 text-sm" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-700 mb-1" for="newStockDe">Debt / Eq</label>
+            <input id="newStockDe" type="number" min="0" step="0.01" required placeholder="0.02" class="w-full rounded-xl border border-slate-200 px-3 py-2 text-sm" />
+          </div>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1" for="newStockOrderBook">Order Book / Pipeline Note</label>
+          <input id="newStockOrderBook" type="text" placeholder="e.g. ₹73,882 Cr order book" class="w-full rounded-xl border border-slate-200 px-3 py-2 text-sm" />
+        </div>
+        <button type="submit" class="w-full py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-bold transition">Save to Screener</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL: IPHONE INSTALL GUIDE ==================== -->
+  <div id="installGuideModal" class="hidden fixed inset-0 z-50 modal-backdrop flex items-end sm:items-center justify-center p-0 sm:p-4">
+    <div class="bg-white w-full max-w-md rounded-t-3xl sm:rounded-3xl p-5 shadow-2xl animate-slide-up space-y-3.5">
+      <div class="flex items-center justify-between">
+        <h3 class="text-base font-bold text-slate-900">Use Like an App on iPhone</h3>
+        <button id="closeInstallGuideBtn" type="button" aria-label="Close guide" class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-600">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+      <ol class="space-y-2.5 text-xs text-slate-600 leading-relaxed list-decimal pl-4">
+        <li>Download this HTML file and host it for free on <strong>Netlify Drop</strong> or <strong>GitHub Pages</strong> to get an HTTPS link.</li>
+        <li>Open that link in <strong>Safari</strong> on your iPhone.</li>
+        <li>Tap the <strong>Share</strong> icon (square with upward arrow) at the bottom of Safari.</li>
+        <li>Tap <strong>Add to Home Screen</strong> — BharatAlpha opens full-screen like a native iPhone app.</li>
+      </ol>
+      <div class="rounded-xl bg-slate-50 border border-slate-200 p-3 text-[11px] text-slate-600 space-y-1">
+        <p><strong>Using inside Google Sites with Auto-Updates:</strong></p>
+        <p>Host this file on <strong>GitHub Pages</strong> or <strong>Netlify</strong>, then in Google Sites click <strong>Embed → By URL</strong> and paste that live link. Whenever you push an updated HTML file to GitHub, both your iPhone app and Google Site update automatically.</p>
+      </div>
+      <button id="closeInstallGuideDoneBtn" type="button" class="w-full py-2.5 rounded-xl bg-slate-900 text-white text-xs font-bold">Got It</button>
+    </div>
+  </div>
+
+  <!-- In-page Toast Notification -->
+  <div id="toastBanner" class="hidden fixed top-16 left-1/2 -translate-x-1/2 z-50 bg-slate-900 text-white text-xs font-semibold px-4 py-2.5 rounded-full shadow-lg"></div>
+
+  <script>
+    (function () {
+      'use strict';
+
+      // ==================== VERIFIED GROUNDED DATA (NOV 2026) ====================
+      const SECTOR_FLOWS = [
+        { sector: 'Financial Services', novFlow: 43102, octFlow: -883, hasStocks: true, note: '51.1% of all Nov 1–15 FPI buying' },
+        { sector: 'Telecommunication', novFlow: 7570, octFlow: 11065, hasStocks: true, note: 'Steady foreign accumulation' },
+        { sector: 'Automobiles', novFlow: 7551, octFlow: -1098, hasStocks: true, note: 'Sharp ₹8,649 Cr fortnightly swing' },
+        { sector: 'Consumer Services', novFlow: 6519, octFlow: -662, hasStocks: false, note: 'Domestic demand turnaround' },
+        { sector: 'Information Technology', novFlow: 5080, octFlow: 10915, hasStocks: true, note: 'Continued net buying' },
+        { sector: 'FMCG', novFlow: 3042, octFlow: -1559, hasStocks: false, note: 'Reversed October outflows' },
+        { sector: 'Construction', novFlow: 2929, octFlow: -516, hasStocks: true, note: 'Capex & infra EPC inflows' },
+        { sector: 'Oil & Gas', novFlow: 2036, octFlow: -970, hasStocks: false, note: 'Benefiting from lower crude' },
+        { sector: 'Healthcare', novFlow: 998, octFlow: -57, hasStocks: true, note: 'Turned positive on US specialty' },
+        { sector: 'Power', novFlow: 705, octFlow: -765, hasStocks: true, note: 'Renewables & grid expansion' },
+        { sector: 'Capital Goods', novFlow: -3781, octFlow: -825, hasStocks: true, note: 'FPI profit-booking; DIIs accumulating' }
+      ];
+
+      const DEFAULT_NEWS = [
+        {
+          id: 'n1',
+          category: 'Policy',
+          date: 'Union Budget 2026–27',
+          source: 'PIB / India Budget',
+          sentiment: 'Bullish',
+          title: 'Public Capex Raised to ₹12.2 Lakh Crore for FY27',
+          summary: 'Union Budget 2026–27 lifted public capital expenditure to ₹12.2 lakh crore with ₹2 lakh crore SASCI state support and an Infrastructure Risk Guarantee Fund.',
+          sectors: ['Construction', 'Power'],
+          takeaway: 'Directly boosts EPC order books for infrastructure, metro, railway, and power grid leaders.'
+        },
+        {
+          id: 'n2',
+          category: 'Policy',
+          date: 'Union Budget 2026–27',
+          source: 'PIB Defence',
+          sentiment: 'Bullish',
+          title: 'All-Time High ₹7.85 Lakh Cr Defence Allocation',
+          summary: 'Ministry of Defence received ₹7.85 lakh crore, with ₹1.39 lakh crore earmarked specifically for domestic defence industry procurement.',
+          sectors: ['Capital Goods'],
+          takeaway: 'Secures multi-year domestic manufacturing visibility for Indian aerospace and defence PSUs.'
+        },
+        {
+          id: 'n3',
+          category: 'Geopolitics',
+          date: 'Nov 20, 2026',
+          source: 'CDSL / Finnovate / Univest',
+          sentiment: 'Bullish',
+          title: 'Global AI Sell-Off & Lower Crude Spark ₹84,291 Cr FPI Inflow',
+          summary: 'Foreign investors reversed ₹34,843 Cr of October selling, pouring ₹84,291 Cr in Nov 1–15 (reaching ₹99,158 Cr by Nov 17) into Financials, Telecom, Autos & IT.',
+          sectors: ['Financial Services', 'Telecommunication', 'Automobiles', 'Information Technology'],
+          takeaway: 'Heavy foreign rotation into Indian large-cap banks, telecom, autos, and value IT leaders.'
+        },
+        {
+          id: 'n4',
+          category: 'Geopolitics',
+          date: 'Nov 15, 2026',
+          source: 'CDSL / Screener',
+          sentiment: 'Watch',
+          title: 'FPIs Book Profit in Capital Goods (-₹3,781 Cr) While DIIs Buy',
+          summary: 'Capital Goods saw the steepest FPI outflow in early Nov 2026, yet domestic institutions raised stakes in defence leaders like HAL (DII holding up to 12.47%).',
+          sectors: ['Capital Goods'],
+          takeaway: 'Use staggered pullback entries rather than chasing rallies in defence/capital goods.'
+        }
+      ];
+
+      const DEFAULT_STOCKS = [
+        {
+          id: 'icicibank',
+          name: 'ICICI Bank Ltd',
+          nse: 'ICICIBANK',
+          bse: '532174',
+          sector: 'Financial Services',
+          cmp: 1640,
+          high52: 1645,
+          low52: 1188,
+          mcapCr: 1178327,
+          pe: 20.0,
+          divYield: 0.73,
+          roe: 15.9,
+          roce: 7.18,
+          ttmSalesCr: 206190,
+          ttmProfitCr: 62827,
+          profitCagr3y: 17,
+          debtEquity: null,
+          balanceNote: 'Net NPA 0.30% · NIM 4.18% · CAR 16.68% · CASA 36.1%',
+          orderBookLabel: '₹20.92L Cr Deposits',
+          orderBookDetail: 'Deposits ₹20,91,539 Cr (Sep 2026), AAA-rated private banking franchise',
+          hasBigOrderBook: false,
+          isLowDebt: true,
+          fiiPct: 34.68,
+          diiPct: 41.77,
+          fcfCr: 63778,
+          thesis: '#1 beneficiary of ₹43,102 Cr FPI inflow into Financial Services with pristine 0.30% Net NPA.'
+        },
+        {
+          id: 'lt',
+          name: 'Larsen & Toubro Ltd',
+          nse: 'LT',
+          bse: '500510',
+          sector: 'Construction',
+          cmp: 4209,
+          high52: 4440,
+          low52: 3288,
+          mcapCr: 579137,
+          pe: 30.6,
+          divYield: 0.90,
+          roe: 15.9,
+          roce: 14.6,
+          ttmSalesCr: 300904,
+          ttmProfitCr: 20895,
+          profitCagr3y: 17,
+          debtEquity: 1.24,
+          balanceNote: 'D/E 1.24 (incl. L&T Finance) · FY26 FCF ₹12,272 Cr · OPM 12%',
+          orderBookLabel: '₹8.53L Cr Order Book',
+          orderBookDetail: 'Record ₹8,53,000 Cr order book (2.83x TTM sales); won Noida Metro 15.1 km viaduct Nov 2026',
+          hasBigOrderBook: true,
+          isLowDebt: false,
+          fiiPct: 19.22,
+          diiPct: 42.85,
+          fcfCr: 12272,
+          thesis: 'Flagship India capex proxy backed by ₹12.2L Cr Union Budget capex & +₹2,929 Cr FPI construction inflows.'
+        },
+        {
+          id: 'hal',
+          name: 'Hindustan Aeronautics Ltd',
+          nse: 'HAL',
+          bse: '541154',
+          sector: 'Capital Goods',
+          cmp: 4809,
+          high52: 5150,
+          low52: 3479,
+          mcapCr: 321614,
+          pe: 33.5,
+          divYield: 0.94,
+          roe: 24.0,
+          roce: 32.0,
+          ttmSalesCr: 34770,
+          ttmProfitCr: 9588,
+          profitCagr3y: 16,
+          debtEquity: 0.00,
+          balanceNote: 'Virtually Debt-Free (₹10 Cr debt vs ₹43,999 Cr equity) · OPM 29%',
+          orderBookLabel: '₹2.55L Cr Order Book',
+          orderBookDetail: '₹2,54,538 Cr backlog (~7.3x TTM sales; 7–8 yrs visibility incl. 97 LCA Mk1A aircraft)',
+          hasBigOrderBook: true,
+          isLowDebt: true,
+          fiiPct: 9.42,
+          diiPct: 12.47,
+          fcfCr: 8438,
+          thesis: 'Debt-free defence leader with 24% ROE and steady DII accumulation (up from 8.64% to 12.47%).'
+        },
+        {
+          id: 'tcs',
+          name: 'Tata Consultancy Services',
+          nse: 'TCS',
+          bse: '532540',
+          sector: 'Information Technology',
+          cmp: 2376,
+          high52: 3350,
+          low52: 1976,
+          mcapCr: 859730,
+          pe: 15.7,
+          divYield: 2.69,
+          roe: 51.8,
+          roce: 63.0,
+          ttmSalesCr: 283248,
+          ttmProfitCr: 51858,
+          profitCagr3y: 8,
+          debtEquity: 0.10,
+          balanceNote: 'Nearly Debt-Free (D/E 0.10) · FY26 FCF ₹48,013 Cr · OPM 26%',
+          orderBookLabel: '51.8% ROE · 15.7x P/E',
+          orderBookDetail: 'India\'s largest IT services leader with 2.69% dividend yield & +₹5,080 Cr Nov FPI IT inflows',
+          hasBigOrderBook: false,
+          isLowDebt: true,
+          fiiPct: 9.01,
+          diiPct: 13.57,
+          fcfCr: 48013,
+          thesis: 'Rare value valuation at 15.7x P/E with 51.8% ROE, massive cash flow, and steady FPI/DII IT buying.'
+        },
+        {
+          id: 'mm',
+          name: 'Mahindra & Mahindra Ltd',
+          nse: 'M&M',
+          bse: '500520',
+          sector: 'Automobiles',
+          cmp: 3545,
+          high52: 3840,
+          low52: 2743,
+          mcapCr: 440831,
+          pe: 22.0,
+          divYield: 0.93,
+          roe: 20.3,
+          roce: 15.1,
+          ttmSalesCr: 158000,
+          ttmProfitCr: 14500,
+          profitCagr3y: 18,
+          debtEquity: 0.85,
+          balanceNote: 'ROE 20.3% · Book Value ₹787 · OPM ~20% · Reasonable 22x P/E',
+          orderBookLabel: 'SUV & Tractor Leader',
+          orderBookDetail: 'Leading Indian SUV & tractor franchise riding +₹7,551 Cr Nov 1–15 FPI Auto inflows',
+          hasBigOrderBook: false,
+          isLowDebt: false,
+          fiiPct: 36.0,
+          diiPct: 26.0,
+          fcfCr: 9200,
+          thesis: 'Strong 20.3% ROE auto leader benefiting from the sharp ₹8,649 Cr fortnightly FPI Auto swing.'
+        },
+        {
+          id: 'bhartiartl',
+          name: 'Bharti Airtel Ltd',
+          nse: 'BHARTIARTL',
+          bse: '532454',
+          sector: 'Telecommunication',
+          cmp: 2162,
+          high52: 2172,
+          low52: 1726,
+          mcapCr: 1349250,
+          pe: 40.4,
+          divYield: 1.11,
+          roe: 20.3,
+          roce: 17.6,
+          ttmSalesCr: 175000,
+          ttmProfitCr: 28000,
+          profitCagr3y: 24,
+          debtEquity: 1.10,
+          balanceNote: 'ROE 20.3% · ROCE 17.6% · Trading near 52W High (₹2,172)',
+          orderBookLabel: '#2 FPI Sector (+₹7.57K Cr)',
+          orderBookDetail: 'Consistent foreign buying (+₹11,065 Cr late Oct & +₹7,570 Cr early Nov 2026)',
+          hasBigOrderBook: false,
+          isLowDebt: false,
+          fiiPct: 25.0,
+          diiPct: 19.0,
+          fcfCr: 22000,
+          thesis: 'Top momentum telecom compounder with 20.3% ROE and back-to-back strong FPI inflows.'
+        },
+        {
+          id: 'sunpharma',
+          name: 'Sun Pharmaceutical Inds',
+          nse: 'SUNPHARMA',
+          bse: '524715',
+          sector: 'Healthcare',
+          cmp: 1885,
+          high52: 2048,
+          low52: 1584,
+          mcapCr: 452251,
+          pe: 36.8,
+          divYield: 0.85,
+          roe: 16.0,
+          roce: 20.5,
+          ttmSalesCr: 61631,
+          ttmProfitCr: 10987,
+          profitCagr3y: 13,
+          debtEquity: 0.04,
+          balanceNote: 'Almost Debt-Free (D/E 0.04) · FY26 FCF ₹8,906 Cr · OPM 29%',
+          orderBookLabel: '27 Global Specialty Drugs',
+          orderBookDetail: 'India\'s #1 pharma company with 27 global specialty products across dermatology & ophthalmology',
+          hasBigOrderBook: false,
+          isLowDebt: true,
+          fiiPct: 14.36,
+          diiPct: 22.27,
+          fcfCr: 8906,
+          thesis: 'Defensive high-margin compounder benefiting from +₹998 Cr FPI healthcare rotation.'
+        },
+        {
+          id: 'ntpc',
+          name: 'NTPC Ltd',
+          nse: 'NTPC',
+          bse: '532555',
+          sector: 'Power',
+          cmp: 322,
+          high52: 414,
+          low52: 292,
+          mcapCr: 311748,
+          pe: 10.5,
+          divYield: 2.80,
+          roe: 15.1,
+          roce: 8.92,
+          ttmSalesCr: 200543,
+          ttmProfitCr: 30459,
+          profitCagr3y: 20,
+          debtEquity: 1.31,
+          balanceNote: 'D/E 1.31 (regulated utility) · P/E 10.5x · Div Yield 2.80%',
+          orderBookLabel: '89,108 MW Capacity',
+          orderBookDetail: '17% of India\'s total power capacity across 53 stations with expanding solar/renewable fleet',
+          hasBigOrderBook: true,
+          isLowDebt: false,
+          fiiPct: 15.79,
+          diiPct: 29.86,
+          fcfCr: 6895,
+          thesis: 'Deep value at 10.5x P/E near 52W low (₹292) with 20% 3Y profit CAGR and +₹705 Cr FPI buying.'
+        },
+        {
+          id: 'goldbees',
+          name: 'Nippon India ETF Gold BeES',
+          nse: 'GOLDBEES',
+          bse: '590095',
+          sector: 'Gold & Commodities',
+          cmp: 102.21,
+          high52: 148.14,
+          low52: 100.01,
+          mcapCr: 55053,
+          pe: 0,
+          divYield: 0,
+          roe: 15.0,
+          roce: 15.0,
+          ttmSalesCr: 0,
+          ttmProfitCr: 0,
+          profitCagr3y: 18,
+          debtEquity: 0,
+          balanceNote: 'AUM ₹55,053 Cr (Nov 20, 2026) · Backed by physical 24K gold · Near 52W low ₹100.01',
+          orderBookLabel: '₹55,053 Cr Gold AUM',
+          orderBookDetail: "India's most liquid Gold ETF on NSE/BSE. LTCG 12.5% after 12 months (STCG at income slab; no ₹1.25L exemption).",
+          hasBigOrderBook: false,
+          isLowDebt: true,
+          fiiPct: 0,
+          diiPct: 0,
+          fcfCr: 0,
+          isGold: true,
+          thesis: 'Core Gold SIP/ETF hedge trading near 52W support (₹100.01) for inflation & geopolitical protection.'
+        },
+        {
+          id: 'rvnl',
+          name: 'Rail Vikas Nigam Ltd',
+          nse: 'RVNL',
+          bse: '542649',
+          sector: 'Construction',
+          cmp: 191,
+          high52: 401,
+          low52: 178,
+          mcapCr: 39824,
+          pe: 43.4,
+          divYield: 0.90,
+          roe: 9.02,
+          roce: 10.8,
+          ttmSalesCr: 20403,
+          ttmProfitCr: 919,
+          profitCagr3y: -13,
+          debtEquity: 0.43,
+          balanceNote: 'Low Debt (D/E 0.43) · Q2 FY27 PAT +59% QoQ · OPM 4.6%',
+          orderBookLabel: '₹90,099 Cr Order Book',
+          orderBookDetail: '₹90,099 Cr railway infra order book (~4.4x TTM sales, Q2 FY27 concall Nov 2026)',
+          hasBigOrderBook: true,
+          isLowDebt: true,
+          fiiPct: 2.38,
+          diiPct: 6.21,
+          fcfCr: -1949,
+          thesis: 'High-beta watchlist turnaround: massive ₹90,099 Cr order book near 52W low (₹178), but lower ROE (9.0%).'
+        }
+      ];
+
+      const AMC_SIP_FUNDS = [
+        {
+          id: 'uti_nifty',
+          group: 'Index',
+          amc: 'UTI Mutual Fund',
+          name: 'UTI Nifty 50 Index Fund (Direct Growth)',
+          aum: '₹28,985 Cr',
+          expense: '0.18%–0.25%',
+          return5y: '8.53% 5Y CAGR',
+          estRate: 11.5,
+          minSip: '₹25–₹500',
+          role: 'Core Nifty 50 Index SIP',
+          tax: 'Equity: 20% STCG (≤12m) · 12.5% LTCG (>12m, ₹1.25L exempt)'
+        },
+        {
+          id: 'ppfas_flexi',
+          group: 'Flexi',
+          amc: 'PPFAS Mutual Fund',
+          name: 'Parag Parikh Flexi Cap Fund (Direct Growth)',
+          aum: '₹1,46,785 Cr',
+          expense: '0.53%–0.69%',
+          return5y: '11.85% 5Y CAGR',
+          estRate: 13.0,
+          minSip: '₹1,000',
+          role: 'All-Weather Flexi-Cap Core SIP',
+          tax: 'Equity: 20% STCG (≤12m) · 12.5% LTCG (>12m, ₹1.25L exempt)'
+        },
+        {
+          id: 'hdfc_mid',
+          group: 'MidSmall',
+          amc: 'HDFC Mutual Fund',
+          name: 'HDFC Mid-Cap Opportunities Fund (Direct Growth)',
+          aum: '₹1,00,687 Cr',
+          expense: '0.76%',
+          return5y: 'Large Flagship Mid-Cap',
+          estRate: 14.5,
+          minSip: '₹100',
+          role: 'Diversified Mid-Cap Growth SIP',
+          tax: 'Equity: 20% STCG (≤12m) · 12.5% LTCG (>12m, ₹1.25L exempt)'
+        },
+        {
+          id: 'mo_mid',
+          group: 'MidSmall',
+          amc: 'Motilal Oswal MF',
+          name: 'Motilal Oswal Midcap Fund (Direct Growth)',
+          aum: '₹48,905 Cr',
+          expense: '0.67%–0.76%',
+          return5y: '19.27% 5Y CAGR',
+          estRate: 15.0,
+          minSip: '₹500',
+          role: 'Focused High-Growth Mid-Cap SIP',
+          tax: 'Equity: 20% STCG (≤12m) · 12.5% LTCG (>12m, ₹1.25L exempt)'
+        },
+        {
+          id: 'nippon_small',
+          group: 'MidSmall',
+          amc: 'Nippon India MF',
+          name: 'Nippon India Small Cap Fund (Direct Growth)',
+          aum: '₹76,903 Cr',
+          expense: '0.53%–0.69%',
+          return5y: '17.26% 5Y CAGR',
+          estRate: 15.5,
+          minSip: '₹100',
+          role: 'Long-Term (7+ Yr) Small-Cap SIP',
+          tax: 'Equity: 20% STCG (≤12m) · 12.5% LTCG (>12m, ₹1.25L exempt)'
+        },
+        {
+          id: 'sbi_gold',
+          group: 'Gold',
+          amc: 'SBI Mutual Fund',
+          name: 'SBI Gold Direct Plan (Growth)',
+          aum: '₹17,423 Cr',
+          expense: '0.25%',
+          return5y: 'NAV ₹39.22 (Nov 2026)',
+          estRate: 10.5,
+          minSip: '₹500',
+          role: 'Auto Monthly Gold SIP (No Demat needed)',
+          tax: 'Gold MF: Slab STCG (≤24m) · 12.5% LTCG (>24m)'
+        },
+        {
+          id: 'hdfc_gold',
+          group: 'Gold',
+          amc: 'HDFC Mutual Fund',
+          name: 'HDFC Gold ETF Fund of Fund (Direct Growth)',
+          aum: '₹11,488 Cr',
+          expense: '0.20%',
+          return5y: 'NAV ₹40.57 (Nov 2026)',
+          estRate: 10.5,
+          minSip: '₹100',
+          role: 'Low-Cost Gold Mutual Fund SIP',
+          tax: 'Gold MF: Slab STCG (≤24m) · 12.5% LTCG (>24m)'
+        },
+        {
+          id: 'nippon_goldbees',
+          group: 'Gold',
+          amc: 'Nippon India MF',
+          name: 'Nippon India ETF Gold BeES (NSE: GOLDBEES)',
+          aum: '₹55,053 Cr',
+          expense: 'ETF (NSE/BSE)',
+          return5y: 'CMP ₹102.21 (Nov 2026)',
+          estRate: 10.5,
+          minSip: '1 Unit (~₹102)',
+          role: 'Most Liquid Listed Gold ETF (12M LTCG)',
+          tax: 'Gold ETF: Slab STCG (≤12m) · 12.5% LTCG (>12m)'
+        }
+      ];
+
+      const MF_GUIDE_DATA = [
+        {
+          type: 'Equity',
+          name: 'Nifty 50 / Large-Cap Index SIP',
+          risk: 'Moderate',
+          horizon: '5+ Years',
+          role: 'Core Foundation (40–50% of SIP)',
+          tax: 'STCG 20% (≤12m) · LTCG 12.5% (>12m, ₹1.25L exempt)',
+          why: "Tracks India's top 50 NSE companies with ultra-low expense ratio (~0.1–0.2%). Best starter SIP."
+        },
+        {
+          type: 'Equity',
+          name: 'Flexi-Cap Mutual Fund SIP',
+          risk: 'Moderate–High',
+          horizon: '5–7+ Years',
+          role: 'All-Weather Growth (20–30% of SIP)',
+          tax: 'STCG 20% (≤12m) · LTCG 12.5% (>12m, ₹1.25L exempt)',
+          why: 'Fund manager shifts freely across Large, Mid, and Small caps as market cycles rotate.'
+        },
+        {
+          type: 'Equity',
+          name: 'Mid-Cap & Small-Cap SIP',
+          risk: 'High',
+          horizon: '7–10+ Years',
+          role: 'Wealth Booster (15–20% of SIP)',
+          tax: 'STCG 20% (≤12m) · LTCG 12.5% (>12m, ₹1.25L exempt)',
+          why: 'Higher volatility but strong long-term compounding when invested monthly via SIP.'
+        },
+        {
+          type: 'Equity',
+          name: 'ELSS Tax-Saver Mutual Fund',
+          risk: 'Moderate–High',
+          horizon: '3-Yr Lock-in',
+          role: 'Tax Saving (Old Tax Regime 80C)',
+          tax: 'LTCG 12.5% above ₹1.25L after 3-year lock-in',
+          why: 'Shortest lock-in among Section 80C options with equity growth potential.'
+        },
+        {
+          type: 'Gold',
+          name: 'Gold ETF (e.g. GOLDBEES on NSE/BSE)',
+          risk: 'Low–Moderate',
+          horizon: '3+ Years',
+          role: 'Inflation & Crisis Hedge (10–15%)',
+          tax: 'STCG at Slab (≤12m) · LTCG 12.5% (>12m, no ₹1.25L exempt)',
+          why: 'Reaches 12.5% LTCG a full year faster than Gold Mutual Funds or physical gold.'
+        },
+        {
+          type: 'Gold',
+          name: 'Gold Mutual Fund (Auto Gold SIP)',
+          risk: 'Low–Moderate',
+          horizon: '3+ Years',
+          role: 'Automated Gold Accumulation (10–15%)',
+          tax: 'STCG at Slab (≤24m) · LTCG 12.5% (>24m, no ₹1.25L exempt)',
+          why: 'Easiest monthly auto-SIP into gold without needing a Demat account.'
+        },
+        {
+          type: 'Debt',
+          name: 'Liquid / Short-Duration Debt Fund',
+          risk: 'Low',
+          horizon: '0–3 Years',
+          role: 'Emergency Fund & Dip Cash',
+          tax: 'Taxed at your Income Tax Slab rate (post-Apr 2023 rules)',
+          why: 'Parks emergency money or spare cash safely while waiting for stock market dips.'
+        },
+        {
+          type: 'Debt',
+          name: 'Multi-Asset / Aggressive Hybrid Fund',
+          risk: 'Moderate',
+          horizon: '3–5+ Years',
+          role: 'One-Fund Auto-Balanced Option',
+          tax: 'Equity taxation if ≥65% domestic equity',
+          why: "Automatically blends Equity + Debt + Gold in one SIP so you don't have to rebalance manually."
+        }
+      ];
+
+      const CHECKLIST_ITEMS = [
+        { key: 'dma200', label: 'Trading above 200-day moving average (uptrend)' },
+        { key: 'rsi', label: 'RSI in healthy 40–65 zone (not overbought)' },
+        { key: 'volume', label: 'Delivery volume rising on green days' },
+        { key: 'orderbook', label: 'Balance sheet & order book verified' },
+        { key: 'flows', label: 'FII / DII institutional trend aligned' }
+      ];
+
+      // ==================== STATE & STORAGE ====================
+      const STORAGE_KEY = 'bharat_alpha_v2';
+      let state = {
+        activeTab: 'news',
+        wealthSubTab: 'sip-calc',
+        mfFilter: 'All',
+        amcFilter: 'All',
+        guideProfile: 'balanced',
+        planSubTab: 'basket',
+        darkMode: false,
+        newsFilter: 'All',
+        stockFilter: 'All',
+        sectorFilter: null,
+        searchQuery: '',
+        minRoe: 0,
+        maxPe: 60,
+        holdingMode: 'short', // 'short' (STCG 20%) or 'long' (LTCG 12.5%)
+        brokerPreset: 'zero', // 'zero', 'flat20', 'full03'
+        flowPeriod: 'nov',
+        budget: 100000,
+        profitGoalPct: 15,
+        stopLossPct: 7,
+        sip: { monthly: 10000, rate: 12, years: 10, stepUp: 10, lumpsum: 0 },
+        goals: [
+          { id: 'g1', name: 'Emergency + First ₹10L', target: 1000000, current: 150000, years: 5, risk: 'balanced', monthlyNeeded: 9172 }
+        ],
+        news: [...DEFAULT_NEWS],
+        stocks: [...DEFAULT_STOCKS],
+        plan: { icicibank: 20, tcs: 14, hal: 6 },
+        checklists: {},
+        alerts: {
+          hal: { price: 4650, note: 'Pullback entry zone near support' }
+        },
+        journal: [
+          {
+            id: 'tr1',
+            symbol: 'ICICIBANK',
+            type: 'short',
+            qty: 20,
+            buy: 1480,
+            sell: 1640,
+            date: 'Nov 2026',
+            notes: 'FPI banking rotation breakout'
+          }
+        ]
+      };
+
+      function loadState() {
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          if (!raw) return;
+          const p = JSON.parse(raw);
+          if (p && typeof p === 'object') {
+            if (typeof p.darkMode === 'boolean') state.darkMode = p.darkMode;
+            if (typeof p.budget === 'number' && p.budget >= 1000) state.budget = p.budget;
+            if (typeof p.profitGoalPct === 'number') state.profitGoalPct = p.profitGoalPct;
+            if (typeof p.stopLossPct === 'number') state.stopLossPct = p.stopLossPct;
+            if (p.holdingMode === 'short' || p.holdingMode === 'long') state.holdingMode = p.holdingMode;
+            if (p.brokerPreset) state.brokerPreset = p.brokerPreset;
+            if (p.sip) state.sip = { ...state.sip, ...p.sip };
+            if (Array.isArray(p.goals)) state.goals = p.goals;
+            if (Array.isArray(p.news) && p.news.length) state.news = p.news;
+            if (Array.isArray(p.stocks) && p.stocks.length) state.stocks = p.stocks;
+            if (p.plan && typeof p.plan === 'object') state.plan = p.plan;
+            if (p.checklists && typeof p.checklists === 'object') state.checklists = p.checklists;
+            if (p.alerts && typeof p.alerts === 'object') state.alerts = p.alerts;
+            if (Array.isArray(p.journal)) state.journal = p.journal;
+          }
+        } catch (e) {
+          // Ignore storage errors
+        }
+      }
+
+      function saveState() {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify({
+            darkMode: state.darkMode,
+            budget: state.budget,
+            profitGoalPct: state.profitGoalPct,
+            stopLossPct: state.stopLossPct,
+            holdingMode: state.holdingMode,
+            brokerPreset: state.brokerPreset,
+            sip: state.sip,
+            goals: state.goals,
+            news: state.news,
+            stocks: state.stocks,
+            plan: state.plan,
+            checklists: state.checklists,
+            alerts: state.alerts,
+            journal: state.journal
+          }));
+        } catch (e) {
+          // Ignore storage errors
+        }
+      }
+
+      // ==================== HELPERS, BROKERAGE & INDIA TAX ENGINE ====================
+      function formatINR(num) {
+        const n = Number(num) || 0;
+        const sign = n < 0 ? '-' : '';
+        return sign + '₹' + Math.round(Math.abs(n)).toLocaleString('en-IN');
+      }
+
+      function escapeHtml(str) {
+        return String(str || '')
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;');
+      }
+
+      function getSectorFlow(sectorName) {
+        const match = SECTOR_FLOWS.find((s) => s.sector === sectorName);
+        return match ? match.novFlow : 0;
+      }
+
+      // Verified FY 2026-27 Indian Equity Delivery Charges + STCG (20% + 4% cess) & LTCG (12.5% above ₹1.25L + 4% cess)
+      function calcBrokerageAndTaxes(buyVal, sellVal, brokerPreset, applyLtcgExemption) {
+        const bVal = Math.max(0, Number(buyVal) || 0);
+        const sVal = Math.max(0, Number(sellVal) || 0);
+        const turnover = bVal + sVal;
+
+        // Brokerage (buy + sell legs)
+        let brokerage = 0;
+        if (brokerPreset === 'flat20') brokerage = 40; // ₹20 buy + ₹20 sell
+        else if (brokerPreset === 'full03') brokerage = turnover * 0.003; // 0.3% each side
+
+        const stt = turnover * 0.001; // 0.1% on buy + 0.1% on sell (delivery)
+        const exchTxn = turnover * 0.0000307; // NSE 0.00307%
+        const sebi = turnover * 0.000001; // ₹10 per crore
+        const stamp = bVal * 0.00015; // 0.015% on buy
+        const gst = (brokerage + exchTxn + sebi) * 0.18;
+        const dpCharge = sVal > 0 ? 15.93 : 0; // CDSL DP sell charge approx
+        const totalCharges = brokerage + stt + exchTxn + sebi + stamp + gst + dpCharge;
+
+        const grossProfit = sVal - bVal;
+        const profitAfterCharges = grossProfit - totalCharges;
+
+        // STCG: 20% + 4% cess = 20.8% on positive gains (no exemption)
+        const stcgTax = grossProfit > 0 ? grossProfit * 0.20 * 1.04 : 0;
+        const netAfterStcg = profitAfterCharges - stcgTax;
+
+        // LTCG: 12.5% + 4% cess = 13.0% on gains above ₹1,25,000/yr
+        const taxableLtcg = applyLtcgExemption ? Math.max(0, grossProfit - 125000) : Math.max(0, grossProfit);
+        const ltcgTax = taxableLtcg * 0.125 * 1.04;
+        const netAfterLtcg = profitAfterCharges - ltcgTax;
+
+        return {
+          grossProfit,
+          totalCharges,
+          stcgTax,
+          netAfterStcg,
+          ltcgTax,
+          netAfterLtcg
+        };
+      }
+
+      function computeScore(stock) {
+        let score = 0;
+        if (stock.roe >= 20) score += 25;
+        else if (stock.roe >= 15) score += 21;
+        else if (stock.roe >= 12) score += 16;
+        else score += 10;
+
+        if (stock.debtEquity === null) score += 24;
+        else if (stock.debtEquity <= 0.1) score += 25;
+        else if (stock.debtEquity <= 0.5) score += 21;
+        else if (stock.debtEquity <= 1.35) score += 17;
+        else score += 12;
+
+        if (stock.hasBigOrderBook) score += 24;
+        else if (stock.mcapCr >= 300000) score += 21;
+        else score += 15;
+
+        const fpi = getSectorFlow(stock.sector);
+        const instTotal = (stock.fiiPct || 0) + (stock.diiPct || 0);
+        if (fpi >= 10000) score += 25;
+        else if (fpi > 0 && instTotal >= 35) score += 22;
+        else if (fpi > 0) score += 19;
+        else if (instTotal >= 20) score += 16;
+        else score += 12;
+
+        return Math.min(99, Math.round(score));
+      }
+
+      function computeTradeLevels(stock) {
+        const cmp = Math.max(1, Number(stock.cmp) || 1);
+        const low52 = Number(stock.low52) || Math.round(cmp * 0.8);
+        const entryLow = Math.max(low52, Math.round(cmp * 0.975));
+        const stopLoss = Math.max(1, Math.round(cmp * (1 - state.stopLossPct / 100)));
+        const target = Math.round(cmp * (1 + state.profitGoalPct / 100));
+        const riskPerShare = Math.max(1, cmp - stopLoss);
+        const rewardPerShare = Math.max(1, target - cmp);
+        const rr = (rewardPerShare / riskPerShare).toFixed(2);
+        // Estimate position size (25% of budget or current plan qty) for realistic net profit preview
+        const planQty = state.plan[stock.id] || Math.max(1, Math.floor((state.budget * 0.25) / cmp));
+        const tax = calcBrokerageAndTaxes(planQty * cmp, planQty * target, state.brokerPreset, true);
+        return { cmp, entryLow, stopLoss, target, riskPerShare, rewardPerShare, rr, planQty, tax };
+      }
+
+      let toastTimer = null;
+      function showToast(msg) {
+        const el = document.getElementById('toastBanner');
+        if (!el) return;
+        el.textContent = msg;
+        el.classList.remove('hidden');
+        if (toastTimer) clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => el.classList.add('hidden'), 2400);
+      }
+
+      // ==================== CHART INSTANCES ====================
+      let sectorFlowChart = null;
+      let planAllocationChart = null;
+      let sipGrowthChart = null;
+      let goalAllocationChart = null;
+
+      function getChartTextColor() {
+        return state.darkMode ? '#CBD5E1' : '#334155';
+      }
+      function getChartGridColor() {
+        return state.darkMode ? '#1E293B' : '#F1F5F9';
+      }
+
+      function renderSectorFlowChart() {
+        const canvas = document.getElementById('sectorFlowChart');
+        if (!canvas || typeof Chart === 'undefined') return;
+        const isNov = state.flowPeriod === 'nov';
+        const labels = SECTOR_FLOWS.map((s) => s.sector);
+        const values = SECTOR_FLOWS.map((s) => (isNov ? s.novFlow : s.octFlow));
+        const colors = values.map((v) => (v >= 0 ? '#059669' : '#DC2626'));
+
+        if (sectorFlowChart) { sectorFlowChart.destroy(); sectorFlowChart = null; }
+        sectorFlowChart = new Chart(canvas.getContext('2d'), {
+          type: 'bar',
+          data: {
+            labels,
+            datasets: [{
+              label: isNov ? 'Nov 1–15 Net Flow (₹ Cr)' : 'Oct 16–31 Net Flow (₹ Cr)',
+              data: values,
+              backgroundColor: colors,
+              borderRadius: 6,
+              barThickness: 16
+            }]
+          },
+          options: {
+            indexAxis: 'y',
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { display: false },
+              tooltip: {
+                callbacks: {
+                  label: (ctx) => {
+                    const val = ctx.parsed.x || 0;
+                    return (val >= 0 ? '+₹' : '-₹') + Math.abs(val).toLocaleString('en-IN') + ' Cr';
+                  }
+                }
+              }
+            },
+            scales: {
+              x: {
+                grid: { color: getChartGridColor() },
+                ticks: { font: { size: 10 }, color: getChartTextColor(), callback: (v) => (v === 0 ? '0' : (v / 1000).toFixed(0) + 'k') }
+              },
+              y: {
+                grid: { display: false },
+                ticks: { font: { size: 11, weight: '600' }, color: getChartTextColor() }
+              }
+            }
+          }
+        });
+      }
+
+      function renderPlanChart(entries, cashLeft) {
+        const canvas = document.getElementById('planAllocationChart');
+        if (!canvas || typeof Chart === 'undefined') return;
+        if (planAllocationChart) { planAllocationChart.destroy(); planAllocationChart = null; }
+
+        const palette = ['#0F172A', '#059669', '#2563EB', '#D97706', '#7C3AED', '#0891B2', '#DB2777'];
+        const labels = entries.map((e) => e.stock.nse);
+        const data = entries.map((e) => e.invested);
+        const bg = entries.map((_, i) => palette[i % palette.length]);
+
+        if (cashLeft > 0) {
+          labels.push('Cash Left');
+          data.push(cashLeft);
+          bg.push(state.darkMode ? '#475569' : '#CBD5E1');
+        }
+        if (data.length === 0) {
+          labels.push('Unallocated Cash');
+          data.push(Math.max(1, state.budget));
+          bg.push(state.darkMode ? '#334155' : '#E2E8F0');
+        }
+
+        planAllocationChart = new Chart(canvas.getContext('2d'), {
+          type: 'doughnut',
+          data: { labels, datasets: [{ data, backgroundColor: bg, borderWidth: 2, borderColor: state.darkMode ? '#111827' : '#FFFFFF' }] },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            cutout: '64%',
+            plugins: {
+              legend: { position: 'right', labels: { boxWidth: 10, font: { size: 11, weight: '600' }, color: getChartTextColor() } },
+              tooltip: { callbacks: { label: (ctx) => ctx.label + ': ' + formatINR(ctx.parsed) } }
+            }
+          }
+        });
+      }
+
+      function renderSipChart(labels, investedSeries, valueSeries) {
+        const canvas = document.getElementById('sipGrowthChart');
+        if (!canvas || typeof Chart === 'undefined') return;
+        if (sipGrowthChart) { sipGrowthChart.destroy(); sipGrowthChart = null; }
+
+        sipGrowthChart = new Chart(canvas.getContext('2d'), {
+          type: 'line',
+          data: {
+            labels,
+            datasets: [
+              {
+                label: 'Total Value',
+                data: valueSeries,
+                borderColor: '#059669',
+                backgroundColor: 'rgba(5, 150, 105, 0.14)',
+                fill: true,
+                tension: 0.35,
+                borderWidth: 2.5,
+                pointRadius: 2
+              },
+              {
+                label: 'Total Invested',
+                data: investedSeries,
+                borderColor: '#2563EB',
+                backgroundColor: 'rgba(37, 99, 235, 0.08)',
+                fill: true,
+                tension: 0.3,
+                borderWidth: 2,
+                borderDash: [4, 4],
+                pointRadius: 2
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { labels: { boxWidth: 10, font: { size: 11, weight: '600' }, color: getChartTextColor() } },
+              tooltip: { callbacks: { label: (ctx) => ctx.dataset.label + ': ' + formatINR(ctx.parsed.y) } }
+            },
+            scales: {
+              x: { grid: { display: false }, ticks: { font: { size: 10 }, color: getChartTextColor() } },
+              y: {
+                grid: { color: getChartGridColor() },
+                ticks: {
+                  font: { size: 10 },
+                  color: getChartTextColor(),
+                  callback: (v) => v >= 100000 ? '₹' + (v / 100000).toFixed(1) + 'L' : '₹' + (v / 1000).toFixed(0) + 'k'
+                }
+              }
+            }
+          }
+        });
+      }
+
+      function renderGoalChart(splits) {
+        const canvas = document.getElementById('goalAllocationChart');
+        if (!canvas || typeof Chart === 'undefined') return;
+        if (goalAllocationChart) { goalAllocationChart.destroy(); goalAllocationChart = null; }
+
+        goalAllocationChart = new Chart(canvas.getContext('2d'), {
+          type: 'doughnut',
+          data: {
+            labels: splits.map((s) => s.label),
+            datasets: [{
+              data: splits.map((s) => s.pct),
+              backgroundColor: ['#059669', '#2563EB', '#D97706', '#7C3AED'],
+              borderWidth: 2,
+              borderColor: state.darkMode ? '#111827' : '#FFFFFF'
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            cutout: '62%',
+            plugins: {
+              legend: { position: 'right', labels: { boxWidth: 10, font: { size: 11, weight: '600' }, color: getChartTextColor() } },
+              tooltip: { callbacks: { label: (ctx) => ctx.label + ': ' + ctx.parsed + '%' } }
+            }
+          }
+        });
+      }
+
+      // ==================== RENDERERS ====================
+      function applyTheme() {
+        document.body.classList.toggle('dark-mode', state.darkMode);
+        const icon = document.getElementById('themeIcon');
+        if (icon) {
+          icon.setAttribute('data-lucide', state.darkMode ? 'sun' : 'moon');
+        }
+      }
+
+      function renderHeaderAndNav() {
+        applyTheme();
+        document.getElementById('headerBudgetLabel').textContent = formatINR(state.budget);
+        document.getElementById('headerGoalLabel').textContent = '+' + state.profitGoalPct + '%';
+
+        const planCount = Object.keys(state.plan).filter((id) => state.plan[id] > 0).length;
+        const badge = document.getElementById('navPlanBadge');
+        if (planCount > 0) {
+          badge.textContent = String(planCount);
+          badge.classList.remove('hidden');
+        } else {
+          badge.classList.add('hidden');
+        }
+
+        document.querySelectorAll('.tab-section').forEach((sec) => {
+          sec.classList.toggle('hidden', sec.id !== 'tab-' + state.activeTab);
+        });
+
+        document.querySelectorAll('.nav-btn').forEach((btn) => {
+          const active = btn.dataset.navTab === state.activeTab;
+          btn.classList.toggle('text-emerald-600', active);
+          btn.classList.toggle('bg-emerald-50/70', active);
+          btn.classList.toggle('text-slate-500', !active);
+        });
+
+        document.querySelectorAll('.step-pill').forEach((btn) => {
+          const active = btn.dataset.stepTab === state.activeTab;
+          btn.classList.toggle('bg-slate-900', active);
+          btn.classList.toggle('text-white', active);
+          btn.classList.toggle('text-slate-600', !active);
+        });
+      }
+
+      function renderNewsTab() {
+        document.querySelectorAll('.news-filter-btn').forEach((btn) => {
+          const active = btn.dataset.newsFilter === state.newsFilter;
+          btn.classList.toggle('bg-slate-900', active);
+          btn.classList.toggle('text-white', active);
+          btn.classList.toggle('bg-white', !active);
+          btn.classList.toggle('text-slate-700', !active);
+          btn.classList.toggle('border', !active);
+          btn.classList.toggle('border-slate-200', !active);
+        });
+
+        const container = document.getElementById('newsFeedList');
+        const filtered = state.news.filter((item) => state.newsFilter === 'All' || item.category === state.newsFilter);
+        if (filtered.length === 0) {
+          container.innerHTML = '<div class="bg-white rounded-2xl border border-slate-200 p-6 text-center text-xs text-slate-500">No news in this filter yet. Paste a headline above to analyze it!</div>';
+          return;
+        }
+
+        container.innerHTML = filtered.map((item) => {
+          const sentClass = item.sentiment === 'Bullish'
+            ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
+            : item.sentiment === 'Caution'
+              ? 'bg-rose-50 text-rose-700 border-rose-200'
+              : 'bg-amber-50 text-amber-700 border-amber-200';
+          const sectorButtons = item.sectors.map((sec) =>
+            '<button type="button" data-jump-sector="' + escapeHtml(sec) + '" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-emerald-50 hover:text-emerald-700 text-[11px] font-semibold text-slate-700 transition">' + escapeHtml(sec) + ' →</button>'
+          ).join('');
+
+          return `
+            <article class="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm space-y-2.5">
+              <div class="flex items-center justify-between gap-2">
+                <span class="text-[11px] font-semibold text-slate-500">${escapeHtml(item.source)} · ${escapeHtml(item.date)}</span>
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded-full border ${sentClass}">${escapeHtml(item.sentiment)}</span>
+              </div>
+              <h3 class="text-sm font-bold text-slate-900 leading-snug">${escapeHtml(item.title)}</h3>
+              <p class="text-xs text-slate-600 leading-relaxed">${escapeHtml(item.summary)}</p>
+              <div class="rounded-xl bg-slate-50 border border-slate-100 px-3 py-2 text-xs text-slate-700">
+                <strong class="text-slate-900">Impact:</strong> ${escapeHtml(item.takeaway)}
+              </div>
+              <div class="flex flex-wrap items-center gap-1.5 pt-0.5">
+                <span class="text-[11px] text-slate-400 font-medium mr-1">Sectors:</span>
+                ${sectorButtons}
+              </div>
+            </article>
+          `;
+        }).join('');
+      }
+
+      function renderFlowsTab() {
+        renderSectorFlowChart();
+        const container = document.getElementById('sectorFlowCards');
+        container.innerHTML = SECTOR_FLOWS.map((s) => {
+          const val = state.flowPeriod === 'nov' ? s.novFlow : s.octFlow;
+          const isPos = val >= 0;
+          const flowText = (isPos ? '+₹' : '-₹') + Math.abs(val).toLocaleString('en-IN') + ' Cr';
+          const actionBtn = s.hasStocks
+            ? '<button type="button" data-jump-sector="' + escapeHtml(s.sector) + '" class="mt-2 w-full py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-[11px] font-semibold transition">Screen ' + escapeHtml(s.sector) + ' Stocks →</button>'
+            : '<p class="mt-2 text-[11px] text-slate-400 font-medium">Add custom stocks in Screener</p>';
+
+          return `
+            <div class="bg-white rounded-2xl border border-slate-200 p-3.5 shadow-sm flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between gap-2">
+                  <h4 class="text-xs font-bold text-slate-900">${escapeHtml(s.sector)}</h4>
+                  <span class="text-xs font-extrabold ${isPos ? 'text-emerald-600' : 'text-rose-600'}">${flowText}</span>
+                </div>
+                <p class="text-[11px] text-slate-500 mt-1">${escapeHtml(s.note)}</p>
+              </div>
+              ${actionBtn}
+            </div>
+          `;
+        }).join('');
+      }
+
+      function renderStocksTab() {
+        document.querySelectorAll('.holding-mode-btn').forEach((btn) => {
+          const active = btn.dataset.holdingMode === state.holdingMode;
+          btn.classList.toggle('bg-slate-900', active);
+          btn.classList.toggle('text-white', active);
+          btn.classList.toggle('text-slate-600', !active);
+        });
+        document.getElementById('brokerPresetSelect').value = state.brokerPreset;
+        document.getElementById('minRoeRange').value = state.minRoe;
+        document.getElementById('minRoeVal').textContent = state.minRoe + '%';
+        document.getElementById('maxPeRange').value = state.maxPe;
+        document.getElementById('maxPeVal').textContent = state.maxPe + 'x';
+
+        document.querySelectorAll('.stock-filter-btn').forEach((btn) => {
+          const active = btn.dataset.stockFilter === state.stockFilter;
+          btn.classList.toggle('bg-slate-900', active);
+          btn.classList.toggle('text-white', active);
+          btn.classList.toggle('bg-white', !active);
+          btn.classList.toggle('text-slate-700', !active);
+          btn.classList.toggle('border', !active);
+          btn.classList.toggle('border-slate-200', !active);
+        });
+
+        const banner = document.getElementById('activeSectorBanner');
+        if (state.sectorFilter) {
+          document.getElementById('activeSectorName').textContent = state.sectorFilter;
+          banner.classList.remove('hidden');
+          banner.classList.add('flex');
+        } else {
+          banner.classList.add('hidden');
+          banner.classList.remove('flex');
+        }
+
+        const q = state.searchQuery.trim().toLowerCase();
+        const list = state.stocks
+          .map((s) => ({ ...s, score: computeScore(s), levels: computeTradeLevels(s) }))
+          .filter((s) => {
+            if (state.sectorFilter && s.sector !== state.sectorFilter) return false;
+            if (s.roe < state.minRoe) return false;
+            if (s.pe > state.maxPe) return false;
+            if (q && !(s.name.toLowerCase().includes(q) || s.nse.toLowerCase().includes(q) || s.bse.toLowerCase().includes(q) || s.sector.toLowerCase().includes(q))) return false;
+            if (state.stockFilter === 'TopScore' && s.score < 80) return false;
+            if (state.stockFilter === 'DebtFree' && !s.isLowDebt) return false;
+            if (state.stockFilter === 'OrderBook' && !s.hasBigOrderBook) return false;
+            if (state.stockFilter === 'FpiBuying' && getSectorFlow(s.sector) <= 0) return false;
+            if (state.stockFilter === 'Gold' && !s.isGold && !s.sector.toLowerCase().includes('gold')) return false;
+            return true;
+          })
+          .sort((a, b) => b.score - a.score);
+
+        const container = document.getElementById('stockCardsList');
+        if (list.length === 0) {
+          container.innerHTML = '<div class="bg-white rounded-2xl border border-slate-200 p-6 text-center text-xs text-slate-500">No stocks match your current filters/rules. Tap <strong>All Stocks</strong> or reset Rules.</div>';
+          return;
+        }
+
+        container.innerHTML = list.map((s) => {
+          const inPlan = (state.plan[s.id] || 0) > 0;
+          const scoreBadge = s.score >= 82
+            ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
+            : s.score >= 70
+              ? 'bg-blue-50 text-blue-700 border-blue-200'
+              : 'bg-amber-50 text-amber-700 border-amber-200';
+          const deText = s.debtEquity === null ? '0.30% NNPA' : s.debtEquity.toFixed(2) + 'x';
+          const fpiVal = getSectorFlow(s.sector);
+          const fpiBadge = fpiVal > 0
+            ? '<span class="text-[10px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">FPI +₹' + fpiVal.toLocaleString('en-IN') + ' Cr</span>'
+            : '<span class="text-[10px] font-semibold text-amber-700 bg-amber-50 px-2 py-0.5 rounded-full">DII ' + s.diiPct + '%</span>';
+          const hasAlert = Boolean(state.alerts[s.id]);
+          const t = s.levels.tax;
+
+          return `
+            <div class="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm space-y-3">
+              <div class="flex items-start justify-between gap-2">
+                <div class="min-w-0">
+                  <div class="flex items-center gap-1.5 flex-wrap">
+                    <h3 class="text-sm font-extrabold text-slate-900">${escapeHtml(s.name)}</h3>
+                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-full border ${scoreBadge}">Score ${s.score}/100</span>
+                    ${hasAlert ? '<span class="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-amber-50 text-amber-700 border border-amber-200">Alert</span>' : ''}
+                  </div>
+                  <div class="flex items-center gap-1.5 mt-1 flex-wrap">
+                    <span class="text-[11px] font-bold text-slate-600">NSE: ${escapeHtml(s.nse)}</span>
+                    <span class="text-slate-300">·</span>
+                    <span class="text-[11px] font-medium text-slate-500">BSE: ${escapeHtml(s.bse)}</span>
+                    <span class="text-slate-300">·</span>
+                    <span class="text-[11px] font-medium text-slate-500">${escapeHtml(s.sector)}</span>
+                  </div>
+                </div>
+                <div class="text-right shrink-0">
+                  <p class="text-base font-extrabold text-slate-900">${formatINR(s.cmp)}</p>
+                  <div class="mt-0.5">${fpiBadge}</div>
+                </div>
+              </div>
+
+              <!-- Fundamentals Strip -->
+              <div class="grid grid-cols-3 gap-2 bg-slate-50 rounded-xl p-2.5 border border-slate-100 text-center">
+                <div>
+                  <p class="text-[10px] text-slate-500 font-medium">ROE / P/E</p>
+                  <p class="text-xs font-bold text-slate-900">${s.roe}% · ${s.pe}x</p>
+                </div>
+                <div>
+                  <p class="text-[10px] text-slate-500 font-medium">${s.debtEquity === null ? 'Asset Quality' : 'Debt / Eq'}</p>
+                  <p class="text-xs font-bold text-slate-900">${deText}</p>
+                </div>
+                <div>
+                  <p class="text-[10px] text-slate-500 font-medium">Order Book / Scale</p>
+                  <p class="text-xs font-bold text-emerald-700 truncate">${escapeHtml(s.orderBookLabel)}</p>
+                </div>
+              </div>
+
+              <!-- Entry / Stop-Loss / Target Strip -->
+              <div class="grid grid-cols-3 gap-2 text-xs">
+                <div class="rounded-xl bg-blue-50/60 border border-blue-100 px-2.5 py-2">
+                  <p class="text-[10px] font-semibold text-blue-700">Entry Zone</p>
+                  <p class="font-bold text-slate-900 mt-0.5">${formatINR(s.levels.entryLow)}–${formatINR(s.levels.cmp)}</p>
+                </div>
+                <div class="rounded-xl bg-rose-50/60 border border-rose-100 px-2.5 py-2">
+                  <p class="text-[10px] font-semibold text-rose-700">Stop-Loss (-${state.stopLossPct}%)</p>
+                  <p class="font-bold text-rose-700 mt-0.5">${formatINR(s.levels.stopLoss)}</p>
+                </div>
+                <div class="rounded-xl bg-emerald-50/70 border border-emerald-100 px-2.5 py-2">
+                  <p class="text-[10px] font-semibold text-emerald-700">Target (+${state.profitGoalPct}%)</p>
+                  <p class="font-bold text-emerald-700 mt-0.5">${formatINR(s.levels.target)}</p>
+                </div>
+              </div>
+
+              <!-- NEW: Net Profit After Brokerage + STCG & LTCG Strip -->
+              <div class="rounded-xl bg-slate-50 border border-slate-200 p-2.5 space-y-1.5">
+                <div class="flex items-center justify-between text-[10px] text-slate-500 font-semibold">
+                  <span>Est. Take-Home Profit (${s.levels.planQty} sh · ${formatINR(s.levels.planQty * s.cmp)})</span>
+                  <span>Brokerage+STT: ${formatINR(t.totalCharges)}</span>
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                  <div class="rounded-lg px-2.5 py-1.5 border ${state.holdingMode === 'short' ? 'bg-amber-50 border-amber-300' : 'bg-white border-slate-200'}">
+                    <p class="text-[10px] font-semibold text-slate-500">After STCG (20%+Cess)</p>
+                    <p class="text-xs font-extrabold text-amber-700">+${formatINR(t.netAfterStcg)}</p>
+                  </div>
+                  <div class="rounded-lg px-2.5 py-1.5 border ${state.holdingMode === 'long' ? 'bg-emerald-50 border-emerald-300' : 'bg-white border-slate-200'}">
+                    <p class="text-[10px] font-semibold text-slate-500">After LTCG (12.5% &gt;₹1.25L)</p>
+                    <p class="text-xs font-extrabold text-emerald-700">+${formatINR(t.netAfterLtcg)}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-2 gap-2 pt-0.5">
+                <button type="button" data-open-detail="${escapeHtml(s.id)}" class="py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold transition">Details, Tax &amp; Alert</button>
+                <button type="button" data-toggle-plan="${escapeHtml(s.id)}" class="py-2 rounded-xl text-xs font-bold transition ${inPlan ? 'bg-emerald-100 text-emerald-800 border border-emerald-300' : 'bg-slate-900 hover:bg-slate-800 text-white'}">
+                  ${inPlan ? '✓ In My Plan (' + state.plan[s.id] + ' sh)' : '+ Add to My Plan'}
+                </button>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      // ==================== TAB 4: SIP & INVESTMENT PLANNING RENDERER ====================
+      function renderSipAndGoalsTab() {
+        document.querySelectorAll('.wealth-subtab-btn').forEach((btn) => {
+          const active = btn.dataset.wealthSubtab === state.wealthSubTab;
+          btn.classList.toggle('bg-slate-900', active);
+          btn.classList.toggle('text-white', active);
+          btn.classList.toggle('text-slate-600', !active);
+        });
+
+        document.getElementById('subtab-sip-calc').classList.toggle('hidden', state.wealthSubTab !== 'sip-calc');
+        document.getElementById('subtab-invest-guide').classList.toggle('hidden', state.wealthSubTab !== 'invest-guide');
+        document.getElementById('subtab-goal-plan').classList.toggle('hidden', state.wealthSubTab !== 'goal-plan');
+
+        if (state.wealthSubTab === 'sip-calc') {
+          const { monthly, rate, years, stepUp, lumpsum } = state.sip;
+          document.getElementById('sipMonthlyInput').value = monthly;
+          document.getElementById('sipMonthlyLabel').textContent = formatINR(monthly);
+          document.getElementById('sipReturnRange').value = rate;
+          document.getElementById('sipReturnVal').textContent = rate + '%';
+          document.getElementById('sipYearsRange').value = years;
+          document.getElementById('sipYearsVal').textContent = years + (years === 1 ? ' Yr' : ' Yrs');
+          document.getElementById('sipStepUpRange').value = stepUp;
+          document.getElementById('sipStepUpVal').textContent = stepUp + '%';
+          document.getElementById('sipLumpsumInput').value = lumpsum;
+
+          const r = rate / 100 / 12;
+          let balance = Math.max(0, Number(lumpsum) || 0);
+          let totalInvested = balance;
+          let currentMonthly = Math.max(500, Number(monthly) || 500);
+          const labels = [];
+          const invSeries = [];
+          const valSeries = [];
+
+          for (let yr = 1; yr <= years; yr++) {
+            for (let m = 1; m <= 12; m++) {
+              balance = (balance + currentMonthly) * (1 + r);
+              totalInvested += currentMonthly;
+            }
+            labels.push('Yr ' + yr);
+            invSeries.push(Math.round(totalInvested));
+            valSeries.push(Math.round(balance));
+            currentMonthly = currentMonthly * (1 + stepUp / 100);
+          }
+
+          const wealthGain = Math.max(0, balance - totalInvested);
+          const ltcgTax = Math.max(0, wealthGain - 125000) * 0.125 * 1.04;
+          const netCorpus = balance - ltcgTax;
+
+          document.getElementById('sipKpiInvested').textContent = formatINR(totalInvested);
+          document.getElementById('sipKpiGain').textContent = '+' + formatINR(wealthGain);
+          document.getElementById('sipKpiTax').textContent = '-' + formatINR(ltcgTax);
+          document.getElementById('sipKpiNet').textContent = formatINR(netCorpus);
+          renderSipChart(labels, invSeries, valSeries);
+        } else if (state.wealthSubTab === 'invest-guide') {
+          renderInvestGuide();
+        } else {
+          renderGoalPlanner();
+        }
+      }
+
+      function renderInvestGuide() {
+        const monthly = Math.max(500, Number(state.sip.monthly) || 10000);
+        document.getElementById('guideMonthlyLabel').textContent = formatINR(monthly);
+        document.getElementById('guideProfileSelect').value = state.guideProfile;
+
+        const splitsByProfile = {
+          conservative: [
+            { label: 'Nifty 50 Index SIP', pct: 35 },
+            { label: 'Debt / Liquid', pct: 40 },
+            { label: 'Gold ETF / SIP', pct: 15 },
+            { label: 'Flexi-Cap SIP', pct: 10 }
+          ],
+          balanced: [
+            { label: 'Nifty 50 Index SIP', pct: 40 },
+            { label: 'Flexi / Mid-Cap SIP', pct: 30 },
+            { label: 'Gold ETF / SIP', pct: 15 },
+            { label: 'Debt / Liquid', pct: 15 }
+          ],
+          growth: [
+            { label: 'Nifty 50 Index SIP', pct: 35 },
+            { label: 'Flexi / Mid-Cap SIP', pct: 45 },
+            { label: 'Gold ETF / SIP', pct: 10 },
+            { label: 'Debt / Dip Cash', pct: 10 }
+          ]
+        };
+        const splits = splitsByProfile[state.guideProfile] || splitsByProfile.balanced;
+        document.getElementById('guideMonthlySplitGrid').innerHTML = splits.map((s) => `
+          <div class="rounded-xl bg-slate-800 border border-slate-700 p-2.5">
+            <p class="text-[10px] text-slate-400 font-semibold">${s.label}</p>
+            <p class="text-sm font-extrabold text-emerald-400 mt-0.5">${formatINR((monthly * s.pct) / 100)}</p>
+            <p class="text-[10px] text-slate-300">${s.pct}%</p>
+          </div>
+        `).join('');
+
+        document.querySelectorAll('.amc-filter-btn').forEach((btn) => {
+          const active = btn.dataset.amcFilter === state.amcFilter;
+          btn.classList.toggle('bg-slate-900', active);
+          btn.classList.toggle('text-white', active);
+          btn.classList.toggle('bg-white', !active);
+          btn.classList.toggle('text-slate-700', !active);
+          btn.classList.toggle('border', !active);
+          btn.classList.toggle('border-slate-200', !active);
+        });
+
+        const amcItems = AMC_SIP_FUNDS.filter((f) => state.amcFilter === 'All' || f.group === state.amcFilter);
+        document.getElementById('amcSipFundsList').innerHTML = amcItems.map((f) => `
+          <div class="bg-white rounded-2xl border border-slate-200 p-3.5 shadow-sm space-y-2">
+            <div class="flex items-start justify-between gap-2">
+              <div class="min-w-0">
+                <p class="text-[10px] font-bold uppercase tracking-wider text-emerald-700">${escapeHtml(f.amc)} · ${escapeHtml(f.role)}</p>
+                <h4 class="text-xs sm:text-sm font-extrabold text-slate-900 mt-0.5">${escapeHtml(f.name)}</h4>
+              </div>
+              <button type="button" data-try-sip-rate="${f.estRate}" data-try-sip-name="${escapeHtml(f.amc)}" class="shrink-0 px-2.5 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-[10px] font-bold transition">Try in Calc →</button>
+            </div>
+            <div class="grid grid-cols-3 gap-2 bg-slate-50 rounded-xl p-2 border border-slate-100 text-center text-[11px]">
+              <div><span class="text-[10px] text-slate-500 block">AUM</span><strong class="text-slate-900">${escapeHtml(f.aum)}</strong></div>
+              <div><span class="text-[10px] text-slate-500 block">Expense Ratio</span><strong class="text-slate-900">${escapeHtml(f.expense)}</strong></div>
+              <div><span class="text-[10px] text-slate-500 block">Snapshot</span><strong class="text-emerald-700">${escapeHtml(f.return5y)}</strong></div>
+            </div>
+            <p class="text-[10px] text-slate-500"><strong>Min SIP:</strong> ${escapeHtml(f.minSip)} · ${escapeHtml(f.tax)}</p>
+          </div>
+        `).join('');
+
+        document.querySelectorAll('.mf-filter-btn').forEach((btn) => {
+          const active = btn.dataset.mfFilter === state.mfFilter;
+          btn.classList.toggle('bg-slate-900', active);
+          btn.classList.toggle('text-white', active);
+          btn.classList.toggle('bg-white', !active);
+          btn.classList.toggle('text-slate-700', !active);
+          btn.classList.toggle('border', !active);
+          btn.classList.toggle('border-slate-200', !active);
+        });
+
+        const items = MF_GUIDE_DATA.filter((m) => state.mfFilter === 'All' || m.type === state.mfFilter);
+        document.getElementById('mfGuideCards').innerHTML = items.map((m) => `
+          <div class="bg-white rounded-2xl border border-slate-200 p-3.5 shadow-sm space-y-1.5">
+            <div class="flex items-center justify-between gap-2">
+              <h4 class="text-xs font-extrabold text-slate-900">${escapeHtml(m.name)}</h4>
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-100 text-slate-700">${escapeHtml(m.horizon)}</span>
+            </div>
+            <p class="text-[11px] font-semibold text-emerald-700">${escapeHtml(m.role)} · Risk: ${escapeHtml(m.risk)}</p>
+            <p class="text-xs text-slate-600">${escapeHtml(m.why)}</p>
+            <p class="text-[10px] text-slate-500 pt-0.5"><strong>Tax Rule:</strong> ${escapeHtml(m.tax)}</p>
+          </div>
+        `).join('');
+      }
+
+      function computeGoalPlan() {
+        const name = document.getElementById('goalNameInput').value.trim() || 'My Financial Goal';
+        const risk = document.getElementById('goalRiskSelect').value;
+        const target = Math.max(10000, Number(document.getElementById('goalTargetInput').value) || 2500000);
+        const current = Math.max(0, Number(document.getElementById('goalCurrentInput').value) || 0);
+        const years = Math.max(1, Number(document.getElementById('goalYearsInput').value) || 8);
+
+        const rateMap = { conservative: 9.0, balanced: 12.0, growth: 14.5 };
+        const splitMap = {
+          conservative: [
+            { label: 'Equity SIP', pct: 35 },
+            { label: 'Debt / FD', pct: 45 },
+            { label: 'Gold / SGB', pct: 15 },
+            { label: 'Active Stocks', pct: 5 }
+          ],
+          balanced: [
+            { label: 'Equity SIP', pct: 50 },
+            { label: 'Debt / FD', pct: 25 },
+            { label: 'Gold / SGB', pct: 10 },
+            { label: 'Active Stocks', pct: 15 }
+          ],
+          growth: [
+            { label: 'Equity SIP', pct: 60 },
+            { label: 'Debt / FD', pct: 10 },
+            { label: 'Gold / SGB', pct: 10 },
+            { label: 'Active Stocks', pct: 20 }
+          ]
+        };
+
+        const annualRate = rateMap[risk] || 12.0;
+        const r = annualRate / 100 / 12;
+        const n = years * 12;
+        const fvCurrent = current * Math.pow(1 + r, n);
+        const gap = Math.max(0, target - fvCurrent);
+        const factor = (Math.pow(1 + r, n) - 1) / r * (1 + r);
+        const monthlyNeeded = gap > 0 ? Math.ceil(gap / Math.max(1, factor)) : 0;
+
+        return { name, risk, target, current, years, annualRate, monthlyNeeded, splits: splitMap[risk] };
+      }
+
+      function renderGoalPlanner() {
+        const g = computeGoalPlan();
+        document.getElementById('goalMonthlyNeeded').textContent = formatINR(g.monthlyNeeded) + ' / mo';
+        document.getElementById('goalSummaryLine').textContent =
+          'To reach ' + formatINR(g.target) + ' in ' + g.years + ' yrs at ' + g.annualRate + '% est. CAGR (starting from ' + formatINR(g.current) + ').';
+
+        renderGoalChart(g.splits);
+        document.getElementById('goalSplitCards').innerHTML = g.splits.map((s) => `
+          <div class="rounded-xl bg-slate-50 border border-slate-200 p-2">
+            <p class="text-[10px] font-semibold text-slate-500">${s.label}</p>
+            <p class="text-xs font-extrabold text-slate-900 mt-0.5">${s.pct}%</p>
+            <p class="text-[10px] font-semibold text-emerald-700">${formatINR((g.monthlyNeeded * s.pct) / 100)}/m</p>
+          </div>
+        `).join('');
+
+        const listEl = document.getElementById('savedGoalsList');
+        if (state.goals.length === 0) {
+          listEl.innerHTML = '<div class="bg-white rounded-2xl border border-slate-200 p-4 text-center text-xs text-slate-500">No saved goals yet. Tap <strong>+ Save Goal</strong> above to track one.</div>';
+          return;
+        }
+        listEl.innerHTML = state.goals.map((item) => `
+          <div class="bg-white rounded-2xl border border-slate-200 p-3.5 shadow-sm flex items-center justify-between gap-2">
+            <div>
+              <h4 class="text-xs font-extrabold text-slate-900">${escapeHtml(item.name)}</h4>
+              <p class="text-[11px] text-slate-500">Target ${formatINR(item.target)} in ${item.years} yrs · Need <strong class="text-emerald-700">${formatINR(item.monthlyNeeded)}/mo</strong></p>
+            </div>
+            <button type="button" data-delete-goal="${escapeHtml(item.id)}" class="text-xs font-semibold text-rose-600 hover:underline">Remove</button>
+          </div>
+        `).join('');
+      }
+
+      // ==================== TAB 5: MY PLAN & JOURNAL RENDERER ====================
+      function renderPlanTab() {
+        document.querySelectorAll('.plan-subtab-btn').forEach((btn) => {
+          const active = btn.dataset.planSubtab === state.planSubTab;
+          btn.classList.toggle('bg-slate-900', active);
+          btn.classList.toggle('text-white', active);
+          btn.classList.toggle('text-slate-600', !active);
+        });
+        document.getElementById('subtab-basket').classList.toggle('hidden', state.planSubTab !== 'basket');
+        document.getElementById('subtab-journal').classList.toggle('hidden', state.planSubTab !== 'journal');
+
+        if (state.planSubTab === 'journal') {
+          renderJournalAndAlerts();
+          return;
+        }
+
+        document.getElementById('budgetInput').value = state.budget;
+        document.getElementById('budgetFormattedHint').textContent = formatINR(state.budget);
+        document.getElementById('profitGoalRange').value = state.profitGoalPct;
+        document.getElementById('profitGoalPctVal').textContent = state.profitGoalPct;
+        document.getElementById('profitGoalRupeeVal').textContent = formatINR(state.budget * state.profitGoalPct / 100);
+        document.getElementById('stopLossRange').value = state.stopLossPct;
+        document.getElementById('stopLossPctVal').textContent = state.stopLossPct;
+        document.getElementById('stopLossRupeeVal').textContent = formatINR(state.budget * state.stopLossPct / 100);
+        document.getElementById('rrBadge').textContent = 'R:R 1 : ' + (state.profitGoalPct / Math.max(1, state.stopLossPct)).toFixed(2);
+
+        const entries = [];
+        let totalDeployed = 0;
+        let totalSellTarget = 0;
+        let totalExpectedProfit = 0;
+        let totalMaxRisk = 0;
+
+        Object.keys(state.plan).forEach((id) => {
+          const qty = Number(state.plan[id]) || 0;
+          if (qty <= 0) return;
+          const stock = state.stocks.find((s) => s.id === id);
+          if (!stock) return;
+          const levels = computeTradeLevels(stock);
+          const invested = qty * levels.cmp;
+          const targetVal = qty * levels.target;
+          const profit = targetVal - invested;
+          const risk = qty * levels.riskPerShare;
+          const itemTax = calcBrokerageAndTaxes(invested, targetVal, state.brokerPreset, true);
+          totalDeployed += invested;
+          totalSellTarget += targetVal;
+          totalExpectedProfit += profit;
+          totalMaxRisk += risk;
+          entries.push({ stock, qty, levels, invested, profit, risk, itemTax });
+        });
+
+        const cashLeft = state.budget - totalDeployed;
+        const basketTax = calcBrokerageAndTaxes(totalDeployed, totalSellTarget, state.brokerPreset, true);
+
+        document.getElementById('kpiDeployed').textContent = formatINR(totalDeployed);
+        const cashEl = document.getElementById('kpiCashLeft');
+        cashEl.textContent = formatINR(cashLeft);
+        cashEl.className = 'text-base font-extrabold mt-0.5 ' + (cashLeft < 0 ? 'text-rose-600' : 'text-slate-700');
+        document.getElementById('kpiExpectedProfit').textContent = '+' + formatINR(totalExpectedProfit);
+        document.getElementById('kpiMaxRisk').textContent = '-' + formatINR(totalMaxRisk);
+        document.getElementById('kpiNetStcg').textContent = (basketTax.netAfterStcg >= 0 ? '+' : '') + formatINR(basketTax.netAfterStcg);
+        document.getElementById('kpiNetLtcg').textContent = (basketTax.netAfterLtcg >= 0 ? '+' : '') + formatINR(basketTax.netAfterLtcg);
+        document.getElementById('kpiChargesHint').textContent = 'Est. brokerage + STT + charges: ' + formatINR(basketTax.totalCharges);
+        document.getElementById('planCountLabel').textContent = entries.length + (entries.length === 1 ? ' stock selected' : ' stocks selected');
+
+        renderPlanChart(entries, Math.max(0, cashLeft));
+
+        const listEl = document.getElementById('planItemsList');
+        if (entries.length === 0) {
+          listEl.innerHTML = '<div class="bg-white rounded-2xl border border-slate-200 p-6 text-center space-y-2"><p class="text-sm font-bold text-slate-800">No stocks in your plan yet</p><p class="text-xs text-slate-500">Tap <strong>Auto-Build Basket</strong> above or add stocks from the <strong>Stocks</strong> tab.</p></div>';
+          return;
+        }
+
+        const overBudgetBanner = cashLeft < 0
+          ? '<div class="rounded-xl bg-rose-50 border border-rose-200 px-3.5 py-2.5 text-xs font-semibold text-rose-700">Current quantities exceed your budget by ' + formatINR(Math.abs(cashLeft)) + '. Tap <strong>Auto-Build Basket</strong> or reduce shares below.</div>'
+          : '';
+
+        listEl.innerHTML = overBudgetBanner + entries.map((e) => {
+          const weightPct = state.budget > 0 ? ((e.invested / state.budget) * 100).toFixed(1) : '0.0';
+          return `
+            <div class="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm space-y-3">
+              <div class="flex items-start justify-between gap-2">
+                <div>
+                  <div class="flex items-center gap-1.5">
+                    <h4 class="text-sm font-extrabold text-slate-900">${escapeHtml(e.stock.nse)}</h4>
+                    <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-slate-100 text-slate-600">${weightPct}% of budget</span>
+                  </div>
+                  <p class="text-xs text-slate-500">${escapeHtml(e.stock.name)} · CMP ${formatINR(e.levels.cmp)}</p>
+                </div>
+                <button type="button" data-remove-plan="${escapeHtml(e.stock.id)}" class="text-xs font-semibold text-rose-600 hover:underline">Remove</button>
+              </div>
+
+              <div class="flex items-center justify-between bg-slate-50 rounded-xl p-2.5 border border-slate-100">
+                <div>
+                  <p class="text-[10px] font-medium text-slate-500">Capital Allocated</p>
+                  <p class="text-sm font-extrabold text-slate-900">${formatINR(e.invested)}</p>
+                </div>
+                <div class="flex items-center gap-2">
+                  <button type="button" data-qty-delta="-1" data-qty-id="${escapeHtml(e.stock.id)}" class="w-8 h-8 rounded-lg bg-white border border-slate-200 font-bold text-slate-800 hover:bg-slate-100">−</button>
+                  <span class="min-w-[44px] text-center text-sm font-extrabold text-slate-900">${e.qty} sh</span>
+                  <button type="button" data-qty-delta="1" data-qty-id="${escapeHtml(e.stock.id)}" class="w-8 h-8 rounded-lg bg-white border border-slate-200 font-bold text-slate-800 hover:bg-slate-100">+</button>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-3 gap-2 text-[11px]">
+                <div class="rounded-lg bg-blue-50/70 px-2.5 py-1.5">
+                  <span class="text-blue-700 font-semibold block">Entry</span>
+                  <strong class="text-slate-900">${formatINR(e.levels.entryLow)}–${formatINR(e.levels.cmp)}</strong>
+                </div>
+                <div class="rounded-lg bg-rose-50/70 px-2.5 py-1.5">
+                  <span class="text-rose-700 font-semibold block">Stop-Loss</span>
+                  <strong class="text-rose-700">${formatINR(e.levels.stopLoss)} (-${formatINR(e.risk)})</strong>
+                </div>
+                <div class="rounded-lg bg-emerald-50/80 px-2.5 py-1.5">
+                  <span class="text-emerald-700 font-semibold block">Net Profit (LTCG)</span>
+                  <strong class="text-emerald-700">+${formatINR(e.itemTax.netAfterLtcg)}</strong>
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      function renderJournalAndAlerts() {
+        const alertKeys = Object.keys(state.alerts);
+        const alertsEl = document.getElementById('alertsList');
+        if (alertKeys.length === 0) {
+          alertsEl.innerHTML = '<p class="text-xs text-slate-500">No price alerts saved. Open any stock in <strong>Stocks → Details</strong> to set one.</p>';
+        } else {
+          alertsEl.innerHTML = alertKeys.map((id) => {
+            const st = state.stocks.find((s) => s.id === id);
+            const al = state.alerts[id];
+            if (!st || !al) return '';
+            return `
+              <div class="rounded-xl bg-amber-50 border border-amber-200 p-3 flex items-center justify-between gap-2">
+                <div>
+                  <p class="text-xs font-extrabold text-slate-900">${escapeHtml(st.nse)} · Alert @ ${formatINR(al.price)} <span class="font-normal text-slate-500">(CMP ${formatINR(st.cmp)})</span></p>
+                  <p class="text-[11px] text-slate-600">${escapeHtml(al.note || 'Target price watch')}</p>
+                </div>
+                <button type="button" data-delete-alert="${escapeHtml(id)}" class="text-xs font-semibold text-rose-600">Clear</button>
+              </div>
+            `;
+          }).join('');
+        }
+
+        const jEl = document.getElementById('journalEntriesList');
+        if (state.journal.length === 0) {
+          jEl.innerHTML = '<div class="bg-white rounded-2xl border border-slate-200 p-5 text-center text-xs text-slate-500">No trades logged yet. Use the form above to record your trades and track net post-tax P&amp;L.</div>';
+          return;
+        }
+        jEl.innerHTML = state.journal.map((tr) => {
+          const buyVal = tr.qty * tr.buy;
+          const sellVal = tr.qty * tr.sell;
+          const calc = calcBrokerageAndTaxes(buyVal, sellVal, state.brokerPreset, true);
+          const netPnl = tr.type === 'long' ? calc.netAfterLtcg : calc.netAfterStcg;
+          const isWin = netPnl >= 0;
+          return `
+            <div class="bg-white rounded-2xl border border-slate-200 p-3.5 shadow-sm space-y-1.5">
+              <div class="flex items-center justify-between gap-2">
+                <div class="flex items-center gap-1.5">
+                  <span class="text-sm font-extrabold text-slate-900">${escapeHtml(tr.symbol)}</span>
+                  <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-100 text-slate-600">${tr.type === 'long' ? 'LTCG' : 'STCG'} · ${tr.qty} sh</span>
+                </div>
+                <span class="text-sm font-extrabold ${isWin ? 'text-emerald-600' : 'text-rose-600'}">${isWin ? '+' : ''}${formatINR(netPnl)} net</span>
+              </div>
+              <p class="text-[11px] text-slate-500">Buy ${formatINR(tr.buy)} → Exit ${formatINR(tr.sell)} · Gross ${formatINR(calc.grossProfit)} · Charges ${formatINR(calc.totalCharges)}</p>
+              ${tr.notes ? '<p class="text-xs text-slate-600">' + escapeHtml(tr.notes) + '</p>' : ''}
+              <div class="flex items-center justify-between pt-1">
+                <span class="text-[10px] text-slate-400">${escapeHtml(tr.date)}</span>
+                <button type="button" data-delete-journal="${escapeHtml(tr.id)}" class="text-[11px] font-semibold text-rose-600">Delete</button>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      function renderAll() {
+        renderHeaderAndNav();
+        if (state.activeTab === 'news') renderNewsTab();
+        if (state.activeTab === 'flows') renderFlowsTab();
+        if (state.activeTab === 'stocks') renderStocksTab();
+        if (state.activeTab === 'sip') renderSipAndGoalsTab();
+        if (state.activeTab === 'plan') renderPlanTab();
+        if (typeof lucide !== 'undefined' && lucide.createIcons) lucide.createIcons();
+      }
+
+      // ==================== STOCK DETAIL MODAL (WITH TAX, CHECKLIST & ALERTS) ====================
+      function openStockDetail(stockId) {
+        const stock = state.stocks.find((s) => s.id === stockId);
+        if (!stock) return;
+        const score = computeScore(stock);
+        const levels = computeTradeLevels(stock);
+        const t = levels.tax;
+        const checks = state.checklists[stock.id] || {};
+        const alertObj = state.alerts[stock.id] || { price: levels.entryLow, note: '' };
+
+        document.getElementById('detailHeader').innerHTML = `
+          <div>
+            <div class="flex items-center gap-2 flex-wrap">
+              <h3 class="text-base font-extrabold text-slate-900">${escapeHtml(stock.name)}</h3>
+              <span class="text-[11px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">Score ${score}/100</span>
+            </div>
+            <p class="text-xs text-slate-500 mt-0.5">NSE: <strong>${escapeHtml(stock.nse)}</strong> · BSE: <strong>${escapeHtml(stock.bse)}</strong> · ${escapeHtml(stock.sector)}</p>
+          </div>
+        `;
+
+        const checklistHtml = CHECKLIST_ITEMS.map((item) => {
+          const checked = Boolean(checks[item.key]);
+          return `
+            <label class="flex items-center gap-2.5 text-xs text-slate-700 cursor-pointer py-1">
+              <input type="checkbox" data-check-stock="${escapeHtml(stock.id)}" data-check-key="${item.key}" ${checked ? 'checked' : ''} class="w-4 h-4 rounded accent-emerald-600" />
+              <span>${escapeHtml(item.label)}</span>
+            </label>
+          `;
+        }).join('');
+
+        document.getElementById('detailBody').innerHTML = `
+          <div class="rounded-2xl bg-slate-900 text-white p-4 space-y-2">
+            <div class="flex items-center justify-between gap-2">
+              <div>
+                <p class="text-[11px] text-slate-400">Current Market Price (Editable)</p>
+                <p class="text-2xl font-extrabold">${formatINR(stock.cmp)}</p>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <input id="editCmpInput" type="number" min="1" step="0.5" value="${stock.cmp}" class="w-24 rounded-lg bg-slate-800 border border-slate-700 px-2.5 py-1.5 text-sm font-bold text-white text-right" />
+                <button id="saveCmpBtn" type="button" data-save-cmp="${escapeHtml(stock.id)}" class="px-2.5 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-600 text-xs font-bold text-white">Update</button>
+              </div>
+            </div>
+            <p class="text-[11px] text-slate-300">52-Week Range: ${formatINR(stock.low52)} – ${formatINR(stock.high52)} · Mkt Cap: ₹${Number(stock.mcapCr || 0).toLocaleString('en-IN')} Cr</p>
+          </div>
+
+          <!-- Post-Tax & Brokerage Breakdown -->
+          <div class="rounded-2xl bg-slate-50 border border-slate-200 p-3.5 space-y-2">
+            <div class="flex items-center justify-between">
+              <h4 class="text-xs font-bold uppercase tracking-wider text-slate-500">Net Profit Breakdown (${levels.planQty} sh @ +${state.profitGoalPct}%)</h4>
+              <span class="text-[11px] font-bold text-slate-700">Gross: +${formatINR(t.grossProfit)}</span>
+            </div>
+            <div class="grid grid-cols-3 gap-2 text-center text-xs">
+              <div class="rounded-xl bg-white border border-slate-200 p-2">
+                <p class="text-[10px] text-slate-500">Brokerage + STT</p>
+                <p class="font-extrabold text-rose-600">-${formatINR(t.totalCharges)}</p>
+              </div>
+              <div class="rounded-xl bg-amber-50 border border-amber-200 p-2">
+                <p class="text-[10px] text-amber-700 font-semibold">Net (STCG 20%)</p>
+                <p class="font-extrabold text-amber-700">+${formatINR(t.netAfterStcg)}</p>
+              </div>
+              <div class="rounded-xl bg-emerald-50 border border-emerald-200 p-2">
+                <p class="text-[10px] text-emerald-700 font-semibold">Net (LTCG 12.5%)</p>
+                <p class="font-extrabold text-emerald-700">+${formatINR(t.netAfterLtcg)}</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fundamentals & Order Book -->
+          <div class="rounded-xl bg-slate-50 border border-slate-200 p-3 text-xs text-slate-700 space-y-1">
+            <p><strong>ROE / ROCE / P/E:</strong> ${stock.roe}% / ${stock.roce}% / ${stock.pe}x · Div Yield ${stock.divYield}%</p>
+            <p><strong>Balance Sheet:</strong> ${escapeHtml(stock.balanceNote)}</p>
+            <p><strong>Order Book / Scale:</strong> ${escapeHtml(stock.orderBookDetail)}</p>
+            <p><strong>Institutions:</strong> FII ${stock.fiiPct}% · DII ${stock.diiPct}%</p>
+          </div>
+
+          <!-- 5-Point Technical & Entry Checklist -->
+          <div class="rounded-xl bg-slate-50 border border-slate-200 p-3 space-y-1">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">Technical &amp; Entry Checklist</h4>
+            ${checklistHtml}
+          </div>
+
+          <!-- Watchlist Price Alert -->
+          <div class="rounded-xl bg-amber-50 border border-amber-200 p-3 space-y-2">
+            <h4 class="text-xs font-bold text-amber-800">Set Price Alert Note</h4>
+            <div class="flex gap-2">
+              <input id="alertPriceInput" type="number" min="1" value="${alertObj.price}" class="w-28 rounded-lg border border-amber-300 bg-white px-2.5 py-1.5 text-xs font-bold" />
+              <input id="alertNoteInput" type="text" value="${escapeHtml(alertObj.note)}" placeholder="e.g. Buy on dip near support" class="flex-1 rounded-lg border border-amber-300 bg-white px-2.5 py-1.5 text-xs" />
+              <button type="button" data-save-alert="${escapeHtml(stock.id)}" class="px-3 py-1.5 rounded-lg bg-slate-900 text-white text-xs font-bold">Save</button>
+            </div>
+          </div>
+        `;
+
+        document.getElementById('stockDetailModal').classList.remove('hidden');
+        if (typeof lucide !== 'undefined' && lucide.createIcons) lucide.createIcons();
+      }
+
+      // ==================== NEWS KEYWORD ANALYZER ====================
+      function analyzeHeadline(text) {
+        const lower = text.toLowerCase();
+        const sectorRules = [
+          { sector: 'Capital Goods', words: ['defence', 'defense', 'hal', 'aircraft', 'missile', 'army', 'navy', 'border', 'war', 'geopolitic', 'indigen', 'bel'] },
+          { sector: 'Financial Services', words: ['rbi', 'repo', 'bank', 'credit', 'npa', 'fii', 'fpi', 'interest rate', 'liquidity', 'nbfc', 'icici', 'hdfc'] },
+          { sector: 'Construction', words: ['capex', 'infra', 'budget', 'metro', 'railway', 'rail', 'highway', 'road', 'epc', 'bridge', 'tender', 'l&t', 'rvnl'] },
+          { sector: 'Power', words: ['power', 'solar', 'renewable', 'green energy', 'grid', 'electricity', 'ntpc', 'thermal'] },
+          { sector: 'Healthcare', words: ['pharma', 'usfda', 'drug', 'hospital', 'health', 'medicine', 'specialty', 'sun pharma'] },
+          { sector: 'Information Technology', words: ['it ', 'software', 'tcs', 'infosys', 'ai ', 'cloud', 'tech', 'us bond', 'nasdaq'] },
+          { sector: 'Telecommunication', words: ['telecom', '5g', 'airtel', 'jio', 'arpu', 'tariff', 'spectrum'] },
+          { sector: 'Automobiles', words: ['auto', 'suv', 'ev', 'tractor', 'mahindra', 'maruti', 'car', 'crude'] },
+          { sector: 'Gold & Commodities', words: ['gold', 'bullion', 'goldbees', 'safe haven', 'inflation', 'mcx', 'silver'] }
+        ];
+
+        const matchedSectors = [];
+        sectorRules.forEach((rule) => {
+          if (rule.words.some((w) => lower.includes(w))) matchedSectors.push(rule.sector);
+        });
+        if (matchedSectors.length === 0) matchedSectors.push('Financial Services', 'Construction');
+
+        const bullishWords = ['boost', 'approve', 'order', 'growth', 'inflow', 'cut', 'drop', 'surge', 'record', 'win', 'expand', 'support', 'strong', 'rally', 'bullish', 'hike'];
+        const cautionWords = ['sanction', 'sell-off', 'outflow', 'delay', 'ban', 'warning', 'deficit', 'inflation', 'conflict', 'war'];
+        const sentiment = bullishWords.filter((w) => lower.includes(w)).length >= cautionWords.filter((w) => lower.includes(w)).length ? 'Bullish' : 'Caution';
+        const matchingStocks = state.stocks.filter((s) => matchedSectors.includes(s.sector));
+        return { matchedSectors, sentiment, matchingStocks };
+      }
+
+      // ==================== AUTO-BUILD PORTFOLIO PLAN ====================
+      function autoBuildPlan() {
+        const ranked = state.stocks
+          .map((s) => ({ stock: s, score: computeScore(s) }))
+          .sort((a, b) => b.score - a.score);
+
+        const picks = ranked.slice(0, 4).map((r) => r.stock).filter((s) => s.cmp <= state.budget);
+        const newPlan = {};
+
+        if (picks.length === 0) {
+          const cheapest = [...state.stocks].sort((a, b) => a.cmp - b.cmp)[0];
+          if (cheapest && cheapest.cmp <= state.budget) {
+            newPlan[cheapest.id] = Math.floor(state.budget / cheapest.cmp);
+          }
+        } else {
+          let remaining = state.budget;
+          const perStockBudget = state.budget / picks.length;
+          picks.forEach((s) => {
+            const qty = Math.floor(Math.min(remaining, perStockBudget) / s.cmp);
+            if (qty > 0) {
+              newPlan[s.id] = qty;
+              remaining -= qty * s.cmp;
+            }
+          });
+          picks.forEach((s) => {
+            if (remaining >= s.cmp) {
+              const extra = Math.floor(remaining / s.cmp);
+              if (extra > 0) {
+                newPlan[s.id] = (newPlan[s.id] || 0) + extra;
+                remaining -= extra * s.cmp;
+              }
+            }
+          });
+        }
+
+        state.plan = newPlan;
+        saveState();
+        renderAll();
+        showToast('Built diversified NSE/BSE plan for ' + formatINR(state.budget));
+      }
+
+      // ==================== EVENT LISTENERS ====================
+      function switchTab(tab) {
+        state.activeTab = tab;
+        renderAll();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      document.querySelectorAll('.nav-btn').forEach((btn) => btn.addEventListener('click', () => switchTab(btn.dataset.navTab)));
+      document.querySelectorAll('.step-pill').forEach((btn) => btn.addEventListener('click', () => switchTab(btn.dataset.stepTab)));
+      document.getElementById('headerBudgetBtn').addEventListener('click', () => { state.planSubTab = 'basket'; switchTab('plan'); });
+
+      // Theme toggle
+      document.getElementById('themeToggleBtn').addEventListener('click', () => {
+        state.darkMode = !state.darkMode;
+        saveState();
+        renderAll();
+      });
+
+      // Install guide modal
+      document.getElementById('openInstallGuideBtn').addEventListener('click', () => document.getElementById('installGuideModal').classList.remove('hidden'));
+      document.getElementById('closeInstallGuideBtn').addEventListener('click', () => document.getElementById('installGuideModal').classList.add('hidden'));
+      document.getElementById('closeInstallGuideDoneBtn').addEventListener('click', () => document.getElementById('installGuideModal').classList.add('hidden'));
+
+      // News interactions
+      document.querySelectorAll('.sample-news-chip').forEach((chip) => {
+        chip.addEventListener('click', () => { document.getElementById('newsInput').value = chip.dataset.sampleNews; });
+      });
+      document.getElementById('analyzeNewsBtn').addEventListener('click', () => {
+        const input = document.getElementById('newsInput');
+        const text = input.value.trim();
+        if (!text) { showToast('Paste a headline or tap a sample chip first'); return; }
+        const { matchedSectors, sentiment, matchingStocks } = analyzeHeadline(text);
+        state.news.unshift({
+          id: 'custom_' + Date.now(),
+          category: 'Custom',
+          date: 'Just now',
+          source: 'Your Analysis',
+          sentiment,
+          title: text.length > 90 ? text.slice(0, 87) + '...' : text,
+          summary: text,
+          sectors: matchedSectors,
+          takeaway: matchingStocks.length ? 'Matching screener stocks: ' + matchingStocks.map((s) => s.nse).join(', ') + '.' : 'Monitor institutional flows in ' + matchedSectors.join(', ') + '.'
+        });
+        saveState();
+
+        const resEl = document.getElementById('newsAnalysisResult');
+        resEl.innerHTML = `
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-emerald-900">Detected Impact: ${escapeHtml(sentiment)}</span>
+            <span class="text-[11px] font-semibold text-emerald-700">${matchedSectors.length} sector(s)</span>
+          </div>
+          <p class="text-xs text-slate-700">Sectors: <strong>${escapeHtml(matchedSectors.join(', '))}</strong></p>
+          <div class="flex flex-wrap gap-1.5">
+            ${matchingStocks.map((s) => '<button type="button" data-open-detail="' + escapeHtml(s.id) + '" class="px-2.5 py-1 rounded-lg bg-white border border-emerald-200 text-xs font-bold text-emerald-800 hover:bg-emerald-100">' + escapeHtml(s.nse) + ' (' + formatINR(s.cmp) + ')</button>').join('')}
+          </div>
+        `;
+        resEl.classList.remove('hidden');
+        input.value = '';
+        renderNewsTab();
+        showToast('Headline analyzed & added to feed');
+      });
+      document.querySelectorAll('.news-filter-btn').forEach((btn) => btn.addEventListener('click', () => { state.newsFilter = btn.dataset.newsFilter; renderNewsTab(); }));
+
+      // Flows period
+      document.getElementById('flowPeriodSelect').addEventListener('change', (e) => { state.flowPeriod = e.target.value; renderFlowsTab(); });
+
+      // Stocks filters, tax mode, brokerage & custom rules
+      document.getElementById('stockSearchInput').addEventListener('input', (e) => { state.searchQuery = e.target.value; renderStocksTab(); });
+      document.querySelectorAll('.stock-filter-btn').forEach((btn) => btn.addEventListener('click', () => { state.stockFilter = btn.dataset.stockFilter; renderStocksTab(); }));
+      document.getElementById('clearSectorFilterBtn').addEventListener('click', () => { state.sectorFilter = null; renderStocksTab(); });
+      document.querySelectorAll('.holding-mode-btn').forEach((btn) => btn.addEventListener('click', () => { state.holdingMode = btn.dataset.holdingMode; saveState(); renderStocksTab(); }));
+      document.getElementById('brokerPresetSelect').addEventListener('change', (e) => { state.brokerPreset = e.target.value; saveState(); renderAll(); });
+      document.getElementById('toggleCustomRulesBtn').addEventListener('click', () => document.getElementById('customRulesPanel').classList.toggle('hidden'));
+      document.getElementById('minRoeRange').addEventListener('input', (e) => { state.minRoe = Number(e.target.value) || 0; renderStocksTab(); });
+      document.getElementById('maxPeRange').addEventListener('input', (e) => { state.maxPe = Number(e.target.value) || 60; renderStocksTab(); });
+      document.getElementById('resetRulesBtn').addEventListener('click', () => { state.minRoe = 0; state.maxPe = 60; renderStocksTab(); showToast('Custom rules reset'); });
+
+      // Add Custom Stock modal
+      document.getElementById('openAddStockBtn').addEventListener('click', () => document.getElementById('addStockModal').classList.remove('hidden'));
+      document.getElementById('closeAddStockBtn').addEventListener('click', () => document.getElementById('addStockModal').classList.add('hidden'));
+      document.getElementById('addStockForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('newStockName').value.trim();
+        const nse = document.getElementById('newStockNse').value.trim().toUpperCase();
+        const bse = document.getElementById('newStockBse').value.trim() || 'Custom';
+        const sector = document.getElementById('newStockSector').value;
+        const cmp = Math.max(1, Number(document.getElementById('newStockCmp').value) || 100);
+        const roe = Number(document.getElementById('newStockRoe').value) || 15;
+        const de = Math.max(0, Number(document.getElementById('newStockDe').value) || 0);
+        const ob = document.getElementById('newStockOrderBook').value.trim() || 'Custom watchlist stock';
+        state.stocks.unshift({
+          id: 'custom_' + nse.toLowerCase() + '_' + Date.now(),
+          name, nse, bse, sector, cmp,
+          high52: Math.round(cmp * 1.15), low52: Math.round(cmp * 0.80),
+          mcapCr: 50000, pe: 25.0, divYield: 0.8, roe, roce: roe,
+          ttmSalesCr: 10000, ttmProfitCr: 1500, profitCagr3y: 15, debtEquity: de,
+          balanceNote: 'User-entered D/E ' + de.toFixed(2) + 'x · ROE ' + roe + '%',
+          orderBookLabel: ob.length > 22 ? ob.slice(0, 20) + '…' : ob,
+          orderBookDetail: ob,
+          hasBigOrderBook: ob.toLowerCase().includes('order') || ob.toLowerCase().includes('cr'),
+          isLowDebt: de <= 0.5, fiiPct: 15, diiPct: 15, fcfCr: 1000,
+          thesis: 'Custom NSE/BSE stock added to your personal screener.'
+        });
+        saveState();
+        document.getElementById('addStockForm').reset();
+        document.getElementById('addStockModal').classList.add('hidden');
+        renderAll();
+        showToast(nse + ' added to screener');
+      });
+
+      document.getElementById('closeStockDetailBtn').addEventListener('click', () => document.getElementById('stockDetailModal').classList.add('hidden'));
+
+      // SIP & Investment Planning sub-tabs & controls
+      document.querySelectorAll('.wealth-subtab-btn').forEach((btn) => btn.addEventListener('click', () => { state.wealthSubTab = btn.dataset.wealthSubtab; renderSipAndGoalsTab(); }));
+      document.getElementById('guideProfileSelect').addEventListener('change', (e) => { state.guideProfile = e.target.value; renderInvestGuide(); });
+      document.querySelectorAll('.mf-filter-btn').forEach((btn) => btn.addEventListener('click', () => { state.mfFilter = btn.dataset.mfFilter; renderInvestGuide(); }));
+      document.querySelectorAll('.amc-filter-btn').forEach((btn) => btn.addEventListener('click', () => { state.amcFilter = btn.dataset.amcFilter; renderInvestGuide(); }));
+      document.getElementById('sipMonthlyInput').addEventListener('input', (e) => { const v = Number(e.target.value); if (v >= 500) { state.sip.monthly = v; saveState(); renderSipAndGoalsTab(); } });
+      document.querySelectorAll('.sip-preset-btn').forEach((btn) => btn.addEventListener('click', () => { state.sip.monthly = Number(btn.dataset.sipPreset) || 10000; saveState(); renderSipAndGoalsTab(); }));
+      document.getElementById('sipReturnRange').addEventListener('input', (e) => { state.sip.rate = Number(e.target.value) || 12; saveState(); renderSipAndGoalsTab(); });
+      document.getElementById('sipYearsRange').addEventListener('input', (e) => { state.sip.years = Number(e.target.value) || 10; saveState(); renderSipAndGoalsTab(); });
+      document.getElementById('sipStepUpRange').addEventListener('input', (e) => { state.sip.stepUp = Number(e.target.value) || 0; saveState(); renderSipAndGoalsTab(); });
+      document.getElementById('sipLumpsumInput').addEventListener('input', (e) => { state.sip.lumpsum = Math.max(0, Number(e.target.value) || 0); saveState(); renderSipAndGoalsTab(); });
+
+      ['goalNameInput', 'goalRiskSelect', 'goalTargetInput', 'goalCurrentInput', 'goalYearsInput'].forEach((id) => {
+        document.getElementById(id).addEventListener('input', renderGoalPlanner);
+        document.getElementById(id).addEventListener('change', renderGoalPlanner);
+      });
+      document.getElementById('saveGoalBtn').addEventListener('click', () => {
+        const g = computeGoalPlan();
+        state.goals.unshift({ id: 'g_' + Date.now(), name: g.name, target: g.target, current: g.current, years: g.years, risk: g.risk, monthlyNeeded: g.monthlyNeeded });
+        saveState();
+        renderGoalPlanner();
+        showToast('Saved goal: ' + g.name);
+      });
+
+      // Plan & Journal sub-tabs & controls
+      document.querySelectorAll('.plan-subtab-btn').forEach((btn) => btn.addEventListener('click', () => { state.planSubTab = btn.dataset.planSubtab; renderPlanTab(); }));
+      document.getElementById('budgetInput').addEventListener('input', (e) => { const v = Number(e.target.value); if (v >= 1000) { state.budget = v; saveState(); renderHeaderAndNav(); renderPlanTab(); } });
+      document.querySelectorAll('.budget-preset-btn').forEach((btn) => btn.addEventListener('click', () => { state.budget = Number(btn.dataset.budgetPreset) || 100000; saveState(); renderHeaderAndNav(); renderPlanTab(); }));
+      document.getElementById('profitGoalRange').addEventListener('input', (e) => { state.profitGoalPct = Number(e.target.value) || 15; saveState(); renderHeaderAndNav(); renderPlanTab(); });
+      document.getElementById('stopLossRange').addEventListener('input', (e) => { state.stopLossPct = Number(e.target.value) || 7; saveState(); renderHeaderAndNav(); renderPlanTab(); });
+      document.getElementById('autoBuildPlanBtn').addEventListener('click', autoBuildPlan);
+      document.getElementById('clearPlanBtn').addEventListener('click', () => { state.plan = {}; saveState(); renderAll(); showToast('Plan cleared'); });
+
+      document.getElementById('journalForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const symbol = document.getElementById('jSymbol').value.trim().toUpperCase();
+        const type = document.getElementById('jType').value;
+        const qty = Math.max(1, Number(document.getElementById('jQty').value) || 1);
+        const buy = Math.max(1, Number(document.getElementById('jBuy').value) || 1);
+        const sell = Math.max(1, Number(document.getElementById('jSell').value) || 1);
+        const notes = document.getElementById('jNotes').value.trim();
+        state.journal.unshift({ id: 'tr_' + Date.now(), symbol, type, qty, buy, sell, notes, date: 'Today' });
+        saveState();
+        document.getElementById('journalForm').reset();
+        renderJournalAndAlerts();
+        showToast('Trade logged for ' + symbol);
+      });
+
+      // Delegated clicks & checkbox changes
+      document.addEventListener('change', (e) => {
+        const chk = e.target.closest('[data-check-stock]');
+        if (chk) {
+          const sid = chk.dataset.checkStock;
+          const key = chk.dataset.checkKey;
+          if (!state.checklists[sid]) state.checklists[sid] = {};
+          state.checklists[sid][key] = chk.checked;
+          saveState();
+        }
+      });
+
+      document.addEventListener('click', (e) => {
+        const jumpBtn = e.target.closest('[data-jump-sector]');
+        if (jumpBtn) { state.sectorFilter = jumpBtn.dataset.jumpSector; state.stockFilter = 'All'; switchTab('stocks'); return; }
+
+        const trySipBtn = e.target.closest('[data-try-sip-rate]');
+        if (trySipBtn) {
+          state.sip.rate = Number(trySipBtn.dataset.trySipRate) || 12;
+          state.wealthSubTab = 'sip-calc';
+          saveState();
+          renderSipAndGoalsTab();
+          showToast('Loaded ' + state.sip.rate + '% est. return for ' + trySipBtn.dataset.trySipName);
+          return;
+        }
+
+        const detailBtn = e.target.closest('[data-open-detail]');
+        if (detailBtn) { openStockDetail(detailBtn.dataset.openDetail); return; }
+
+        const saveCmpBtn = e.target.closest('[data-save-cmp]');
+        if (saveCmpBtn) {
+          const id = saveCmpBtn.dataset.saveCmp;
+          const inp = document.getElementById('editCmpInput');
+          const newPrice = Number(inp && inp.value);
+          if (newPrice > 0) {
+            const st = state.stocks.find((s) => s.id === id);
+            if (st) { st.cmp = newPrice; saveState(); openStockDetail(id); renderAll(); showToast(st.nse + ' updated to ' + formatINR(newPrice)); }
+          }
+          return;
+        }
+
+        const saveAlertBtn = e.target.closest('[data-save-alert]');
+        if (saveAlertBtn) {
+          const id = saveAlertBtn.dataset.saveAlert;
+          const price = Number(document.getElementById('alertPriceInput').value) || 0;
+          const note = document.getElementById('alertNoteInput').value.trim();
+          if (price > 0) {
+            state.alerts[id] = { price, note };
+            saveState();
+            renderAll();
+            showToast('Price alert saved @ ' + formatINR(price));
+          }
+          return;
+        }
+
+        const delAlertBtn = e.target.closest('[data-delete-alert]');
+        if (delAlertBtn) { delete state.alerts[delAlertBtn.dataset.deleteAlert]; saveState(); renderJournalAndAlerts(); return; }
+
+        const delJournalBtn = e.target.closest('[data-delete-journal]');
+        if (delJournalBtn) { state.journal = state.journal.filter((t) => t.id !== delJournalBtn.dataset.deleteJournal); saveState(); renderJournalAndAlerts(); return; }
+
+        const delGoalBtn = e.target.closest('[data-delete-goal]');
+        if (delGoalBtn) { state.goals = state.goals.filter((g) => g.id !== delGoalBtn.dataset.deleteGoal); saveState(); renderGoalPlanner(); return; }
+
+        const togglePlanBtn = e.target.closest('[data-toggle-plan]');
+        if (togglePlanBtn) {
+          const id = togglePlanBtn.dataset.togglePlan;
+          const stock = state.stocks.find((s) => s.id === id);
+          if (!stock) return;
+          if ((state.plan[id] || 0) > 0) { delete state.plan[id]; showToast(stock.nse + ' removed from plan'); }
+          else { const qty = Math.max(1, Math.floor((state.budget * 0.25) / Math.max(1, stock.cmp))); state.plan[id] = qty; showToast(stock.nse + ' added (' + qty + ' shares)'); }
+          saveState();
+          renderAll();
+          return;
+        }
+
+        const removePlanBtn = e.target.closest('[data-remove-plan]');
+        if (removePlanBtn) { delete state.plan[removePlanBtn.dataset.removePlan]; saveState(); renderAll(); return; }
+
+        const qtyBtn = e.target.closest('[data-qty-delta]');
+        if (qtyBtn) {
+          const id = qtyBtn.dataset.qtyId;
+          const next = Math.max(0, (state.plan[id] || 0) + (Number(qtyBtn.dataset.qtyDelta) || 0));
+          if (next === 0) delete state.plan[id];
+          else state.plan[id] = next;
+          saveState();
+          renderAll();
+          return;
+        }
+      });
+
+      ['stockDetailModal', 'addStockModal', 'installGuideModal'].forEach((modalId) => {
+        document.getElementById(modalId).addEventListener('click', (e) => { if (e.target.id === modalId) e.target.classList.add('hidden'); });
+      });
+
+      // Auto-sync daily_data.json when hosted on GitHub Pages / Netlify / Vercel
+      async function syncDailyData() {
+        try {
+          const host = window.location.hostname || '';
+          const isHosted = window.location.protocol === 'https:' &&
+            (host.endsWith('github.io') || host.endsWith('netlify.app') || host.endsWith('vercel.app'));
+          if (!isHosted) return;
+          const res = await fetch('./daily_data.json?t=' + Date.now(), { cache: 'no-store' });
+          if (!res.ok) return;
+          const data = await res.json();
+          if (data && data.prices && typeof data.prices === 'object') {
+            state.stocks.forEach((st) => {
+              const upd = data.prices[st.nse];
+              if (upd && Number(upd.cmp) > 0) {
+                st.cmp = Number(upd.cmp);
+                if (Number(upd.high52) > 0) st.high52 = Number(upd.high52);
+                if (Number(upd.low52) > 0) st.low52 = Number(upd.low52);
+              }
+            });
+          }
+          if (data && Array.isArray(data.news) && data.news.length) {
+            const existingTitles = new Set(state.news.map((n) => n.title));
+            const fresh = data.news.filter((n) => n.title && !existingTitles.has(n.title));
+            if (fresh.length) state.news = [...fresh, ...state.news].slice(0, 25);
+          }
+          renderAll();
+          if (data && data.updatedAt) {
+            showToast('Synced live data · ' + data.updatedAt);
+          }
+        } catch (e) {
+          // Silently keep built-in snapshot if offline
+        }
+      }
+
+      loadState();
+      renderAll();
+      syncDailyData();
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "updatedAt": "2026-11-20 16:00 IST",
+  "source": "GitHub Actions Daily Updater (Yahoo Finance NSE + Public RSS)",
+  "prices": {
+    "ICICIBANK": { "cmp": 1640, "high52": 1645, "low52": 1188 },
+    "LT": { "cmp": 4209, "high52": 4440, "low52": 3288 },
+    "HAL": { "cmp": 4809, "high52": 5150, "low52": 3479 },
+    "TCS": { "cmp": 2376, "high52": 3350, "low52": 1976 },
+    "M&M": { "cmp": 3545, "high52": 3840, "low52": 2743 },
+    "BHARTIARTL": { "cmp": 2162, "high52": 2172, "low52": 1726 },
+    "SUNPHARMA": { "cmp": 1885, "high52": 2048, "low52": 1584 },
+    "NTPC": { "cmp": 322, "high52": 414, "low52": 292 },
+    "GOLDBEES": { "cmp": 102.21, "high52": 148.14, "low52": 100.01 },
+    "RVNL": { "cmp": 191, "high52": 401, "low52": 178 }
+  },
+  "news": []
+}
