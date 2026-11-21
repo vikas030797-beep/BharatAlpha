@@ -315,7 +315,8 @@
 
       <!-- Quick Screener Filter Pills -->
       <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
-        <button type="button" data-stock-filter="All" class="stock-filter-btn shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold transition">All (10)</button>
+        <button type="button" data-stock-filter="All" class="stock-filter-btn shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold transition">All (21)</button>
+        <button type="button" data-stock-filter="Holdings" class="stock-filter-btn shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold transition">My Holdings</button>
         <button type="button" data-stock-filter="Gold" class="stock-filter-btn shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold transition">Gold &amp; ETFs</button>
         <button type="button" data-stock-filter="TopScore" class="stock-filter-btn shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold transition">Score 80+</button>
         <button type="button" data-stock-filter="DebtFree" class="stock-filter-btn shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold transition">Low / Zero Debt</button>
@@ -893,11 +894,11 @@
         { sector: 'Financial Services', novFlow: 43102, octFlow: -883, hasStocks: true, note: '51.1% of all Nov 1–15 FPI buying' },
         { sector: 'Telecommunication', novFlow: 7570, octFlow: 11065, hasStocks: true, note: 'Steady foreign accumulation' },
         { sector: 'Automobiles', novFlow: 7551, octFlow: -1098, hasStocks: true, note: 'Sharp ₹8,649 Cr fortnightly swing' },
-        { sector: 'Consumer Services', novFlow: 6519, octFlow: -662, hasStocks: false, note: 'Domestic demand turnaround' },
+        { sector: 'Consumer Services', novFlow: 6519, octFlow: -662, hasStocks: true, note: 'Domestic demand turnaround' },
         { sector: 'Information Technology', novFlow: 5080, octFlow: 10915, hasStocks: true, note: 'Continued net buying' },
-        { sector: 'FMCG', novFlow: 3042, octFlow: -1559, hasStocks: false, note: 'Reversed October outflows' },
+        { sector: 'FMCG', novFlow: 3042, octFlow: -1559, hasStocks: true, note: 'Reversed October outflows' },
         { sector: 'Construction', novFlow: 2929, octFlow: -516, hasStocks: true, note: 'Capex & infra EPC inflows' },
-        { sector: 'Oil & Gas', novFlow: 2036, octFlow: -970, hasStocks: false, note: 'Benefiting from lower crude' },
+        { sector: 'Oil & Gas', novFlow: 2036, octFlow: -970, hasStocks: true, note: 'Benefiting from lower crude' },
         { sector: 'Healthcare', novFlow: 998, octFlow: -57, hasStocks: true, note: 'Turned positive on US specialty' },
         { sector: 'Power', novFlow: 705, octFlow: -765, hasStocks: true, note: 'Renewables & grid expansion' },
         { sector: 'Capital Goods', novFlow: -3781, octFlow: -825, hasStocks: true, note: 'FPI profit-booking; DIIs accumulating' }
@@ -952,6 +953,34 @@
 
       const DEFAULT_STOCKS = [
         {
+          id: 'hdfcbank',
+          name: 'HDFC Bank Ltd',
+          nse: 'HDFCBANK',
+          bse: '500180',
+          sector: 'Financial Services',
+          cmp: 811,
+          high52: 990,
+          low52: 750,
+          mcapCr: 1251606,
+          pe: 15.6,
+          divYield: 1.61,
+          roe: 14.8,
+          roce: 7.02,
+          ttmSalesCr: 340000,
+          ttmProfitCr: 74000,
+          profitCagr3y: 16,
+          debtEquity: null,
+          balanceNote: 'P/E 15.6x · Mkt Cap ₹12.52L Cr · Div Yield 1.61% · ROCE 7.02%',
+          orderBookLabel: 'India #1 Private Bank',
+          orderBookDetail: 'Nifty 50 heavyweight in #1 FPI-buying sector (+₹43,102 Cr Nov 1–15, 2026).',
+          hasBigOrderBook: false,
+          isLowDebt: true,
+          fiiPct: 48.2,
+          diiPct: 34.1,
+          fcfCr: 0,
+          thesis: 'Attractive 15.6x P/E valuation for India’s largest private bank amid heavy FPI inflows into financials.'
+        },
+        {
           id: 'icicibank',
           name: 'ICICI Bank Ltd',
           nse: 'ICICIBANK',
@@ -962,78 +991,106 @@
           low52: 1188,
           mcapCr: 1178327,
           pe: 20.0,
-          divYield: 0.73,
+          divYield: 0.67,
           roe: 15.9,
-          roce: 7.18,
-          ttmSalesCr: 206190,
-          ttmProfitCr: 62827,
-          profitCagr3y: 17,
+          roce: 7.8,
+          ttmSalesCr: 235000,
+          ttmProfitCr: 54000,
+          profitCagr3y: 24,
           debtEquity: null,
-          balanceNote: 'Net NPA 0.30% · NIM 4.18% · CAR 16.68% · CASA 36.1%',
-          orderBookLabel: '₹20.92L Cr Deposits',
-          orderBookDetail: 'Deposits ₹20,91,539 Cr (Sep 2026), AAA-rated private banking franchise',
+          balanceNote: 'Net NPA 0.30% · NIM 4.18% · P/E 20.0x · ROE 15.9%',
+          orderBookLabel: 'Best-in-Class Asset Quality',
+          orderBookDetail: 'Trading near 52W high (₹1,645) with 0.30% Net NPA and 4.18% NIM.',
           hasBigOrderBook: false,
           isLowDebt: true,
-          fiiPct: 34.68,
-          diiPct: 41.77,
-          fcfCr: 63778,
-          thesis: '#1 beneficiary of ₹43,102 Cr FPI inflow into Financial Services with pristine 0.30% Net NPA.'
+          fiiPct: 45.6,
+          diiPct: 44.2,
+          fcfCr: 0,
+          thesis: 'Consistent earnings compounder leading private banks on asset quality and institutional inflows.'
         },
         {
-          id: 'lt',
-          name: 'Larsen & Toubro Ltd',
-          nse: 'LT',
-          bse: '500510',
-          sector: 'Construction',
-          cmp: 4209,
-          high52: 4440,
-          low52: 3288,
-          mcapCr: 579137,
-          pe: 30.6,
-          divYield: 0.90,
-          roe: 15.9,
-          roce: 14.6,
-          ttmSalesCr: 300904,
-          ttmProfitCr: 20895,
-          profitCagr3y: 17,
-          debtEquity: 1.24,
-          balanceNote: 'D/E 1.24 (incl. L&T Finance) · FY26 FCF ₹12,272 Cr · OPM 12%',
-          orderBookLabel: '₹8.53L Cr Order Book',
-          orderBookDetail: 'Record ₹8,53,000 Cr order book (2.83x TTM sales); won Noida Metro 15.1 km viaduct Nov 2026',
-          hasBigOrderBook: true,
-          isLowDebt: false,
-          fiiPct: 19.22,
-          diiPct: 42.85,
-          fcfCr: 12272,
-          thesis: 'Flagship India capex proxy backed by ₹12.2L Cr Union Budget capex & +₹2,929 Cr FPI construction inflows.'
-        },
-        {
-          id: 'hal',
-          name: 'Hindustan Aeronautics Ltd',
-          nse: 'HAL',
-          bse: '541154',
-          sector: 'Capital Goods',
-          cmp: 4809,
-          high52: 5150,
-          low52: 3479,
-          mcapCr: 321614,
-          pe: 33.5,
-          divYield: 0.94,
-          roe: 24.0,
-          roce: 32.0,
-          ttmSalesCr: 34770,
-          ttmProfitCr: 9588,
-          profitCagr3y: 16,
-          debtEquity: 0.00,
-          balanceNote: 'Virtually Debt-Free (₹10 Cr debt vs ₹43,999 Cr equity) · OPM 29%',
-          orderBookLabel: '₹2.55L Cr Order Book',
-          orderBookDetail: '₹2,54,538 Cr backlog (~7.3x TTM sales; 7–8 yrs visibility incl. 97 LCA Mk1A aircraft)',
-          hasBigOrderBook: true,
+          id: 'sbin',
+          name: 'State Bank of India',
+          nse: 'SBIN',
+          bse: '500112',
+          sector: 'Financial Services',
+          cmp: 1165,
+          high52: 1235,
+          low52: 934,
+          mcapCr: 1075477,
+          pe: 12.6,
+          divYield: 1.49,
+          roe: 15.4,
+          roce: 6.13,
+          ttmSalesCr: 485000,
+          ttmProfitCr: 78000,
+          profitCagr3y: 28,
+          debtEquity: null,
+          balanceNote: 'P/E 12.6x · ROE 15.4% · ROCE 6.13% · Div Yield 1.49%',
+          orderBookLabel: 'India #1 PSU Bank',
+          orderBookDetail: '₹10.75L Cr market cap banking bellwether at 12.6x P/E with steady credit growth.',
+          hasBigOrderBook: false,
           isLowDebt: true,
-          fiiPct: 9.42,
-          diiPct: 12.47,
-          fcfCr: 8438,
-          thesis: 'Debt-free defence leader with 24% ROE and steady DII accumulation (up from 8.64% to 12.47%).'
+          fiiPct: 11.2,
+          diiPct: 24.5,
+          fcfCr: 0,
+          thesis: 'Value leader in Financial Services at 12.6x P/E with 15.4% ROE and strong domestic deposit franchise.'
+        },
+        {
+          id: 'bajfinance',
+          name: 'Bajaj Finance Ltd',
+          nse: 'BAJFINANCE',
+          bse: '500034',
+          sector: 'Financial Services',
+          cmp: 1122,
+          high52: 1178,
+          low52: 788,
+          mcapCr: 711359,
+          pe: 32.5,
+          divYield: 0.48,
+          roe: 18.2,
+          roce: 10.9,
+          ttmSalesCr: 74000,
+          ttmProfitCr: 18500,
+          profitCagr3y: 25,
+          debtEquity: null,
+          balanceNote: 'P/E 32.5x · ROE 18.2% · ROCE 10.9% · Div Yield 0.48%',
+          orderBookLabel: 'India #1 Consumer NBFC',
+          orderBookDetail: 'Strong retail & digital lending franchise benefiting from rate-cycle tailwinds.',
+          hasBigOrderBook: false,
+          isLowDebt: false,
+          fiiPct: 21.4,
+          diiPct: 14.8,
+          fcfCr: 0,
+          thesis: 'High-ROE (18.2%) retail credit compounder with strong momentum near its 52W high.'
+        },
+        {
+          id: 'reliance',
+          name: 'Reliance Industries Ltd',
+          nse: 'RELIANCE',
+          bse: '500325',
+          sector: 'Oil & Gas',
+          cmp: 1378,
+          high52: 1612,
+          low52: 1152,
+          mcapCr: 1865000,
+          pe: 22.7,
+          divYield: 0.44,
+          roe: 8.91,
+          roce: 10.3,
+          ttmSalesCr: 940000,
+          ttmProfitCr: 79000,
+          profitCagr3y: 12,
+          debtEquity: 0.41,
+          balanceNote: 'P/E 22.7x · ROE 8.91% · ROCE 10.3% · Div Yield 0.44%',
+          orderBookLabel: 'Jio + Retail + New Energy',
+          orderBookDetail: 'India’s largest conglomerate spanning Jio 5G, Reliance Retail, O2C, and green energy.',
+          hasBigOrderBook: false,
+          isLowDebt: true,
+          fiiPct: 21.8,
+          diiPct: 17.5,
+          fcfCr: 28000,
+          thesis: 'Core Nifty 50 anchor trading 14.5% below its 52W high with telecom, retail, and O2C tailwinds.'
         },
         {
           id: 'tcs',
@@ -1049,19 +1106,187 @@
           divYield: 2.69,
           roe: 51.8,
           roce: 63.0,
-          ttmSalesCr: 283248,
-          ttmProfitCr: 51858,
-          profitCagr3y: 8,
+          ttmSalesCr: 262000,
+          ttmProfitCr: 52000,
+          profitCagr3y: 10,
           debtEquity: 0.10,
-          balanceNote: 'Nearly Debt-Free (D/E 0.10) · FY26 FCF ₹48,013 Cr · OPM 26%',
-          orderBookLabel: '51.8% ROE · 15.7x P/E',
-          orderBookDetail: 'India\'s largest IT services leader with 2.69% dividend yield & +₹5,080 Cr Nov FPI IT inflows',
+          balanceNote: 'ROE 51.8% · ROCE 63.0% · D/E 0.10 · P/E 15.7x · Div 2.69%',
+          orderBookLabel: 'Global AI & Cloud TCV',
+          orderBookDetail: 'Debt-free cash machine (D/E 0.10) trading well below 52W high ₹3,350.',
+          hasBigOrderBook: true,
+          isLowDebt: true,
+          fiiPct: 12.6,
+          diiPct: 11.4,
+          fcfCr: 48000,
+          thesis: 'Rare 15.7x P/E entry on a 51.8% ROE, 63% ROCE debt-free IT bellwether with 2.69% dividend yield.'
+        },
+        {
+          id: 'infy',
+          name: 'Infosys Ltd',
+          nse: 'INFY',
+          bse: '500209',
+          sector: 'Information Technology',
+          cmp: 1098,
+          high52: 1728,
+          low52: 980,
+          mcapCr: 456000,
+          pe: 14.1,
+          divYield: 4.37,
+          roe: 31.9,
+          roce: 40.0,
+          ttmSalesCr: 165000,
+          ttmProfitCr: 28500,
+          profitCagr3y: 9,
+          debtEquity: 0.09,
+          balanceNote: 'P/E 14.1x · ROE 31.9% · ROCE 40.0% · Div Yield 4.37%',
+          orderBookLabel: 'Enterprise AI & Digital Deals',
+          orderBookDetail: 'Trading near 52W low (₹980) with 4.37% dividend yield and strong FPI buying in IT.',
+          hasBigOrderBook: true,
+          isLowDebt: true,
+          fiiPct: 33.4,
+          diiPct: 37.8,
+          fcfCr: 27000,
+          thesis: 'Deep value IT leader at 14.1x P/E, 31.9% ROE, and 4.37% dividend yield with +₹5,080 Cr sector FPI flows.'
+        },
+        {
+          id: 'hcltech',
+          name: 'HCL Technologies Ltd',
+          nse: 'HCLTECH',
+          bse: '532281',
+          sector: 'Information Technology',
+          cmp: 1344,
+          high52: 1780,
+          low52: 1030,
+          mcapCr: 364700,
+          pe: 19.2,
+          divYield: 4.02,
+          roe: 24.5,
+          roce: 30.4,
+          ttmSalesCr: 118000,
+          ttmProfitCr: 17600,
+          profitCagr3y: 11,
+          debtEquity: 0.08,
+          balanceNote: 'P/E 19.2x · ROCE 30.4% · Div Yield 4.02% · Low Debt',
+          orderBookLabel: 'ER&D + Software Products',
+          orderBookDetail: 'High-dividend (4.02%) tier-1 IT exporter with recurring software & engineering revenue.',
           hasBigOrderBook: false,
           isLowDebt: true,
-          fiiPct: 9.01,
-          diiPct: 13.57,
-          fcfCr: 48013,
-          thesis: 'Rare value valuation at 15.7x P/E with 51.8% ROE, massive cash flow, and steady FPI/DII IT buying.'
+          fiiPct: 19.1,
+          diiPct: 15.8,
+          fcfCr: 18500,
+          thesis: 'Strong 30.4% ROCE and 4.02% dividend yield providing defensive income + IT recovery upside.'
+        },
+        {
+          id: 'bhartiartl',
+          name: 'Bharti Airtel Ltd',
+          nse: 'BHARTIARTL',
+          bse: '532454',
+          sector: 'Telecommunication',
+          cmp: 2162,
+          high52: 2172,
+          low52: 1726,
+          mcapCr: 1349250,
+          pe: 40.4,
+          divYield: 1.11,
+          roe: 20.3,
+          roce: 17.6,
+          ttmSalesCr: 178000,
+          ttmProfitCr: 28000,
+          profitCagr3y: 35,
+          debtEquity: 1.45,
+          balanceNote: 'ROE 20.3% · ROCE 17.6% · Mkt Cap ₹13.49L Cr · Near 52W High',
+          orderBookLabel: '5G ARPU & Broadband Growth',
+          orderBookDetail: 'Telecom is #2 FPI-buying sector (+₹7,570 Cr Nov 1–15; +₹11,065 Cr Oct 16–31).',
+          hasBigOrderBook: false,
+          isLowDebt: false,
+          fiiPct: 24.5,
+          diiPct: 19.8,
+          fcfCr: 31000,
+          thesis: 'Consistent FPI favorite trading right at 52W high on rising 5G ARPU and free cash flow.'
+        },
+        {
+          id: 'lt',
+          name: 'Larsen & Toubro Ltd',
+          nse: 'LT',
+          bse: '500510',
+          sector: 'Construction',
+          cmp: 4209,
+          high52: 4440,
+          low52: 3288,
+          mcapCr: 579137,
+          pe: 30.6,
+          divYield: 0.81,
+          roe: 15.9,
+          roce: 14.5,
+          ttmSalesCr: 258000,
+          ttmProfitCr: 16200,
+          profitCagr3y: 18,
+          debtEquity: 1.15,
+          balanceNote: 'Order Book ₹8.53L Cr · P/E 30.6x · ROE 15.9%',
+          orderBookLabel: 'Record ₹8.53L Cr Order Book',
+          orderBookDetail: 'Multi-year revenue visibility across India infra, metros, defence, and Middle East EPC.',
+          hasBigOrderBook: true,
+          isLowDebt: false,
+          fiiPct: 23.1,
+          diiPct: 40.2,
+          fcfCr: 19000,
+          thesis: 'India’s premier infrastructure EPC compounder backed by a record ₹8.53 lakh crore order book.'
+        },
+        {
+          id: 'hal',
+          name: 'Hindustan Aeronautics Ltd',
+          nse: 'HAL',
+          bse: '541154',
+          sector: 'Capital Goods',
+          cmp: 4809,
+          high52: 5150,
+          low52: 3479,
+          mcapCr: 321614,
+          pe: 33.5,
+          divYield: 0.75,
+          roe: 24.0,
+          roce: 31.2,
+          ttmSalesCr: 32250,
+          ttmProfitCr: 8400,
+          profitCagr3y: 22,
+          debtEquity: 0.00,
+          balanceNote: 'Zero Debt (D/E 0.00) · ROE 24.0% · Order Book ₹2.55L Cr',
+          orderBookLabel: '₹2.55L Cr Defence Order Book',
+          orderBookDetail: 'FY25–26 revenue ₹32,250 Cr; Tejas Mk1A, LCH Prachand & aero-engine backlog.',
+          hasBigOrderBook: true,
+          isLowDebt: true,
+          fiiPct: 12.1,
+          diiPct: 9.8,
+          fcfCr: 7200,
+          thesis: 'Zero-debt defence aerospace monopoly with 24% ROE and ₹2.55L Cr multi-year order backlog.'
+        },
+        {
+          id: 'bel',
+          name: 'Bharat Electronics Ltd',
+          nse: 'BEL',
+          bse: '500049',
+          sector: 'Capital Goods',
+          cmp: 402,
+          high52: 435,
+          low52: 265,
+          mcapCr: 293853,
+          pe: 45.9,
+          divYield: 0.62,
+          roe: 26.8,
+          roce: 36.4,
+          ttmSalesCr: 23800,
+          ttmProfitCr: 5200,
+          profitCagr3y: 25,
+          debtEquity: 0.00,
+          balanceNote: 'Zero Debt · ROCE 36.4% · Order Book ₹73,882 Cr · Div 0.62%',
+          orderBookLabel: '₹73,882 Cr Defence Electronics',
+          orderBookDetail: 'Radars, EW suites, missile electronics & QRSAM pipeline with 36.4% ROCE.',
+          hasBigOrderBook: true,
+          isLowDebt: true,
+          fiiPct: 17.6,
+          diiPct: 21.4,
+          fcfCr: 4100,
+          thesis: 'Debt-free defence electronics leader compounding on indigenous radar & missile orders.'
         },
         {
           id: 'mm',
@@ -1079,45 +1304,45 @@
           roce: 15.1,
           ttmSalesCr: 158000,
           ttmProfitCr: 14500,
-          profitCagr3y: 18,
-          debtEquity: 0.85,
-          balanceNote: 'ROE 20.3% · Book Value ₹787 · OPM ~20% · Reasonable 22x P/E',
-          orderBookLabel: 'SUV & Tractor Leader',
-          orderBookDetail: 'Leading Indian SUV & tractor franchise riding +₹7,551 Cr Nov 1–15 FPI Auto inflows',
+          profitCagr3y: 26,
+          debtEquity: 1.28,
+          balanceNote: 'P/E 22.0x · ROE 20.3% · ROCE 15.1% · Div Yield 0.93%',
+          orderBookLabel: 'SUV & Tractor Market Leader',
+          orderBookDetail: 'Autos saw a massive +₹7,551 Cr Nov 1–15 FPI buying swing.',
           hasBigOrderBook: false,
           isLowDebt: false,
-          fiiPct: 36.0,
-          diiPct: 26.0,
-          fcfCr: 9200,
-          thesis: 'Strong 20.3% ROE auto leader benefiting from the sharp ₹8,649 Cr fortnightly FPI Auto swing.'
+          fiiPct: 41.2,
+          diiPct: 26.9,
+          fcfCr: 11200,
+          thesis: 'Reasonable 22x P/E with 20.3% ROE, strong SUV/EV demand, and sharp FPI sector accumulation.'
         },
         {
-          id: 'bhartiartl',
-          name: 'Bharti Airtel Ltd',
-          nse: 'BHARTIARTL',
-          bse: '532454',
-          sector: 'Telecommunication',
-          cmp: 2162,
-          high52: 2172,
-          low52: 1726,
-          mcapCr: 1349250,
-          pe: 40.4,
-          divYield: 1.11,
-          roe: 20.3,
-          roce: 17.6,
-          ttmSalesCr: 175000,
-          ttmProfitCr: 28000,
-          profitCagr3y: 24,
-          debtEquity: 1.10,
-          balanceNote: 'ROE 20.3% · ROCE 17.6% · Trading near 52W High (₹2,172)',
-          orderBookLabel: '#2 FPI Sector (+₹7.57K Cr)',
-          orderBookDetail: 'Consistent foreign buying (+₹11,065 Cr late Oct & +₹7,570 Cr early Nov 2026)',
+          id: 'maruti',
+          name: 'Maruti Suzuki India Ltd',
+          nse: 'MARUTI',
+          bse: '532500',
+          sector: 'Automobiles',
+          cmp: 14011,
+          high52: 17372,
+          low52: 10984,
+          mcapCr: 440500,
+          pe: 32.8,
+          divYield: 1.00,
+          roe: 16.5,
+          roce: 18.9,
+          ttmSalesCr: 152000,
+          ttmProfitCr: 14200,
+          profitCagr3y: 29,
+          debtEquity: 0.01,
+          balanceNote: 'Zero Debt · P/E 32.8x · ROCE 18.9% · Div Yield 1.00%',
+          orderBookLabel: 'India #1 Passenger Vehicles',
+          orderBookDetail: 'Trading 19% off 52W high ₹17,372 with debt-free balance sheet and CNG/hybrid mix.',
           hasBigOrderBook: false,
-          isLowDebt: false,
-          fiiPct: 25.0,
-          diiPct: 19.0,
-          fcfCr: 22000,
-          thesis: 'Top momentum telecom compounder with 20.3% ROE and back-to-back strong FPI inflows.'
+          isLowDebt: true,
+          fiiPct: 19.4,
+          diiPct: 18.9,
+          fcfCr: 9800,
+          thesis: 'Debt-free passenger vehicle leader benefiting from rural recovery and +₹7,551 Cr Auto FPI inflows.'
         },
         {
           id: 'sunpharma',
@@ -1130,22 +1355,106 @@
           low52: 1584,
           mcapCr: 452251,
           pe: 36.8,
-          divYield: 0.85,
+          divYield: 0.72,
           roe: 16.0,
-          roce: 20.5,
-          ttmSalesCr: 61631,
-          ttmProfitCr: 10987,
-          profitCagr3y: 13,
+          roce: 18.4,
+          ttmSalesCr: 54000,
+          ttmProfitCr: 11800,
+          profitCagr3y: 19,
           debtEquity: 0.04,
-          balanceNote: 'Almost Debt-Free (D/E 0.04) · FY26 FCF ₹8,906 Cr · OPM 29%',
-          orderBookLabel: '27 Global Specialty Drugs',
-          orderBookDetail: 'India\'s #1 pharma company with 27 global specialty products across dermatology & ophthalmology',
+          balanceNote: 'Nearly Debt-Free (D/E 0.04) · ROE 16.0% · P/E 36.8x',
+          orderBookLabel: 'US Specialty + India #1 Pharma',
+          orderBookDetail: 'Healthcare FPI flows turned positive (+₹998 Cr) on global specialty drug growth.',
           hasBigOrderBook: false,
           isLowDebt: true,
-          fiiPct: 14.36,
-          diiPct: 22.27,
-          fcfCr: 8906,
-          thesis: 'Defensive high-margin compounder benefiting from +₹998 Cr FPI healthcare rotation.'
+          fiiPct: 18.0,
+          diiPct: 18.5,
+          fcfCr: 9400,
+          thesis: 'Defensive, cash-rich pharma leader (D/E 0.04) with high-margin global specialty portfolio.'
+        },
+        {
+          id: 'itc',
+          name: 'ITC Ltd',
+          nse: 'ITC',
+          bse: '500875',
+          sector: 'FMCG',
+          cmp: 299,
+          high52: 411,
+          low52: 253,
+          mcapCr: 374830,
+          pe: 19.9,
+          divYield: 4.85,
+          roe: 28.4,
+          roce: 38.9,
+          ttmSalesCr: 74000,
+          ttmProfitCr: 20500,
+          profitCagr3y: 11,
+          debtEquity: 0.00,
+          balanceNote: 'Zero Debt · P/E 19.9x · ROCE 38.9% · Div Yield 4.85%',
+          orderBookLabel: 'Cash-Rich FMCG Dividend Play',
+          orderBookDetail: 'FMCG reversed Oct outflows with +₹3,042 Cr Nov 1–15 FPI inflows.',
+          hasBigOrderBook: false,
+          isLowDebt: true,
+          fiiPct: 40.5,
+          diiPct: 43.2,
+          fcfCr: 16500,
+          thesis: 'High-yield (4.85%) debt-free FMCG leader at 19.9x P/E and 38.9% ROCE.'
+        },
+        {
+          id: 'hindunilvr',
+          name: 'Hindustan Unilever Ltd',
+          nse: 'HINDUNILVR',
+          bse: '500696',
+          sector: 'FMCG',
+          cmp: 2052,
+          high52: 2480,
+          low52: 1758,
+          mcapCr: 482254,
+          pe: 43.1,
+          divYield: 2.00,
+          roe: 31.0,
+          roce: 28.4,
+          ttmSalesCr: 62500,
+          ttmProfitCr: 10500,
+          profitCagr3y: 6,
+          debtEquity: 0.03,
+          balanceNote: 'Nearly Debt-Free · ROE 31.0% · ROCE 28.4% · Div 2.00%',
+          orderBookLabel: 'India #1 Home & Personal Care',
+          orderBookDetail: 'Defensive staples bellwether trading 17% below 52W high with 31% ROE.',
+          hasBigOrderBook: false,
+          isLowDebt: true,
+          fiiPct: 12.1,
+          diiPct: 14.3,
+          fcfCr: 10200,
+          thesis: 'Quality defensive compounder with 31% ROE, 2% dividend yield, and renewed FPI interest in FMCG.'
+        },
+        {
+          id: 'titan',
+          name: 'Titan Company Ltd',
+          nse: 'TITAN',
+          bse: '500114',
+          sector: 'Consumer Services',
+          cmp: 4620,
+          high52: 5187,
+          low52: 3751,
+          mcapCr: 410100,
+          pe: 57.7,
+          divYield: 0.32,
+          roe: 31.5,
+          roce: 20.5,
+          ttmSalesCr: 58000,
+          ttmProfitCr: 4200,
+          profitCagr3y: 19,
+          debtEquity: 0.95,
+          balanceNote: 'P/E 57.7x · ROCE 20.5% · Tanishq, CaratLane & Watches',
+          orderBookLabel: 'Organized Jewellery Leader',
+          orderBookDetail: 'Consumer Services saw +₹6,519 Cr Nov 1–15 FPI buying turnaround.',
+          hasBigOrderBook: false,
+          isLowDebt: false,
+          fiiPct: 18.4,
+          diiPct: 11.2,
+          fcfCr: 2800,
+          thesis: 'Premier organized retail & jewellery franchise benefiting from +₹6,519 Cr Consumer Services FPI flows.'
         },
         {
           id: 'ntpc',
@@ -1160,20 +1469,48 @@
           pe: 10.5,
           divYield: 2.80,
           roe: 15.1,
-          roce: 8.92,
-          ttmSalesCr: 200543,
-          ttmProfitCr: 30459,
-          profitCagr3y: 20,
-          debtEquity: 1.31,
-          balanceNote: 'D/E 1.31 (regulated utility) · P/E 10.5x · Div Yield 2.80%',
-          orderBookLabel: '89,108 MW Capacity',
-          orderBookDetail: '17% of India\'s total power capacity across 53 stations with expanding solar/renewable fleet',
-          hasBigOrderBook: true,
+          roce: 10.8,
+          ttmSalesCr: 185000,
+          ttmProfitCr: 23500,
+          profitCagr3y: 12,
+          debtEquity: 1.42,
+          balanceNote: 'P/E 10.5x · ROE 15.1% · Div Yield 2.80% · 60 GW Green Goal',
+          orderBookLabel: 'India #1 Power Generator',
+          orderBookDetail: 'Regulated ROE thermal base + NTPC Green Energy renewable expansion.',
+          hasBigOrderBook: false,
           isLowDebt: false,
-          fiiPct: 15.79,
-          diiPct: 29.86,
-          fcfCr: 6895,
-          thesis: 'Deep value at 10.5x P/E near 52W low (₹292) with 20% 3Y profit CAGR and +₹705 Cr FPI buying.'
+          fiiPct: 18.2,
+          diiPct: 26.8,
+          fcfCr: 14000,
+          thesis: 'Deep value utility at 10.5x P/E and 2.80% dividend yield with renewable energy growth optionality.'
+        },
+        {
+          id: 'rvnl',
+          name: 'Rail Vikas Nigam Ltd',
+          nse: 'RVNL',
+          bse: '542649',
+          sector: 'Construction',
+          cmp: 191,
+          high52: 401,
+          low52: 178,
+          mcapCr: 39824,
+          pe: 43.4,
+          divYield: 1.10,
+          roe: 9.02,
+          roce: 11.2,
+          ttmSalesCr: 21500,
+          ttmProfitCr: 1350,
+          profitCagr3y: 10,
+          debtEquity: 0.65,
+          balanceNote: 'Order Book ₹90,099 Cr · Trading near 52W Low ₹178',
+          orderBookLabel: '₹90,099 Cr Rail & Metro Backlog',
+          orderBookDetail: 'Deep pullback from ₹401 52W high; high-beta railway & metro EPC play.',
+          hasBigOrderBook: true,
+          isLowDebt: true,
+          fiiPct: 4.8,
+          diiPct: 6.2,
+          fcfCr: 650,
+          thesis: 'High-beta railway EPC turnaround candidate backed by ₹90,099 Cr order book near 52W support.'
         },
         {
           id: 'goldbees',
@@ -1187,50 +1524,22 @@
           mcapCr: 55053,
           pe: 0,
           divYield: 0,
-          roe: 15.0,
-          roce: 15.0,
+          roe: 14.5,
+          roce: 14.5,
           ttmSalesCr: 0,
           ttmProfitCr: 0,
-          profitCagr3y: 18,
-          debtEquity: 0,
-          balanceNote: 'AUM ₹55,053 Cr (Nov 20, 2026) · Backed by physical 24K gold · Near 52W low ₹100.01',
-          orderBookLabel: '₹55,053 Cr Gold AUM',
-          orderBookDetail: "India's most liquid Gold ETF on NSE/BSE. LTCG 12.5% after 12 months (STCG at income slab; no ₹1.25L exemption).",
+          profitCagr3y: 15,
+          debtEquity: 0.00,
+          balanceNote: 'AUM ₹55,053 Cr · 24K Physical Gold ETF · 12.5% LTCG (>12m)',
+          orderBookLabel: 'Liquid NSE Gold ETF Hedge',
+          orderBookDetail: 'Tracks domestic 24K gold prices; qualifies for 12.5% LTCG after >12 months.',
           hasBigOrderBook: false,
           isLowDebt: true,
+          isGold: true,
           fiiPct: 0,
           diiPct: 0,
           fcfCr: 0,
-          isGold: true,
-          thesis: 'Core Gold SIP/ETF hedge trading near 52W support (₹100.01) for inflation & geopolitical protection.'
-        },
-        {
-          id: 'rvnl',
-          name: 'Rail Vikas Nigam Ltd',
-          nse: 'RVNL',
-          bse: '542649',
-          sector: 'Construction',
-          cmp: 191,
-          high52: 401,
-          low52: 178,
-          mcapCr: 39824,
-          pe: 43.4,
-          divYield: 0.90,
-          roe: 9.02,
-          roce: 10.8,
-          ttmSalesCr: 20403,
-          ttmProfitCr: 919,
-          profitCagr3y: -13,
-          debtEquity: 0.43,
-          balanceNote: 'Low Debt (D/E 0.43) · Q2 FY27 PAT +59% QoQ · OPM 4.6%',
-          orderBookLabel: '₹90,099 Cr Order Book',
-          orderBookDetail: '₹90,099 Cr railway infra order book (~4.4x TTM sales, Q2 FY27 concall Nov 2026)',
-          hasBigOrderBook: true,
-          isLowDebt: true,
-          fiiPct: 2.38,
-          diiPct: 6.21,
-          fcfCr: -1949,
-          thesis: 'High-beta watchlist turnaround: massive ₹90,099 Cr order book near 52W low (₹178), but lower ROE (9.0%).'
+          thesis: 'Core 10–15% portfolio hedge against equity volatility and rupee depreciation with 12M LTCG.'
         }
       ];
 
@@ -1425,7 +1734,7 @@
       ];
 
       // ==================== STATE & STORAGE ====================
-      const STORAGE_KEY = 'bharat_alpha_v2';
+      const STORAGE_KEY = 'bharat_alpha_v5';
       let state = {
         activeTab: 'news',
         wealthSubTab: 'sip-calc',
@@ -1453,6 +1762,7 @@
         news: [...DEFAULT_NEWS],
         stocks: [...DEFAULT_STOCKS],
         plan: { icicibank: 20, tcs: 14, hal: 6 },
+        holdings: {},
         checklists: {},
         alerts: {
           hal: { price: 4650, note: 'Pullback entry zone near support' }
@@ -1488,6 +1798,7 @@
             if (Array.isArray(p.news) && p.news.length) state.news = p.news;
             if (Array.isArray(p.stocks) && p.stocks.length) state.stocks = p.stocks;
             if (p.plan && typeof p.plan === 'object') state.plan = p.plan;
+            if (p.holdings && typeof p.holdings === 'object') state.holdings = p.holdings;
             if (p.checklists && typeof p.checklists === 'object') state.checklists = p.checklists;
             if (p.alerts && typeof p.alerts === 'object') state.alerts = p.alerts;
             if (Array.isArray(p.journal)) state.journal = p.journal;
@@ -1511,6 +1822,7 @@
             news: state.news,
             stocks: state.stocks,
             plan: state.plan,
+            holdings: state.holdings,
             checklists: state.checklists,
             alerts: state.alerts,
             journal: state.journal
@@ -1971,24 +2283,31 @@
           .filter((s) => {
             if (state.sectorFilter && s.sector !== state.sectorFilter) return false;
             if (s.roe < state.minRoe) return false;
-            if (s.pe > state.maxPe) return false;
+            if (state.maxPe < 60 && s.pe > state.maxPe) return false;
             if (q && !(s.name.toLowerCase().includes(q) || s.nse.toLowerCase().includes(q) || s.bse.toLowerCase().includes(q) || s.sector.toLowerCase().includes(q))) return false;
             if (state.stockFilter === 'TopScore' && s.score < 80) return false;
             if (state.stockFilter === 'DebtFree' && !s.isLowDebt) return false;
             if (state.stockFilter === 'OrderBook' && !s.hasBigOrderBook) return false;
             if (state.stockFilter === 'FpiBuying' && getSectorFlow(s.sector) <= 0) return false;
             if (state.stockFilter === 'Gold' && !s.isGold && !s.sector.toLowerCase().includes('gold')) return false;
+            if (state.stockFilter === 'Holdings' && !(state.holdings[s.id] && state.holdings[s.id].qty > 0)) return false;
             return true;
           })
           .sort((a, b) => b.score - a.score);
 
         const container = document.getElementById('stockCardsList');
         if (list.length === 0) {
-          container.innerHTML = '<div class="bg-white rounded-2xl border border-slate-200 p-6 text-center text-xs text-slate-500">No stocks match your current filters/rules. Tap <strong>All Stocks</strong> or reset Rules.</div>';
+          const emptyMsg = state.stockFilter === 'Holdings'
+            ? 'No personal holdings tracked yet. Tap <strong>All (21)</strong> and open <strong>Details, Tax &amp; Alert</strong> on any listed share to mark shares you own.'
+            : 'No stocks match your current filters/rules. Tap <strong>All (21)</strong> or reset Rules.';
+          container.innerHTML = `<div class="bg-white rounded-2xl border border-slate-200 p-6 text-center text-xs text-slate-500">${emptyMsg}</div>`;
           return;
         }
 
-        container.innerHTML = list.map((s) => {
+        const holdingsNotice = state.stockFilter === 'Holdings'
+          ? '<div class="rounded-2xl bg-emerald-50 border border-emerald-200 p-3 text-xs text-emerald-900"><strong>My Holdings:</strong> Showing NSE/BSE listed shares you marked as owned. Tap <strong>Details, Tax &amp; Alert</strong> on any stock to update shares &amp; buy price.</div>'
+          : '';
+        container.innerHTML = holdingsNotice + list.map((s) => {
           const inPlan = (state.plan[s.id] || 0) > 0;
           const scoreBadge = s.score >= 82
             ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
@@ -2001,6 +2320,32 @@
             ? '<span class="text-[10px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full">FPI +₹' + fpiVal.toLocaleString('en-IN') + ' Cr</span>'
             : '<span class="text-[10px] font-semibold text-amber-700 bg-amber-50 px-2 py-0.5 rounded-full">DII ' + s.diiPct + '%</span>';
           const hasAlert = Boolean(state.alerts[s.id]);
+          const h = state.holdings[s.id] && state.holdings[s.id].qty > 0 ? state.holdings[s.id] : null;
+          let holdingStrip = '';
+          if (h) {
+            const hBuyVal = h.qty * h.avgBuy;
+            const hCurVal = h.qty * s.cmp;
+            const hTax = calcBrokerageAndTaxes(hBuyVal, hCurVal, state.brokerPreset, true);
+            const hNet = h.holdingType === 'long' ? hTax.netAfterLtcg : hTax.netAfterStcg;
+            const hWin = hNet >= 0;
+            holdingStrip = `
+              <div class="rounded-xl bg-emerald-50/70 border border-emerald-200 px-3 py-2 flex items-center justify-between gap-2 text-xs">
+                <div>
+                  <span class="text-[10px] font-bold uppercase text-emerald-700 block">Invested · ${h.qty} sh @ ${formatINR(h.avgBuy)}</span>
+                  <span class="text-[11px] text-slate-700">Value: <strong>${formatINR(hCurVal)}</strong></span>
+                </div>
+                <div class="text-right">
+                  <span class="text-[10px] text-slate-500 block">Net P&amp;L (${h.holdingType === 'long' ? 'LTCG' : 'STCG'})</span>
+                  <strong class="${hWin ? 'text-emerald-700' : 'text-rose-600'}">${hWin ? '+' : ''}${formatINR(hNet)}</strong>
+                </div>
+              </div>`;
+          }
+          const rangeSpan = Math.max(1, (s.high52 || s.cmp) - (s.low52 || s.cmp));
+          const posPct = Math.max(2, Math.min(98, Math.round(((s.cmp - (s.low52 || s.cmp)) / rangeSpan) * 100)));
+          const trendLabel = posPct >= 75 ? 'Uptrend (Near 52W High)' : posPct <= 25 ? 'Deep Pullback (Near 52W Low)' : 'Mid-Range Consolidation';
+          const bear12m = Math.max(1, Math.round(s.cmp * 0.88));
+          const base12m = Math.round(s.cmp * (1 + (s.score >= 75 ? 0.15 : 0.08)));
+          const bull12m = Math.max(Math.round(s.high52 || s.cmp * 1.25), Math.round(s.cmp * 1.25));
           const t = s.levels.tax;
 
           return `
@@ -2010,6 +2355,7 @@
                   <div class="flex items-center gap-1.5 flex-wrap">
                     <h3 class="text-sm font-extrabold text-slate-900">${escapeHtml(s.name)}</h3>
                     <span class="text-[10px] font-bold px-2 py-0.5 rounded-full border ${scoreBadge}">Score ${s.score}/100</span>
+                    ${h ? '<span class="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-emerald-600 text-white">Invested</span>' : ''}
                     ${hasAlert ? '<span class="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-amber-50 text-amber-700 border border-amber-200">Alert</span>' : ''}
                   </div>
                   <div class="flex items-center gap-1.5 mt-1 flex-wrap">
@@ -2026,6 +2372,7 @@
                 </div>
               </div>
 
+              ${holdingStrip}
               <!-- Fundamentals Strip -->
               <div class="grid grid-cols-3 gap-2 bg-slate-50 rounded-xl p-2.5 border border-slate-100 text-center">
                 <div>
@@ -2039,6 +2386,27 @@
                 <div>
                   <p class="text-[10px] text-slate-500 font-medium">Order Book / Scale</p>
                   <p class="text-xs font-bold text-emerald-700 truncate">${escapeHtml(s.orderBookLabel)}</p>
+                </div>
+              </div>
+
+              <!-- Past -> Present -> Future Scenario Bar -->
+              <div class="rounded-xl bg-slate-50 border border-slate-200 p-2.5 space-y-1.5">
+                <div class="flex items-center justify-between text-[10px] font-bold">
+                  <span class="text-slate-500">Past 52W → Present → 12M Scenario</span>
+                  <span class="${posPct >= 75 ? 'text-emerald-700' : posPct <= 25 ? 'text-amber-700' : 'text-blue-700'}">${trendLabel}</span>
+                </div>
+                <div class="w-full h-2 rounded-full bg-slate-200 relative overflow-hidden">
+                  <div class="h-full bg-emerald-500 rounded-full" style="width:${posPct}%"></div>
+                </div>
+                <div class="flex items-center justify-between text-[10px] text-slate-600">
+                  <span>52W Low: <strong>${formatINR(s.low52)}</strong></span>
+                  <span>Now: <strong>${formatINR(s.cmp)}</strong></span>
+                  <span>52W High: <strong>${formatINR(s.high52)}</strong></span>
+                </div>
+                <div class="grid grid-cols-3 gap-1.5 pt-1 text-center text-[10px]">
+                  <div class="rounded bg-rose-50/70 py-1 text-rose-700">Bear: <strong>${formatINR(bear12m)}</strong></div>
+                  <div class="rounded bg-blue-50/70 py-1 text-blue-700">Base: <strong>${formatINR(base12m)}</strong></div>
+                  <div class="rounded bg-emerald-50/80 py-1 text-emerald-700">Bull: <strong>${formatINR(bull12m)}</strong></div>
                 </div>
               </div>
 
@@ -2499,6 +2867,7 @@
         const t = levels.tax;
         const checks = state.checklists[stock.id] || {};
         const alertObj = state.alerts[stock.id] || { price: levels.entryLow, note: '' };
+        const heldObj = state.holdings[stock.id] || { qty: 0, avgBuy: stock.cmp, holdingType: 'long' };
 
         document.getElementById('detailHeader').innerHTML = `
           <div>
@@ -2569,6 +2938,29 @@
           <div class="rounded-xl bg-slate-50 border border-slate-200 p-3 space-y-1">
             <h4 class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">Technical &amp; Entry Checklist</h4>
             ${checklistHtml}
+          </div>
+
+          <!-- My Invested Holding Editor -->
+          <div class="rounded-xl bg-emerald-50/70 border border-emerald-200 p-3 space-y-2">
+            <h4 class="text-xs font-bold text-emerald-800">My Invested Holding (Already Owned)</h4>
+            <div class="grid grid-cols-3 gap-2">
+              <div>
+                <label class="block text-[10px] font-semibold text-slate-600 mb-0.5" for="holdQtyInput">Qty Owned</label>
+                <input id="holdQtyInput" type="number" min="0" value="${heldObj.qty}" class="w-full rounded-lg border border-emerald-300 bg-white px-2 py-1.5 text-xs font-bold" />
+              </div>
+              <div>
+                <label class="block text-[10px] font-semibold text-slate-600 mb-0.5" for="holdAvgInput">Avg Buy (₹)</label>
+                <input id="holdAvgInput" type="number" min="1" step="0.5" value="${heldObj.avgBuy}" class="w-full rounded-lg border border-emerald-300 bg-white px-2 py-1.5 text-xs font-bold" />
+              </div>
+              <div>
+                <label class="block text-[10px] font-semibold text-slate-600 mb-0.5" for="holdTypeSelect">Term</label>
+                <select id="holdTypeSelect" class="w-full rounded-lg border border-emerald-300 bg-white px-1.5 py-1.5 text-xs font-semibold">
+                  <option value="short" ${heldObj.holdingType === 'short' ? 'selected' : ''}>STCG (&lt;1y)</option>
+                  <option value="long" ${heldObj.holdingType === 'long' ? 'selected' : ''}>LTCG (&gt;1y)</option>
+                </select>
+              </div>
+            </div>
+            <button type="button" data-save-holding="${escapeHtml(stock.id)}" class="w-full py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold">Save Holding (0 to remove)</button>
           </div>
 
           <!-- Watchlist Price Alert -->
@@ -2856,6 +3248,24 @@
           return;
         }
 
+        const saveHoldBtn = e.target.closest('[data-save-holding]');
+        if (saveHoldBtn) {
+          const id = saveHoldBtn.dataset.saveHolding;
+          const qty = Math.max(0, Number(document.getElementById('holdQtyInput').value) || 0);
+          const avgBuy = Math.max(1, Number(document.getElementById('holdAvgInput').value) || 1);
+          const holdingType = document.getElementById('holdTypeSelect').value;
+          if (qty === 0) {
+            delete state.holdings[id];
+            showToast('Removed from My Holdings');
+          } else {
+            state.holdings[id] = { qty, avgBuy, holdingType };
+            showToast('Saved holding: ' + qty + ' sh @ ' + formatINR(avgBuy));
+          }
+          saveState();
+          renderAll();
+          return;
+        }
+
         const saveAlertBtn = e.target.closest('[data-save-alert]');
         if (saveAlertBtn) {
           const id = saveAlertBtn.dataset.saveAlert;
@@ -2910,43 +3320,8 @@
         document.getElementById(modalId).addEventListener('click', (e) => { if (e.target.id === modalId) e.target.classList.add('hidden'); });
       });
 
-      // Auto-sync daily_data.json when hosted on GitHub Pages / Netlify / Vercel
-      async function syncDailyData() {
-        try {
-          const host = window.location.hostname || '';
-          const isHosted = window.location.protocol === 'https:' &&
-            (host.endsWith('github.io') || host.endsWith('netlify.app') || host.endsWith('vercel.app'));
-          if (!isHosted) return;
-          const res = await fetch('./daily_data.json?t=' + Date.now(), { cache: 'no-store' });
-          if (!res.ok) return;
-          const data = await res.json();
-          if (data && data.prices && typeof data.prices === 'object') {
-            state.stocks.forEach((st) => {
-              const upd = data.prices[st.nse];
-              if (upd && Number(upd.cmp) > 0) {
-                st.cmp = Number(upd.cmp);
-                if (Number(upd.high52) > 0) st.high52 = Number(upd.high52);
-                if (Number(upd.low52) > 0) st.low52 = Number(upd.low52);
-              }
-            });
-          }
-          if (data && Array.isArray(data.news) && data.news.length) {
-            const existingTitles = new Set(state.news.map((n) => n.title));
-            const fresh = data.news.filter((n) => n.title && !existingTitles.has(n.title));
-            if (fresh.length) state.news = [...fresh, ...state.news].slice(0, 25);
-          }
-          renderAll();
-          if (data && data.updatedAt) {
-            showToast('Synced live data · ' + data.updatedAt);
-          }
-        } catch (e) {
-          // Silently keep built-in snapshot if offline
-        }
-      }
-
       loadState();
       renderAll();
-      syncDailyData();
     })();
   </script>
 </body>
