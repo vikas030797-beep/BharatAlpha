@@ -1,114 +1,347 @@
 {
-  "updatedAt": "2026-11-20 16:00 IST",
-  "source": "GitHub Actions Daily Updater (Yahoo Finance NSE + Public RSS)",
+  "updated_at_ist": "21 Nov 2026, 10:40 PM IST",
+  "market_total_listed": 5864,
+  "my_holdings": [],
   "prices": {
-    "HDFCBANK": {
-      "cmp": 811.0,
-      "high52": 990.0,
-      "low52": 750.0
-    },
-    "ICICIBANK": {
-      "cmp": 1640.0,
-      "high52": 1645.0,
-      "low52": 1188.0
-    },
-    "SBIN": {
-      "cmp": 1165.0,
-      "high52": 1235.0,
-      "low52": 934.0
-    },
     "BAJFINANCE": {
       "cmp": 1122.0,
-      "high52": 1178.0,
-      "low52": 788.0
-    },
-    "RELIANCE": {
-      "cmp": 1378.0,
-      "high52": 1612.0,
-      "low52": 1152.0
-    },
-    "TCS": {
-      "cmp": 2376.0,
-      "high52": 3350.0,
-      "low52": 1976.0
-    },
-    "INFY": {
-      "cmp": 1098.0,
-      "high52": 1728.0,
-      "low52": 980.0
-    },
-    "HCLTECH": {
-      "cmp": 1344.0,
-      "high52": 1780.0,
-      "low52": 1030.0
-    },
-    "BHARTIARTL": {
-      "cmp": 2162.0,
-      "high52": 2172.0,
-      "low52": 1726.0
-    },
-    "LT": {
-      "cmp": 4209.0,
-      "high52": 4440.0,
-      "low52": 3288.0
-    },
-    "HAL": {
-      "cmp": 4809.0,
-      "high52": 5150.0,
-      "low52": 3479.0
+      "high52": 1176.4,
+      "low52": 783.09
     },
     "BEL": {
       "cmp": 402.0,
-      "high52": 435.0,
-      "low52": 265.0
+      "high52": 472.81,
+      "low52": 354.55
     },
-    "M&M": {
-      "cmp": 3545.0,
-      "high52": 3840.0,
-      "low52": 2743.0
-    },
-    "MARUTI": {
-      "cmp": 14011.0,
-      "high52": 17372.0,
-      "low52": 10984.0
-    },
-    "SUNPHARMA": {
-      "cmp": 1885.0,
-      "high52": 2048.0,
-      "low52": 1584.0
-    },
-    "ITC": {
-      "cmp": 299.0,
-      "high52": 411.0,
-      "low52": 253.0
-    },
-    "HINDUNILVR": {
-      "cmp": 2052.0,
-      "high52": 2480.0,
-      "low52": 1758.0
-    },
-    "TITAN": {
-      "cmp": 4620.0,
-      "high52": 5187.0,
-      "low52": 3751.0
-    },
-    "NTPC": {
-      "cmp": 322.0,
-      "high52": 414.0,
-      "low52": 292.0
-    },
-    "RVNL": {
-      "cmp": 191.0,
-      "high52": 401.0,
-      "low52": 178.0
+    "BHARTIARTL": {
+      "cmp": 2161.7,
+      "high52": 2172.3,
+      "low52": 1718.87
     },
     "GOLDBEES": {
       "cmp": 102.21,
       "high52": 148.14,
-      "low52": 100.01
+      "low52": 100.11
+    },
+    "HAL": {
+      "cmp": 4809.0,
+      "high52": 5149.9,
+      "low52": 3472.06
+    },
+    "HCLTECH": {
+      "cmp": 1344.4,
+      "high52": 1713.75,
+      "low52": 1010.59
+    },
+    "HDFCBANK": {
+      "cmp": 846.0,
+      "high52": 1000.94,
+      "low52": 669.2
+    },
+    "HINDUNILVR": {
+      "cmp": 2052.5,
+      "high52": 2439.81,
+      "low52": 1741.68
+    },
+    "ICICIBANK": {
+      "cmp": 1640.0,
+      "high52": 1645.0,
+      "low52": 1177.67
+    },
+    "INFY": {
+      "cmp": 1098.0,
+      "high52": 1653.52,
+      "low52": 958.44
+    },
+    "ITC": {
+      "cmp": 299.1,
+      "high52": 390.46,
+      "low52": 252.8
+    },
+    "LT": {
+      "cmp": 4209.1,
+      "high52": 4397.05,
+      "low52": 3256.29
+    },
+    "M&M": {
+      "cmp": 3545.0,
+      "high52": 3799.99,
+      "low52": 2744.3
+    },
+    "MARUTI": {
+      "cmp": 14011.0,
+      "high52": 17197.29,
+      "low52": 10985.0
+    },
+    "NTPC": {
+      "cmp": 321.5,
+      "high52": 406.09,
+      "low52": 289.28
+    },
+    "RELIANCE": {
+      "cmp": 1377.5,
+      "high52": 1604.38,
+      "low52": 1152.2
+    },
+    "RVNL": {
+      "cmp": 191.0,
+      "high52": 398.2,
+      "low52": 177.86
+    },
+    "SBIN": {
+      "cmp": 1165.1,
+      "high52": 1212.84,
+      "low52": 927.73
+    },
+    "SUNPHARMA": {
+      "cmp": 1884.9,
+      "high52": 2046.9,
+      "low52": 1569.37
+    },
+    "TCS": {
+      "cmp": 2376.2,
+      "high52": 3269.78,
+      "low52": 1955.62
+    },
+    "TITAN": {
+      "cmp": 4620.0,
+      "high52": 5186.7,
+      "low52": 3738.73
     }
   },
-  "news": [],
-  "updated_at_ist": "21 Nov 2026, 08:45 PM IST",
-  "my_holdings": []
+  "news": [
+    {
+      "title": "Nifty eyes 26,200 as rally strengthens; 6 sectors signal outperformance",
+      "summary": "Nifty surged 2.61% last week, gaining 656 points amid strong FII inflows and improving technical indicators. Resistance lies at 25,950\u201326,200, while banking, IT and financial services lead sectoral momentum. Analysts advise caution against ",
+      "source": "Economic Times Markets",
+      "date": "Sat, 21 Nov 2026",
+      "url": "https://economictimes.indiatimes.com/markets/stocks/news/nifty-eyes-26200-as-rally-strengthens-6-sectors-signal-outperformance/articleshow/136050218.cms",
+      "sentiment": "Bullish",
+      "sectors": [
+        "Financial Services",
+        "Information Technology"
+      ]
+    },
+    {
+      "title": "Stocks to buy: HSBC lists 19 Indian stocks that saw FY27 earnings upgrades, check target prices",
+      "summary": "HSBC identified 19 Indian stocks with Buy ratings that received FY27 earnings upgrades after Q2 results. Ather Energy, GAIL and IIFL Finance led revisions, while improving corporate profitability highlighted a broadening earnings recovery a",
+      "source": "Economic Times Markets",
+      "date": "Sat, 21 Nov 2026",
+      "url": "https://economictimes.indiatimes.com/markets/stocks/news/stocks-to-buy-hsbc-lists-19-indian-stocks-that-saw-fy27-earnings-upgrades-check-target-prices/slideshow/136048231.cms",
+      "sentiment": "Bullish",
+      "sectors": [
+        "Automobiles"
+      ]
+    },
+    {
+      "title": "Concurrent Gainers: These 13 stocks gained for 5 days in a row, all rose over 27%",
+      "summary": "The Sensex gained 1.08% during the five sessions ending November 20, while 99 BSE 200 stocks advanced consecutively. Thirteen shortlisted stocks delivered impressive cumulative returns ranging from 27.51% to 31.02%, led by Sera Investments ",
+      "source": "Economic Times Markets",
+      "date": "Sat, 21 Nov 2026",
+      "url": "https://economictimes.indiatimes.com/markets/stocks/news/concurrent-gainers-these-13-stocks-gained-for-5-days-in-a-row-all-rose-over-27/slideshow/136047969.cms",
+      "sentiment": "Bullish",
+      "sectors": [
+        "Financial Services"
+      ]
+    },
+    {
+      "title": "AI to lead investment strategy in 2027; Energy and borrowing costs shape macro outlook: Barclays",
+      "summary": "According to the latest report from Barclays Private Bank, the impending year 2027 calls for a stronger investment focus on artificial intelligence. While infrastructure is steadily developing, the rising costs of debt financing could negat",
+      "source": "Economic Times Markets",
+      "date": "Sat, 21 Nov 2026",
+      "url": "https://economictimes.indiatimes.com/markets/stocks/news/ai-to-lead-investment-strategy-in-2027-energy-and-borrowing-costs-shape-macro-outlook-barclays/articleshow/136046648.cms",
+      "sentiment": "Caution",
+      "sectors": [
+        "Financial Services",
+        "Construction"
+      ]
+    },
+    {
+      "title": "Market winners: Max Healthcare, Deepak Fertilisers among 10 stocks that surged up to 14% in last week",
+      "summary": "Max Healthcare, Deepak Fertilisers and Blue Star led Nifty 500 weekly gainers, surging 14.14%, 13.90% and 12.84%, respectively. Ten stocks outperformed the broader index, which gained 1.5%, highlighting strong momentum across healthcare, ba",
+      "source": "Economic Times Markets",
+      "date": "Sat, 21 Nov 2026",
+      "url": "https://economictimes.indiatimes.com/markets/stocks/news/market-winners-max-healthcare-deepak-fertilisers-among-10-stocks-that-surged-up-to-14-in-last-week/slideshow/136046616.cms",
+      "sentiment": "Bullish",
+      "sectors": [
+        "Financial Services",
+        "Healthcare"
+      ]
+    },
+    {
+      "title": "US Treasury yields drop for day and week; AI trade concern spurs safe-haven bid",
+      "summary": "US Treasury yields experienced a significant decline due to heightened investor concerns surrounding the AI trade. As a result, investors shifted their focus towards safe-haven assets such as Treasury securities. The yield on the 10-year Tr",
+      "source": "Economic Times Markets",
+      "date": "Sat, 21 Nov 2026",
+      "url": "https://economictimes.indiatimes.com/markets/bonds/us-treasury-yields-drop-for-day-and-week-ai-trade-concern-spurs-safe-haven-bid/articleshow/136045682.cms",
+      "sentiment": "Caution",
+      "sectors": [
+        "Capital Goods",
+        "Information Technology"
+      ]
+    },
+    {
+      "title": "Dividend jackpot in chemicals: Indo Borax, GOCL and Bayer CropScience offer yields of up to 10% | Check details",
+      "summary": "Indo Borax &amp;amp; Chemicals led the three specialty chemical stocks with a 10.3% FY26 dividend yield, followed by GOCL Corporation at 9.7% and Bayer CropScience at 4.6%. The companies announced dividends of  \u20b940,  \u20b930 and  \u20b9150 per share",
+      "source": "Livemint Markets",
+      "date": "Sat, 21 Nov 2026",
+      "url": "https://www.livemint.com/market/stock-market-news/dividend-jackpot-in-chemicals-indo-borax-gocl-and-bayer-cropscience-offer-yields-of-up-to-10-check-details-11795277367660.html",
+      "sentiment": "Bullish",
+      "sectors": [
+        "Financial Services"
+      ]
+    },
+    {
+      "title": "Max Healthcare, Fortis, Apollo, Aster: Hospital stocks steal show on D-Street with up to 14% rally - Buy now or wait?",
+      "summary": "Hospital stocks rallied up to 14% over five trading sessions amid optimism about corporate earnings and growth prospects. Apollo Hospitals, Fortis, Max Healthcare and Aster DM Quality Care all advanced on Friday, with brokerages maintaining",
+      "source": "Livemint Markets",
+      "date": "Sat, 21 Nov 2026",
+      "url": "https://www.livemint.com/market/stock-market-news/max-healthcare-fortis-apollo-aster-hospital-stocks-steal-show-on-d-street-with-up-to-14-rally-buy-now-or-wait-11795262811423.html",
+      "sentiment": "Bullish",
+      "sectors": [
+        "Healthcare"
+      ]
+    },
+    {
+      "title": "Bitcoin price crash: \u200bFalls to lowest level in two years - What\u2019s behind plunge of world\u2019s largest cryptocurrency",
+      "summary": "Analysts said the cryptocurrency market is experiencing a sharp deterioration in investor confidence, with market participants increasingly moving away from riskier investments",
+      "source": "Livemint Markets",
+      "date": "Sat, 21 Nov 2026",
+      "url": "https://www.livemint.com/market/cryptocurrency/bitcoin-price-crash-falls-to-lowest-level-in-two-years-what-s-behind-plunge-of-world-s-largest-cryptocurrency-11795267687216.html",
+      "sentiment": "Caution",
+      "sectors": [
+        "Automobiles",
+        "FMCG"
+      ]
+    },
+    {
+      "title": "Stock split reset: SanDisk stock crashes 87.5% overnight? Here's what investors need to know about its 8-for-1 split",
+      "summary": "SanDisk completed an eight-for-one stock split, giving eligible shareholders seven additional shares for each share held. The adjustment lowered the per-share price from $755.16 to about $94.40 without changing investors\u2019 ownership or the c",
+      "source": "Livemint Markets",
+      "date": "Sat, 21 Nov 2026",
+      "url": "https://www.livemint.com/market/stock-market-news/stock-split-reset-sandisk-stock-crashes-87-5-overnight-heres-what-investors-need-to-know-about-its-8-for-1-split-11795267376660.html",
+      "sentiment": "Caution",
+      "sectors": [
+        "Information Technology",
+        "Automobiles"
+      ]
+    },
+    {
+      "title": "PSU vs Private banks: Who is powering Nifty Bank's record-high rally after 5% surge? SBI, HDFC, AU, Canara target price",
+      "summary": "Banking stocks led the November market rally, with Nifty Bank rising around 16% month-to-date to a record intraday high of 64,485 on November 20. PSU and private bank indexes also advanced sharply, while brokerages cited healthy credit dema",
+      "source": "Livemint Markets",
+      "date": "Sat, 21 Nov 2026",
+      "url": "https://www.livemint.com/market/stock-market-news/psu-vs-private-banks-who-is-powering-nifty-banks-record-high-rally-after-5-surge-sbi-hdfc-au-canara-target-price-11795255387777.html",
+      "sentiment": "Bullish",
+      "sectors": [
+        "Financial Services",
+        "Power"
+      ]
+    },
+    {
+      "title": "Gold, silver price crash: DSP Mutual Fund turns bullish on bullion, reveals new buying strategy; check price levels",
+      "summary": "Gold prices plunged to a 14-month low, recording their steepest weekly decline in eight months amid interest-rate concerns and an AI-stock selloff. DSP Mutual Fund is gradually buying gold and silver as prices fall, using predefined price l",
+      "source": "Livemint Markets",
+      "date": "Sat, 21 Nov 2026",
+      "url": "https://www.livemint.com/market/commodities/gold-silver-price-crash-dsp-mutual-fund-turns-bullish-on-bullion-reveals-new-buying-strategy-check-price-levels-11795252615511.html",
+      "sentiment": "Caution",
+      "sectors": [
+        "Automobiles",
+        "Gold & Commodities"
+      ]
+    },
+    {
+      "title": "IHCL marks 400-hotel milestone with Taj Yelahanka, deepens Krishna GVK partnership",
+      "summary": "IHCL has opened its 400th operating hotel with the launch of the 256-key Taj Yelahanka in Bengaluru. The property marks the seventh hotel under its 25-year partnership with Krishna GVK Luxury Hotels, which is targeting a portfolio of 2,200 ",
+      "source": "Livemint Companies",
+      "date": "Sat, 21 Nov 2026",
+      "url": "https://www.livemint.com/companies/news/ihcl-marks-400-hotel-milestone-with-taj-yelahanka-deepens-krishna-gvk-partnership-11795277914880.html",
+      "sentiment": "Watch",
+      "sectors": [
+        "Information Technology",
+        "Automobiles"
+      ]
+    },
+    {
+      "title": "What is Bagheera AT1? Adani Defence &amp; Aerospace tests ATGM system in Rajasthan: Check capabilities, specifications",
+      "summary": "Adani Defence &amp;amp; Aerospace demonstrated its vehicle-mounted Bagheera AT1 anti-tank missile system at Rajasthan\u2019s Pokhran ranges. The system can engage targets up to 8 km away and was tested in day, night, tandem-firing and aerial-tar",
+      "source": "Livemint Companies",
+      "date": "Sat, 21 Nov 2026",
+      "url": "https://www.livemint.com/companies/news/what-is-bagheera-at1-adani-defence-aerospace-tests-atgm-system-in-rajasthan-check-capabilities-specifications-11795269956004.html",
+      "sentiment": "Watch",
+      "sectors": [
+        "Capital Goods"
+      ]
+    },
+    {
+      "title": "Jensen Huang threatened Nvidia employees and made  sexual remarks? New claims surfaced against ex CEO",
+      "summary": "A spokesperson from Jensen Huang has reacted to old claims against the ex Nvidia CEO. However, the company is yet to confirm or dismiss them.",
+      "source": "Livemint Companies",
+      "date": "Sat, 21 Nov 2026",
+      "url": "https://www.livemint.com/companies/news/jensen-huang-threatened-nvidia-employees-and-made-sexual-remarks-new-claims-surfaced-against-ex-ceo-11795267299390.html",
+      "sentiment": "Bullish",
+      "sectors": [
+        "Automobiles"
+      ]
+    },
+    {
+      "title": "Patanjali Foods faces fresh cow ghee safety action as Madhya Pradesh bans sale of one batch. Details inside",
+      "summary": "Patanjali Foods has said it will seek retesting and may appeal after Madhya Pradesh authorities banned the sale of a cow ghee batch declared unsafe. The development comes days after Maharashtra FDA seized 2,279 litres of the company's cow g",
+      "source": "Livemint Companies",
+      "date": "Sat, 21 Nov 2026",
+      "url": "https://www.livemint.com/companies/news/patanjali-foods-faces-fresh-cow-ghee-safety-action-as-madhya-pradesh-bans-sale-of-one-batch-details-inside-11795268582196.html",
+      "sentiment": "Watch",
+      "sectors": [
+        "Information Technology",
+        "Automobiles"
+      ]
+    },
+    {
+      "title": "MoEngage cyberattack: SaaS startup confirms breach via third-party vendor \u2013 what it said and how many customers affected",
+      "summary": "MoEngage disclosed a cybersecurity breach in late October after attackers allegedly used compromised credentials from a third-party provider to access parts of its cloud infrastructure. The company says fewer than 1% of customer accounts we",
+      "source": "Livemint Companies",
+      "date": "Sat, 21 Nov 2026",
+      "url": "https://www.livemint.com/companies/news/moengage-cyberattack-saas-startup-confirms-breach-via-third-party-vendor-what-it-said-and-how-many-customers-affected-11795265588243.html",
+      "sentiment": "Watch",
+      "sectors": [
+        "Construction",
+        "Information Technology"
+      ]
+    },
+    {
+      "title": "Shah Rukh Khan, Aryan Khan's D\u2019YAVOL X enters physical retail with Golden Goose partnership",
+      "summary": "SRK and Aryan Khan's D\u2019YAVOL X is making its physical retail debut through a partnership with Golden Goose. The first collection, featuring exclusive sneakers and streetwear, launches on November 24, with selected pieces also set to feature",
+      "source": "Livemint Companies",
+      "date": "Sat, 21 Nov 2026",
+      "url": "https://www.livemint.com/companies/news/shah-rukh-khan-aryan-khans-d-yavol-x-enters-physical-retail-with-golden-goose-partnership-11795265933833.html",
+      "sentiment": "Watch",
+      "sectors": [
+        "Consumer Services",
+        "Gold & Commodities"
+      ]
+    },
+    {
+      "title": "Taking Stock: Market fails to hold on to day#39;s gains, ends marginally higher",
+      "summary": "<img src=\"https://www.moneycontrol.com/news_image_files/2024/200x200/v/volatile_market1_200.jpg\" alt=\"Taking Stock: Market fails to hold on to day#39;s gains, ends marginally higher\" title=\"Taking Stock: Market fails to hold on to day#39;s ",
+      "source": "Moneycontrol Markets",
+      "date": "Tue, 23 Apr 2024",
+      "url": "https://www.moneycontrol.com/news/local-markets/taking-stock-market-fails-to-holdto-day39s-gains-ends-marginally-higher_17531871.html",
+      "sentiment": "Bullish",
+      "sectors": [
+        "Capital Goods",
+        "Healthcare"
+      ]
+    },
+    {
+      "title": "Sensex, Nifty gain for third day in a row; easing volatility to support bull trend",
+      "summary": "<img src=\"https://www.moneycontrol.com/news_image_files/2024/200x200/S/Share-Market-New-4-4_200.jpg\" alt=\"Sensex, Nifty gain for third day in a row; easing volatility to support bull trend\" title=\"Sensex, Nifty gain for third day in a row; ",
+      "source": "Moneycontrol Markets",
+      "date": "Tue, 23 Apr 2024",
+      "url": "https://www.moneycontrol.com/news/local-markets/sensex-nifty-gain-for-third-daya-row-easing-volatility-to-support-bull-trend_17531821.html",
+      "sentiment": "Bullish",
+      "sectors": [
+        "Capital Goods"
+      ]
+    }
+  ]
 }
