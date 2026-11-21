@@ -203,8 +203,23 @@
         <div id="newsAnalysisResult" class="hidden rounded-xl bg-emerald-50/70 border border-emerald-200 p-3 space-y-2"></div>
       </div>
 
+      <div class="bg-white rounded-2xl border border-slate-200 px-3.5 py-2.5 shadow-sm flex items-center justify-between gap-2">
+        <div class="min-w-0">
+          <div class="flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 shrink-0"></span>
+            <span class="text-xs font-bold text-slate-900 truncate">Live Indian Market News</span>
+          </div>
+          <p id="liveNewsStatusText" class="text-[11px] text-slate-500 truncate">ET Markets, Livemint &amp; Moneycontrol · Tap Refresh for latest headlines</p>
+        </div>
+        <button id="refreshLiveNewsBtn" type="button" class="shrink-0 px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-[11px] font-bold flex items-center gap-1 transition">
+          <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
+          <span>Refresh</span>
+        </button>
+      </div>
+
       <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
         <button type="button" data-news-filter="All" class="news-filter-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold transition">All Catalysts</button>
+        <button type="button" data-news-filter="Live" class="news-filter-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold transition">Live Feed</button>
         <button type="button" data-news-filter="Policy" class="news-filter-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold transition">Govt Policy &amp; Budget</button>
         <button type="button" data-news-filter="Geopolitics" class="news-filter-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold transition">Global &amp; Macro</button>
         <button type="button" data-news-filter="Custom" class="news-filter-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold transition">My Analyzed News</button>
@@ -2211,7 +2226,7 @@
                 <span class="text-[11px] font-semibold text-slate-500">${escapeHtml(item.source)} · ${escapeHtml(item.date)}</span>
                 <span class="text-[10px] font-bold px-2 py-0.5 rounded-full border ${sentClass}">${escapeHtml(item.sentiment)}</span>
               </div>
-              <h3 class="text-sm font-bold text-slate-900 leading-snug">${escapeHtml(item.title)}</h3>
+              <h3 class="text-sm font-bold text-slate-900 leading-snug">${item.url ? `<a href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-700 underline decoration-slate-300 underline-offset-2">${escapeHtml(item.title)} ↗</a>` : escapeHtml(item.title)}</h3>
               <p class="text-xs text-slate-600 leading-relaxed">${escapeHtml(item.summary)}</p>
               <div class="rounded-xl bg-slate-50 border border-slate-100 px-3 py-2 text-xs text-slate-700">
                 <strong class="text-slate-900">Impact:</strong> ${escapeHtml(item.takeaway)}
@@ -3608,6 +3623,138 @@
         }
       });
 
+
+      function detectNewsSentiment(text) {
+        const t = (text || '').toLowerCase();
+        const bull = ['surge', 'jump', 'rally', 'gain', 'high', 'boost', 'profit', 'order', 'approve', 'inflow', 'buy', 'upgrade', 'growth', 'record', 'cut rate', 'dividend'];
+        const bear = ['fall', 'drop', 'crash', 'slump', 'selloff', 'loss', 'tumble', 'fear', 'warning', 'outflow', 'cut', 'downgrade', 'plunge', 'tariff', 'war', 'inflation'];
+        let score = 0;
+        bull.forEach((w) => { if (t.includes(w)) score += 1; });
+        bear.forEach((w) => { if (t.includes(w)) score -= 1; });
+        if (score > 0) return 'Bullish';
+        if (score < 0) return 'Caution';
+        return 'Watch';
+      }
+
+      function detectNewsSectors(text) {
+        const t = (text || '').toLowerCase();
+        const rules = [
+          ['Financial Services', ['rbi', 'bank', 'icici', 'hdfc', 'sbi', 'nbfc', 'fii', 'fpi', 'credit', 'repo', 'sensex', 'nifty']],
+          ['Information Technology', ['tcs', 'infosys', 'infy', 'hcl', 'wipro', 'it ', 'software', 'ai ', 'nasdaq', 'tech']],
+          ['Capital Goods', ['defence', 'defense', 'hal', 'bel', 'aircraft', 'missile', 'order book', 'engineering']],
+          ['Construction', ['infra', 'capex', 'l&t', 'rvnl', 'railway', 'metro', 'highway', 'budget']],
+          ['Automobiles', ['auto', 'suv', 'ev', 'mahindra', 'maruti', 'tata motors', 'car', 'vehicle']],
+          ['Telecommunication', ['telecom', 'airtel', 'jio', '5g', 'arpu', 'spectrum']],
+          ['Healthcare', ['pharma', 'usfda', 'drug', 'sun pharma', 'hospital', 'healthcare']],
+          ['FMCG', ['fmcg', 'itc', 'hul', 'unilever', 'consumer', 'rural', 'monsoon']],
+          ['Power', ['power', 'ntpc', 'solar', 'renewable', 'grid', 'electricity']],
+          ['Oil & Gas', ['crude', 'oil', 'reliance', 'ongc', 'gas', 'opec']],
+          ['Gold & Commodities', ['gold', 'silver', 'bullion', 'goldbees', 'metal']]
+        ];
+        const matched = [];
+        rules.forEach(([sec, words]) => {
+          if (words.some((w) => t.includes(w))) matched.push(sec);
+        });
+        return matched.length ? matched.slice(0, 2) : ['Financial Services'];
+      }
+
+      function mergeLiveNewsItems(rawItems, updatedLabel) {
+        if (!Array.isArray(rawItems) || rawItems.length === 0) return 0;
+        const existingTitles = new Set(state.news.map((n) => (n.title || '').trim().toLowerCase()));
+        const added = [];
+        rawItems.forEach((item, idx) => {
+          const title = (item.title || '').trim();
+          if (!title || existingTitles.has(title.toLowerCase())) return;
+          existingTitles.add(title.toLowerCase());
+          const sectors = Array.isArray(item.sectors) && item.sectors.length ? item.sectors : detectNewsSectors(title + ' ' + (item.summary || ''));
+          const sentiment = item.sentiment || detectNewsSentiment(title + ' ' + (item.summary || ''));
+          const cleanSummary = (item.summary || 'Live Indian market update auto-mapped to impacted NSE & BSE sectors.').replace(/<[^>]+>/g, '').trim().slice(0, 220);
+          added.push({
+            id: 'live_' + Date.now() + '_' + idx,
+            category: 'Live',
+            source: item.source || 'Live Market RSS',
+            date: item.date || 'Today',
+            sentiment,
+            title,
+            summary: cleanSummary || 'Tap the headline above to read the full story.',
+            takeaway: 'Auto-mapped to ' + sectors.join(' & ') + ' — tap a sector chip below to inspect matching stocks.',
+            sectors,
+            url: item.url || ''
+          });
+        });
+        if (added.length > 0) {
+          state.news = [...added, ...state.news].slice(0, 45);
+          renderNewsTab();
+        }
+        const st = document.getElementById('liveNewsStatusText');
+        if (st && updatedLabel) st.textContent = updatedLabel;
+        return added.length;
+      }
+
+      async function fetchLiveNewsNow(manualClick) {
+        const btn = document.getElementById('refreshLiveNewsBtn');
+        if (btn && manualClick) btn.disabled = true;
+        let totalAdded = 0;
+
+        // 1. Try GitHub Pages daily_data.json first
+        try {
+          const res = await fetch('./daily_data.json?t=' + Date.now());
+          if (res.ok) {
+            const data = await res.json();
+            if (data && Array.isArray(data.news) && data.news.length > 0) {
+              totalAdded += mergeLiveNewsItems(data.news, 'Synced from GitHub Auto-Updater (' + (data.updated_at_ist || 'Today') + ')');
+            }
+          }
+        } catch (err) {}
+
+        // 2. Also fetch live Indian market RSS feeds via CORS-safe rss2json endpoint
+        const feeds = [
+          ['Economic Times Markets', 'https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms'],
+          ['Livemint Markets', 'https://www.livemint.com/rss/markets']
+        ];
+        const rssCollected = [];
+        for (const [srcName, rssUrl] of feeds) {
+          try {
+            const apiUrl = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(rssUrl);
+            const r = await fetch(apiUrl);
+            if (!r.ok) continue;
+            const j = await r.json();
+            if (j && Array.isArray(j.items)) {
+              j.items.slice(0, 6).forEach((it) => {
+                rssCollected.push({
+                  title: it.title || '',
+                  summary: it.description || '',
+                  source: srcName,
+                  date: it.pubDate ? it.pubDate.slice(0, 16) : 'Live',
+                  url: it.link || ''
+                });
+              });
+            }
+          } catch (err) {}
+        }
+        if (rssCollected.length > 0) {
+          const nowStr = new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
+          totalAdded += mergeLiveNewsItems(rssCollected, 'Live RSS synced at ' + nowStr + ' IST (ET Markets & Livemint)');
+        }
+
+        if (btn && manualClick) {
+          btn.disabled = false;
+          if (totalAdded > 0) {
+            state.newsFilter = 'Live';
+            renderNewsTab();
+            showToast('Loaded ' + totalAdded + ' fresh market headlines!');
+          } else {
+            showToast('News is up to date (or offline preview — deploy GitHub kit for auto-sync)');
+          }
+        }
+      }
+
+      document.addEventListener('click', (e) => {
+        if (e.target.closest('#refreshLiveNewsBtn')) {
+          fetchLiveNewsNow(true);
+        }
+      });
+
       async function syncLiveMarketData() {
         try {
           const res = await fetch('./daily_data.json?t=' + Date.now());
@@ -3653,6 +3800,7 @@
       loadState();
       renderAll();
       syncLiveMarketData();
+      fetchLiveNewsNow(false);
     })();
   </script>
 </body>
