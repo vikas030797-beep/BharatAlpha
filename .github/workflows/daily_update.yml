@@ -1,11 +1,11 @@
-name: Daily NSE & My Holdings Auto-Update
+name: Daily NSE, BSE & Market News Auto-Update
 
 on:
   schedule:
-    # 3x weekday auto-updates (Mon-Fri): 8:30 AM IST, 1:00 PM IST, and 4:05 PM IST
-    - cron: '0 3 * * 1-5'
-    - cron: '30 7 * * 1-5'
-    - cron: '35 10 * * 1-5'
+    # Runs 3x EVERY day (Mon-Sun): 8:30 AM IST, 1:00 PM IST, and 4:05 PM IST
+    - cron: '0 3 * * *'
+    - cron: '30 7 * * *'
+    - cron: '35 10 * * *'
   push:
     paths:
       - 'my_holdings.json'
@@ -29,13 +29,13 @@ jobs:
       - name: Install yfinance
         run: pip install yfinance
 
-      - name: Fetch latest NSE/BSE prices for My Holdings & Watchlist
+      - name: Fetch latest NSE & BSE prices and market news
         run: python scripts/update_daily_data.py
 
-      - name: Commit & publish updated daily_data.json
+      - name: Commit & publish updated market data and news
         run: |
           git config user.name "BharatAlpha Bot"
           git config user.email "bot@users.noreply.github.com"
-          git add daily_data.json market_all_stocks.json
-          git diff --staged --quiet || git commit -m "Auto-update holdings & daily NSE prices"
+          git add daily_data.json market_all_stocks.json 2>/dev/null || true
+          git diff --staged --quiet || git commit -m "Auto-update NSE/BSE prices and live market news"
           git push
