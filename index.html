@@ -315,7 +315,9 @@
 
       <!-- Quick Screener Filter Pills -->
       <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
-        <button type="button" data-stock-filter="All" class="stock-filter-btn shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold transition">All (21)</button>
+        <button type="button" data-stock-filter="AllNSE" class="stock-filter-btn shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold transition">All NSE &amp; BSE</button>
+        <button type="button" data-stock-filter="All" class="stock-filter-btn shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold transition">Featured (21)</button>
+        <input id="nseCsvFileInput" type="file" accept=".csv" class="hidden" />
         <button type="button" data-stock-filter="Holdings" class="stock-filter-btn shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold transition">My Holdings</button>
         <button type="button" data-stock-filter="Gold" class="stock-filter-btn shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold transition">Gold &amp; ETFs</button>
         <button type="button" data-stock-filter="TopScore" class="stock-filter-btn shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold transition">Score 80+</button>
@@ -1734,7 +1736,12 @@
       ];
 
       // ==================== STATE & STORAGE ====================
-      const STORAGE_KEY = 'bharat_alpha_v5';
+      let nseAllStocks = [];
+      let nseMarketUpdatedAt = '';
+      let nseSortBy = 'gainers';
+      let marketExchFilter = 'ALL';
+      let nseVisibleCount = 50;
+      const STORAGE_KEY = 'bharat_alpha_v7';
       let state = {
         activeTab: 'news',
         wealthSubTab: 'sip-calc',
@@ -2296,6 +2303,114 @@
           .sort((a, b) => b.score - a.score);
 
         const container = document.getElementById('stockCardsList');
+        if (state.stockFilter === 'AllNSE') {
+          const sourceList = nseAllStocks.length > 0
+            ? nseAllStocks
+            : state.stocks.map((s) => ({
+                sym: s.nse,
+                bse: s.bse || '',
+                exch: s.bse && s.bse !== 'NSE' ? 'NSE+BSE' : 'NSE',
+                name: s.name,
+                cmp: s.cmp,
+                prev: s.cmp,
+                chg: 0,
+                high: s.high52,
+                low: s.low52,
+                deliv: 0,
+                isin: ''
+              }));
+          const qLower = state.searchQuery.trim().toLowerCase();
+          let filtered = sourceList.filter((item) => {
+            if (marketExchFilter === 'BOTH' && item.exch !== 'NSE+BSE') return false;
+            if (marketExchFilter === 'NSE' && item.exch !== 'NSE' && item.exch !== 'NSE+BSE') return false;
+            if (marketExchFilter === 'BSE' && item.exch !== 'BSE' && item.exch !== 'NSE+BSE') return false;
+            if (marketExchFilter === 'BSE_ONLY' && item.exch !== 'BSE') return false;
+            if (!qLower) return true;
+            return (item.sym || '').toLowerCase().includes(qLower)
+              || (item.bse || '').toLowerCase().includes(qLower)
+              || (item.name || '').toLowerCase().includes(qLower)
+              || (item.isin || '').toLowerCase().includes(qLower);
+          });
+          if (nseSortBy === 'gainers') filtered.sort((a, b) => (b.chg || 0) - (a.chg || 0));
+          else if (nseSortBy === 'losers') filtered.sort((a, b) => (a.chg || 0) - (b.chg || 0));
+          else if (nseSortBy === 'delivery') filtered.sort((a, b) => (b.deliv || 0) - (a.deliv || 0));
+          else filtered.sort((a, b) => (a.sym || a.bse || '').localeCompare(b.sym || b.bse || ''));
+
+          const visible = filtered.slice(0, nseVisibleCount);
+          const isFullLive = nseAllStocks.length > 50;
+          const bannerHtml = `
+            <div class="rounded-2xl ${isFullLive ? 'bg-emerald-50 border-emerald-200 text-emerald-900' : 'bg-blue-50 border-blue-200 text-blue-900'} border p-3.5 space-y-2">
+              <div class="flex items-start justify-between gap-2">
+                <div>
+                  <div class="text-xs font-extrabold">${isFullLive ? 'All ' + sourceList.length.toLocaleString('en-IN') + ' NSE &amp; BSE Listed Shares Live' : 'All NSE &amp; BSE Market Directory (' + sourceList.length + ' Starter Shares)'}</div>
+                  <p class="text-[11px] opacity-85 mt-0.5">${isFullLive
+                    ? 'Merged from official NSE &amp; BSE Daily Bhavcopy' + (nseMarketUpdatedAt ? ' (' + escapeHtml(nseMarketUpdatedAt) + ')' : '') + '. Search any NSE symbol, BSE code, or company name.'
+                    : 'Deploy the GitHub Auto-Update Kit to auto-load all ~5,000+ NSE &amp; BSE listed shares daily, or import official NSE/BSE Bhavcopy CSVs directly.'
+                  }</p>
+                </div>
+                <button type="button" id="triggerNseCsvImportBtn" class="shrink-0 px-2.5 py-1.5 rounded-xl bg-slate-900 text-white text-[11px] font-bold">Import CSV</button>
+              </div>
+              <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar pt-0.5">
+                ${[
+                  ['ALL', 'All NSE+BSE'],
+                  ['NSE', 'NSE Listed'],
+                  ['BSE', 'BSE Listed'],
+                  ['BSE_ONLY', 'BSE Exclusive']
+                ].map(([k, lbl]) => `<button type="button" data-market-exch="${k}" class="shrink-0 px-2.5 py-1 rounded-lg text-[11px] font-semibold border transition ${marketExchFilter === k ? 'bg-emerald-700 text-white border-emerald-700' : 'bg-white text-slate-700 border-slate-200'}">${lbl}</button>`).join('')}
+              </div>
+              <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar">
+                ${[
+                  ['gainers', 'Top Gainers'],
+                  ['losers', 'Top Losers'],
+                  ['delivery', 'High Delivery %'],
+                  ['az', 'A–Z']
+                ].map(([k, lbl]) => `<button type="button" data-nse-sort="${k}" class="shrink-0 px-2.5 py-1 rounded-lg text-[11px] font-semibold border transition ${nseSortBy === k ? 'bg-slate-900 text-white border-slate-900' : 'bg-white text-slate-700 border-slate-200'}">${lbl}</button>`).join('')}
+              </div>
+            </div>
+          `;
+
+          const rowsHtml = visible.length === 0
+            ? '<div class="bg-white rounded-2xl border border-slate-200 p-6 text-center text-xs text-slate-500">No NSE/BSE listed shares match your search.</div>'
+            : visible.map((item) => {
+                const keySym = item.sym || item.bse;
+                const existing = state.stocks.find((s) => s.nse.toUpperCase() === keySym.toUpperCase() || (item.bse && s.bse === item.bse));
+                const chgVal = Number(item.chg || 0);
+                const chgColor = chgVal > 0 ? 'text-emerald-700 bg-emerald-50' : chgVal < 0 ? 'text-rose-700 bg-rose-50' : 'text-slate-600 bg-slate-100';
+                const chgSign = chgVal > 0 ? '+' : '';
+                const exchBadge = item.exch === 'NSE+BSE'
+                  ? '<span class="px-1.5 py-0.5 rounded-md text-[10px] font-bold bg-indigo-50 text-indigo-700">NSE · BSE</span>'
+                  : item.exch === 'BSE'
+                    ? '<span class="px-1.5 py-0.5 rounded-md text-[10px] font-bold bg-amber-50 text-amber-800">BSE</span>'
+                    : '<span class="px-1.5 py-0.5 rounded-md text-[10px] font-bold bg-sky-50 text-sky-700">NSE</span>';
+                return `
+                  <div class="bg-white rounded-2xl border border-slate-200 px-3.5 py-3 shadow-sm flex items-center justify-between gap-2.5">
+                    <div class="min-w-0 flex-1">
+                      <div class="flex items-center gap-1.5 flex-wrap">
+                        <span class="text-xs font-extrabold text-slate-900">${escapeHtml(keySym)}</span>
+                        ${exchBadge}
+                        ${item.bse ? `<span class="text-[10px] font-mono text-slate-400">BSE:${escapeHtml(item.bse)}</span>` : ''}
+                        <span class="px-1.5 py-0.5 rounded-md text-[10px] font-bold ${chgColor}">${chgSign}${chgVal.toFixed(2)}%</span>
+                        ${item.deliv > 0 ? `<span class="text-[10px] font-semibold text-slate-500">Deliv ${Number(item.deliv).toFixed(0)}%</span>` : ''}
+                      </div>
+                      <div class="text-[11px] text-slate-500 truncate mt-0.5">${escapeHtml(item.name || keySym)}</div>
+                    </div>
+                    <div class="text-right shrink-0">
+                      <div class="text-sm font-extrabold text-slate-900">${item.cmp > 0 ? formatINR(item.cmp) : '—'}</div>
+                      <button type="button" data-track-nse-sym="${escapeHtml(keySym)}" class="mt-1 px-2.5 py-1 rounded-lg text-[11px] font-bold transition ${existing ? 'bg-emerald-100 text-emerald-800' : 'bg-slate-900 text-white'}">
+                        ${existing ? 'Open →' : '+ Track'}
+                      </button>
+                    </div>
+                  </div>
+                `;
+              }).join('');
+
+          const loadMoreHtml = filtered.length > nseVisibleCount
+            ? `<button type="button" id="loadMoreNseBtn" class="w-full py-2.5 rounded-xl bg-white border border-slate-200 text-xs font-bold text-slate-700 hover:bg-slate-50">Show 50 More (${filtered.length - nseVisibleCount} remaining)</button>`
+            : '';
+
+          container.innerHTML = bannerHtml + '<div class="space-y-2">' + rowsHtml + '</div>' + loadMoreHtml;
+          return;
+        }
         if (list.length === 0) {
           const emptyMsg = state.stockFilter === 'Holdings'
             ? 'No personal holdings tracked yet. Tap <strong>All (21)</strong> and open <strong>Details, Tax &amp; Alert</strong> on any listed share to mark shares you own.'
@@ -3320,8 +3435,224 @@
         document.getElementById(modalId).addEventListener('click', (e) => { if (e.target.id === modalId) e.target.classList.add('hidden'); });
       });
 
+
+      function parseCsvLine(line) {
+        const out = [];
+        let cur = '';
+        let inQuotes = false;
+        for (let i = 0; i < line.length; i++) {
+          const ch = line[i];
+          if (ch === '"') { inQuotes = !inQuotes; }
+          else if (ch === ',' && !inQuotes) { out.push(cur.trim()); cur = ''; }
+          else { cur += ch; }
+        }
+        out.push(cur.trim());
+        return out;
+      }
+
+      function importNseCsvText(csvText) {
+        const lines = csvText.split(/\r?\n/).filter((l) => l.trim().length > 0);
+        if (lines.length < 2) { showToast('CSV appears empty'); return; }
+        const headers = parseCsvLine(lines[0]).map((h) => h.toUpperCase());
+        const isBseUdiff = headers.includes('TCKRSYMB') || headers.includes('FININSTRMID');
+        const symIdx = isBseUdiff ? headers.indexOf('TCKRSYMB') : headers.indexOf('SYMBOL');
+        const bseCodeIdx = headers.indexOf('FININSTRMID');
+        if (symIdx === -1 && bseCodeIdx === -1) { showToast('Upload NSE EQUITY_L/Bhavcopy or BSE UDiFF Bhavcopy CSV'); return; }
+
+        const nameIdx = isBseUdiff
+          ? headers.indexOf('FININSTRMNM')
+          : headers.findIndex((h) => h.includes('NAME OF COMPANY') || h === 'NAME');
+        const seriesIdx = isBseUdiff ? headers.indexOf('SCTYSRS') : headers.indexOf('SERIES');
+        const closeIdx = isBseUdiff ? headers.indexOf('CLSPRIC') : headers.findIndex((h) => h === 'CLOSE_PRICE' || h === 'CLOSE');
+        const prevIdx = isBseUdiff ? headers.indexOf('PRVSCLSGPRIC') : headers.findIndex((h) => h === 'PREV_CLOSE');
+        const highIdx = isBseUdiff ? headers.indexOf('HGHPRIC') : headers.findIndex((h) => h === 'HIGH_PRICE' || h === 'HIGH');
+        const lowIdx = isBseUdiff ? headers.indexOf('LWPRIC') : headers.findIndex((h) => h === 'LOW_PRICE' || h === 'LOW');
+        const delivIdx = headers.indexOf('DELIV_PER');
+        const isinIdx = headers.findIndex((h) => h.includes('ISIN'));
+
+        const mapByKey = new Map();
+        nseAllStocks.forEach((x) => mapByKey.set(x.isin || x.sym || x.bse, x));
+
+        for (let i = 1; i < lines.length; i++) {
+          const cols = parseCsvLine(lines[i]);
+          const sym = symIdx >= 0 ? (cols[symIdx] || '').toUpperCase() : '';
+          const bseCode = bseCodeIdx >= 0 ? (cols[bseCodeIdx] || '').trim() : '';
+          const isin = isinIdx >= 0 ? (cols[isinIdx] || '').trim().toUpperCase() : '';
+          if (!sym && !bseCode) continue;
+          if (!isBseUdiff && seriesIdx >= 0) {
+            const ser = (cols[seriesIdx] || '').toUpperCase();
+            if (ser && ser !== 'EQ' && ser !== 'BE' && ser !== 'SM') continue;
+          }
+          const key = isin || sym || bseCode;
+          const prevObj = mapByKey.get(key) || {
+            sym: sym || bseCode,
+            bse: bseCode,
+            exch: isBseUdiff ? 'BSE' : 'NSE',
+            name: sym || bseCode,
+            cmp: 0, prev: 0, chg: 0, high: 0, low: 0, deliv: 0, isin
+          };
+          if (isBseUdiff) {
+            if (bseCode) prevObj.bse = bseCode;
+            if (prevObj.exch === 'NSE') prevObj.exch = 'NSE+BSE';
+            if (!prevObj.sym && sym) prevObj.sym = sym;
+          } else {
+            if (sym) prevObj.sym = sym;
+            if (prevObj.exch === 'BSE') prevObj.exch = 'NSE+BSE';
+          }
+          if (nameIdx >= 0 && cols[nameIdx]) prevObj.name = cols[nameIdx];
+          if (isin) prevObj.isin = isin;
+          if (closeIdx >= 0) {
+            const c = parseFloat(cols[closeIdx]) || 0;
+            const p = prevIdx >= 0 ? (parseFloat(cols[prevIdx]) || c) : c;
+            if (c > 0) {
+              prevObj.cmp = c;
+              prevObj.prev = p;
+              prevObj.chg = p > 0 ? ((c - p) / p) * 100 : 0;
+            }
+          }
+          if (highIdx >= 0) prevObj.high = parseFloat(cols[highIdx]) || prevObj.high;
+          if (lowIdx >= 0) prevObj.low = parseFloat(cols[lowIdx]) || prevObj.low;
+          if (delivIdx >= 0) prevObj.deliv = parseFloat(cols[delivIdx]) || prevObj.deliv;
+          mapByKey.set(key, prevObj);
+        }
+        nseAllStocks = Array.from(mapByKey.values());
+        nseMarketUpdatedAt = 'Imported ' + (isBseUdiff ? 'BSE' : 'NSE') + ' CSV (' + new Date().toLocaleDateString('en-IN') + ')';
+        nseVisibleCount = 50;
+        const pill = document.querySelector('[data-stock-filter="AllNSE"]');
+        if (pill && nseAllStocks.length > 50) pill.textContent = 'All NSE & BSE (' + nseAllStocks.length.toLocaleString('en-IN') + ')';
+        showToast('Loaded ' + nseAllStocks.length.toLocaleString('en-IN') + ' NSE/BSE listed shares!');
+        renderStocksTab();
+      }
+
+      const nseCsvInput = document.getElementById('nseCsvFileInput');
+      if (nseCsvInput) {
+        nseCsvInput.addEventListener('change', (e) => {
+          const file = e.target.files && e.target.files[0];
+          if (!file) return;
+          const reader = new FileReader();
+          reader.onload = (ev) => importNseCsvText(String(ev.target.result || ''));
+          reader.readAsText(file);
+          e.target.value = '';
+        });
+      }
+
+      document.addEventListener('click', (e) => {
+        if (e.target.closest('#triggerNseCsvImportBtn')) {
+          const inp = document.getElementById('nseCsvFileInput');
+          if (inp) inp.click();
+          return;
+        }
+        const exchBtn = e.target.closest('[data-market-exch]');
+        if (exchBtn) {
+          marketExchFilter = exchBtn.dataset.marketExch;
+          nseVisibleCount = 50;
+          renderStocksTab();
+          return;
+        }
+        const sortBtn = e.target.closest('[data-nse-sort]');
+        if (sortBtn) {
+          nseSortBy = sortBtn.dataset.nseSort;
+          nseVisibleCount = 50;
+          renderStocksTab();
+          return;
+        }
+        if (e.target.closest('#loadMoreNseBtn')) {
+          nseVisibleCount += 50;
+          renderStocksTab();
+          return;
+        }
+        const trackBtn = e.target.closest('[data-track-nse-sym]');
+        if (trackBtn) {
+          const sym = trackBtn.dataset.trackNseSym;
+          let stock = state.stocks.find((s) => s.nse.toUpperCase() === sym.toUpperCase() || s.bse === sym);
+          if (!stock) {
+            const entry = nseAllStocks.find((x) => (x.sym || '').toUpperCase() === sym.toUpperCase() || x.bse === sym);
+            if (!entry) return;
+            const cmp = entry.cmp > 0 ? entry.cmp : 100;
+            const codeKey = entry.sym || entry.bse;
+            const id = codeKey.toLowerCase().replace(/[^a-z0-9]/g, '');
+            stock = {
+              id: id || ('mkt_' + Date.now()),
+              name: entry.name || codeKey,
+              nse: entry.sym || entry.bse,
+              bse: entry.bse || (entry.exch === 'BSE' ? entry.sym : 'NSE'),
+              sector: entry.exch === 'BSE' ? 'BSE Listed Equity' : 'NSE/BSE Listed Equity',
+              cmp: cmp,
+              high52: entry.high > cmp ? entry.high : Number((cmp * 1.18).toFixed(2)),
+              low52: entry.low > 0 && entry.low < cmp ? entry.low : Number((cmp * 0.82).toFixed(2)),
+              mcapCr: 0,
+              pe: 20,
+              divYield: 0,
+              roe: 15,
+              roce: 15,
+              ttmSalesCr: 0,
+              ttmProfitCr: 0,
+              profitCagr3y: 12,
+              debtEquity: 0.3,
+              balanceNote: (entry.exch || 'NSE') + (entry.bse ? ' · BSE ' + entry.bse : '') + (entry.deliv > 0 ? ' · Deliv ' + Number(entry.deliv).toFixed(1) + '%' : '') + (entry.isin ? ' · ' + entry.isin : ''),
+              orderBookLabel: (entry.exch || 'NSE') + ' Listed Share',
+              orderBookDetail: 'Added from the All NSE & BSE Market directory. Edit CMP or mark as My Holding below.',
+              hasBigOrderBook: false,
+              isLowDebt: false,
+              fiiPct: 0,
+              diiPct: 0,
+              fcfCr: 0,
+              thesis: 'Tracked from official ' + (entry.exch || 'NSE/BSE') + ' listed universe.'
+            };
+            state.stocks.unshift(stock);
+            saveState();
+            showToast(stock.nse + ' added to Stocks!');
+          }
+          openStockDetailModal(stock.id);
+          return;
+        }
+      });
+
+      async function syncLiveMarketData() {
+        try {
+          const res = await fetch('./daily_data.json?t=' + Date.now());
+          if (res.ok) {
+            const data = await res.json();
+            if (data && data.prices) {
+              state.stocks.forEach((s) => {
+                const p = data.prices[s.nse];
+                if (p && p.cmp > 0) {
+                  s.cmp = p.cmp;
+                  if (p.high52 > 0) s.high52 = p.high52;
+                  if (p.low52 > 0) s.low52 = p.low52;
+                }
+              });
+            }
+          }
+        } catch (err) {}
+
+        for (const fileUrl of ['./market_all_stocks.json', './nse_all_stocks.json']) {
+          try {
+            const resAll = await fetch(fileUrl + '?t=' + Date.now());
+            if (!resAll.ok) continue;
+            const payload = await resAll.json();
+            if (payload && Array.isArray(payload.stocks) && payload.stocks.length > 0) {
+              nseAllStocks = payload.stocks.map((row) => Array.isArray(row)
+                ? (row.length >= 11
+                    ? { sym: row[0], bse: row[1] || '', exch: row[2] || 'NSE', name: row[3] || row[0], cmp: row[4] || 0, prev: row[5] || 0, chg: row[6] || 0, high: row[7] || 0, low: row[8] || 0, deliv: row[9] || 0, isin: row[10] || '' }
+                    : { sym: row[0], bse: '', exch: 'NSE', name: row[1], cmp: row[2] || 0, prev: row[3] || 0, chg: row[4] || 0, high: row[5] || 0, low: row[6] || 0, deliv: row[7] || 0, isin: row[8] || '' })
+                : row
+              );
+              nseMarketUpdatedAt = payload.updated_at_ist || '';
+              const pill = document.querySelector('[data-stock-filter="AllNSE"]');
+              if (pill && nseAllStocks.length > 50) {
+                pill.textContent = 'All NSE & BSE (' + nseAllStocks.length.toLocaleString('en-IN') + ')';
+              }
+              if (state.activeTab === 'stocks') renderStocksTab();
+              break;
+            }
+          } catch (err) {}
+        }
+      }
+
       loadState();
       renderAll();
+      syncLiveMarketData();
     })();
   </script>
 </body>
