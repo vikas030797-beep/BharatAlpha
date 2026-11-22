@@ -918,7 +918,7 @@
         { sector: 'Oil & Gas', novFlow: 2036, octFlow: -970, hasStocks: true, note: 'Benefiting from lower crude' },
         { sector: 'Healthcare', novFlow: 998, octFlow: -57, hasStocks: true, note: 'Turned positive on US specialty' },
         { sector: 'Power', novFlow: 705, octFlow: -765, hasStocks: true, note: 'Renewables & grid expansion' },
-        { sector: 'Capital Goods', novFlow: -3781, octFlow: -825, hasStocks: true, note: 'FPI profit-booking; DIIs accumulating' }
+        { sector: 'Capital Goods', displayLabel: 'Capital Goods & Defence', novFlow: -3781, octFlow: -825, hasStocks: true, note: 'CDSL groups Defence (HAL, BEL) under Capital Goods · FPI profit-booking; DIIs accumulating' }
       ];
 
       const DEFAULT_NEWS = [
@@ -1985,7 +1985,7 @@
         const canvas = document.getElementById('sectorFlowChart');
         if (!canvas || typeof Chart === 'undefined') return;
         const isNov = state.flowPeriod === 'nov';
-        const labels = SECTOR_FLOWS.map((s) => s.sector);
+        const labels = SECTOR_FLOWS.map((s) => s.displayLabel || s.sector);
         const values = SECTOR_FLOWS.map((s) => (isNov ? s.novFlow : s.octFlow));
         const colors = values.map((v) => (v >= 0 ? '#059669' : '#DC2626'));
 
@@ -2906,10 +2906,14 @@
                 </div>
               </div>
 
-              <div class="grid grid-cols-3 gap-2 text-[11px]">
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-[11px]">
                 <div class="rounded-lg bg-blue-50/70 px-2.5 py-1.5">
                   <span class="text-blue-700 font-semibold block">Entry</span>
                   <strong class="text-slate-900">${formatINR(e.levels.entryLow)}–${formatINR(e.levels.cmp)}</strong>
+                </div>
+                <div class="rounded-lg bg-indigo-50/70 px-2.5 py-1.5">
+                  <span class="text-indigo-700 font-semibold block">Exit Price (+${state.profitGoalPct}%)</span>
+                  <strong class="text-indigo-800">${formatINR(e.levels.target || (e.levels.cmp * (1 + state.profitGoalPct / 100)))}</strong>
                 </div>
                 <div class="rounded-lg bg-rose-50/70 px-2.5 py-1.5">
                   <span class="text-rose-700 font-semibold block">Stop-Loss</span>
