@@ -1,115 +1,137 @@
 {
-  "updated_at_ist": "23 Nov 2026, 02:27 PM IST",
-  "market_total_listed": 5876,
+  "updated_at_ist": "23 Nov 2026, 04:58 PM IST",
+  "market_total_listed": 5983,
   "my_holdings": [],
   "prices": {
     "BAJFINANCE": {
-      "cmp": 1102.45,
+      "cmp": 1095.5,
       "high52": 1176.4,
       "low52": 783.09
     },
     "BEL": {
-      "cmp": 397.75,
+      "cmp": 395.8,
       "high52": 472.81,
       "low52": 354.55
     },
     "BHARTIARTL": {
-      "cmp": 2134.4,
+      "cmp": 2128.5,
       "high52": 2172.9,
       "low52": 1718.87
     },
     "GOLDBEES": {
-      "cmp": 103.13,
+      "cmp": 103.05,
       "high52": 148.14,
       "low52": 100.11
     },
     "HAL": {
-      "cmp": 4779.4,
+      "cmp": 4780.0,
       "high52": 5149.9,
       "low52": 3472.06
     },
     "HCLTECH": {
-      "cmp": 1368.3,
+      "cmp": 1364.3,
       "high52": 1713.75,
       "low52": 1010.59
     },
     "HDFCBANK": {
-      "cmp": 822.55,
+      "cmp": 817.8,
       "high52": 1000.94,
       "low52": 669.2
     },
     "HINDUNILVR": {
-      "cmp": 2035.1,
+      "cmp": 2019.1,
       "high52": 2439.81,
       "low52": 1741.68
     },
     "ICICIBANK": {
-      "cmp": 1592.8,
+      "cmp": 1585.5,
       "high52": 1645.0,
       "low52": 1177.67
     },
     "INFY": {
-      "cmp": 1109.2,
+      "cmp": 1103.4,
       "high52": 1653.52,
       "low52": 958.44
     },
     "ITC": {
-      "cmp": 302.4,
+      "cmp": 301.0,
       "high52": 390.46,
       "low52": 252.8
     },
     "LT": {
-      "cmp": 4153.7,
+      "cmp": 4099.9,
       "high52": 4397.05,
       "low52": 3256.29
     },
     "M&M": {
-      "cmp": 3499.6,
+      "cmp": 3487.4,
       "high52": 3799.99,
       "low52": 2744.3
     },
     "MARUTI": {
-      "cmp": 14121.0,
+      "cmp": 14010.0,
       "high52": 17197.29,
       "low52": 10985.0
     },
     "NTPC": {
-      "cmp": 316.45,
+      "cmp": 315.45,
       "high52": 406.09,
       "low52": 289.28
     },
     "RELIANCE": {
-      "cmp": 1353.9,
+      "cmp": 1351.0,
       "high52": 1604.38,
       "low52": 1152.2
     },
     "RVNL": {
-      "cmp": 187.21,
+      "cmp": 185.1,
       "high52": 398.2,
       "low52": 177.86
     },
     "SBIN": {
-      "cmp": 1138.35,
+      "cmp": 1132.65,
       "high52": 1212.84,
       "low52": 927.73
     },
     "SUNPHARMA": {
-      "cmp": 1859.0,
+      "cmp": 1860.0,
       "high52": 2046.9,
       "low52": 1569.37
     },
     "TCS": {
-      "cmp": 2457.4,
+      "cmp": 2460.0,
       "high52": 3269.78,
       "low52": 1955.62
     },
     "TITAN": {
-      "cmp": 4670.2,
+      "cmp": 4680.0,
       "high52": 5186.7,
       "low52": 3738.73
     }
   },
   "news": [
+    {
+      "title": "Rupee retreats with stocks as rally takes a breather, positive bias lingers",
+      "summary": "After a five-day rise, the Indian rupee faced a setback on Monday, driven by heightened dollar demand from major corporations. This shift in momentum was compounded by profit-taking activities. The rupee settled at 92.91 against the dollar,",
+      "source": "Economic Times Markets",
+      "date": "Mon, 23 Nov 2026",
+      "url": "https://economictimes.indiatimes.com/markets/forex/rupee-retreats-with-stocks-as-rally-takes-a-breather-positive-bias-lingers/articleshow/136098391.cms",
+      "sentiment": "Bullish",
+      "sectors": [
+        "Automobiles"
+      ]
+    },
+    {
+      "title": "German bond yields edge higher as equity rebound eases safe-haven demand",
+      "summary": "Germany's government bond yields increased marginally on Monday as equity markets began to rebound, leading to diminished interest in safe-haven assets. In the wake of a difficult week for stocks, investors indicated a readiness to engage w",
+      "source": "Economic Times Markets",
+      "date": "Mon, 23 Nov 2026",
+      "url": "https://economictimes.indiatimes.com/markets/bonds/german-bond-yields-edge-higher-as-equity-rebound-eases-safe-haven-demand/articleshow/136097404.cms",
+      "sentiment": "Watch",
+      "sectors": [
+        "Financial Services"
+      ]
+    },
     {
       "title": "India bonds give up marginal opening gains as profit booking takes over",
       "summary": "Indian government bonds fell after initial gains due to profit booking by traders and a sharp rupee decline. The benchmark yield of the 6.94% 2036 bond increased to 7.2185% during trading hours. Last week, the yield had dropped significantl",
@@ -147,95 +169,120 @@
       ]
     },
     {
-      "title": "Global Markets: 5 key triggers to watch this week",
-      "summary": "Global markets will track five key triggers this week, from Black Friday spending and ECB leadership changes to Asian inflation data, South Korea\u2019s rate decision and business activity.",
-      "source": "Economic Times Markets",
+      "title": "Manic Monday for Bank Nifty as index crashes over 2000 points \u2014 Check worst hit shares and reasons behind mega plunge",
+      "summary": "Amid stock market crash today, the Bank Nifty had a manic Monday as the index lost over 2,000 points and closed at 3% below its previous close",
+      "source": "Livemint Markets",
       "date": "Mon, 23 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/us-stocks/news/global-markets-5-key-triggers-to-watch-this-week/slideshow/136091589.cms",
-      "sentiment": "Caution",
-      "sectors": [
-        "Gold & Commodities"
-      ]
-    },
-    {
-      "title": "Why is SanDisk stock falling? 5 factors weighing on shares",
-      "summary": "SanDisk shares plunged amid a broad semiconductor sell-off, with falling NAND price forecasts, weaker storage orders from Chinese cloud companies and concerns over AI spending weighing on sentiment. The stock has lost more than half its val",
-      "source": "Economic Times Markets",
-      "date": "Mon, 23 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/us-stocks/news/why-is-sandisk-stock-falling-5-factors-weighing-on-shares/slideshow/136091195.cms",
+      "url": "https://www.livemint.com/market/stock-market-news/manic-monday-for-bank-nifty-as-index-crashes-over-2000-points-check-worst-hit-shares-and-reasons-behind-mega-plunge-11795430223849.html",
       "sentiment": "Caution",
       "sectors": [
         "Capital Goods",
-        "Information Technology"
+        "Financial Services"
       ]
     },
     {
-      "title": "Up 115% in 6 months! Small-cap chemical stock under  \u20b9200 jumps 11% despite stock market crash; reason for rise, target",
-      "summary": "Small-cap stock under  \u20b9200: Chemical stock opened at  \u20b9107 apiece today, as compared to previous close of  \u20b997.42 on Friday last week and touched an intraday high of  \u20b9116.80.",
+      "title": "ITC, SAMHI Hotels to Lemon Tree: Top 6 hospitality stocks to buy | Up to 75% listing gain predicted by Ambit Capital",
+      "summary": "Top hospitality stocks to buy: Domestic brokerage Ambit Capital has maintained a positive outlook on the hospitality sector, citing strong demand from corporate travel, meetings etc.",
       "source": "Livemint Markets",
       "date": "Mon, 23 Nov 2026",
-      "url": "https://www.livemint.com/market/stock-market-news/up-115-in-6-months-small-cap-chemical-stock-under-200-jumps-11-despite-stock-market-crash-reason-for-rise-target-11795421422249.html",
+      "url": "https://www.livemint.com/market/stock-market-news/itc-samhi-hotels-to-lemon-tree-top-6-hospitality-stocks-to-buy-up-to-75-listing-gain-predicted-by-ambit-capital-11795431513673.html",
       "sentiment": "Bullish",
       "sectors": [
+        "Information Technology",
+        "FMCG"
+      ]
+    },
+    {
+      "title": "Stock market crash today wipes out  \u20b96 lakh cr: Red! Sensex down 1,484 points, Nifty below 25,350 - What went wrong?",
+      "summary": "Stock market crash: The Nifty 50 declined 1.75% to 25,349.65, while the Sensex fell 1.77% to 82,435.99, reversing their early gains amid weekly derivatives expiry-related volatility.",
+      "source": "Livemint Markets",
+      "date": "Mon, 23 Nov 2026",
+      "url": "https://www.livemint.com/market/stock-market-news/stock-market-crash-today-wipes-out-rs-6-lakh-cr-red-sensex-down-1-484-points-nifty-below-25-350-what-went-wrong-11795424234403.html",
+      "sentiment": "Watch",
+      "sectors": [
+        "Capital Goods",
         "Automobiles"
       ]
     },
     {
-      "title": "TCS vs Infosys vs Wipro shares: Despite global AI bloodbath, why are Indian IT stocks rising? Experts decode",
-      "summary": "TCS vs Infosys vs Wipro shares: Experts believe global rotation out of expensive AI hardware/infrastructure plays into undervalued, asset-light IT services companies",
+      "title": "PSU bank stocks tumble up to 5% after five-day rally, Nifty PSU Bank index crashes 3.2%; what's behind the sell-off?",
+      "summary": "PSU bank stocks fell sharply on Monday as investors booked profits after five consecutive sessions of gains. The Nifty PSU Bank index dropped 3.25%, though it remains up 16% in November. Stronger profits, improving asset quality and growing",
       "source": "Livemint Markets",
       "date": "Mon, 23 Nov 2026",
-      "url": "https://www.livemint.com/market/stock-market-news/tcs-vs-infosys-vs-wipro-shares-despite-global-ai-bloodbath-why-are-indian-it-stocks-rising-experts-decode-11795416602297.html",
+      "url": "https://www.livemint.com/market/stock-market-news/psu-bank-stocks-tumble-up-to-5-after-five-day-rally-nifty-psu-bank-index-crashes-3-2-whats-behind-the-selloff-11795427367855.html",
       "sentiment": "Watch",
       "sectors": [
-        "Capital Goods",
-        "Construction"
-      ]
-    },
-    {
-      "title": "Thomas Cook share price surges 15%, extends three-session rally to 19% | More upside ahead? Key levels to watch",
-      "summary": "Thomas Cook shares surged nearly 15% intraday on 23 November, extending a three-session gain to almost 19% amid heavy trading. Investors have also focused on the company\u2019s expansion of its resort and retail networks and record second-quarte",
-      "source": "Livemint Markets",
-      "date": "Mon, 23 Nov 2026",
-      "url": "https://www.livemint.com/market/stock-market-news/thomas-cook-share-price-surges-15-extends-three-session-rally-to-19-more-upside-ahead-key-levels-to-watch-11795417866319.html",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Automobiles",
-        "Consumer Services"
-      ]
-    },
-    {
-      "title": "Crash proof stocks: Sensex, Nifty bleed but these shares come out in flying green colour - HCL, TCS, Infy, Maruti - List",
-      "summary": "Indian equities fell sharply on Monday, with the Nifty 50 closing below 25,500 and the Sensex down about 1.4%. Only 12 Nifty constituents advanced, while IT, pharmaceutical, hospital and finance stocks showed resilience. TCS led IT gains, r",
-      "source": "Livemint Markets",
-      "date": "Mon, 23 Nov 2026",
-      "url": "https://www.livemint.com/market/stock-market-news/crash-proof-stocks-sensex-nifty-bleed-but-these-shares-come-out-in-flying-green-colour-hcl-tcs-infy-maruti-list-11795417938149.html",
-      "sentiment": "Watch",
-      "sectors": [
-        "Capital Goods",
-        "Healthcare"
-      ]
-    },
-    {
-      "title": "HFCL 160% up in 2026 vs Sterlite Technologies up 476%; but both crashed today - Experts suggest which one to buy",
-      "summary": "On Monday, both HFCL and Sterlite Technologies shares fell 5%, hitting the lower circuit limit, amid weak market sentiment on Dalal Street.",
-      "source": "Livemint Markets",
-      "date": "Mon, 23 Nov 2026",
-      "url": "https://www.livemint.com/market/stock-market-news/hfcl-160-up-in-2026-vs-sterlite-technologies-up-476-but-both-crashed-today-experts-suggest-which-one-to-buy-11795417569234.html",
-      "sentiment": "Watch",
-      "sectors": [
+        "Financial Services",
         "Information Technology"
       ]
     },
     {
-      "title": "Brigade Enterprises moves a step closer to FY27 pre-sales target with new launch",
-      "summary": "Brigade is pushing the pedal on timely new launches, but investors are not impressed yet. The stock is down 14% so far in 2026, while the Nifty Realty index has posted positive returns.",
+      "title": "Crypto investment amid fall: As Bitcoin hovers near $60K levels, experts answer if investors can expect recovery",
+      "summary": "Bitcoin and broader crypto markets staged a modest recovery after a sharp sell-off, but analysts said the trend remains bearish. Bitcoin traded below $60,000 before rebounding. Here's what experts are watching for a durable recovery\u2026",
       "source": "Livemint Markets",
       "date": "Mon, 23 Nov 2026",
-      "url": "https://www.livemint.com/market/mark-to-market/brigade-enterprises-pre-sales-growth-new-launches-debt-rises-fy27-11795415487645.html",
+      "url": "https://www.livemint.com/market/cryptocurrency/crypto-investment-amid-fall-as-bitcoin-hovers-near-60000-levels-experts-answer-if-investors-can-expect-recovery-markets-11795426061415.html",
+      "sentiment": "Caution",
+      "sectors": [
+        "Capital Goods",
+        "Automobiles"
+      ]
+    },
+    {
+      "title": "Up 114% YTD! Multibagger circuit-to-circuit stock hits 5% upper circuit for 19th straight session; do you own it?",
+      "summary": "SC Agrotech shares rose 5% to an all-time high of  \u20b983.54 after the company secured a  \u20b986 crore domestic agricultural commodities order covering 13,200 metric tonnes. The stock surged 170% in three months amid plans for a 4:5 bonus issue a",
+      "source": "Livemint Markets",
+      "date": "Mon, 23 Nov 2026",
+      "url": "https://www.livemint.com/market/stock-market-news/up-114-in-ytd-multibagger-circuit-to-circuit-stock-hits-5-upper-circuit-for-19th-straight-session-do-you-own-11795427956174.html",
+      "sentiment": "Bullish",
+      "sectors": [
+        "Capital Goods",
+        "Information Technology"
+      ]
+    },
+    {
+      "title": "Brookfield eyes more India deals as valuations become attractive",
+      "summary": "Brookfield is betting on PGP Glass as more than a standalone acquisition. Managing partner Aditya Joshi explains why the firm continues to see attractive opportunities in the industrial and financial services sectors.",
+      "source": "Livemint Companies",
+      "date": "Mon, 23 Nov 2026",
+      "url": "https://www.livemint.com/companies/news/brookfield-india-deals-valuations-pgp-glass-acquisition-private-equity-11795427277475.html",
       "sentiment": "Watch",
       "sectors": [
         "Financial Services"
+      ]
+    },
+    {
+      "title": "Kalyani family dispute: SC suggests arbitration after mediation fails",
+      "summary": "The court has sought instructions from the parties on the proposal and will hear the matter again after two weeks",
+      "source": "Livemint Companies",
+      "date": "Mon, 23 Nov 2026",
+      "url": "https://www.livemint.com/companies/people/baba-kalyani-sugandha-hiremath-family-dispute-supreme-court-arbitration-11795422643554.html",
+      "sentiment": "Bullish",
+      "sectors": [
+        "Financial Services"
+      ]
+    },
+    {
+      "title": "Food companies turn to technology to pack more nutrition into everyday diets",
+      "summary": "FMCG companies are using nutritional innovation to differentiate everyday staples, with Aashirvaad High Protein Atta priced about 55% above regular atta and Eggoz Protein Plus eggs around 37% higher.",
+      "source": "Livemint Companies",
+      "date": "Mon, 23 Nov 2026",
+      "url": "https://www.livemint.com/companies/news/india-fmcg-companies-nutrition-fortified-foods-protein-products-11795159893908.html",
+      "sentiment": "Bullish",
+      "sectors": [
+        "Automobiles",
+        "FMCG"
+      ]
+    },
+    {
+      "title": "Why Brookfield is betting $1.7 billion on PGP Glass, and how AI could transform its global business",
+      "summary": "Brookfield has agreed to acquire PGP Glass from Blackstone for $1.7 billion. The premium packaging manufacturer serves brands in more than 70 countries.&amp;nbsp;",
+      "source": "Livemint Companies",
+      "date": "Mon, 23 Nov 2026",
+      "url": "https://www.livemint.com/companies/news/why-brookfield-is-betting-1-7-billion-on-pgp-glass-and-how-ai-could-transform-its-global-business-11795423790625.html",
+      "sentiment": "Watch",
+      "sectors": [
+        "Information Technology"
       ]
     },
     {
@@ -259,50 +306,6 @@
       "sectors": [
         "Information Technology",
         "Automobiles"
-      ]
-    },
-    {
-      "title": "Who is Bhaskar Bhat and why was the Tata veteran fined  \u20b93 lakhs by Marico for \u2018insider trading\u2019?",
-      "summary": "Marico fined Independent Director Bhaskar Bhat  \u20b93 lakh after his spouse bought 200 shares during a prohibited trading period. The Audit Committee deemed the breach inadvertent, and the penalty was remitted to SEBI\u2019s Investor Protection and",
-      "source": "Livemint Companies",
-      "date": "Mon, 23 Nov 2026",
-      "url": "https://www.livemint.com/companies/people/who-is-bhaskar-bhat-and-why-was-the-tata-veteran-fined-rs-3-lakhs-by-marico-for-insider-trading-11795411886803.html",
-      "sentiment": "Watch",
-      "sectors": [
-        "Information Technology"
-      ]
-    },
-    {
-      "title": "\u20b94,000 crore French deal on the cards? Telangana govt in talks for investment deals in Paris",
-      "summary": "The deal is expected to be formalised through a MoU at the upcoming Invest Telangana Summit in December 2026",
-      "source": "Livemint Companies",
-      "date": "Mon, 23 Nov 2026",
-      "url": "https://www.livemint.com/companies/news/4000-crore-french-deal-on-the-cards-telangana-govt-in-talks-for-investment-deals-in-paris-11795407359989.html",
-      "sentiment": "Watch",
-      "sectors": [
-        "Information Technology"
-      ]
-    },
-    {
-      "title": "Brookfield to acquire PGP Glass from Blackstone for $1.7 billion",
-      "summary": "PGP Glass said the partnership with Brookfield will accelerate the company\u2019s next phase of growth.",
-      "source": "Livemint Companies",
-      "date": "Mon, 23 Nov 2026",
-      "url": "https://www.livemint.com/companies/news/brookfield-to-acquire-pgp-glass-blackstone-1-7-billion-11795409557465.html",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Financial Services"
-      ]
-    },
-    {
-      "title": "Two decades after Tata Nano exit, can Ashok Leyland bring industry back to Singur? What we know so far",
-      "summary": "Union Minister Sukanta Majumdar said on Saturday that commercial vehicle manufacturer Ashok Leyland would set up a truck manufacturing plant in Singur.",
-      "source": "Livemint Companies",
-      "date": "Mon, 23 Nov 2026",
-      "url": "https://www.livemint.com/news/india/two-decades-after-tata-nano-exit-can-ashok-leyland-bring-industry-back-to-singur-what-we-know-so-far-11795408856986.html",
-      "sentiment": "Watch",
-      "sectors": [
-        "Financial Services"
       ]
     },
     {
