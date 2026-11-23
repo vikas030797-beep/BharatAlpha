@@ -1,295 +1,290 @@
 {
-  "updated_at_ist": "22 Nov 2026, 04:46 PM IST",
-  "market_total_listed": 5864,
+  "updated_at_ist": "23 Nov 2026, 09:20 AM IST",
+  "market_total_listed": 5876,
   "my_holdings": [],
   "prices": {
     "BAJFINANCE": {
-      "cmp": 1122.0,
+      "cmp": 1118.0,
       "high52": 1176.4,
       "low52": 783.09
     },
     "BEL": {
-      "cmp": 402.0,
+      "cmp": 403.0,
       "high52": 472.81,
       "low52": 354.55
     },
     "BHARTIARTL": {
-      "cmp": 2161.7,
-      "high52": 2172.3,
+      "cmp": 2162.6,
+      "high52": 2172.9,
       "low52": 1718.87
     },
     "GOLDBEES": {
-      "cmp": 102.21,
+      "cmp": 102.75,
       "high52": 148.14,
       "low52": 100.11
     },
     "HAL": {
-      "cmp": 4809.0,
+      "cmp": 4786.6,
       "high52": 5149.9,
       "low52": 3472.06
     },
     "HCLTECH": {
-      "cmp": 1344.4,
+      "cmp": 1357.1,
       "high52": 1713.75,
       "low52": 1010.59
     },
     "HDFCBANK": {
-      "cmp": 846.0,
+      "cmp": 848.3,
       "high52": 1000.94,
       "low52": 669.2
     },
     "HINDUNILVR": {
-      "cmp": 2052.5,
+      "cmp": 2072.0,
       "high52": 2439.81,
       "low52": 1741.68
     },
     "ICICIBANK": {
-      "cmp": 1640.0,
+      "cmp": 1637.1,
       "high52": 1645.0,
       "low52": 1177.67
     },
     "INFY": {
-      "cmp": 1098.0,
+      "cmp": 1113.0,
       "high52": 1653.52,
       "low52": 958.44
     },
     "ITC": {
-      "cmp": 299.1,
+      "cmp": 301.5,
       "high52": 390.46,
       "low52": 252.8
     },
     "LT": {
-      "cmp": 4209.1,
+      "cmp": 4216.1,
       "high52": 4397.05,
       "low52": 3256.29
     },
     "M&M": {
-      "cmp": 3545.0,
+      "cmp": 3565.7,
       "high52": 3799.99,
       "low52": 2744.3
     },
     "MARUTI": {
-      "cmp": 14011.0,
+      "cmp": 14279.0,
       "high52": 17197.29,
       "low52": 10985.0
     },
     "NTPC": {
-      "cmp": 321.5,
+      "cmp": 320.9,
       "high52": 406.09,
       "low52": 289.28
     },
     "RELIANCE": {
-      "cmp": 1377.5,
+      "cmp": 1384.8,
       "high52": 1604.38,
       "low52": 1152.2
     },
     "RVNL": {
-      "cmp": 191.0,
+      "cmp": 192.08,
       "high52": 398.2,
       "low52": 177.86
     },
     "SBIN": {
-      "cmp": 1165.1,
+      "cmp": 1170.6,
       "high52": 1212.84,
       "low52": 927.73
     },
     "SUNPHARMA": {
-      "cmp": 1884.9,
+      "cmp": 1891.9,
       "high52": 2046.9,
       "low52": 1569.37
     },
     "TCS": {
-      "cmp": 2376.2,
+      "cmp": 2421.2,
       "high52": 3269.78,
       "low52": 1955.62
     },
     "TITAN": {
-      "cmp": 4620.0,
+      "cmp": 4653.0,
       "high52": 5186.7,
       "low52": 3738.73
     }
   },
   "news": [
     {
-      "title": "Why gold\u2019s five-year winning streak is under threat after dramatic selloff",
-      "summary": "Gold has fallen to around $3,510 an ounce after hitting a record $5,594.82 earlier in 2026, putting it on track for its first annual loss in five years. A stronger dollar, elevated bond yields, profit-booking and weaker safe-haven demand co",
+      "title": "APL Apollo Tubes among 3 stocks that rose above VWAP",
+      "summary": "When the closing price is above the VWAP, it means the stock closed at a price higher than its volume-weighted average traded price during the day. The VWAP gives greater weight to prices at which higher trading volumes occurred.",
       "source": "Economic Times Markets",
-      "date": "Sun, 22 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/commodities/why-golds-five-year-winning-streak-is-under-threat-after-dramatic-selloff/articleshow/136070323.cms",
-      "sentiment": "Caution",
+      "date": "Mon, 23 Nov 2026",
+      "url": "https://economictimes.indiatimes.com/markets/stocks/news/apl-apollo-tubes-among-3-stocks-that-rose-above-vwap/slideshow/136088216.cms",
+      "sentiment": "Bullish",
       "sectors": [
-        "Information Technology",
-        "Automobiles"
-      ]
-    },
-    {
-      "title": "InvIT IPO rush gathers pace; 4-5 private trusts likely to go public by Mar 2027",
-      "summary": "Four to five Infrastructure Investment Trusts are expected to launch public offerings to raise Rs 17,000 crore by 2027. These offerings aim to mobilise long-term capital for infrastructure development while appealing to a broader pool of in",
-      "source": "Economic Times Markets",
-      "date": "Sun, 22 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/invit-ipo-rush-gathers-pace-4-5-private-trusts-likely-to-go-public-by-mar-2027/articleshow/136069094.cms",
-      "sentiment": "Watch",
-      "sectors": [
-        "Construction",
         "Information Technology"
       ]
     },
     {
-      "title": "5 penny stocks plunge up to 68% in six months. Do you own any?",
-      "summary": "Five BSE Smallcap penny stocks have fallen between 21% and 68% in recent months. Kalind and Empower India led the declines, plunging 68% and 62%, respectively.",
+      "title": "Rupee could rise to 91.50/$ on equity inflows, says HDFC Bank's treasury head",
+      "summary": "The Indian rupee is experiencing a noteworthy appreciation, fueled by solid equity investment and lesser geopolitical uncertainties. Experts foresee further strengthening, potentially reaching 91.50 against the US dollar. A rate hike by the",
       "source": "Economic Times Markets",
-      "date": "Sun, 22 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/stocks/news/5-penny-stocks-plunge-up-to-68-in-six-months-do-you-own-any/slideshow/136069072.cms",
-      "sentiment": "Caution",
-      "sectors": [
-        "Power"
-      ]
-    },
-    {
-      "title": "Reliance Brands FY26 revenue up 3.8% to Rs 3,390.9 crore; loss narrows to Rs 137 crore",
-      "summary": "Reliance Brands has marked a significant financial milestone, achieving a revenue of Rs 3,390.89 crore for FY26 and reducing losses. Operating more than 1,085 Points of Sale nationwide, the brand continues to collaborate with over 90 partne",
-      "source": "Economic Times Markets",
-      "date": "Sun, 22 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/stocks/earnings/reliance-brands-fy26-revenue-up-3-8-to-rs-3390-9-crore-loss-narrows-to-rs-137-crore/articleshow/136068185.cms",
-      "sentiment": "Caution",
-      "sectors": [
-        "Automobiles"
-      ]
-    },
-    {
-      "title": "Anthropic's post-debut stumble delivers reality check for AI trade",
-      "summary": "Anthropic\u2019s shares fell about 9% after their market debut, deepening concerns over stretched AI valuations and showing that even a marquee listing has not revived investor enthusiasm for the sector. The focus is now shifting to whether Anth",
-      "source": "Economic Times Markets",
-      "date": "Sun, 22 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/us-stocks/news/anthropics-post-debut-stumble-delivers-reality-check-for-ai-trade/articleshow/136066633.cms",
-      "sentiment": "Caution",
-      "sectors": [
-        "Information Technology",
-        "Automobiles"
-      ]
-    },
-    {
-      "title": "Nifty eyes 26,200 as rally strengthens; 6 sectors signal outperformance",
-      "summary": "Nifty surged 2.61% last week, gaining 656 points amid strong FII inflows and improving technical indicators. Resistance lies at 25,950\u201326,200, while banking, IT and financial services lead sectoral momentum. Analysts advise caution against ",
-      "source": "Economic Times Markets",
-      "date": "Sat, 21 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/stocks/news/nifty-eyes-26200-as-rally-strengthens-6-sectors-signal-outperformance/articleshow/136050218.cms",
+      "date": "Mon, 23 Nov 2026",
+      "url": "https://economictimes.indiatimes.com/markets/forex/rupee-could-rise-to-91-50/-on-equity-inflows-says-hdfc-banks-treasury-head/articleshow/136088042.cms",
       "sentiment": "Bullish",
       "sectors": [
         "Financial Services",
-        "Information Technology"
+        "Gold & Commodities"
       ]
     },
     {
-      "title": "Stock market holiday next week: NSE, BSE to remain closed for Guru Nanak Jayanti on this day \u2013 Check details",
-      "summary": "Stock market holiday next week: Trading on the NSE and BSE will pause Tuesday, November 24, for Prakash Gurpurb Sri Guru Nanak Dev Jayanti.&amp;nbsp;",
-      "source": "Livemint Markets",
-      "date": "Sun, 22 Nov 2026",
-      "url": "https://www.livemint.com/market/stock-market-news/stock-market-holiday-next-week-nse-bse-to-remain-closed-for-guru-nanak-jayanti-on-this-day-november-24-tuesday-11795343116023.html",
-      "sentiment": "Watch",
-      "sectors": [
-        "Automobiles"
-      ]
-    },
-    {
-      "title": "RVNL vs Texmaco Rail: Which railway stock deserves a place in your portfolio for long-term gains? Check target price",
-      "summary": "RVNL\u2019s Q2 FY27 profit rose 8.3% year over year, while revenue fell 8.2%. Texmaco Rail\u2019s consolidated profit jumped 73.7%, despite lower revenue and a decline in standalone profit.",
-      "source": "Livemint Markets",
-      "date": "Sun, 22 Nov 2026",
-      "url": "https://www.livemint.com/market/stock-market-news/rvnl-vs-texmaco-rail-which-railway-stock-deserves-a-place-in-your-portfolio-for-long-term-gains-check-target-price-11795331266376.html",
+      "title": "HDFC Bank among 5 stocks showing White Marubozu pattern",
+      "summary": "Five Nifty200 stocks featured in StockEdge\u2019s White Marubozu bullish scanner on November 23, indicating strong buying momentum during the session, with prices moving higher from the opening level to the close.",
+      "source": "Economic Times Markets",
+      "date": "Mon, 23 Nov 2026",
+      "url": "https://economictimes.indiatimes.com/markets/stocks/news/hdfc-bank-among-5-stocks-showing-white-marubozu-pattern/slideshow/136087788.cms",
       "sentiment": "Bullish",
       "sectors": [
-        "Construction",
-        "Information Technology"
-      ]
-    },
-    {
-      "title": "New Sebi proposal could flip fates of key men at NSE, BSE",
-      "summary": "Proposed amendments to tenures of MDs of exchanges revise age-based limit to term-based limit. Ashishkumar Chauhan may be barred from another term at NSE because of his prior service at BSE, while Sundararaman Ramamurthy could continue at B",
-      "source": "Livemint Markets",
-      "date": "Sun, 22 Nov 2026",
-      "url": "https://www.livemint.com/market/nse-bse-chief-tenure-rules-sebi-proposal-11795333434935.html",
-      "sentiment": "Watch",
-      "sectors": [
-        "Information Technology",
+        "Financial Services",
         "Automobiles"
       ]
     },
     {
-      "title": "PBOC Anchors Yuan With Stable Fix as Volatility Jumps After APEC",
-      "summary": "China\u2019s central bank signaled it wants to curb sharp moves in the yuan with a largely steady fixing Friday, after the currency posted its biggest drop since March following a trilateral leaders\u2019 meeting.",
-      "source": "Livemint Markets",
-      "date": "Sun, 22 Nov 2026",
-      "url": "https://www.livemint.com/market/pboc-anchors-yuan-with-stable-fix-as-volatility-jumps-after-apec-11795338291477.html",
-      "sentiment": "Watch",
+      "title": "Persistent Systems among 4 stocks showing RSI trending up",
+      "summary": "Four Nifty500 stocks that gained over 4% on November 23 featured in StockEdge\u2019s RSI Trending Up scan, with their Relative Strength Index (RSI) crossing above 50 from below, signalling strengthening price momentum.",
+      "source": "Economic Times Markets",
+      "date": "Mon, 23 Nov 2026",
+      "url": "https://economictimes.indiatimes.com/markets/stocks/news/persistent-systems-among-4-stocks-showing-rsi-trending-up/slideshow/136087624.cms",
+      "sentiment": "Bullish",
       "sectors": [
-        "Financial Services",
+        "Capital Goods"
+      ]
+    },
+    {
+      "title": "Positive Breakout: These 7 stocks cross above their 200 DMAs",
+      "summary": "As long as a stock's price remains above its 200-day moving average on the daily timeframe, it is generally interpreted as being in an overall uptrend.",
+      "source": "Economic Times Markets",
+      "date": "Mon, 23 Nov 2026",
+      "url": "https://economictimes.indiatimes.com/markets/stocks/news/positive-breakout-these-7-stocks-cross-above-their-200-dmas/slideshow/136086994.cms",
+      "sentiment": "Bullish",
+      "sectors": [
         "Information Technology"
       ]
     },
     {
-      "title": "Anthropic and SpaceX IPOs bring Bitcoin prices down? Is investor money shifting from crypto to AI stocks? What\u2019s next?",
-      "summary": "Bitcoin and Ether fell sharply before the Anthropic and SpaceX IPOs, raising questions about capital shifting from crypto to stocks. Analysts say the declines also reflect ETF outflows, liquidations and broader risk aversion.&amp;nbsp;",
-      "source": "Livemint Markets",
-      "date": "Sun, 22 Nov 2026",
-      "url": "https://www.livemint.com/market/cryptocurrency/anthropic-and-spacex-ipos-bring-bitcoin-prices-down-is-investor-money-shifting-from-crypto-to-ai-stocks-what-s-next-11795334594912.html",
+      "title": "Gold recovers from 14-month low; focus turns to US inflation data",
+      "summary": "Gold prices experienced an upswing during morning transactions, driven by investor anticipation of a key inflation report. This rise comes after a steep decline that brought gold to a 14-month low just last week. US Federal Reserve represen",
+      "source": "Economic Times Markets",
+      "date": "Mon, 23 Nov 2026",
+      "url": "https://economictimes.indiatimes.com/markets/commodities/news/gold-recovers-from-14-month-low-focus-turns-to-us-inflation-data/articleshow/136086840.cms",
       "sentiment": "Caution",
       "sectors": [
-        "Information Technology",
-        "FMCG"
+        "Financial Services",
+        "Gold & Commodities"
       ]
     },
     {
-      "title": "Mint Explainer| How Sebi\u2019s margin tweaks may boost agri commodities",
-      "summary": "Lower margin requirements can improve capital efficiency for traders and brokers, potentially encouraging greater participation in commodity derivatives.",
+      "title": "South Korea Says Market Measures Will Ease Investor Jitters",
+      "summary": "South Korea\u2019s finance minister said the government\u2019s latest market-stabilization measures should help restore investor confidence, even as the benchmark Kospi slumped another 5% on Monday following last week\u2019s selloff.",
       "source": "Livemint Markets",
-      "date": "Sun, 22 Nov 2026",
-      "url": "https://www.livemint.com/market/stock-market-news/sebi-agricultural-commodity-trading-margins-liquidity-11795330448989.html",
+      "date": "Mon, 23 Nov 2026",
+      "url": "https://www.livemint.com/market/south-korea-says-market-measures-will-ease-investor-jitters-11795404903558.html",
+      "sentiment": "Caution",
+      "sectors": [
+        "Automobiles"
+      ]
+    },
+    {
+      "title": "Tata Steel share price in focus on announcement to acquire 26.38% stake in APL Apollo Tubes for  \u20b915,511 crore",
+      "summary": "Tata Steel plans to buy a 26.38% stake in APL Apollo Tubes for about  \u20b915,511 crore and make an open offer for another 26%. It will also transfer its tubes and pipes business and sell Tata Steel Colors to APL Apollo in deals worth up to  \u20b92",
+      "source": "Livemint Markets",
+      "date": "Mon, 23 Nov 2026",
+      "url": "https://www.livemint.com/market/stock-market-news/tata-steel-share-price-in-focus-on-announcement-to-acquire-26-38-stake-in-apl-apollo-tubes-for-rs-15-511-crore-11795400975932.html",
+      "sentiment": "Bullish",
+      "sectors": [
+        "Information Technology"
+      ]
+    },
+    {
+      "title": "Indian shares set to open higher on foreign inflows as AI selloff persists",
+      "summary": "GIFT Nifty futures were at 25,912 points, as of 7:58 a.m. IST, indicating a positive start for the benchmark Nifty 50 index, which closed at 25,800.6 on Friday.",
+      "source": "Livemint Markets",
+      "date": "Mon, 23 Nov 2026",
+      "url": "https://www.livemint.com/market/indian-shares-set-to-open-higher-on-foreign-inflows-as-ai-selloff-persists-11795402774674.html",
+      "sentiment": "Bullish",
+      "sectors": [
+        "Information Technology"
+      ]
+    },
+    {
+      "title": "Gold Rebounds as Tech Rout Spurs Shift to Havens, Treasury Rally",
+      "summary": "Gold rebounded from its biggest weekly decline in eight months as a technology-stock rout pushed traders to seek haven assets, driving down US Treasury yields and the dollar.",
+      "source": "Livemint Markets",
+      "date": "Mon, 23 Nov 2026",
+      "url": "https://www.livemint.com/market/gold-rebounds-as-tech-rout-spurs-shift-to-havens-treasury-rally-11795402440872.html",
+      "sentiment": "Bullish",
+      "sectors": [
+        "Gold & Commodities"
+      ]
+    },
+    {
+      "title": "MSCI Discussed Avoiding Indonesia Downgrade With Prabowo, Dalio",
+      "summary": "MSCI Inc. Chief Executive Henry Fernandez conveyed a willingness to consider alternatives to a two-step downgrade of Indonesia\u2019s stock-market status in recent direct talks with President Prabowo Subianto, according to people with knowledge ",
+      "source": "Livemint Markets",
+      "date": "Mon, 23 Nov 2026",
+      "url": "https://www.livemint.com/market/msci-discussed-avoiding-indonesia-downgrade-with-prabowo-dalio-11795402315648.html",
+      "sentiment": "Caution",
+      "sectors": [
+        "Financial Services"
+      ]
+    },
+    {
+      "title": "Current rally in large-caps a bear market one: veteran investor Shankar Sharma",
+      "summary": "Sharma calls the recent market rally a countertrend move, remains bullish on small-caps and says foreign buying reflects tactical allocation shifts, not renewed faith in India.",
+      "source": "Livemint Markets",
+      "date": "Mon, 23 Nov 2026",
+      "url": "https://www.livemint.com/market/stock-market-news/current-rally-in-large-caps-a-bear-market-one-veteran-investor-shankar-sharma-11795325109594.html",
       "sentiment": "Bullish",
       "sectors": [
         "Financial Services"
       ]
     },
     {
-      "title": "Like SpaceX, Anthropic ran an unusual IPO process, chafing some bankers",
-      "summary": "ANTHROPIC-IPO/PROCESS (URGENT, EXCLUSIVE, PIX):EXCLUSIVE-Like SpaceX, Anthropic ran an unusual IPO process, chafing some bankers",
+      "title": "Tata Steel signs $1.7 billion share purchase agreement to acquire 26.4% stake in APL Apollo Tubes \u2014 All we know",
+      "summary": "Tata Steel agreed to buy a 26.4% stake in APL Apollo Tubes for up to $1.7 billion ( \u20b9155.1 billion) and launched an open offer for an additional 26%. The move follows a  \u20b9280 billion deal to sell its tubes business and Tata Steel Colors to ",
       "source": "Livemint Companies",
-      "date": "Sun, 22 Nov 2026",
-      "url": "https://www.livemint.com/companies/like-spacex-anthropic-ran-an-unusual-ipo-process-chafing-some-bankers-11795345268760.html",
-      "sentiment": "Watch",
+      "date": "Mon, 23 Nov 2026",
+      "url": "https://www.livemint.com/companies/news/tata-steel-signs-1-7-billion-share-purchase-agreement-acquire-26-4-pc-stake-apl-apollo-tubes-business-market-all-we-know-11795403549614.html",
+      "sentiment": "Bullish",
       "sectors": [
         "Financial Services"
       ]
     },
     {
-      "title": "Microsoft overhauls Azure compensation model: Who gets extra stock and who faces scrutiny? Here's what changes",
-      "summary": "Microsoft is revising compensation in its Azure division to give top performers more stock awards and require formal discussions with employees falling short. The move reflects a broader push across the tech industry to improve productivity",
+      "title": "After missing salary, employees at Indian-origin CEO's robotic soldier startup backed by Eric Trump lose health benefits",
+      "summary": "Foundation Future has terminated employees\u2019 health benefits amid cash-flow concerns, after reports that it missed payroll in October. The robotics startup says it will offer COBRA coverage. CEO Sankaet Pathak has attributed the crisis to de",
       "source": "Livemint Companies",
-      "date": "Sun, 22 Nov 2026",
-      "url": "https://www.livemint.com/companies/news/microsoft-overhauls-azure-compensation-model-who-gets-extra-stock-and-who-faces-scrutiny-heres-what-changes-11795338639375.html",
-      "sentiment": "Watch",
-      "sectors": [
-        "Automobiles"
-      ]
-    },
-    {
-      "title": "Imperial Blue maker Pernod Ricard loses top spot as Johnnie Walker-owner Diageo reports  \u20b928,294 crore income in FY26",
-      "summary": "The company's total income, including other income, stood at  \u20b924,122.03 crore for the financial year ended March 31, 2026, marking a 12.8% decline from the previous fiscal year.",
-      "source": "Livemint Companies",
-      "date": "Sun, 22 Nov 2026",
-      "url": "https://www.livemint.com/companies/news/imperial-blue-maker-pernod-ricard-loses-top-spot-as-johnnie-walker-owner-diageo-reports-28-294-crore-income-in-fy26-11795341906072.html",
+      "date": "Mon, 23 Nov 2026",
+      "url": "https://www.livemint.com/companies/news/after-missing-salary-employees-at-indian-origin-ceos-robotic-soldier-startup-backed-by-eric-trump-lose-health-benefits-11795396927193.html",
       "sentiment": "Watch",
       "sectors": [
         "Financial Services",
-        "Automobiles"
+        "Information Technology"
       ]
     },
     {
-      "title": "Tata Sons board meeting this week to revisit listing issue amid row",
-      "summary": "The board meeting is the first since September that exposed a rift between Noel Tata's Tata Trusts and Tata Sons over listing and reappointment of Chairman Natarajan Chandrasekaran.",
+      "title": "Tata Sons lists EGM on board agenda amid vexed quorum issue",
+      "summary": "The meeting will also take up Tata Trusts chairman Noel Tata\u2019s repeated objections to proceedings of the board\u2019s 17 September meeting, and discuss the conglomerate's loss-making businesses.",
       "source": "Livemint Companies",
-      "date": "Sun, 22 Nov 2026",
-      "url": "https://www.livemint.com/companies/news/tata-sons-board-meeting-listing-issue-11795342582808.html",
+      "date": "Mon, 23 Nov 2026",
+      "url": "https://www.livemint.com/companies/news/tata-sons-board-meeting-agenda-listing-egm-11795355045284.html",
+      "sentiment": "Caution",
+      "sectors": [
+        "Financial Services"
+      ]
+    },
+    {
+      "title": "What Anthropic listing means for AI startups in India",
+      "summary": "The listing could draw more investors into India\u2019s AI ecosystem, but startups face tougher questions over business models, revenue quality and dependence on global AI models.",
+      "source": "Livemint Companies",
+      "date": "Mon, 23 Nov 2026",
+      "url": "https://www.livemint.com/companies/start-ups/anthropic-ipo-impact-india-ai-startups-sarvam-gnani-11795162629316.html",
       "sentiment": "Watch",
       "sectors": [
         "Information Technology",
@@ -297,25 +292,27 @@
       ]
     },
     {
-      "title": "Restaurants rethink expansion beyond casual dining",
-      "summary": "From premium dining destinations to delivery and cafe formats, restaurant companies are changing their expansion bets as delivery grows and large casual dining formats face pressure.",
+      "title": "Defence tech funding cools after Operation Sindoor gold rush",
+      "summary": "Defence tech funding has dropped to $73 million in 2026, marking a sharp slowdown from 2025, when investors poured $304 million into the sector across 61 deals.",
       "source": "Livemint Companies",
-      "date": "Sun, 22 Nov 2026",
-      "url": "https://www.livemint.com/companies/news/restaurant-groups-step-up-new-format-launches-to-chase-growth-11795168715594.html",
-      "sentiment": "Watch",
+      "date": "Mon, 23 Nov 2026",
+      "url": "https://www.livemint.com/companies/start-ups/defence-tech-funding-cools-after-operation-sindoor-gold-rush-11795089406864.html",
+      "sentiment": "Caution",
       "sectors": [
-        "Financial Services"
+        "Capital Goods",
+        "Gold & Commodities"
       ]
     },
     {
-      "title": "Nvidia shareholder writes open letter to board, calls for newly elected board leaders to decide on Jensen Huang's return",
-      "summary": "Nvidia shareholder Newman Nahas has urged the board to let three newly elected directors decide whether Jensen Huang should return, citing potential conflicts of interest among current directors amid controversy over the former CEO's depart",
+      "title": "Perfetti Van Melle to close 2026 at  \u20b94,000 crore revenue; tough year ahead, says MD",
+      "summary": "GST benefits and resilient margins buoyed the candy maker in 2026, but soaring sugar and packaging costs are testing the economics of low-priced packs and pushing it to nudge consumers towards larger sizes.",
       "source": "Livemint Companies",
-      "date": "Sun, 22 Nov 2026",
-      "url": "https://www.livemint.com/companies/news/nvidia-shareholder-writes-open-letter-to-board-calls-for-newly-elected-board-leaders-to-decide-on-jensen-huangs-return-11795339464376.html",
+      "date": "Mon, 23 Nov 2026",
+      "url": "https://www.livemint.com/companies/news/perfetti-van-melle-to-close-2026-with-4-000-crore-revenue-tough-year-ahead-md-fmcg-chocolate-cocoa-confectionery-11795337168596.html",
       "sentiment": "Watch",
       "sectors": [
-        "Financial Services"
+        "Information Technology",
+        "Automobiles"
       ]
     },
     {
