@@ -1,318 +1,308 @@
 {
-  "updated_at_ist": "23 Nov 2026, 09:20 AM IST",
+  "updated_at_ist": "23 Nov 2026, 02:27 PM IST",
   "market_total_listed": 5876,
   "my_holdings": [],
   "prices": {
     "BAJFINANCE": {
-      "cmp": 1118.0,
+      "cmp": 1102.45,
       "high52": 1176.4,
       "low52": 783.09
     },
     "BEL": {
-      "cmp": 403.0,
+      "cmp": 397.75,
       "high52": 472.81,
       "low52": 354.55
     },
     "BHARTIARTL": {
-      "cmp": 2162.6,
+      "cmp": 2134.4,
       "high52": 2172.9,
       "low52": 1718.87
     },
     "GOLDBEES": {
-      "cmp": 102.75,
+      "cmp": 103.13,
       "high52": 148.14,
       "low52": 100.11
     },
     "HAL": {
-      "cmp": 4786.6,
+      "cmp": 4779.4,
       "high52": 5149.9,
       "low52": 3472.06
     },
     "HCLTECH": {
-      "cmp": 1357.1,
+      "cmp": 1368.3,
       "high52": 1713.75,
       "low52": 1010.59
     },
     "HDFCBANK": {
-      "cmp": 848.3,
+      "cmp": 822.55,
       "high52": 1000.94,
       "low52": 669.2
     },
     "HINDUNILVR": {
-      "cmp": 2072.0,
+      "cmp": 2035.1,
       "high52": 2439.81,
       "low52": 1741.68
     },
     "ICICIBANK": {
-      "cmp": 1637.1,
+      "cmp": 1592.8,
       "high52": 1645.0,
       "low52": 1177.67
     },
     "INFY": {
-      "cmp": 1113.0,
+      "cmp": 1109.2,
       "high52": 1653.52,
       "low52": 958.44
     },
     "ITC": {
-      "cmp": 301.5,
+      "cmp": 302.4,
       "high52": 390.46,
       "low52": 252.8
     },
     "LT": {
-      "cmp": 4216.1,
+      "cmp": 4153.7,
       "high52": 4397.05,
       "low52": 3256.29
     },
     "M&M": {
-      "cmp": 3565.7,
+      "cmp": 3499.6,
       "high52": 3799.99,
       "low52": 2744.3
     },
     "MARUTI": {
-      "cmp": 14279.0,
+      "cmp": 14121.0,
       "high52": 17197.29,
       "low52": 10985.0
     },
     "NTPC": {
-      "cmp": 320.9,
+      "cmp": 316.45,
       "high52": 406.09,
       "low52": 289.28
     },
     "RELIANCE": {
-      "cmp": 1384.8,
+      "cmp": 1353.9,
       "high52": 1604.38,
       "low52": 1152.2
     },
     "RVNL": {
-      "cmp": 192.08,
+      "cmp": 187.21,
       "high52": 398.2,
       "low52": 177.86
     },
     "SBIN": {
-      "cmp": 1170.6,
+      "cmp": 1138.35,
       "high52": 1212.84,
       "low52": 927.73
     },
     "SUNPHARMA": {
-      "cmp": 1891.9,
+      "cmp": 1859.0,
       "high52": 2046.9,
       "low52": 1569.37
     },
     "TCS": {
-      "cmp": 2421.2,
+      "cmp": 2457.4,
       "high52": 3269.78,
       "low52": 1955.62
     },
     "TITAN": {
-      "cmp": 4653.0,
+      "cmp": 4670.2,
       "high52": 5186.7,
       "low52": 3738.73
     }
   },
   "news": [
     {
-      "title": "APL Apollo Tubes among 3 stocks that rose above VWAP",
-      "summary": "When the closing price is above the VWAP, it means the stock closed at a price higher than its volume-weighted average traded price during the day. The VWAP gives greater weight to prices at which higher trading volumes occurred.",
+      "title": "India bonds give up marginal opening gains as profit booking takes over",
+      "summary": "Indian government bonds fell after initial gains due to profit booking by traders and a sharp rupee decline. The benchmark yield of the 6.94% 2036 bond increased to 7.2185% during trading hours. Last week, the yield had dropped significantl",
       "source": "Economic Times Markets",
       "date": "Mon, 23 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/stocks/news/apl-apollo-tubes-among-3-stocks-that-rose-above-vwap/slideshow/136088216.cms",
+      "url": "https://economictimes.indiatimes.com/markets/bonds/india-bonds-give-up-marginal-opening-gains-as-profit-booking-takes-over/articleshow/136093136.cms",
       "sentiment": "Bullish",
-      "sectors": [
-        "Information Technology"
-      ]
-    },
-    {
-      "title": "Rupee could rise to 91.50/$ on equity inflows, says HDFC Bank's treasury head",
-      "summary": "The Indian rupee is experiencing a noteworthy appreciation, fueled by solid equity investment and lesser geopolitical uncertainties. Experts foresee further strengthening, potentially reaching 91.50 against the US dollar. A rate hike by the",
-      "source": "Economic Times Markets",
-      "date": "Mon, 23 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/forex/rupee-could-rise-to-91-50/-on-equity-inflows-says-hdfc-banks-treasury-head/articleshow/136088042.cms",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Financial Services",
-        "Gold & Commodities"
-      ]
-    },
-    {
-      "title": "HDFC Bank among 5 stocks showing White Marubozu pattern",
-      "summary": "Five Nifty200 stocks featured in StockEdge\u2019s White Marubozu bullish scanner on November 23, indicating strong buying momentum during the session, with prices moving higher from the opening level to the close.",
-      "source": "Economic Times Markets",
-      "date": "Mon, 23 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/stocks/news/hdfc-bank-among-5-stocks-showing-white-marubozu-pattern/slideshow/136087788.cms",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Financial Services",
-        "Automobiles"
-      ]
-    },
-    {
-      "title": "Persistent Systems among 4 stocks showing RSI trending up",
-      "summary": "Four Nifty500 stocks that gained over 4% on November 23 featured in StockEdge\u2019s RSI Trending Up scan, with their Relative Strength Index (RSI) crossing above 50 from below, signalling strengthening price momentum.",
-      "source": "Economic Times Markets",
-      "date": "Mon, 23 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/stocks/news/persistent-systems-among-4-stocks-showing-rsi-trending-up/slideshow/136087624.cms",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Capital Goods"
-      ]
-    },
-    {
-      "title": "Positive Breakout: These 7 stocks cross above their 200 DMAs",
-      "summary": "As long as a stock's price remains above its 200-day moving average on the daily timeframe, it is generally interpreted as being in an overall uptrend.",
-      "source": "Economic Times Markets",
-      "date": "Mon, 23 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/stocks/news/positive-breakout-these-7-stocks-cross-above-their-200-dmas/slideshow/136086994.cms",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Information Technology"
-      ]
-    },
-    {
-      "title": "Gold recovers from 14-month low; focus turns to US inflation data",
-      "summary": "Gold prices experienced an upswing during morning transactions, driven by investor anticipation of a key inflation report. This rise comes after a steep decline that brought gold to a 14-month low just last week. US Federal Reserve represen",
-      "source": "Economic Times Markets",
-      "date": "Mon, 23 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/commodities/news/gold-recovers-from-14-month-low-focus-turns-to-us-inflation-data/articleshow/136086840.cms",
-      "sentiment": "Caution",
-      "sectors": [
-        "Financial Services",
-        "Gold & Commodities"
-      ]
-    },
-    {
-      "title": "South Korea Says Market Measures Will Ease Investor Jitters",
-      "summary": "South Korea\u2019s finance minister said the government\u2019s latest market-stabilization measures should help restore investor confidence, even as the benchmark Kospi slumped another 5% on Monday following last week\u2019s selloff.",
-      "source": "Livemint Markets",
-      "date": "Mon, 23 Nov 2026",
-      "url": "https://www.livemint.com/market/south-korea-says-market-measures-will-ease-investor-jitters-11795404903558.html",
-      "sentiment": "Caution",
-      "sectors": [
-        "Automobiles"
-      ]
-    },
-    {
-      "title": "Tata Steel share price in focus on announcement to acquire 26.38% stake in APL Apollo Tubes for  \u20b915,511 crore",
-      "summary": "Tata Steel plans to buy a 26.38% stake in APL Apollo Tubes for about  \u20b915,511 crore and make an open offer for another 26%. It will also transfer its tubes and pipes business and sell Tata Steel Colors to APL Apollo in deals worth up to  \u20b92",
-      "source": "Livemint Markets",
-      "date": "Mon, 23 Nov 2026",
-      "url": "https://www.livemint.com/market/stock-market-news/tata-steel-share-price-in-focus-on-announcement-to-acquire-26-38-stake-in-apl-apollo-tubes-for-rs-15-511-crore-11795400975932.html",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Information Technology"
-      ]
-    },
-    {
-      "title": "Indian shares set to open higher on foreign inflows as AI selloff persists",
-      "summary": "GIFT Nifty futures were at 25,912 points, as of 7:58 a.m. IST, indicating a positive start for the benchmark Nifty 50 index, which closed at 25,800.6 on Friday.",
-      "source": "Livemint Markets",
-      "date": "Mon, 23 Nov 2026",
-      "url": "https://www.livemint.com/market/indian-shares-set-to-open-higher-on-foreign-inflows-as-ai-selloff-persists-11795402774674.html",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Information Technology"
-      ]
-    },
-    {
-      "title": "Gold Rebounds as Tech Rout Spurs Shift to Havens, Treasury Rally",
-      "summary": "Gold rebounded from its biggest weekly decline in eight months as a technology-stock rout pushed traders to seek haven assets, driving down US Treasury yields and the dollar.",
-      "source": "Livemint Markets",
-      "date": "Mon, 23 Nov 2026",
-      "url": "https://www.livemint.com/market/gold-rebounds-as-tech-rout-spurs-shift-to-havens-treasury-rally-11795402440872.html",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Gold & Commodities"
-      ]
-    },
-    {
-      "title": "MSCI Discussed Avoiding Indonesia Downgrade With Prabowo, Dalio",
-      "summary": "MSCI Inc. Chief Executive Henry Fernandez conveyed a willingness to consider alternatives to a two-step downgrade of Indonesia\u2019s stock-market status in recent direct talks with President Prabowo Subianto, according to people with knowledge ",
-      "source": "Livemint Markets",
-      "date": "Mon, 23 Nov 2026",
-      "url": "https://www.livemint.com/market/msci-discussed-avoiding-indonesia-downgrade-with-prabowo-dalio-11795402315648.html",
-      "sentiment": "Caution",
-      "sectors": [
-        "Financial Services"
-      ]
-    },
-    {
-      "title": "Current rally in large-caps a bear market one: veteran investor Shankar Sharma",
-      "summary": "Sharma calls the recent market rally a countertrend move, remains bullish on small-caps and says foreign buying reflects tactical allocation shifts, not renewed faith in India.",
-      "source": "Livemint Markets",
-      "date": "Mon, 23 Nov 2026",
-      "url": "https://www.livemint.com/market/stock-market-news/current-rally-in-large-caps-a-bear-market-one-veteran-investor-shankar-sharma-11795325109594.html",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Financial Services"
-      ]
-    },
-    {
-      "title": "Tata Steel signs $1.7 billion share purchase agreement to acquire 26.4% stake in APL Apollo Tubes \u2014 All we know",
-      "summary": "Tata Steel agreed to buy a 26.4% stake in APL Apollo Tubes for up to $1.7 billion ( \u20b9155.1 billion) and launched an open offer for an additional 26%. The move follows a  \u20b9280 billion deal to sell its tubes business and Tata Steel Colors to ",
-      "source": "Livemint Companies",
-      "date": "Mon, 23 Nov 2026",
-      "url": "https://www.livemint.com/companies/news/tata-steel-signs-1-7-billion-share-purchase-agreement-acquire-26-4-pc-stake-apl-apollo-tubes-business-market-all-we-know-11795403549614.html",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Financial Services"
-      ]
-    },
-    {
-      "title": "After missing salary, employees at Indian-origin CEO's robotic soldier startup backed by Eric Trump lose health benefits",
-      "summary": "Foundation Future has terminated employees\u2019 health benefits amid cash-flow concerns, after reports that it missed payroll in October. The robotics startup says it will offer COBRA coverage. CEO Sankaet Pathak has attributed the crisis to de",
-      "source": "Livemint Companies",
-      "date": "Mon, 23 Nov 2026",
-      "url": "https://www.livemint.com/companies/news/after-missing-salary-employees-at-indian-origin-ceos-robotic-soldier-startup-backed-by-eric-trump-lose-health-benefits-11795396927193.html",
-      "sentiment": "Watch",
       "sectors": [
         "Financial Services",
         "Information Technology"
       ]
     },
     {
-      "title": "Tata Sons lists EGM on board agenda amid vexed quorum issue",
-      "summary": "The meeting will also take up Tata Trusts chairman Noel Tata\u2019s repeated objections to proceedings of the board\u2019s 17 September meeting, and discuss the conglomerate's loss-making businesses.",
-      "source": "Livemint Companies",
+      "title": "Rupee retreats, Goldman calls it a 'port of stability' in AI storm",
+      "summary": "The Indian rupee initially rose to a seven-month high before retreating amid corporate dollar buying. It is on track for a monthly gain of over 2%, bolstered by significant foreign investment in Indian equities. Analysts noted that the rupe",
+      "source": "Economic Times Markets",
       "date": "Mon, 23 Nov 2026",
-      "url": "https://www.livemint.com/companies/news/tata-sons-board-meeting-agenda-listing-egm-11795355045284.html",
-      "sentiment": "Caution",
-      "sectors": [
-        "Financial Services"
-      ]
-    },
-    {
-      "title": "What Anthropic listing means for AI startups in India",
-      "summary": "The listing could draw more investors into India\u2019s AI ecosystem, but startups face tougher questions over business models, revenue quality and dependence on global AI models.",
-      "source": "Livemint Companies",
-      "date": "Mon, 23 Nov 2026",
-      "url": "https://www.livemint.com/companies/start-ups/anthropic-ipo-impact-india-ai-startups-sarvam-gnani-11795162629316.html",
-      "sentiment": "Watch",
+      "url": "https://economictimes.indiatimes.com/markets/forex/rupee-retreats-goldman-calls-it-a-port-of-stability-in-ai-storm/articleshow/136092977.cms",
+      "sentiment": "Bullish",
       "sectors": [
         "Information Technology",
         "Automobiles"
       ]
     },
     {
-      "title": "Defence tech funding cools after Operation Sindoor gold rush",
-      "summary": "Defence tech funding has dropped to $73 million in 2026, marking a sharp slowdown from 2025, when investors poured $304 million into the sector across 61 deals.",
-      "source": "Livemint Companies",
+      "title": "The great Indian stock market comeback. Can the rally sustain and what should investors do?",
+      "summary": "Indian equities staged a sharp 9.7% rally in eight sessions through November 12, reversing months of underperformance. A sell-off in US AI stocks, triggered by Republican losses in the midterm elections and fears of tighter AI regulation, s",
+      "source": "Economic Times Markets",
       "date": "Mon, 23 Nov 2026",
-      "url": "https://www.livemint.com/companies/start-ups/defence-tech-funding-cools-after-operation-sindoor-gold-rush-11795089406864.html",
+      "url": "https://economictimes.indiatimes.com/markets/stocks/news/the-great-indian-stock-market-comeback-can-the-rally-sustain-and-what-should-investors-do/articleshow/136092236.cms",
+      "sentiment": "Caution",
+      "sectors": [
+        "Information Technology",
+        "Automobiles"
+      ]
+    },
+    {
+      "title": "Global Markets: 5 key triggers to watch this week",
+      "summary": "Global markets will track five key triggers this week, from Black Friday spending and ECB leadership changes to Asian inflation data, South Korea\u2019s rate decision and business activity.",
+      "source": "Economic Times Markets",
+      "date": "Mon, 23 Nov 2026",
+      "url": "https://economictimes.indiatimes.com/markets/us-stocks/news/global-markets-5-key-triggers-to-watch-this-week/slideshow/136091589.cms",
+      "sentiment": "Caution",
+      "sectors": [
+        "Gold & Commodities"
+      ]
+    },
+    {
+      "title": "Why is SanDisk stock falling? 5 factors weighing on shares",
+      "summary": "SanDisk shares plunged amid a broad semiconductor sell-off, with falling NAND price forecasts, weaker storage orders from Chinese cloud companies and concerns over AI spending weighing on sentiment. The stock has lost more than half its val",
+      "source": "Economic Times Markets",
+      "date": "Mon, 23 Nov 2026",
+      "url": "https://economictimes.indiatimes.com/markets/us-stocks/news/why-is-sandisk-stock-falling-5-factors-weighing-on-shares/slideshow/136091195.cms",
       "sentiment": "Caution",
       "sectors": [
         "Capital Goods",
-        "Gold & Commodities"
+        "Information Technology"
       ]
     },
     {
-      "title": "Perfetti Van Melle to close 2026 at  \u20b94,000 crore revenue; tough year ahead, says MD",
-      "summary": "GST benefits and resilient margins buoyed the candy maker in 2026, but soaring sugar and packaging costs are testing the economics of low-priced packs and pushing it to nudge consumers towards larger sizes.",
+      "title": "Up 115% in 6 months! Small-cap chemical stock under  \u20b9200 jumps 11% despite stock market crash; reason for rise, target",
+      "summary": "Small-cap stock under  \u20b9200: Chemical stock opened at  \u20b9107 apiece today, as compared to previous close of  \u20b997.42 on Friday last week and touched an intraday high of  \u20b9116.80.",
+      "source": "Livemint Markets",
+      "date": "Mon, 23 Nov 2026",
+      "url": "https://www.livemint.com/market/stock-market-news/up-115-in-6-months-small-cap-chemical-stock-under-200-jumps-11-despite-stock-market-crash-reason-for-rise-target-11795421422249.html",
+      "sentiment": "Bullish",
+      "sectors": [
+        "Automobiles"
+      ]
+    },
+    {
+      "title": "TCS vs Infosys vs Wipro shares: Despite global AI bloodbath, why are Indian IT stocks rising? Experts decode",
+      "summary": "TCS vs Infosys vs Wipro shares: Experts believe global rotation out of expensive AI hardware/infrastructure plays into undervalued, asset-light IT services companies",
+      "source": "Livemint Markets",
+      "date": "Mon, 23 Nov 2026",
+      "url": "https://www.livemint.com/market/stock-market-news/tcs-vs-infosys-vs-wipro-shares-despite-global-ai-bloodbath-why-are-indian-it-stocks-rising-experts-decode-11795416602297.html",
+      "sentiment": "Watch",
+      "sectors": [
+        "Capital Goods",
+        "Construction"
+      ]
+    },
+    {
+      "title": "Thomas Cook share price surges 15%, extends three-session rally to 19% | More upside ahead? Key levels to watch",
+      "summary": "Thomas Cook shares surged nearly 15% intraday on 23 November, extending a three-session gain to almost 19% amid heavy trading. Investors have also focused on the company\u2019s expansion of its resort and retail networks and record second-quarte",
+      "source": "Livemint Markets",
+      "date": "Mon, 23 Nov 2026",
+      "url": "https://www.livemint.com/market/stock-market-news/thomas-cook-share-price-surges-15-extends-three-session-rally-to-19-more-upside-ahead-key-levels-to-watch-11795417866319.html",
+      "sentiment": "Bullish",
+      "sectors": [
+        "Automobiles",
+        "Consumer Services"
+      ]
+    },
+    {
+      "title": "Crash proof stocks: Sensex, Nifty bleed but these shares come out in flying green colour - HCL, TCS, Infy, Maruti - List",
+      "summary": "Indian equities fell sharply on Monday, with the Nifty 50 closing below 25,500 and the Sensex down about 1.4%. Only 12 Nifty constituents advanced, while IT, pharmaceutical, hospital and finance stocks showed resilience. TCS led IT gains, r",
+      "source": "Livemint Markets",
+      "date": "Mon, 23 Nov 2026",
+      "url": "https://www.livemint.com/market/stock-market-news/crash-proof-stocks-sensex-nifty-bleed-but-these-shares-come-out-in-flying-green-colour-hcl-tcs-infy-maruti-list-11795417938149.html",
+      "sentiment": "Watch",
+      "sectors": [
+        "Capital Goods",
+        "Healthcare"
+      ]
+    },
+    {
+      "title": "HFCL 160% up in 2026 vs Sterlite Technologies up 476%; but both crashed today - Experts suggest which one to buy",
+      "summary": "On Monday, both HFCL and Sterlite Technologies shares fell 5%, hitting the lower circuit limit, amid weak market sentiment on Dalal Street.",
+      "source": "Livemint Markets",
+      "date": "Mon, 23 Nov 2026",
+      "url": "https://www.livemint.com/market/stock-market-news/hfcl-160-up-in-2026-vs-sterlite-technologies-up-476-but-both-crashed-today-experts-suggest-which-one-to-buy-11795417569234.html",
+      "sentiment": "Watch",
+      "sectors": [
+        "Information Technology"
+      ]
+    },
+    {
+      "title": "Brigade Enterprises moves a step closer to FY27 pre-sales target with new launch",
+      "summary": "Brigade is pushing the pedal on timely new launches, but investors are not impressed yet. The stock is down 14% so far in 2026, while the Nifty Realty index has posted positive returns.",
+      "source": "Livemint Markets",
+      "date": "Mon, 23 Nov 2026",
+      "url": "https://www.livemint.com/market/mark-to-market/brigade-enterprises-pre-sales-growth-new-launches-debt-rises-fy27-11795415487645.html",
+      "sentiment": "Watch",
+      "sectors": [
+        "Financial Services"
+      ]
+    },
+    {
+      "title": "Kalyani Family Dispute:  \u20b91 lakh cr ancestral wealth - Mediation talks fail; SC proposes arbitration | Full details",
+      "summary": "After mediation failed to settle Kalyani family\u2019s inheritance dispute, the Supreme Court asked the parties to consider appointing a sole arbitrator. The dispute involves Baba Kalyani, his sister Sugandha Hiremath and other relatives, with c",
       "source": "Livemint Companies",
       "date": "Mon, 23 Nov 2026",
-      "url": "https://www.livemint.com/companies/news/perfetti-van-melle-to-close-2026-with-4-000-crore-revenue-tough-year-ahead-md-fmcg-chocolate-cocoa-confectionery-11795337168596.html",
+      "url": "https://www.livemint.com/companies/news/kalyani-family-dispute-rs-1-lakh-cr-ancestral-wealth-mediation-talks-fail-sc-proposes-arbitration-full-details-11795421438091.html",
       "sentiment": "Watch",
+      "sectors": [
+        "Financial Services"
+      ]
+    },
+    {
+      "title": "\u2018Stringent quality controls with 90 tests\u2019: Bisleri clarifies after FSSAI action over \u2018unsafe\u2019 packaged drinking water",
+      "summary": "FSSAI sanctioned prosecution against Bisleri after testing a packaged water sample and finding bromate levels above the prescribed limit; a referral lab also detected PAHs. Bisleri says subsequent testing found bromate within limits, disput",
+      "source": "Livemint Companies",
+      "date": "Mon, 23 Nov 2026",
+      "url": "https://www.livemint.com/companies/news/stringent-quality-controls-with-90-tests-bisleri-clarifies-after-fssai-action-over-unsafe-packaged-drinking-water-11795419136379.html",
+      "sentiment": "Bullish",
       "sectors": [
         "Information Technology",
         "Automobiles"
+      ]
+    },
+    {
+      "title": "Who is Bhaskar Bhat and why was the Tata veteran fined  \u20b93 lakhs by Marico for \u2018insider trading\u2019?",
+      "summary": "Marico fined Independent Director Bhaskar Bhat  \u20b93 lakh after his spouse bought 200 shares during a prohibited trading period. The Audit Committee deemed the breach inadvertent, and the penalty was remitted to SEBI\u2019s Investor Protection and",
+      "source": "Livemint Companies",
+      "date": "Mon, 23 Nov 2026",
+      "url": "https://www.livemint.com/companies/people/who-is-bhaskar-bhat-and-why-was-the-tata-veteran-fined-rs-3-lakhs-by-marico-for-insider-trading-11795411886803.html",
+      "sentiment": "Watch",
+      "sectors": [
+        "Information Technology"
+      ]
+    },
+    {
+      "title": "\u20b94,000 crore French deal on the cards? Telangana govt in talks for investment deals in Paris",
+      "summary": "The deal is expected to be formalised through a MoU at the upcoming Invest Telangana Summit in December 2026",
+      "source": "Livemint Companies",
+      "date": "Mon, 23 Nov 2026",
+      "url": "https://www.livemint.com/companies/news/4000-crore-french-deal-on-the-cards-telangana-govt-in-talks-for-investment-deals-in-paris-11795407359989.html",
+      "sentiment": "Watch",
+      "sectors": [
+        "Information Technology"
+      ]
+    },
+    {
+      "title": "Brookfield to acquire PGP Glass from Blackstone for $1.7 billion",
+      "summary": "PGP Glass said the partnership with Brookfield will accelerate the company\u2019s next phase of growth.",
+      "source": "Livemint Companies",
+      "date": "Mon, 23 Nov 2026",
+      "url": "https://www.livemint.com/companies/news/brookfield-to-acquire-pgp-glass-blackstone-1-7-billion-11795409557465.html",
+      "sentiment": "Bullish",
+      "sectors": [
+        "Financial Services"
+      ]
+    },
+    {
+      "title": "Two decades after Tata Nano exit, can Ashok Leyland bring industry back to Singur? What we know so far",
+      "summary": "Union Minister Sukanta Majumdar said on Saturday that commercial vehicle manufacturer Ashok Leyland would set up a truck manufacturing plant in Singur.",
+      "source": "Livemint Companies",
+      "date": "Mon, 23 Nov 2026",
+      "url": "https://www.livemint.com/news/india/two-decades-after-tata-nano-exit-can-ashok-leyland-bring-industry-back-to-singur-what-we-know-so-far-11795408856986.html",
+      "sentiment": "Watch",
+      "sectors": [
+        "Financial Services"
       ]
     },
     {
@@ -333,6 +323,17 @@
       "source": "Moneycontrol Markets",
       "date": "Tue, 23 Apr 2024",
       "url": "https://www.moneycontrol.com/news/local-markets/sensex-nifty-gain-for-third-daya-row-easing-volatility-to-support-bull-trend_17531821.html",
+      "sentiment": "Bullish",
+      "sectors": [
+        "Capital Goods"
+      ]
+    },
+    {
+      "title": "Mid-day Mood | Cooling volatility sparks market rally, India VIX sees steepest fall in 4 years",
+      "summary": "<img src=\"https://www.moneycontrol.com/news_image_files/2024/200x200/N/Nifty_sensex_marketup-4_200.jpg\" alt=\"Mid-day Mood | Cooling volatility sparks market rally, India VIX sees steepest fall in 4 years\" title=\"Mid-day Mood | Cooling volat",
+      "source": "Moneycontrol Markets",
+      "date": "Tue, 23 Apr 2024",
+      "url": "https://www.moneycontrol.com/news/local-markets/mid-day-mood-|-cooling-volatility-sparks-market-rally-india-vix-sees-steepest-fall4-years_17531481.html",
       "sentiment": "Bullish",
       "sectors": [
         "Capital Goods"
