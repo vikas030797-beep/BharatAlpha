@@ -1,349 +1,114 @@
 {
-  "updated_at_ist": "24 Nov 2026, 04:55 PM IST",
-  "market_total_listed": 5975,
-  "my_holdings": [],
+  "updatedAt": "2026-11-20 16:00 IST",
+  "source": "GitHub Actions Daily Updater (Yahoo Finance NSE + Public RSS)",
   "prices": {
-    "BAJFINANCE": {
-      "cmp": 1095.5,
-      "high52": 1176.4,
-      "low52": 783.09
-    },
-    "BEL": {
-      "cmp": 395.8,
-      "high52": 472.81,
-      "low52": 354.55
-    },
-    "BHARTIARTL": {
-      "cmp": 2128.5,
-      "high52": 2172.9,
-      "low52": 1718.87
-    },
-    "GOLDBEES": {
-      "cmp": 103.05,
-      "high52": 148.14,
-      "low52": 100.11
-    },
-    "HAL": {
-      "cmp": 4780.0,
-      "high52": 5149.9,
-      "low52": 3472.06
-    },
-    "HCLTECH": {
-      "cmp": 1364.3,
-      "high52": 1713.75,
-      "low52": 1010.59
-    },
     "HDFCBANK": {
-      "cmp": 817.8,
-      "high52": 1000.94,
-      "low52": 669.2
-    },
-    "HINDUNILVR": {
-      "cmp": 2019.1,
-      "high52": 2439.81,
-      "low52": 1741.68
+      "cmp": 811.0,
+      "high52": 990.0,
+      "low52": 750.0
     },
     "ICICIBANK": {
-      "cmp": 1585.5,
+      "cmp": 1640.0,
       "high52": 1645.0,
-      "low52": 1177.67
-    },
-    "INFY": {
-      "cmp": 1103.4,
-      "high52": 1653.52,
-      "low52": 958.44
-    },
-    "ITC": {
-      "cmp": 301.0,
-      "high52": 390.46,
-      "low52": 252.8
-    },
-    "LT": {
-      "cmp": 4099.9,
-      "high52": 4397.05,
-      "low52": 3256.29
-    },
-    "M&M": {
-      "cmp": 3487.4,
-      "high52": 3799.99,
-      "low52": 2744.3
-    },
-    "MARUTI": {
-      "cmp": 14010.0,
-      "high52": 17197.29,
-      "low52": 10985.0
-    },
-    "NTPC": {
-      "cmp": 315.45,
-      "high52": 406.09,
-      "low52": 289.28
-    },
-    "RELIANCE": {
-      "cmp": 1351.0,
-      "high52": 1604.38,
-      "low52": 1152.2
-    },
-    "RVNL": {
-      "cmp": 185.1,
-      "high52": 398.2,
-      "low52": 177.86
+      "low52": 1188.0
     },
     "SBIN": {
-      "cmp": 1132.65,
-      "high52": 1212.84,
-      "low52": 927.73
+      "cmp": 1165.0,
+      "high52": 1235.0,
+      "low52": 934.0
     },
-    "SUNPHARMA": {
-      "cmp": 1860.0,
-      "high52": 2046.9,
-      "low52": 1569.37
+    "BAJFINANCE": {
+      "cmp": 1122.0,
+      "high52": 1178.0,
+      "low52": 788.0
+    },
+    "RELIANCE": {
+      "cmp": 1378.0,
+      "high52": 1612.0,
+      "low52": 1152.0
     },
     "TCS": {
-      "cmp": 2460.0,
-      "high52": 3269.78,
-      "low52": 1955.62
+      "cmp": 2376.0,
+      "high52": 3350.0,
+      "low52": 1976.0
+    },
+    "INFY": {
+      "cmp": 1098.0,
+      "high52": 1728.0,
+      "low52": 980.0
+    },
+    "HCLTECH": {
+      "cmp": 1344.0,
+      "high52": 1780.0,
+      "low52": 1030.0
+    },
+    "BHARTIARTL": {
+      "cmp": 2162.0,
+      "high52": 2172.0,
+      "low52": 1726.0
+    },
+    "LT": {
+      "cmp": 4209.0,
+      "high52": 4440.0,
+      "low52": 3288.0
+    },
+    "HAL": {
+      "cmp": 4809.0,
+      "high52": 5150.0,
+      "low52": 3479.0
+    },
+    "BEL": {
+      "cmp": 402.0,
+      "high52": 435.0,
+      "low52": 265.0
+    },
+    "M&M": {
+      "cmp": 3545.0,
+      "high52": 3840.0,
+      "low52": 2743.0
+    },
+    "MARUTI": {
+      "cmp": 14011.0,
+      "high52": 17372.0,
+      "low52": 10984.0
+    },
+    "SUNPHARMA": {
+      "cmp": 1885.0,
+      "high52": 2048.0,
+      "low52": 1584.0
+    },
+    "ITC": {
+      "cmp": 299.0,
+      "high52": 411.0,
+      "low52": 253.0
+    },
+    "HINDUNILVR": {
+      "cmp": 2052.0,
+      "high52": 2480.0,
+      "low52": 1758.0
     },
     "TITAN": {
-      "cmp": 4680.0,
-      "high52": 5186.7,
-      "low52": 3738.73
+      "cmp": 4620.0,
+      "high52": 5187.0,
+      "low52": 3751.0
+    },
+    "NTPC": {
+      "cmp": 322.0,
+      "high52": 414.0,
+      "low52": 292.0
+    },
+    "RVNL": {
+      "cmp": 191.0,
+      "high52": 401.0,
+      "low52": 178.0
+    },
+    "GOLDBEES": {
+      "cmp": 102.21,
+      "high52": 148.14,
+      "low52": 100.01
     }
   },
-  "news": [
-    {
-      "title": "RBI DG asks primary dealers to bid responsibly in G-Sec underwriting auctions",
-      "summary": "RBI Deputy Governor Rohit Jain has urged primary dealers to bid responsibly in government securities auctions. Jain noted instances of volatile pricing that misalign with orderly market conditions, impacting government borrowing costs. He h",
-      "source": "Economic Times Markets",
-      "date": "Tue, 24 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/bonds/rbi-dg-asks-primary-dealers-to-bid-responsibly-in-g-sec-underwriting-auctions/articleshow/136125661.cms",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Capital Goods",
-        "Financial Services"
-      ]
-    },
-    {
-      "title": "IIFCL IPO: Govt plans to sell part of its stake, company to issue fresh shares",
-      "summary": "The government aims to partially divest its shareholding in India Infrastructure Finance Company Ltd through an initial public offering. The IPO is expected to occur by the end of the current fiscal year, according to an official statement.",
-      "source": "Economic Times Markets",
-      "date": "Tue, 24 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/ipos/fpos/iifcl-ipo-govt-plans-to-sell-part-of-its-stake-company-to-issue-fresh-shares/articleshow/136124476.cms",
-      "sentiment": "Watch",
-      "sectors": [
-        "Construction",
-        "Automobiles"
-      ]
-    },
-    {
-      "title": "Investors mint Rs 34.61 lakh cr in November as markets rally nearly 11%",
-      "summary": "In a remarkable surge this month, Indian equity markets have observed a substantial upswing, with the BSE Sensex climbing nearly 11 percent. This rally was largely propelled by foreign institutional investors, who contributed record-setting",
-      "source": "Economic Times Markets",
-      "date": "Tue, 24 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/stocks/news/investors-mint-rs-34-61-lakh-cr-in-november-as-markets-rally-nearly-11/articleshow/136123662.cms",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Information Technology",
-        "Automobiles"
-      ]
-    },
-    {
-      "title": "HDFC Bank, Reliance Industries among 10 stocks with highest DII holding in Q2. See full list",
-      "summary": "With the rise in the share of MFs and also an overall net investment of  Rs 1.69 lakh crore during the quarter, the share of Domestic Institutional Investors (DIIs) as a whole increased to an all-time high of 19.31% as on September 30, 2026",
-      "source": "Economic Times Markets",
-      "date": "Tue, 24 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/stocks/news/hdfc-bank-reliance-industries-among-10-stocks-with-highest-dii-holding-in-q2-see-full-list/slideshow/136126992.cms",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Financial Services"
-      ]
-    },
-    {
-      "title": "The LTCG debate: Why markets need tax stability and not ad-hoc fixes",
-      "summary": "Foreign Institutional Investor capital is leaving Indian markets, raising concerns over the unpredictability of tax policies. Investors are urging for the reconsideration of Long-Term Capital Gains tax provisions. Historical changes in LTCG",
-      "source": "Economic Times Markets",
-      "date": "Tue, 24 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/stocks/news/the-ltcg-debate-why-markets-need-tax-stability-and-not-ad-hoc-fixes/articleshow/136121257.cms",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Financial Services"
-      ]
-    },
-    {
-      "title": "Bitcoin fails to hold Nvidia bump with crypto headwinds in focus",
-      "summary": "Bitcoin's recent 1% decline has overshadowed positive developments from Nvidia, leading to a dip in investor confidence. The fallout from the Binance hack and notable ETF outflows has further complicated the situation. With the Federal Rese",
-      "source": "Economic Times Markets",
-      "date": "Tue, 24 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/cryptocurrency/bitcoin-fails-to-hold-nvidia-bump-with-crypto-headwinds-in-focus/articleshow/136119619.cms",
-      "sentiment": "Caution",
-      "sectors": [
-        "Information Technology",
-        "Automobiles"
-      ]
-    },
-    {
-      "title": "31.5% surge in Nvidia share adds $34 billion to Jensen Huang's wealth in a day; what's his net worth now?",
-      "summary": "Nvidia\u2019s board reinstated co-founder Jensen Huang as CEO, president and board member, triggering a 31.5% share-price surge and adding $33.7 billion to his fortune. The rally lifted other AI-related stocks and the Nasdaq, though Nvidia share",
-      "source": "Livemint Markets",
-      "date": "Tue, 24 Nov 2026",
-      "url": "https://www.livemint.com/market/stock-market-news/315-surge-in-nvidia-share-adds-34-billion-to-jensen-huangs-wealth-in-a-day-whats-his-net-worth-now-11795516605100.html",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Capital Goods",
-        "Information Technology"
-      ]
-    },
-    {
-      "title": "Silver price crash: Rates today in India down  \u20b91 lakh in 3 months! Recovery or more fall ahead for MCX silver futures?",
-      "summary": "Silver price today in India: The MCX silver rate finished at  \u20b91,54,205, up  \u20b96,392 against its previous close of  \u20b91,47,813/kg",
-      "source": "Livemint Markets",
-      "date": "Tue, 24 Nov 2026",
-      "url": "https://www.livemint.com/market/commodities/silver-price-crash-rates-today-in-india-down-rs-1-lakh-in-3-months-recovery-or-more-fall-ahead-for-mcx-silver-futures-11795511561513.html",
-      "sentiment": "Caution",
-      "sectors": [
-        "Automobiles",
-        "Gold & Commodities"
-      ]
-    },
-    {
-      "title": "Top defence stocks to buy: Apollo Micro Systems, BEL, Data Patterns, GRSE, Zen Technologies - check Choice's top picks",
-      "summary": "Choice Institutional Equities maintains a positive outlook on India\u2019s defence sector and rates seven stocks Buy: Apollo Micro Systems, Bharat Electronics, Centum Electronics, Data Patterns, GRSE, Unimech Aerospace and Zen Technologies.&amp;",
-      "source": "Livemint Markets",
-      "date": "Tue, 24 Nov 2026",
-      "url": "https://www.livemint.com/market/stock-market-news/top-defence-stocks-to-buy-apollo-micro-systems-bel-data-patterns-grse-zen-technologies-check-choices-top-picks-11795507257890.html",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Capital Goods",
-        "Automobiles"
-      ]
-    },
-    {
-      "title": "Penny stock under  \u20b910 with high book value, strong fundamentals \u2014 Can it become a multibagger? Experts' views, target",
-      "summary": "Penny stock under  \u20b910: Experts believe that green energy share has the potential to become a multibagger touching  \u20b919 in the long-term",
-      "source": "Livemint Markets",
-      "date": "Tue, 24 Nov 2026",
-      "url": "https://www.livemint.com/market/stock-market-news/penny-stock-under-rs-10-with-high-book-value-strong-fundamentals-can-it-become-a-multibagger-experts-views-target-11795505964712.html",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Capital Goods",
-        "Information Technology"
-      ]
-    },
-    {
-      "title": "Is stock market open today? Thanksgiving, Black Friday holiday, US trading schedule - Nasdaq, New York Stock Exchange",
-      "summary": "US stock markets will close for Thanksgiving on November 26 and reopen with an early 1 p.m. ET close on Black Friday. The article also outlines holiday trading hours for bonds and year-end market closures, while reporting a sharp Monday ral",
-      "source": "Livemint Markets",
-      "date": "Tue, 24 Nov 2026",
-      "url": "https://www.livemint.com/market/stock-market-news/is-stock-market-open-today-thanksgiving-black-friday-holiday-us-trading-schedule-nasdaq-new-york-stock-exchange-11795503931602.html",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Financial Services",
-        "Information Technology"
-      ]
-    },
-    {
-      "title": "RBI\u2019s Rohit Jain wants primary dealers to become architects of G-Sec market development",
-      "summary": "Jain said primary dealers could contribute towards building a partnership that continues to serve the government securities market well.",
-      "source": "Livemint Markets",
-      "date": "Tue, 24 Nov 2026",
-      "url": "https://www.livemint.com/market/bonds/rbi-deputy-governor-urges-primary-dealers-to-boost-g-sec-market-11795501774694.html",
-      "sentiment": "Watch",
-      "sectors": [
-        "Financial Services",
-        "Information Technology"
-      ]
-    },
-    {
-      "title": "Uday Kotak on Jensen Huang coming back as NVIDIA CEO: \u2018When elephants dance, everyone moves to give space!\u2019 - Full text",
-      "summary": "Uday Kotak described Nvidia\u2019s decision to reinstate co-founder Jensen Huang as CEO as consequential for global markets, linking it to the AI race and shifting geopolitical priorities. Nvidia shares and Taiwan\u2019s Taiex rallied after the board",
-      "source": "Livemint Companies",
-      "date": "Tue, 24 Nov 2026",
-      "url": "https://www.livemint.com/companies/people/uday-kotak-on-jensen-huang-coming-back-as-nvidia-ceo-when-elephants-dance-everyone-moves-to-give-space-full-text-11795515952949.html",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Information Technology",
-        "Automobiles"
-      ]
-    },
-    {
-      "title": "TSMC stock jumps 10%, adds $158 billion in market value as Nvidia's Jensen Huang returns as CEO",
-      "summary": "The rally came after Nvidia shares surged 31.48% on Monday, adding nearly $950 billion to the company's market value, after its board unanimously reinstated Huang as president and chief executive with immediate effect.",
-      "source": "Livemint Companies",
-      "date": "Tue, 24 Nov 2026",
-      "url": "https://www.livemint.com/companies/news/tsmc-stock-jumps-10-adds-158-billion-in-market-value-as-nvidias-jensen-huang-returns-as-ceo-11795515269169.html",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Financial Services"
-      ]
-    },
-    {
-      "title": "IKEA pushes India profitability target to FY29 as losses persist",
-      "summary": "The delayed profitability timeline comes as IKEA India continues to invest in expansion, even as it makes progress in improving its financial performance.",
-      "source": "Livemint Companies",
-      "date": "Tue, 24 Nov 2026",
-      "url": "https://www.livemint.com/companies/news/ikea-pushes-india-profitability-target-to-fy29-as-losses-persist-11795507409667.html",
-      "sentiment": "Watch",
-      "sectors": [
-        "Information Technology",
-        "Automobiles"
-      ]
-    },
-    {
-      "title": "Slurrp Farm parent eyes majority stake sale at up to  \u20b92,000 crore valuation",
-      "summary": "Wholsum Foods, which operates Slurrp Farm and Mille, has approached players like Nestle and ITC, and even European buyers",
-      "source": "Livemint Companies",
-      "date": "Tue, 24 Nov 2026",
-      "url": "https://www.livemint.com/companies/start-ups/wholsum-foods-fundraise-slurrp-farm-mille-majority-stake-sale-rs-2-000-crore-valuation-11795512527400.html",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Automobiles",
-        "FMCG"
-      ]
-    },
-    {
-      "title": "Mint Explainer: Can SpiceJet raise  \u20b95,500 crore to stay afloat?",
-      "summary": "SpiceJet is struggling to pay aircraft lessors, salaries and small suppliers. Without the financial lifeline, the airline's survival could be at risk.",
-      "source": "Livemint Companies",
-      "date": "Tue, 24 Nov 2026",
-      "url": "https://www.livemint.com/companies/news/mint-explainer-spicejet-fundraising-financial-lifeline-survival-repay-lessors-salaries-small-suppliers-dgca-ajay-singh-11795498920707.html",
-      "sentiment": "Watch",
-      "sectors": [
-        "Capital Goods"
-      ]
-    },
-    {
-      "title": "Before returning as CEO, Jensen Huang told Nvidia board of additional affairs beyond two reported | What we know",
-      "summary": "Nvidia has reinstated CEO Jensen Huang, 11 days after he stepped down amid revelations about his extramarital relationships. The decision followed intervention by Donald Trump, support from Elon Musk and other tech leaders, and assurances f",
-      "source": "Livemint Companies",
-      "date": "Tue, 24 Nov 2026",
-      "url": "https://www.livemint.com/companies/people/before-returning-as-ceo-jensen-huang-told-nvidia-board-of-additional-affairs-beyond-two-reported-what-we-know-11795512476839.html",
-      "sentiment": "Watch",
-      "sectors": [
-        "Financial Services",
-        "Automobiles"
-      ]
-    },
-    {
-      "title": "Taking Stock: Market fails to hold on to day#39;s gains, ends marginally higher",
-      "summary": "<img src=\"https://www.moneycontrol.com/news_image_files/2024/200x200/v/volatile_market1_200.jpg\" alt=\"Taking Stock: Market fails to hold on to day#39;s gains, ends marginally higher\" title=\"Taking Stock: Market fails to hold on to day#39;s ",
-      "source": "Moneycontrol Markets",
-      "date": "Tue, 23 Apr 2024",
-      "url": "https://www.moneycontrol.com/news/local-markets/taking-stock-market-fails-to-holdto-day39s-gains-ends-marginally-higher_17531871.html",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Capital Goods",
-        "Healthcare"
-      ]
-    },
-    {
-      "title": "Sensex, Nifty gain for third day in a row; easing volatility to support bull trend",
-      "summary": "<img src=\"https://www.moneycontrol.com/news_image_files/2024/200x200/S/Share-Market-New-4-4_200.jpg\" alt=\"Sensex, Nifty gain for third day in a row; easing volatility to support bull trend\" title=\"Sensex, Nifty gain for third day in a row; ",
-      "source": "Moneycontrol Markets",
-      "date": "Tue, 23 Apr 2024",
-      "url": "https://www.moneycontrol.com/news/local-markets/sensex-nifty-gain-for-third-daya-row-easing-volatility-to-support-bull-trend_17531821.html",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Capital Goods"
-      ]
-    }
-  ]
+  "news": [],
+  "updated_at_ist": "21 Nov 2026, 08:45 PM IST",
+  "my_holdings": []
 }

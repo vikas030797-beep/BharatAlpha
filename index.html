@@ -167,12 +167,13 @@
   <main class="max-w-3xl mx-auto px-3.5 pt-3.5 space-y-4">
 
     <!-- Compact Top-Down Funnel Bar -->
-    <div class="grid grid-cols-5 gap-1 bg-white p-1.5 rounded-2xl border border-slate-200 shadow-sm text-center">
-      <button type="button" data-step-tab="news" class="step-pill py-1.5 px-1 rounded-xl text-[10px] sm:text-[11px] font-semibold transition truncate">1. News</button>
-      <button type="button" data-step-tab="flows" class="step-pill py-1.5 px-1 rounded-xl text-[10px] sm:text-[11px] font-semibold transition truncate">2. Flows</button>
-      <button type="button" data-step-tab="stocks" class="step-pill py-1.5 px-1 rounded-xl text-[10px] sm:text-[11px] font-semibold transition truncate">3. Stocks</button>
-      <button type="button" data-step-tab="sip" class="step-pill py-1.5 px-1 rounded-xl text-[10px] sm:text-[11px] font-semibold transition truncate">4. SIP/Goal</button>
-      <button type="button" data-step-tab="plan" class="step-pill py-1.5 px-1 rounded-xl text-[10px] sm:text-[11px] font-semibold transition truncate">5. Plan</button>
+    <div class="grid grid-cols-6 gap-1 bg-white p-1.5 rounded-2xl border border-slate-200 shadow-sm text-center">
+      <button type="button" data-step-tab="news" class="step-pill py-1.5 px-1 rounded-full text-[11px] font-bold transition truncate">1. News</button>
+        <button type="button" data-step-tab="flows" class="step-pill py-1.5 px-1 rounded-full text-[11px] font-bold transition truncate">2. Flows</button>
+        <button type="button" data-step-tab="stocks" class="step-pill py-1.5 px-1 rounded-full text-[11px] font-bold transition truncate">3. Stocks</button>
+        <button type="button" data-step-tab="ipo" class="step-pill py-1.5 px-1 rounded-full text-[11px] font-bold transition truncate">4. IPO</button>
+        <button type="button" data-step-tab="sip" class="step-pill py-1.5 px-1 rounded-full text-[11px] font-bold transition truncate">5. SIP/Goal</button>
+        <button type="button" data-step-tab="plan" class="step-pill py-1.5 px-1 rounded-full text-[11px] font-bold transition truncate">6. Plan</button>
     </div>
 
     <!-- ==================== TAB 1: NEWS & POLICY ANALYZER ==================== -->
@@ -621,6 +622,25 @@
             <span id="rrBadge" class="text-xs font-bold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">R:R 1:2.1</span>
           </div>
 
+          <!-- 1-Tap Strategy Presets (Short-Term Swing vs Positional vs Long-Term) -->
+          <div class="space-y-1.5">
+            <div class="text-[11px] font-semibold text-slate-500">1-Tap Timeframe Preset</div>
+            <div class="grid grid-cols-3 gap-1.5">
+              <button type="button" data-strategy-preset="swing" class="px-2 py-2 rounded-xl border border-emerald-200 bg-emerald-50/70 hover:bg-emerald-100 text-left transition">
+                <div class="text-[11px] font-extrabold text-emerald-900">2–6 Wk Swing</div>
+                <div class="text-[10px] text-emerald-700">+6% / -3% · STCG</div>
+              </button>
+              <button type="button" data-strategy-preset="positional" class="px-2 py-2 rounded-xl border border-blue-200 bg-blue-50/70 hover:bg-blue-100 text-left transition">
+                <div class="text-[11px] font-extrabold text-blue-900">Positional</div>
+                <div class="text-[10px] text-blue-700">+12% / -6% · STCG</div>
+              </button>
+              <button type="button" data-strategy-preset="longterm" class="px-2 py-2 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100 text-left transition">
+                <div class="text-[11px] font-extrabold text-slate-900">Long-Term</div>
+                <div class="text-[10px] text-slate-600">+18% / -8% · LTCG</div>
+              </button>
+            </div>
+          </div>
+
           <div class="space-y-2">
             <label for="budgetInput" class="flex items-center justify-between text-xs font-semibold text-slate-700">
               <span>Total Capital Budget (₹)</span>
@@ -769,11 +789,97 @@
       <p class="text-[11px] text-slate-400">Snapshot data as of Nov 20, 2026 (Screener.in, CDSL/Finnovate, PIB). Tax rules reflect FY 2026–27 India rates.</p>
       <p class="text-[11px] text-slate-400">Educational research &amp; planning tool only — not SEBI-registered investment advice.</p>
     </footer>
+
+    <!-- TAB 6: IPO ADVISOR & SCORECARD -->
+    <section id="tab-ipo" class="tab-section hidden space-y-4">
+      <!-- Interactive "Should I Apply?" IPO Checker -->
+      <div class="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm space-y-3">
+        <div class="flex items-center justify-between gap-2">
+          <div>
+            <h2 class="text-sm font-bold text-slate-900">Should I Apply? IPO Analyzer</h2>
+            <p class="text-xs text-slate-500">Score any NSE/BSE Mainboard or SME IPO on GMP, QIB demand &amp; Fresh Issue %</p>
+          </div>
+          <span id="ipoCalcBadge" class="shrink-0 px-2.5 py-1 rounded-full text-[11px] font-extrabold bg-emerald-50 text-emerald-700 border border-emerald-200">Score 72/100</span>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5 text-xs">
+          <label class="block">
+            <span class="text-[11px] font-semibold text-slate-600">Segment</span>
+            <select id="ipoCalcSeg" class="mt-1 w-full rounded-xl border border-slate-200 bg-slate-50 px-2.5 py-2 text-xs font-semibold text-slate-900">
+              <option value="Mainboard">Mainboard (₹15k lot)</option>
+              <option value="SME">SME (High Risk)</option>
+            </select>
+          </label>
+          <label class="block">
+            <span class="text-[11px] font-semibold text-slate-600">Upper Price (₹)</span>
+            <input id="ipoCalcPrice" type="number" value="272" min="1" class="mt-1 w-full rounded-xl border border-slate-200 bg-slate-50 px-2.5 py-2 text-xs font-bold text-slate-900" />
+          </label>
+          <label class="block">
+            <span class="text-[11px] font-semibold text-slate-600">Lot Size (Shares)</span>
+            <input id="ipoCalcLot" type="number" value="55" min="1" class="mt-1 w-full rounded-xl border border-slate-200 bg-slate-50 px-2.5 py-2 text-xs font-bold text-slate-900" />
+          </label>
+          <label class="block">
+            <span class="text-[11px] font-semibold text-slate-600">Live GMP (₹/share)</span>
+            <input id="ipoCalcGmp" type="number" value="45" class="mt-1 w-full rounded-xl border border-slate-200 bg-slate-50 px-2.5 py-2 text-xs font-bold text-slate-900" />
+          </label>
+          <label class="block">
+            <span class="text-[11px] font-semibold text-slate-600">QIB Subscription (x)</span>
+            <input id="ipoCalcQib" type="number" value="18" min="0" step="0.5" class="mt-1 w-full rounded-xl border border-slate-200 bg-slate-50 px-2.5 py-2 text-xs font-bold text-slate-900" />
+          </label>
+          <label class="block">
+            <span class="text-[11px] font-semibold text-slate-600">Fresh Issue %</span>
+            <input id="ipoCalcFresh" type="number" value="75" min="0" max="100" class="mt-1 w-full rounded-xl border border-slate-200 bg-slate-50 px-2.5 py-2 text-xs font-bold text-slate-900" />
+          </label>
+        </div>
+
+        <div id="ipoCalcOutput" class="rounded-xl bg-slate-50 border border-slate-200 p-3 space-y-2 text-xs"></div>
+      </div>
+
+      <!-- Filter Pills & Sorter for Indian IPOs -->
+      <div class="space-y-2">
+        <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-0.5">
+          <button type="button" data-ipo-filter="All" class="ipo-filter-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold transition">All IPOs</button>
+          <button type="button" data-ipo-filter="Open" class="ipo-filter-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold transition">Open Now</button>
+          <button type="button" data-ipo-filter="Upcoming" class="ipo-filter-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold transition">Upcoming</button>
+          <button type="button" data-ipo-filter="Allotment" class="ipo-filter-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold transition">Allotment / Listing</button>
+          <button type="button" data-ipo-filter="Mainboard" class="ipo-filter-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold transition">Mainboard</button>
+          <button type="button" data-ipo-filter="SME" class="ipo-filter-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold transition">SME</button>
+        </div>
+
+        <div class="flex items-center justify-between gap-2 flex-wrap bg-white rounded-xl border border-slate-200 px-3 py-2 shadow-sm">
+          <div class="flex items-center gap-2.5">
+            <span id="ipoCountLabel" class="text-[11px] font-semibold text-slate-500">Showing IPOs</span>
+            <label class="inline-flex items-center gap-1 text-[11px] font-semibold text-slate-600 cursor-pointer select-none">
+              <input id="toggleIpoGmp" type="checkbox" checked class="rounded border-slate-300 text-emerald-600 focus:ring-emerald-500" />
+              <span>Show GMP (Unofficial)</span>
+            </label>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <label for="ipoSortSelect" class="text-[11px] font-semibold text-slate-600">Sort:</label>
+            <select id="ipoSortSelect" class="text-[11px] font-bold bg-slate-100 border border-slate-200 rounded-lg px-2 py-1 text-slate-800 focus:outline-none">
+              <option value="status_open">Open → Upcoming → Allotment</option>
+              <option value="status_upcoming">Upcoming First</option>
+              <option value="status_allotment">Allotment / Listing First</option>
+              <option value="issue_size">Largest Issue Size (₹ Cr)</option>
+              <option value="qib_sub">Highest QIB / Demand (x)</option>
+              <option value="fresh_pct">Highest Fresh Issue %</option>
+              <option value="min_inv">Lowest Min Investment (₹)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div id="ipoCardsList" class="space-y-3"></div>
+
+      <div class="rounded-2xl bg-amber-50/80 border border-amber-200 p-3 text-[11px] text-amber-900">
+        <strong>SEBI Advisory &amp; Risk Note:</strong> Per SEBI's Nov 24, 2026 advisory, unofficial Grey Market Premium (GMP) figures should not be used to predict listing returns. Always verify Day-3 QIB subscription and the official SEBI RHP before applying. Educational tool only—not SEBI-registered advice.
+      </div>
+    </section>
   </main>
 
   <!-- Fixed iPhone-Style 5-Tab Bottom Navigation -->
   <nav class="bottom-nav fixed bottom-0 inset-x-0 z-30 bg-white/95 backdrop-blur border-t border-slate-200">
-    <div class="max-w-3xl mx-auto grid grid-cols-5 px-1.5 pt-2">
+    <div class="max-w-3xl mx-auto grid grid-cols-6 px-1 pt-2">
       <button type="button" data-nav-tab="news" class="nav-btn flex flex-col items-center justify-center gap-0.5 py-1 rounded-xl transition">
         <i data-lucide="newspaper" class="w-5 h-5"></i>
         <span class="text-[10px] font-semibold">News</span>
@@ -785,6 +891,10 @@
       <button type="button" data-nav-tab="stocks" class="nav-btn flex flex-col items-center justify-center gap-0.5 py-1 rounded-xl transition">
         <i data-lucide="layers" class="w-5 h-5"></i>
         <span class="text-[10px] font-semibold">Stocks</span>
+      </button>
+      <button type="button" data-nav-tab="ipo" class="nav-btn flex flex-col items-center justify-center gap-0.5 py-1 rounded-xl transition">
+        <i data-lucide="rocket" class="w-5 h-5"></i>
+        <span class="text-[10px] font-semibold">IPO</span>
       </button>
       <button type="button" data-nav-tab="sip" class="nav-btn flex flex-col items-center justify-center gap-0.5 py-1 rounded-xl transition">
         <i data-lucide="piggy-bank" class="w-5 h-5"></i>
@@ -2816,6 +2926,7 @@
 
         if (state.planSubTab === 'journal') {
           renderJournalAndAlerts();
+        renderIpoTab();
           return;
         }
 
@@ -2920,8 +3031,8 @@
                   <strong class="text-rose-700">${formatINR(e.levels.stopLoss)} (-${formatINR(e.risk)})</strong>
                 </div>
                 <div class="rounded-lg bg-emerald-50/80 px-2.5 py-1.5">
-                  <span class="text-emerald-700 font-semibold block">Net Profit (LTCG)</span>
-                  <strong class="text-emerald-700">+${formatINR(e.itemTax.netAfterLtcg)}</strong>
+                  <span class="text-emerald-700 font-semibold block">Net Profit (${state.holdingMode === 'long' ? 'LTCG' : 'STCG'})</span>
+                  <strong class="text-emerald-700">+${formatINR(state.holdingMode === 'long' ? e.itemTax.netAfterLtcg : e.itemTax.netAfterStcg)}</strong>
                 </div>
               </div>
             </div>
@@ -2981,6 +3092,408 @@
           `;
         }).join('');
       }
+
+
+      const DEFAULT_IPOS = [
+        {
+          id: 'shreesidhi',
+          name: 'Shree Siddhivinayak Greentech',
+          segment: 'SME',
+          status: 'Open',
+          dates: 'Nov 25 – Nov 27, 2026',
+          listingDate: 'Dec 2, 2026',
+          priceBand: '₹130 – ₹142',
+          upperPrice: 142,
+          lotSize: 1000,
+          minInv: 284000,
+          issueSizeCr: 93.66,
+          gmpRs: 10,
+          gmpPct: 7.04,
+          qibSub: 0,
+          freshPct: 100,
+          verdict: 'Wait for Day-3 Sub',
+          verdictTone: 'amber',
+          reason: '100% fresh SME issue (₹93.66 Cr) opening Nov 25 with high ₹2.84L minimum ticket (2 lots). Wait for strong Day-3 subscription before deciding.'
+        },
+        {
+          id: 'foodlink',
+          name: 'Foodlink F&B Holdings (India)',
+          segment: 'Mainboard',
+          status: 'Upcoming',
+          dates: 'Nov 26 – Nov 30, 2026',
+          listingDate: 'Dec 3, 2026',
+          priceBand: 'TBA',
+          upperPrice: 0,
+          lotSize: 0,
+          minInv: 0,
+          issueSizeCr: 192,
+          gmpRs: 0,
+          gmpPct: 0,
+          qibSub: 0,
+          freshPct: 60,
+          verdict: 'Wait for Price Band',
+          verdictTone: 'blue',
+          reason: 'Mainboard ₹192 Cr hospitality & catering issue opening Nov 26. Review valuation P/E vs peers and anchor book once price band is out.'
+        },
+        {
+          id: 'integris',
+          name: 'Integris Medtech Ltd',
+          segment: 'Mainboard',
+          status: 'Upcoming',
+          dates: 'Opens Nov 27, 2026',
+          listingDate: 'TBA',
+          priceBand: 'TBA',
+          upperPrice: 0,
+          lotSize: 0,
+          minInv: 0,
+          issueSizeCr: 925,
+          gmpRs: 0,
+          gmpPct: 0,
+          qibSub: 0,
+          freshPct: 65,
+          verdict: 'Watchlist (Mainboard)',
+          verdictTone: 'blue',
+          reason: 'Large ₹925 Cr healthcare/medtech Mainboard IPO opening Nov 27. Check Fresh vs OFS split and Day-2/3 QIB demand before applying.'
+        },
+        {
+          id: 'matangi',
+          name: 'Matangi Rubber Ltd',
+          segment: 'Mainboard',
+          status: 'Upcoming',
+          dates: 'Dec 1 – Dec 3, 2026',
+          listingDate: 'Dec 8, 2026',
+          priceBand: '₹164 – ₹172',
+          upperPrice: 172,
+          lotSize: 87,
+          minInv: 14964,
+          issueSizeCr: 125.16,
+          gmpRs: 21.5,
+          gmpPct: 12.5,
+          qibSub: 0,
+          freshPct: 79,
+          verdict: 'Watchlist — 79% Fresh',
+          verdictTone: 'emerald',
+          reason: '₹125.16 Cr Mainboard issue (79% fresh capital for debt reduction & MP expansion); retail lot ₹14,964 (87 shares). Check Day-3 QIB before bidding.'
+        },
+        {
+          id: 'crystalcp',
+          name: 'Crystal Crop Protection Ltd',
+          segment: 'Mainboard',
+          status: 'Allotment',
+          dates: 'Lists Nov 25, 2026',
+          listingDate: 'Nov 25, 2026',
+          priceBand: '₹259 – ₹272',
+          upperPrice: 272,
+          lotSize: 55,
+          minInv: 14960,
+          issueSizeCr: 455.49,
+          gmpRs: 17,
+          gmpPct: 6.25,
+          qibSub: 16.6,
+          freshPct: 78,
+          verdict: 'Listing Tomorrow (16.6x)',
+          verdictTone: 'emerald',
+          reason: 'Subscribed 16.63x overall with 78% fresh issue (₹354.77 Cr fresh). Scheduled to debut on NSE & BSE on Nov 25.'
+        },
+        {
+          id: 'mahacoal',
+          name: 'Mahanadi Coalfields Ltd',
+          segment: 'Mainboard',
+          status: 'Allotment',
+          dates: 'Closed 1.52x · Lists Nov 27',
+          listingDate: 'Nov 27, 2026',
+          priceBand: '₹129 – ₹136',
+          upperPrice: 136,
+          lotSize: 110,
+          minInv: 14960,
+          issueSizeCr: 8981.12,
+          gmpRs: 0,
+          gmpPct: 0,
+          qibSub: 4.01,
+          freshPct: 0,
+          verdict: 'Allotment / Long-Term',
+          verdictTone: 'amber',
+          reason: 'Closed at 1.52x (QIB 4.01x, 100% OFS by Coal India). Muted listing-gain expectations; better suited for long-term PSU dividend holders.'
+        },
+        {
+          id: 'watrana',
+          name: 'Watrana Rentals Ltd',
+          segment: 'SME',
+          status: 'Allotment',
+          dates: 'Closed 150.5x · Lists Nov 27',
+          listingDate: 'Nov 27, 2026',
+          priceBand: '₹232 – ₹245',
+          upperPrice: 245,
+          lotSize: 600,
+          minInv: 294000,
+          issueSizeCr: 120.1,
+          gmpRs: 67,
+          gmpPct: 27.35,
+          qibSub: 161.1,
+          freshPct: 100,
+          verdict: 'Heavy Sub (150.5x SME)',
+          verdictTone: 'emerald',
+          reason: '100% fresh SME issue subscribed 150.48x (QIB 161.1x, NII 233.7x). Allotment Nov 25, NSE SME listing Nov 27.'
+        }
+      ];
+      let liveIpos = [...DEFAULT_IPOS];
+      let iposUpdatedAt = '';
+      let ipoFilter = 'All';
+      let ipoSort = 'status_open';
+      let showIpoGmp = true;
+
+      function renderIpoCalculator() {
+        const seg = document.getElementById('ipoCalcSeg')?.value || 'Mainboard';
+        const price = Math.max(1, Number(document.getElementById('ipoCalcPrice')?.value) || 100);
+        const lot = Math.max(1, Number(document.getElementById('ipoCalcLot')?.value) || 1);
+        const gmp = Number(document.getElementById('ipoCalcGmp')?.value) || 0;
+        const qib = Math.max(0, Number(document.getElementById('ipoCalcQib')?.value) || 0);
+        const fresh = Math.min(100, Math.max(0, Number(document.getElementById('ipoCalcFresh')?.value) || 0));
+
+        const gmpPct = (gmp / price) * 100;
+        const lotCost = price * lot;
+        const estListPrice = price + gmp;
+        const grossGain = gmp * lot;
+        const netAfterStcg = grossGain > 0 ? grossGain * (1 - 0.208) : grossGain;
+
+        let score = 20;
+        if (gmpPct >= 25) score += 35;
+        else if (gmpPct >= 15) score += 26;
+        else if (gmpPct >= 8) score += 16;
+        else if (gmpPct > 0) score += 8;
+
+        if (qib >= 25) score += 30;
+        else if (qib >= 10) score += 22;
+        else if (qib >= 3) score += 12;
+        else if (qib >= 1) score += 5;
+
+        if (fresh >= 70) score += 15;
+        else if (fresh >= 40) score += 10;
+        else if (fresh > 0) score += 5;
+
+        if (seg === 'SME') score = Math.max(5, score - 12);
+        score = Math.min(100, Math.round(score));
+
+        let verdict = 'Avoid / Skip';
+        let toneClass = 'bg-rose-50 text-rose-700 border-rose-200';
+        let tip = 'Weak GMP or low institutional demand—better to skip and protect capital.';
+        if (score >= 75) {
+          verdict = seg === 'SME' ? 'Apply (High-Risk SME Listing)' : 'Apply — Strong Listing Candidate';
+          toneClass = 'bg-emerald-50 text-emerald-700 border-emerald-200';
+          tip = 'Strong GMP + institutional QIB demand. Consider booking listing gains or holding with a strict Day-1 low stop-loss.';
+        } else if (score >= 55) {
+          verdict = 'Apply Selective / Check Day-3 QIB';
+          toneClass = 'bg-blue-50 text-blue-700 border-blue-200';
+          tip = 'Decent setup. Confirm Day-3 QIB subscription stays strong after 2:00 PM IST before placing your UPI mandate.';
+        } else if (score >= 40) {
+          verdict = 'Long-Term Only / Wait';
+          toneClass = 'bg-amber-50 text-amber-800 border-amber-200';
+          tip = 'Muted listing-gain signal. Only consider if you want to hold long-term for fundamentals.';
+        }
+
+        const badge = document.getElementById('ipoCalcBadge');
+        if (badge) {
+          badge.textContent = 'Score ' + score + '/100';
+          badge.className = 'shrink-0 px-2.5 py-1 rounded-full text-[11px] font-extrabold border ' + toneClass;
+        }
+        const out = document.getElementById('ipoCalcOutput');
+        if (out) {
+          out.innerHTML = `
+            <div class="flex items-center justify-between gap-2 flex-wrap">
+              <span class="px-2.5 py-1 rounded-lg text-[11px] font-extrabold border ${toneClass}">${verdict}</span>
+              <span class="text-[11px] font-bold text-slate-700">Est. Listing: ${formatINR(estListPrice)} (${gmpPct >= 0 ? '+' : ''}${gmpPct.toFixed(1)}%)</span>
+            </div>
+            <div class="grid grid-cols-3 gap-2 text-[11px]">
+              <div class="bg-white rounded-lg border border-slate-200 p-2">
+                <span class="text-slate-500 block">1-Lot Capital</span>
+                <strong class="text-slate-900">${formatINR(lotCost)}</strong>
+              </div>
+              <div class="bg-white rounded-lg border border-slate-200 p-2">
+                <span class="text-slate-500 block">Est. Gross Gain</span>
+                <strong class="${grossGain >= 0 ? 'text-emerald-700' : 'text-rose-700'}">${grossGain >= 0 ? '+' : ''}${formatINR(grossGain)}</strong>
+              </div>
+              <div class="bg-white rounded-lg border border-slate-200 p-2">
+                <span class="text-slate-500 block">Post-STCG (20.8%)</span>
+                <strong class="${netAfterStcg >= 0 ? 'text-emerald-700' : 'text-rose-700'}">${netAfterStcg >= 0 ? '+' : ''}${formatINR(netAfterStcg)}</strong>
+              </div>
+            </div>
+            <p class="text-[11px] text-slate-600">${tip}</p>
+          `;
+        }
+      }
+
+      function renderIpoTab() {
+        document.querySelectorAll('.ipo-filter-btn').forEach((btn) => {
+          const active = btn.dataset.ipoFilter === ipoFilter;
+          btn.classList.toggle('bg-slate-900', active);
+          btn.classList.toggle('text-white', active);
+          btn.classList.toggle('bg-white', !active);
+          btn.classList.toggle('text-slate-700', !active);
+          btn.classList.toggle('border', !active);
+          btn.classList.toggle('border-slate-200', !active);
+        });
+
+        renderIpoCalculator();
+
+        const list = liveIpos.filter((item) => {
+          if (ipoFilter === 'All') return true;
+          if (ipoFilter === 'Open') return item.status === 'Open';
+          if (ipoFilter === 'Upcoming') return item.status === 'Upcoming';
+          if (ipoFilter === 'Allotment') return item.status === 'Allotment';
+          return item.segment === ipoFilter;
+        });
+
+        const rankMaps = {
+          status_open: { Open: 1, Upcoming: 2, Allotment: 3 },
+          status_upcoming: { Upcoming: 1, Open: 2, Allotment: 3 },
+          status_allotment: { Allotment: 1, Open: 2, Upcoming: 3 }
+        };
+        if (rankMaps[ipoSort]) {
+          const rm = rankMaps[ipoSort];
+          list.sort((a, b) => (rm[a.status] || 9) - (rm[b.status] || 9) || (b.issueSizeCr || 0) - (a.issueSizeCr || 0));
+        } else if (ipoSort === 'issue_size') {
+          list.sort((a, b) => (b.issueSizeCr || 0) - (a.issueSizeCr || 0));
+        } else if (ipoSort === 'qib_sub') {
+          list.sort((a, b) => (b.qibSub || 0) - (a.qibSub || 0));
+        } else if (ipoSort === 'fresh_pct') {
+          list.sort((a, b) => (b.freshPct || 0) - (a.freshPct || 0));
+        } else if (ipoSort === 'min_inv') {
+          list.sort((a, b) => (a.minInv > 0 ? a.minInv : 9e9) - (b.minInv > 0 ? b.minInv : 9e9));
+        }
+
+        const countLbl = document.getElementById('ipoCountLabel');
+        if (countLbl) countLbl.textContent = `Showing ${list.length} IPO${list.length === 1 ? '' : 's'}`;
+
+        const container = document.getElementById('ipoCardsList');
+        if (!container) return;
+        if (list.length === 0) {
+          container.innerHTML = '<div class="bg-white rounded-2xl border border-slate-200 p-6 text-center text-xs text-slate-500">No IPOs in this status right now. Tap <strong>All IPOs</strong> to view the full calendar.</div>';
+          return;
+        }
+        container.innerHTML = list.map((ipo) => {
+          const vCls = ipo.verdictTone === 'emerald'
+            ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
+            : ipo.verdictTone === 'blue'
+              ? 'bg-blue-50 text-blue-700 border-blue-200'
+              : ipo.verdictTone === 'rose'
+                ? 'bg-rose-50 text-rose-700 border-rose-200'
+                : 'bg-amber-50 text-amber-800 border-amber-200';
+          const statusCls = ipo.status === 'Open'
+            ? 'bg-emerald-600 text-white'
+            : ipo.status === 'Allotment'
+              ? 'bg-indigo-600 text-white'
+              : 'bg-slate-200 text-slate-700';
+          return `
+            <article class="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm space-y-2.5">
+              <div class="flex items-start justify-between gap-2">
+                <div>
+                  <div class="flex items-center gap-1.5 flex-wrap">
+                    <span class="px-2 py-0.5 rounded-full text-[10px] font-bold ${statusCls}">${escapeHtml(ipo.status)}</span>
+                    <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-slate-100 text-slate-700">${escapeHtml(ipo.segment)}</span>
+                    <span class="text-[11px] text-slate-500">${escapeHtml(ipo.dates)}</span>
+                  </div>
+                  <h3 class="text-sm font-extrabold text-slate-900 mt-1">${escapeHtml(ipo.name)}</h3>
+                </div>
+                <span class="shrink-0 px-2.5 py-1 rounded-full text-[10px] font-extrabold border ${vCls}">${escapeHtml(ipo.verdict)}</span>
+              </div>
+
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-[11px]">
+                <div class="rounded-lg bg-slate-50 px-2.5 py-1.5">
+                  <span class="text-slate-500 block">Price Band</span>
+                  <strong class="text-slate-900">${escapeHtml(ipo.priceBand)}</strong>
+                </div>
+                <div class="rounded-lg bg-emerald-50/70 border border-emerald-100 px-2.5 py-1.5">
+                  <span class="text-emerald-800 font-semibold block">QIB Sub (Official)</span>
+                  <strong class="${ipo.qibSub >= 10 ? 'text-emerald-700' : ipo.qibSub >= 1 ? 'text-blue-700' : 'text-slate-700'}">${ipo.qibSub > 0 ? ipo.qibSub.toFixed(2) + 'x' : (ipo.status === 'Upcoming' ? 'Opens Soon' : 'Live on NSE')}</strong>
+                </div>
+                <div class="rounded-lg bg-slate-50 px-2.5 py-1.5">
+                  <span class="text-slate-500 block">Min Lot · Fresh %</span>
+                  <strong class="text-slate-900">${ipo.lotSize > 0 ? formatINR(ipo.minInv) : 'TBA'} · ${ipo.freshPct}%</strong>
+                </div>
+                <div class="rounded-lg bg-slate-50 px-2.5 py-1.5">
+                  <span class="text-slate-500 block">Issue Size</span>
+                  <strong class="text-slate-900">${ipo.issueSizeCr > 0 ? '₹' + ipo.issueSizeCr.toLocaleString('en-IN') + ' Cr' : 'SME Issue'}</strong>
+                </div>
+              </div>
+              ${showIpoGmp ? `<div class="flex items-center justify-between rounded-xl bg-amber-50/60 border border-amber-200/70 px-3 py-1.5 text-[11px]">
+                <span class="text-amber-900 font-semibold">Unofficial GMP (Personal Ref Only)</span>
+                <strong class="${ipo.gmpPct >= 10 ? 'text-emerald-700' : 'text-slate-800'}">${ipo.upperPrice > 0 ? '+₹' + ipo.gmpRs + ' (+' + ipo.gmpPct.toFixed(1) + '%)' : 'TBA'}</strong>
+              </div>` : ''}
+
+              <div class="rounded-xl bg-slate-50 border border-slate-100 px-3 py-2 text-xs text-slate-700">
+                <strong class="text-slate-900">Verdict Note:</strong> ${escapeHtml(ipo.reason)}
+              </div>
+
+              ${ipo.upperPrice > 0 ? `<div class="flex justify-end"><button type="button" data-load-ipo="${escapeHtml(ipo.id)}" class="px-3 py-1.5 rounded-xl bg-slate-900 text-white text-[11px] font-bold">Test in Analyzer ↑</button></div>` : ''}
+            </article>
+          `;
+        }).join('');
+      }
+
+      ['ipoCalcSeg', 'ipoCalcPrice', 'ipoCalcLot', 'ipoCalcGmp', 'ipoCalcQib', 'ipoCalcFresh'].forEach((elId) => {
+        const el = document.getElementById(elId);
+        if (el) el.addEventListener('input', renderIpoCalculator);
+        if (el) el.addEventListener('change', renderIpoCalculator);
+      });
+      const ipoSortEl = document.getElementById('ipoSortSelect');
+      if (ipoSortEl) {
+        ipoSortEl.addEventListener('change', (e) => {
+          ipoSort = e.target.value;
+          renderIpoTab();
+        });
+      }
+      const toggleGmpEl = document.getElementById('toggleIpoGmp');
+      if (toggleGmpEl) {
+        toggleGmpEl.addEventListener('change', (e) => {
+          showIpoGmp = !!e.target.checked;
+          renderIpoTab();
+        });
+      }
+
+      document.addEventListener('click', (e) => {
+        const ipoF = e.target.closest('.ipo-filter-btn');
+        if (ipoF) { ipoFilter = ipoF.dataset.ipoFilter; renderIpoTab(); return; }
+
+        const loadIpoBtn = e.target.closest('[data-load-ipo]');
+        if (loadIpoBtn) {
+          const item = liveIpos.find((x) => x.id === loadIpoBtn.dataset.loadIpo);
+          if (!item) return;
+          document.getElementById('ipoCalcSeg').value = item.segment;
+          document.getElementById('ipoCalcPrice').value = item.upperPrice;
+          document.getElementById('ipoCalcLot').value = item.lotSize;
+          document.getElementById('ipoCalcGmp').value = item.gmpRs;
+          document.getElementById('ipoCalcQib').value = item.qibSub;
+          document.getElementById('ipoCalcFresh').value = item.freshPct;
+          renderIpoCalculator();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          showToast('Loaded ' + item.name + ' into IPO Analyzer');
+          return;
+        }
+
+        const presetBtn = e.target.closest('[data-strategy-preset]');
+        if (presetBtn) {
+          const p = presetBtn.dataset.strategyPreset;
+          if (p === 'swing') {
+            state.profitGoalPct = 6;
+            state.stopLossPct = 3;
+            state.holdingMode = 'short';
+            showToast('2–6 Wk Swing Mode: +6% Exit, -3% SL, STCG 20%');
+          } else if (p === 'positional') {
+            state.profitGoalPct = 12;
+            state.stopLossPct = 6;
+            state.holdingMode = 'short';
+            showToast('Positional Mode: +12% Exit, -6% SL, STCG 20%');
+          } else {
+            state.profitGoalPct = 18;
+            state.stopLossPct = 8;
+            state.holdingMode = 'long';
+            showToast('Long-Term Mode: +18% Exit, -8% SL, LTCG 12.5%');
+          }
+          saveState();
+          renderAll();
+          return;
+        }
+      });
 
       function renderAll() {
         renderHeaderAndNav();
@@ -3793,6 +4306,11 @@
                   if (p.low52 > 0) s.low52 = p.low52;
                 }
               });
+            }
+            if (data && Array.isArray(data.ipos) && data.ipos.length > 0) {
+              liveIpos = data.ipos;
+              iposUpdatedAt = data.updated_at_ist || '';
+              if (state.activeTab === 'ipo') renderIpoTab();
             }
           }
         } catch (err) {}
