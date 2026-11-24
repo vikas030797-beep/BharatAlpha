@@ -192,6 +192,9 @@
         <button id="themeToggleBtn" type="button" aria-label="Toggle dark mode" class="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-600 transition">
           <i id="themeIcon" data-lucide="moon" class="w-4 h-4"></i>
         </button>
+        <button id="openBackupModalBtn" type="button" aria-label="Backup & Restore JSON" title="Backup & Restore JSON" class="w-9 h-9 rounded-full bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 flex items-center justify-center text-emerald-700 transition">
+          <i data-lucide="shield-check" class="w-4 h-4"></i>
+        </button>
         <button id="openInstallGuideBtn" type="button" aria-label="iPhone install guide" class="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-600 transition">
           <i data-lucide="smartphone" class="w-4 h-4"></i>
         </button>
@@ -1142,6 +1145,38 @@
   </div>
 
   <!-- In-page Toast Notification -->
+    <!-- Backup & Restore JSON Safety Modal -->
+  <div id="backupModal" class="hidden fixed inset-0 z-50 modal-backdrop flex items-end sm:items-center justify-center p-0 sm:p-4">
+    <div class="bg-white w-full max-w-md rounded-t-3xl sm:rounded-3xl max-h-[88vh] overflow-y-auto p-5 modal-sheet-safe shadow-2xl animate-slide-up space-y-3.5">
+      <div class="flex items-center justify-between">
+        <div>
+          <h3 class="text-base font-extrabold text-slate-900">Backup &amp; Restore JSON</h3>
+          <p id="backupLastSavedText" class="text-[11px] text-slate-500">Keep a safe copy in iPhone Files, iCloud, or Notes</p>
+        </div>
+        <button id="closeBackupModalBtn" type="button" class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 font-bold">✕</button>
+      </div>
+
+      <div id="backupSummaryStats" class="rounded-2xl bg-emerald-50 border border-emerald-200 p-3 text-xs text-emerald-900 font-semibold"></div>
+
+      <div class="grid grid-cols-2 gap-2">
+        <button id="modalDownloadBackupBtn" type="button" class="py-2.5 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold transition">Download / Save JSON</button>
+        <button id="modalCopyBackupBtn" type="button" class="py-2.5 px-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold transition">Copy JSON Text</button>
+      </div>
+
+      <div class="border-t border-slate-200 pt-3 space-y-2">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-extrabold text-slate-900">Restore from Backup</span>
+          <button id="modalUploadBackupBtn" type="button" class="px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-[11px] font-bold transition">Choose .json File</button>
+        </div>
+        <textarea id="pasteBackupTextarea" rows="3" placeholder="Or paste copied Backup JSON here and tap Restore..." class="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-800"></textarea>
+        <div class="flex items-center gap-2">
+          <button id="modalPasteRestoreBtn" type="button" class="flex-1 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold transition">Restore Pasted JSON</button>
+          <button id="modalUndoRestoreBtn" type="button" class="hidden shrink-0 px-3 py-2 rounded-xl bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-200 text-xs font-bold transition">Undo Restore</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div id="toastBanner" class="hidden fixed bottom-24 sm:bottom-6 left-1/2 -translate-x-1/2 z-50 max-w-[92vw] text-center bg-slate-900 text-white text-xs font-semibold px-4 py-2.5 rounded-full shadow-xl border border-slate-700/60"></div>
 
   <script>
@@ -4018,23 +4053,158 @@
         const optBtn = e.target.closest('.opt-strat-btn');
         if (optBtn) { optStrategy = optBtn.dataset.optStrat; renderOptionsCalculator(); return; }
 
-        if (e.target.closest('#exportBackupBtn')) {
-          const blob = new Blob([JSON.stringify(state, null, 2)], { type: 'application/json' });
-          const url = URL.createObjectURL(blob);
-          const a = document.createElement('a');
-          a.href = url;
-          a.download = 'bharatalpha_backup_' + new Date().toISOString().slice(0, 10) + '.json';
-          a.click();
-          URL.revokeObjectURL(url);
-          showToast('Backup JSON downloaded!');
+        if (e.target.closest('#exportBackupBtn') || e.target.closest('#modalDownloadBackupBtn')) {
+          exportBackupJson();
           return;
         }
-        if (e.target.closest('#importBackupBtn')) {
+        if (e.target.closest('#modalCopyBackupBtn')) {
+          const jsonStr = JSON.stringify(buildBackupPayload(), null, 2);
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(jsonStr).then(() => {
+              markBackupSaved();
+              showToast('Backup JSON copied — paste in Notes to keep safe!');
+            }).catch(() => showToast('Copy blocked — use Download JSON instead'));
+          } else {
+            showToast('Use Download JSON on this browser');
+          }
+          return;
+        }
+        if (e.target.closest('#importBackupBtn') || e.target.closest('#modalUploadBackupBtn')) {
           const inp = document.getElementById('importBackupFileInput');
           if (inp) inp.click();
           return;
         }
+        if (e.target.closest('#modalPasteRestoreBtn')) {
+          const ta = document.getElementById('pasteBackupTextarea');
+          if (!ta || !ta.value.trim()) { showToast('Paste your Backup JSON first'); return; }
+          restoreBackupFromText(ta.value.trim());
+          ta.value = '';
+          return;
+        }
+        if (e.target.closest('#modalUndoRestoreBtn')) {
+          try {
+            let prev = preRestoreSnapshot;
+            if (!prev) { try { prev = localStorage.getItem('bharatalpha_pre_restore_backup'); } catch (e) {} }
+            if (prev) {
+              const parsed = JSON.parse(prev);
+              state = { ...state, ...parsed };
+              saveState();
+              renderAll();
+              renderBackupModalStats();
+              showToast('Reverted to state before last restore!');
+            }
+          } catch (err) {}
+          return;
+        }
+        if (e.target.closest('#openBackupModalBtn')) {
+          renderBackupModalStats();
+          document.getElementById('backupModal').classList.remove('hidden');
+          return;
+        }
+        if (e.target.closest('#closeBackupModalBtn')) {
+          document.getElementById('backupModal').classList.add('hidden');
+          return;
+        }
       });
+
+      function buildBackupPayload() {
+        return {
+          _app: 'BharatAlpha',
+          _backedUpAt: new Date().toISOString(),
+          darkMode: state.darkMode,
+          budget: state.budget,
+          profitGoalPct: state.profitGoalPct,
+          stopLossPct: state.stopLossPct,
+          holdingMode: state.holdingMode,
+          brokerPreset: state.brokerPreset,
+          sip: state.sip,
+          goals: state.goals,
+          stocks: state.stocks,
+          plan: state.plan,
+          holdings: state.holdings,
+          checklists: state.checklists,
+          alerts: state.alerts,
+          journal: state.journal
+        };
+      }
+
+      let lastBackupStamp = '';
+      let preRestoreSnapshot = '';
+
+      function markBackupSaved() {
+        lastBackupStamp = new Date().toLocaleString('en-IN', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' });
+        try { localStorage.setItem('bharatalpha_last_backup', lastBackupStamp); } catch (err) {}
+        renderBackupModalStats();
+      }
+
+      function renderBackupModalStats() {
+        const statsEl = document.getElementById('backupSummaryStats');
+        const lastEl = document.getElementById('backupLastSavedText');
+        const undoBtn = document.getElementById('modalUndoRestoreBtn');
+        const hCount = Object.values(state.holdings || {}).filter((h) => h && h.qty > 0).length;
+        const pCount = Object.keys(state.plan || {}).length;
+        const jCount = (state.journal || []).length;
+        const aCount = Object.keys(state.alerts || {}).length;
+        if (statsEl) {
+          statsEl.textContent = 'Ready to back up: ' + (state.stocks || []).length + ' Featured stocks · ' + hCount + ' Holdings · ' + pCount + ' Plan picks · ' + jCount + ' Journal trades · ' + aCount + ' Alerts';
+        }
+        let last = lastBackupStamp;
+        let hasUndo = !!preRestoreSnapshot;
+        try {
+          if (!last) last = localStorage.getItem('bharatalpha_last_backup') || '';
+          if (!hasUndo) hasUndo = !!localStorage.getItem('bharatalpha_pre_restore_backup');
+        } catch (err) {}
+        if (lastEl) lastEl.textContent = last ? ('Last backed up: ' + last) : 'Keep a safe copy in iPhone Files, iCloud, or Notes';
+        if (undoBtn) undoBtn.classList.toggle('hidden', !hasUndo);
+      }
+
+      async function exportBackupJson() {
+        const jsonStr = JSON.stringify(buildBackupPayload(), null, 2);
+        const fileName = 'bharatalpha_backup_' + new Date().toISOString().slice(0, 10) + '.json';
+        const blob = new Blob([jsonStr], { type: 'application/json' });
+        // Prefer native iPhone Share Sheet when available for Files/iCloud saving
+        try {
+          if (navigator.share && navigator.canShare && typeof File !== 'undefined') {
+            const f = new File([blob], fileName, { type: 'application/json' });
+            if (navigator.canShare({ files: [f] })) {
+              await navigator.share({ title: 'BharatAlpha Backup JSON', files: [f] });
+              markBackupSaved();
+              showToast('Backup JSON shared / saved!');
+              return;
+            }
+          }
+        } catch (err) {
+          if (err && err.name === 'AbortError') return;
+        }
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = fileName;
+        a.click();
+        URL.revokeObjectURL(url);
+        markBackupSaved();
+        showToast('Backup JSON downloaded!');
+      }
+
+      function restoreBackupFromText(rawText) {
+        try {
+          const parsed = JSON.parse(rawText);
+          if (!parsed || typeof parsed !== 'object' || (!Array.isArray(parsed.stocks) && !parsed.holdings && !parsed.journal)) {
+            showToast('Invalid BharatAlpha backup JSON');
+            return;
+          }
+          // Save automatic pre-restore safety snapshot
+          preRestoreSnapshot = JSON.stringify(buildBackupPayload()); try { localStorage.setItem('bharatalpha_pre_restore_backup', preRestoreSnapshot); } catch (e) {}
+          const allowedKeys = ['darkMode', 'budget', 'profitGoalPct', 'stopLossPct', 'holdingMode', 'brokerPreset', 'sip', 'goals', 'stocks', 'plan', 'holdings', 'checklists', 'alerts', 'journal'];
+          allowedKeys.forEach((k) => { if (parsed[k] !== undefined) state[k] = parsed[k]; });
+          saveState();
+          renderAll();
+          renderBackupModalStats();
+          showToast('Backup restored successfully!');
+        } catch (err) {
+          showToast('Invalid backup JSON file');
+        }
+      }
 
       const importBackupEl = document.getElementById('importBackupFileInput');
       if (importBackupEl) {
@@ -4042,19 +4212,7 @@
           const file = e.target.files && e.target.files[0];
           if (!file) return;
           const reader = new FileReader();
-          reader.onload = (ev) => {
-            try {
-              const parsed = JSON.parse(String(ev.target.result || '{}'));
-              if (parsed && typeof parsed === 'object') {
-                state = { ...state, ...parsed };
-                saveState();
-                renderAll();
-                showToast('Backup restored successfully!');
-              }
-            } catch (err) {
-              showToast('Invalid backup JSON file');
-            }
-          };
+          reader.onload = (ev) => restoreBackupFromText(String(ev.target.result || ''));
           reader.readAsText(file);
           e.target.value = '';
         });
@@ -4613,7 +4771,7 @@
         }
       });
 
-      ['stockDetailModal', 'addStockModal', 'installGuideModal'].forEach((modalId) => {
+      ['stockDetailModal', 'addStockModal', 'installGuideModal', 'backupModal'].forEach((modalId) => {
         document.getElementById(modalId).addEventListener('click', (e) => { if (e.target.id === modalId) e.target.classList.add('hidden'); });
       });
 
