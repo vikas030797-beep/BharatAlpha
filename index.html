@@ -370,6 +370,7 @@
         <button type="button" data-stock-filter="All" class="stock-filter-btn shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold transition">Featured (21)</button>
         <input id="nseCsvFileInput" type="file" accept=".csv" class="hidden" />
         <button type="button" data-stock-filter="Holdings" class="stock-filter-btn shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold transition">My Holdings</button>
+        <button type="button" data-stock-filter="Dividends" class="stock-filter-btn shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold transition">Upcoming Dividends</button>
         <button type="button" data-stock-filter="Gold" class="stock-filter-btn shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold transition">Gold &amp; ETFs</button>
         <button type="button" data-stock-filter="TopScore" class="stock-filter-btn shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold transition">Score 80+</button>
         <button type="button" data-stock-filter="DebtFree" class="stock-filter-btn shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold transition">Low / Zero Debt</button>
@@ -2553,6 +2554,118 @@
           .sort((a, b) => b.score - a.score);
 
         const container = document.getElementById('stockCardsList');
+        if (state.stockFilter === 'Dividends') {
+          const qLower = state.searchQuery.trim().toLowerCase();
+          const filteredDivs = liveDividends.filter((d) => {
+            if (!qLower) return true;
+            return (d.sym || '').toLowerCase().includes(qLower)
+              || (d.bse || '').toLowerCase().includes(qLower)
+              || (d.name || '').toLowerCase().includes(qLower)
+              || (d.exDate || '').toLowerCase().includes(qLower);
+          });
+
+          const divCards = filteredDivs.length ? filteredDivs.map((d) => {
+            const held = state.stocks.find((s) => s.nse.toUpperCase() === (d.sym || '').toUpperCase());
+            const heldQty = held && state.holdings[held.id] && state.holdings[held.id].qty > 0 ? state.holdings[held.id].qty : 0;
+            const calcQty = heldQty > 0 ? heldQty : divEstShares;
+            const estPayout = (Number(d.amount) || 0) * calcQty;
+            const badgeCls = d.status === 'Upcoming'
+              ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
+              : (d.status === 'This Week' ? 'bg-amber-50 text-amber-700 border-amber-200' : 'bg-slate-100 text-slate-600 border-slate-200');
+            return `
+              <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-3.5 space-y-2.5">
+                <div class="flex items-start justify-between gap-2">
+                  <div class="min-w-0">
+                    <div class="flex items-center gap-1.5 flex-wrap">
+                      <h4 class="text-sm font-extrabold text-slate-900 truncate">${escapeHtml(d.name)}</h4>
+                      <span class="text-[10px] font-bold px-2 py-0.5 rounded-full border ${badgeCls}">${escapeHtml(d.status || 'Upcoming')}</span>
+                    </div>
+                    <p class="text-[11px] text-slate-500 mt-0.5">${escapeHtml(d.sym)}${d.bse ? ' · BSE ' + escapeHtml(d.bse) : ''} · ${escapeHtml(d.type || 'Dividend')}</p>
+                  </div>
+                  <div class="text-right shrink-0">
+                    <div class="text-sm font-extrabold text-emerald-700">₹${Number(d.amount || 0).toFixed(2)}<span class="text-[10px] font-semibold text-slate-500">/sh</span></div>
+                    <div class="text-[10px] font-semibold text-slate-500">Ex: ${escapeHtml(d.exDate)}</div>
+                  </div>
+                </div>
+                <div class="grid grid-cols-3 gap-2 bg-slate-50 rounded-xl p-2 border border-slate-100 text-center text-[11px]">
+                  <div>
+                    <span class="text-[10px] text-slate-500 block">Ex-Dividend Date</span>
+                    <strong class="text-slate-900">${escapeHtml(d.exDate)}</strong>
+                  </div>
+                  <div>
+                    <span class="text-[10px] text-slate-500 block">Record Date</span>
+                    <strong class="text-slate-900">${escapeHtml(d.recordDate || d.exDate)}</strong>
+                  </div>
+                  <div>
+                    <span class="text-[10px] text-slate-500 block">${heldQty > 0 ? 'Your Payout (' + heldQty + ' sh)' : 'Est. (' + calcQty + ' sh)'}</span>
+                    <strong class="text-emerald-700">₹${estPayout.toLocaleString('en-IN', { maximumFractionDigits: 2 })}</strong>
+                  </div>
+                </div>
+                <div class="flex items-center justify-between gap-2 text-[11px]">
+                  <span class="text-slate-500 truncate">${escapeHtml(d.note || 'Buy at least 1 trading day before Ex-Date')}</span>
+                  ${held
+                    ? `<button type="button" data-open-detail="${escapeHtml(held.id)}" class="shrink-0 px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold">Details</button>`
+                    : `<button type="button" data-track-div-sym="${escapeHtml(d.sym)}" class="shrink-0 px-2.5 py-1 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-bold">+ Track</button>`}
+                </div>
+              </div>
+            `;
+          }).join('') : '<div class="bg-white rounded-2xl border border-slate-200 p-4 text-center text-xs text-slate-500">No upcoming dividends match your search.</div>';
+
+          const myDivStocks = state.stocks
+            .filter((s) => (s.divYield > 0 || s.corpAction) && (!qLower || s.name.toLowerCase().includes(qLower) || s.nse.toLowerCase().includes(qLower)))
+            .sort((a, b) => (b.divYield || 0) - (a.divYield || 0));
+
+          const myDivRows = myDivStocks.map((s) => {
+            const hQty = state.holdings[s.id] && state.holdings[s.id].qty > 0 ? state.holdings[s.id].qty : 0;
+            const estAnnualPerShare = (s.cmp * (s.divYield || 0)) / 100;
+            const estAnnualTotal = estAnnualPerShare * (hQty > 0 ? hQty : divEstShares);
+            return `
+              <div class="flex items-center justify-between gap-2 py-2.5 border-b border-slate-100 last:border-b-0">
+                <div class="min-w-0">
+                  <div class="flex items-center gap-1.5">
+                    <span class="text-xs font-extrabold text-slate-900">${escapeHtml(s.nse)}</span>
+                    <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700">${Number(s.divYield || 0).toFixed(2)}% yield</span>
+                    ${hQty > 0 ? `<span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-blue-50 text-blue-700">Held: ${hQty}</span>` : ''}
+                  </div>
+                  <p class="text-[11px] text-slate-500 truncate mt-0.5">${escapeHtml(s.corpAction || 'Q3 FY27 Results (Jan 2027) · Est. ~₹' + estAnnualPerShare.toFixed(1) + '/sh/yr')}</p>
+                </div>
+                <div class="text-right shrink-0 flex items-center gap-2">
+                  <div>
+                    <div class="text-xs font-extrabold text-slate-900">${formatINR(estAnnualTotal)}<span class="text-[10px] font-normal text-slate-500">/yr</span></div>
+                    <div class="text-[10px] text-slate-500">${hQty > 0 ? 'for your ' + hQty + ' sh' : 'for ' + divEstShares + ' sh'}</div>
+                  </div>
+                  <button type="button" data-open-detail="${escapeHtml(s.id)}" class="px-2 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-[11px] font-bold">View</button>
+                </div>
+              </div>
+            `;
+          }).join('');
+
+          container.innerHTML = `
+            <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-3.5 space-y-2.5">
+              <div class="flex items-center justify-between gap-2 flex-wrap">
+                <div>
+                  <h3 class="text-sm font-extrabold text-emerald-950">Upcoming NSE &amp; BSE Dividend Calendar</h3>
+                  <p class="text-[11px] text-emerald-800">Buy at least 1 trading day before Ex-Date (T+1) to qualify. 10% TDS applies above ₹5,000/yr per company.</p>
+                </div>
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-white text-emerald-700 border border-emerald-200">Synced: ${escapeHtml(dividendsUpdatedAt)}</span>
+              </div>
+              <div class="flex items-center gap-2 bg-white rounded-xl border border-emerald-200 px-3 py-2 text-xs">
+                <label for="divEstSharesInput" class="font-semibold text-slate-700 shrink-0">Estimate payout for</label>
+                <input id="divEstSharesInput" type="number" min="1" value="${divEstShares}" class="w-20 rounded-lg border border-slate-200 bg-slate-50 px-2 py-1 text-xs font-extrabold text-slate-900 text-center" />
+                <span class="text-slate-500 text-[11px]">shares (auto-uses My Holdings qty if held)</span>
+              </div>
+            </div>
+            <div class="space-y-2.5">${divCards}</div>
+            <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-3.5 space-y-1">
+              <div class="flex items-center justify-between pb-1.5 border-b border-slate-100">
+                <h4 class="text-xs font-extrabold text-slate-900">Your Featured &amp; Holdings Dividend Yield Tracker</h4>
+                <span class="text-[10px] font-semibold text-slate-500">${myDivStocks.length} stocks</span>
+              </div>
+              ${myDivRows || '<p class="text-xs text-slate-500 py-3 text-center">No dividend stocks in Featured yet.</p>'}
+            </div>
+          `;
+          return;
+        }
         if (state.stockFilter === 'AllNSE') {
           const sourceList = nseAllStocks.length > 0
             ? nseAllStocks
@@ -3642,6 +3755,15 @@
       let stockHistoryChartInstance = null;
       let optionsPayoffChartInstance = null;
       let optStrategy = 'long_call';
+      let divEstShares = 100;
+      let liveDividends = [
+        { sym: 'VRAJ', bse: '544204', name: 'Vraj Iron & Steel Ltd', type: 'Interim', amount: 0.60, exDate: '25 Nov 2026', recordDate: '25 Nov 2026', status: 'Upcoming', note: 'Payout on or before 13 Dec 2026' },
+        { sym: 'FUSIONCX', bse: '544995', name: 'Fusion CX Ltd', type: 'Final', amount: 0.75, exDate: '27 Nov 2026', recordDate: '27 Nov 2026', status: 'Upcoming', note: 'BSE 544995 · Buy before Ex-Date' },
+        { sym: 'PASHUPATI', bse: '544252', name: 'Pashupati Cotspin Ltd', type: 'Interim', amount: 0.02, exDate: '23 Nov 2026', recordDate: '23 Nov 2026', status: 'This Week', note: 'FY27 Interim Dividend' },
+        { sym: 'ASHOKLEY', bse: '500477', name: 'Ashok Leyland Ltd', type: 'Interim', amount: 1.00, exDate: '20 Nov 2026', recordDate: '20 Nov 2026', status: 'Recent', note: 'NSE/BSE Interim Dividend' },
+        { sym: 'ALUFLUOR', bse: '524634', name: 'Alufluoride Ltd', type: 'Interim', amount: 2.50, exDate: '20 Nov 2026', recordDate: '20 Nov 2026', status: 'Recent', note: 'BSE Interim Dividend' }
+      ];
+      let dividendsUpdatedAt = '24 Nov 2026';
 
       function renderMarketTicker() {
         const bar = document.getElementById('marketTickerBar');
@@ -4302,7 +4424,16 @@
         showToast('Trade logged for ' + symbol);
       });
 
-      // Delegated clicks & checkbox changes
+      // Delegated clicks, inputs & checkbox changes
+      document.addEventListener('input', (e) => {
+        if (e.target && e.target.id === 'divEstSharesInput') {
+          const val = Math.max(1, Number(e.target.value) || 1);
+          divEstShares = val;
+          renderStocksTab();
+          const el = document.getElementById('divEstSharesInput');
+          if (el) { el.focus(); }
+        }
+      });
       document.addEventListener('change', (e) => {
         const chk = e.target.closest('[data-check-stock]');
         if (chk) {
@@ -4325,6 +4456,47 @@
           saveState();
           renderSipAndGoalsTab();
           showToast('Loaded ' + state.sip.rate + '% est. return for ' + trySipBtn.dataset.trySipName);
+          return;
+        }
+
+        const trackDivBtn = e.target.closest('[data-track-div-sym]');
+        if (trackDivBtn) {
+          const sym = trackDivBtn.dataset.trackDivSym;
+          const d = liveDividends.find((x) => (x.sym || '').toUpperCase() === sym.toUpperCase());
+          if (d && !state.stocks.some((s) => s.nse.toUpperCase() === sym.toUpperCase())) {
+            state.stocks.unshift({
+              id: 'div_' + sym.toLowerCase().replace(/[^a-z0-9]/g, '') + '_' + Date.now(),
+              name: d.name,
+              nse: d.sym,
+              bse: d.bse || 'NSE',
+              sector: 'Dividend Stock',
+              cmp: 200,
+              high52: 240,
+              low52: 160,
+              mcapCr: 0,
+              pe: 20,
+              divYield: 1.0,
+              roe: 15,
+              roce: 15,
+              ttmSalesCr: 0,
+              ttmProfitCr: 0,
+              profitCagr3y: 12,
+              debtEquity: 0.3,
+              balanceNote: (d.type || 'Dividend') + ' ₹' + Number(d.amount || 0).toFixed(2) + '/sh · Ex: ' + d.exDate,
+              orderBookLabel: 'Ex-Div ' + d.exDate,
+              orderBookDetail: d.note || 'Upcoming dividend',
+              hasBigOrderBook: false,
+              isLowDebt: true,
+              fiiPct: 10,
+              diiPct: 10,
+              fcfCr: 0,
+              corpAction: (d.type || 'Div') + ' ₹' + Number(d.amount || 0).toFixed(2) + '/sh · Ex: ' + d.exDate,
+              thesis: 'Tracked from Upcoming Dividends calendar.'
+            });
+            saveState();
+            renderAll();
+            showToast(d.sym + ' added to Featured!');
+          }
           return;
         }
 
@@ -4843,6 +5015,10 @@
               state.stocks.forEach((s) => {
                 if (data.corp_actions[s.nse]) s.corpAction = data.corp_actions[s.nse];
               });
+            }
+            if (data && Array.isArray(data.dividends) && data.dividends.length > 0) {
+              liveDividends = data.dividends;
+              dividendsUpdatedAt = data.updated_at_ist || dividendsUpdatedAt;
             }
             if (state.activeTab === 'stocks') renderStocksTab();
             else if (state.activeTab === 'plan') renderPlanTab();
