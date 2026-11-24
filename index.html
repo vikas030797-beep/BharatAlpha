@@ -1128,7 +1128,7 @@
   </div>
 
   <!-- In-page Toast Notification -->
-  <div id="toastBanner" class="hidden fixed top-16 left-1/2 -translate-x-1/2 z-50 bg-slate-900 text-white text-xs font-semibold px-4 py-2.5 rounded-full shadow-lg"></div>
+  <div id="toastBanner" class="hidden fixed bottom-24 sm:bottom-6 left-1/2 -translate-x-1/2 z-50 max-w-[92vw] text-center bg-slate-900 text-white text-xs font-semibold px-4 py-2.5 rounded-full shadow-xl border border-slate-700/60"></div>
 
   <script>
     (function () {
@@ -3684,7 +3684,7 @@
           data: {
             labels,
             datasets: [
-              { label: stock.nse + ' Price', data: prices, borderColor: '#0F172A', backgroundColor: 'rgba(16,185,129,0.10)', fill: true, tension: 0.3, pointRadius: 2, borderWidth: 2 },
+              { label: stock.nse + ' Price', data: prices, borderColor: state.darkMode ? '#38BDF8' : '#0F172A', backgroundColor: state.darkMode ? 'rgba(56,189,248,0.12)' : 'rgba(16,185,129,0.10)', fill: true, tension: 0.3, pointRadius: 2, borderWidth: 2 },
               { label: '50-DMA (₹' + dma50 + ')', data: labels.map(() => dma50), borderColor: '#059669', borderDash: [4, 4], pointRadius: 0, borderWidth: 1.5 },
               { label: '200-DMA (₹' + dma200 + ')', data: labels.map(() => dma200), borderColor: '#EA580C', borderDash: [6, 3], pointRadius: 0, borderWidth: 1.5 }
             ]
@@ -3692,8 +3692,8 @@
           options: {
             responsive: true,
             maintainAspectRatio: false,
-            plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, font: { size: 10 } } } },
-            scales: { x: { ticks: { font: { size: 9 } }, grid: { display: false } }, y: { ticks: { font: { size: 9 } } } }
+            plugins: { legend: { position: 'bottom', labels: { color: getChartTextColor(), boxWidth: 10, font: { size: 10 } } } },
+            scales: { x: { ticks: { color: getChartTextColor(), font: { size: 9 } }, grid: { display: false } }, y: { ticks: { color: getChartTextColor(), font: { size: 9 } }, grid: { color: getChartGridColor() } } }
           }
         });
       }
@@ -3761,10 +3761,10 @@
           capitalReq = p1 * qty;
           maxProfitText = formatINR((k1 - p1) * qty - totalCharges);
         } else if (optStrategy === 'bull_spread') {
-          const netDebit = Math.max(0.5, p1 - p2);
+          const netDebit = p1 - p2;
           breakeven = k1 + netDebit + (totalCharges / qty);
-          maxLoss = netDebit * qty + totalCharges;
-          capitalReq = netDebit * qty + (k2 - k1) * qty * 0.25;
+          maxLoss = Math.max(0, netDebit * qty + totalCharges);
+          capitalReq = Math.max(0, netDebit * qty) + (k2 - k1) * qty * 0.25;
           maxProfitText = formatINR(((k2 - k1) - netDebit) * qty - totalCharges);
         } else {
           breakeven = spot - p1 + (totalCharges / qty);
@@ -3827,7 +3827,7 @@
             responsive: true,
             maintainAspectRatio: false,
             plugins: { legend: { display: false } },
-            scales: { x: { ticks: { font: { size: 9 }, maxTicksLimit: 7 } }, y: { ticks: { font: { size: 9 } } } }
+            scales: { x: { ticks: { color: getChartTextColor(), font: { size: 9 }, maxTicksLimit: 7 }, grid: { color: getChartGridColor() } }, y: { ticks: { color: getChartTextColor(), font: { size: 9 } }, grid: { color: getChartGridColor() } } }
           }
         });
       }
@@ -3839,9 +3839,13 @@
         let usedLtcg = 0;
         let usedStcg = 0;
         (state.journal || []).forEach((tr) => {
-          const gross = ((tr.sellPrice || tr.exitPrice || tr.buyPrice) - tr.buyPrice) * (tr.qty || 0);
+          const buyPx = Number(tr.buy ?? tr.buyPrice ?? 0);
+          const sellPx = Number(tr.sell ?? tr.sellPrice ?? tr.exitPrice ?? buyPx);
+          const qty = Number(tr.qty || 0);
+          const gross = (sellPx - buyPx) * qty;
           if (gross > 0) {
-            if (tr.holdingType === 'long') usedLtcg += gross;
+            const isLong = (tr.type || tr.holdingType) === 'long';
+            if (isLong) usedLtcg += gross;
             else usedStcg += gross;
           }
         });
@@ -4286,6 +4290,7 @@
         saveState();
         document.getElementById('journalForm').reset();
         renderJournalAndAlerts();
+        renderLtcgHarvestTracker();
         showToast('Trade logged for ' + symbol);
       });
 
@@ -4366,7 +4371,7 @@
         if (delAlertBtn) { delete state.alerts[delAlertBtn.dataset.deleteAlert]; saveState(); renderJournalAndAlerts(); return; }
 
         const delJournalBtn = e.target.closest('[data-delete-journal]');
-        if (delJournalBtn) { state.journal = state.journal.filter((t) => t.id !== delJournalBtn.dataset.deleteJournal); saveState(); renderJournalAndAlerts(); return; }
+        if (delJournalBtn) { state.journal = state.journal.filter((t) => t.id !== delJournalBtn.dataset.deleteJournal); saveState(); renderJournalAndAlerts(); renderLtcgHarvestTracker(); return; }
 
         const delGoalBtn = e.target.closest('[data-delete-goal]');
         if (delGoalBtn) { state.goals = state.goals.filter((g) => g.id !== delGoalBtn.dataset.deleteGoal); saveState(); renderGoalPlanner(); return; }
@@ -4663,88 +4668,115 @@
         return added.length;
       }
 
+      async function fetchWithTimeout(url, timeoutMs = 6000) {
+        if (typeof AbortController === 'undefined') return fetch(url);
+        const ctrl = new AbortController();
+        const tid = setTimeout(() => ctrl.abort(), timeoutMs);
+        try {
+          return await fetch(url, { signal: ctrl.signal });
+        } finally {
+          clearTimeout(tid);
+        }
+      }
+
       async function fetchLiveNewsNow(manualClick) {
         const btn = document.getElementById('refreshLiveNewsBtn');
-        if (btn && manualClick) btn.disabled = true;
+        const origHtml = btn ? btn.innerHTML : '';
+        if (btn && manualClick) {
+          btn.disabled = true;
+          btn.textContent = 'Syncing...';
+        }
         let totalAdded = 0;
 
-        // 1. Try GitHub Pages daily_data.json first
         try {
-          const res = await fetch('./daily_data.json?t=' + Date.now());
-          if (res.ok) {
-            const data = await res.json();
-            if (data && Array.isArray(data.news) && data.news.length > 0) {
-              totalAdded += mergeLiveNewsItems(data.news, 'Synced from GitHub Auto-Updater (' + (data.updated_at_ist || 'Today') + ')');
-            }
-          }
-        } catch (err) {}
-
-        // 2. Also fetch live Indian market RSS feeds via CORS-safe rss2json endpoint
-        const feeds = [
-          ['Economic Times Markets', 'https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms'],
-          ['Livemint Markets', 'https://www.livemint.com/rss/markets']
-        ];
-        const rssCollected = [];
-        for (const [srcName, rssUrl] of feeds) {
+          // 1. Try GitHub Pages daily_data.json first
           try {
-            const apiUrl = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(rssUrl);
-            const r = await fetch(apiUrl);
-            if (!r.ok) continue;
-            const j = await r.json();
-            if (j && Array.isArray(j.items)) {
-              j.items.slice(0, 6).forEach((it) => {
-                rssCollected.push({
-                  title: it.title || '',
-                  summary: it.description || '',
-                  source: srcName,
-                  date: it.pubDate ? it.pubDate.slice(0, 16) : 'Live',
-                  url: it.link || ''
-                });
-              });
-            }
-          } catch (err) {}
-        }
-        if (rssCollected.length > 0) {
-          const nowStr = new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
-          totalAdded += mergeLiveNewsItems(rssCollected, 'Live RSS synced at ' + nowStr + ' IST (ET Markets & Livemint)');
-        }
-
-        // 3. Extra CORS-safe fallback via AllOrigins XML parser if rss2json was rate-limited
-        if (totalAdded === 0 && rssCollected.length === 0) {
-          try {
-            const proxyUrl = 'https://api.allorigins.win/raw?url=' + encodeURIComponent('https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms');
-            const rXml = await fetch(proxyUrl);
-            if (rXml.ok) {
-              const xmlText = await rXml.text();
-              const doc = new DOMParser().parseFromString(xmlText, 'text/xml');
-              const xmlItems = Array.from(doc.querySelectorAll('item')).slice(0, 8).map((node) => ({
-                title: node.querySelector('title')?.textContent || '',
-                summary: node.querySelector('description')?.textContent || '',
-                source: 'Economic Times Markets',
-                date: (node.querySelector('pubDate')?.textContent || 'Live').slice(0, 16),
-                url: node.querySelector('link')?.textContent || ''
-              }));
-              if (xmlItems.length > 0) {
-                const nowStr = new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
-                totalAdded += mergeLiveNewsItems(xmlItems, 'Live online feed synced at ' + nowStr + ' IST');
+            const res = await fetchWithTimeout('./daily_data.json?t=' + Date.now(), 5000);
+            if (res.ok) {
+              const data = await res.json();
+              if (data && Array.isArray(data.news) && data.news.length > 0) {
+                totalAdded += mergeLiveNewsItems(data.news, 'Synced from GitHub Auto-Updater (' + (data.updated_at_ist || 'Today') + ')');
               }
             }
           } catch (err) {}
-        }
 
-        const liveCount = state.news.filter((n) => n.category === 'Live').length;
-        if (btn && manualClick) {
-          btn.disabled = false;
-          if (totalAdded > 0) {
-            state.newsFilter = 'Live';
-            renderNewsTab();
-            showToast('Loaded ' + totalAdded + ' fresh headlines!');
-          } else if (liveCount > 0) {
-            state.newsFilter = 'Live';
-            renderNewsTab();
-            showToast('Up to date — showing ' + liveCount + ' latest live headlines');
-          } else {
-            showToast('Could not reach live feed right now — check internet connection');
+          // 2. Also fetch live Indian market RSS feeds via CORS-safe rss2json endpoint
+          const feeds = [
+            ['Economic Times Markets', 'https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms'],
+            ['Livemint Markets', 'https://www.livemint.com/rss/markets']
+          ];
+          const rssCollected = [];
+          for (const [srcName, rssUrl] of feeds) {
+            try {
+              const apiUrl = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(rssUrl);
+              const r = await fetchWithTimeout(apiUrl, 6000);
+              if (!r.ok) continue;
+              const j = await r.json();
+              if (j && Array.isArray(j.items)) {
+                j.items.slice(0, 6).forEach((it) => {
+                  rssCollected.push({
+                    title: it.title || '',
+                    summary: it.description || '',
+                    source: srcName,
+                    date: it.pubDate ? it.pubDate.slice(0, 16) : 'Live',
+                    url: it.link || ''
+                  });
+                });
+              }
+            } catch (err) {}
+          }
+          if (rssCollected.length > 0) {
+            const nowStr = new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
+            totalAdded += mergeLiveNewsItems(rssCollected, 'Live RSS synced at ' + nowStr + ' IST (ET Markets & Livemint)');
+          }
+
+          // 3. Extra CORS-safe fallback via AllOrigins XML parser if rss2json was rate-limited
+          if (totalAdded === 0 && rssCollected.length === 0) {
+            const fallbackFeeds = [
+              ['Economic Times Markets', 'https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms'],
+              ['Moneycontrol Markets', 'https://www.moneycontrol.com/rss/marketreports.xml']
+            ];
+            for (const [srcName, rssUrl] of fallbackFeeds) {
+              try {
+                const proxyUrl = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(rssUrl);
+                const rXml = await fetchWithTimeout(proxyUrl, 6000);
+                if (!rXml.ok) continue;
+                const xmlText = await rXml.text();
+                const doc = new DOMParser().parseFromString(xmlText, 'text/xml');
+                const xmlItems = Array.from(doc.querySelectorAll('item')).slice(0, 8).map((node) => ({
+                  title: node.querySelector('title')?.textContent || '',
+                  summary: node.querySelector('description')?.textContent || '',
+                  source: srcName,
+                  date: (node.querySelector('pubDate')?.textContent || 'Live').slice(0, 16),
+                  url: node.querySelector('link')?.textContent || ''
+                }));
+                if (xmlItems.length > 0) {
+                  const nowStr = new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
+                  totalAdded += mergeLiveNewsItems(xmlItems, 'Live online feed synced at ' + nowStr + ' IST');
+                  break;
+                }
+              } catch (err) {}
+            }
+          }
+
+          const liveCount = state.news.filter((n) => n.category === 'Live').length;
+          if (manualClick) {
+            if (totalAdded > 0) {
+              state.newsFilter = 'Live';
+              renderNewsTab();
+              showToast('Loaded ' + totalAdded + ' fresh headlines!');
+            } else if (liveCount > 0) {
+              state.newsFilter = 'Live';
+              renderNewsTab();
+              showToast('Up to date — showing ' + liveCount + ' latest live headlines');
+            } else {
+              showToast('Could not reach live feed right now — check internet connection');
+            }
+          }
+        } finally {
+          if (btn && manualClick) {
+            btn.disabled = false;
+            btn.innerHTML = origHtml;
           }
         }
       }
@@ -4787,6 +4819,8 @@
                 if (data.corp_actions[s.nse]) s.corpAction = data.corp_actions[s.nse];
               });
             }
+            if (state.activeTab === 'stocks') renderStocksTab();
+            else if (state.activeTab === 'plan') renderPlanTab();
           }
         } catch (err) {}
 
