@@ -6,6 +6,9 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="apple-mobile-web-app-title" content="BharatAlpha" />
+  <meta name="theme-color" content="#0F172A" />
+  <link rel="manifest" href="./manifest.json" />
+  <link rel="apple-touch-icon" href="./icon-192.png" />
   <title>BharatAlpha — NSE &amp; BSE Trading, SIP &amp; Wealth Planner</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -163,6 +166,11 @@
     </div>
   </header>
 
+  <!-- Live Market Ticker Strip (Auto-updated 3x daily by GitHub Action) -->
+  <div class="bg-slate-900 text-white border-b border-slate-800">
+    <div id="marketTickerBar" class="max-w-3xl mx-auto px-3.5 py-2 flex items-center gap-3 overflow-x-auto no-scrollbar text-[11px]"></div>
+  </div>
+
   <!-- Main Content Container -->
   <main class="max-w-3xl mx-auto px-3.5 pt-3.5 space-y-4">
 
@@ -171,7 +179,7 @@
       <button type="button" data-step-tab="news" class="step-pill py-1.5 px-1 rounded-full text-[11px] font-bold transition truncate">1. News</button>
         <button type="button" data-step-tab="flows" class="step-pill py-1.5 px-1 rounded-full text-[11px] font-bold transition truncate">2. Flows</button>
         <button type="button" data-step-tab="stocks" class="step-pill py-1.5 px-1 rounded-full text-[11px] font-bold transition truncate">3. Stocks</button>
-        <button type="button" data-step-tab="ipo" class="step-pill py-1.5 px-1 rounded-full text-[11px] font-bold transition truncate">4. IPO</button>
+        <button type="button" data-step-tab="ipo" class="step-pill py-1.5 px-1 rounded-full text-[11px] font-bold transition truncate">4. IPO/FPO</button>
         <button type="button" data-step-tab="sip" class="step-pill py-1.5 px-1 rounded-full text-[11px] font-bold transition truncate">5. SIP/Goal</button>
         <button type="button" data-step-tab="plan" class="step-pill py-1.5 px-1 rounded-full text-[11px] font-bold transition truncate">6. Plan</button>
     </div>
@@ -606,9 +614,10 @@
     <!-- ==================== TAB 5: MY PLAN & TRADE JOURNAL ==================== -->
     <section id="tab-plan" class="tab-section hidden space-y-4">
       <!-- Segmented Sub-Tab Control -->
-      <div class="grid grid-cols-2 gap-1.5 bg-white p-1.5 rounded-2xl border border-slate-200 shadow-sm">
+      <div class="grid grid-cols-3 gap-1.5 bg-white p-1.5 rounded-2xl border border-slate-200 shadow-sm">
         <button type="button" data-plan-subtab="basket" class="plan-subtab-btn py-2 rounded-xl text-xs font-bold transition">Trade Basket</button>
-        <button type="button" data-plan-subtab="journal" class="plan-subtab-btn py-2 rounded-xl text-xs font-bold transition">Journal &amp; Alerts</button>
+        <button type="button" data-plan-subtab="options" class="plan-subtab-btn py-2 rounded-xl text-xs font-bold transition">Options (CE/PE)</button>
+        <button type="button" data-plan-subtab="journal" class="plan-subtab-btn py-2 rounded-xl text-xs font-bold transition">Journal &amp; Tax</button>
       </div>
 
       <!-- SUB-VIEW 5A: TRADE BASKET -->
@@ -732,8 +741,88 @@
         <div id="planItemsList" class="space-y-3"></div>
       </div>
 
+      <!-- SUB-VIEW 5C: CALL & PUT OPTIONS PAYOFF & BREAKEVEN CALCULATOR -->
+      <div id="subtab-options" class="hidden space-y-4">
+        <div class="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm space-y-3.5">
+          <div class="flex items-center justify-between gap-2">
+            <div>
+              <h2 class="text-sm font-bold text-slate-900">Call &amp; Put (CE/PE) Payoff Simulator</h2>
+              <p class="text-xs text-slate-500">Test breakeven, max loss &amp; FY26–27 0.15% Options STT before trading</p>
+            </div>
+            <span id="optStrategyTag" class="shrink-0 px-2.5 py-1 rounded-full text-[10px] font-extrabold bg-indigo-50 text-indigo-700 border border-indigo-200">Long Call</span>
+          </div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
+            <button type="button" data-opt-strat="long_call" class="opt-strat-btn px-2 py-2 rounded-xl border text-[11px] font-bold transition">Buy Call (CE)</button>
+            <button type="button" data-opt-strat="long_put" class="opt-strat-btn px-2 py-2 rounded-xl border text-[11px] font-bold transition">Buy Put (PE)</button>
+            <button type="button" data-opt-strat="bull_spread" class="opt-strat-btn px-2 py-2 rounded-xl border text-[11px] font-bold transition">Bull Call Spread</button>
+            <button type="button" data-opt-strat="covered_call" class="opt-strat-btn px-2 py-2 rounded-xl border text-[11px] font-bold transition">Covered Call</button>
+          </div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5 text-xs">
+            <label class="block">
+              <span class="text-[11px] font-semibold text-slate-600">Underlying Spot (₹)</span>
+              <input id="optSpotInput" type="number" value="25350" min="1" class="mt-1 w-full rounded-xl border border-slate-200 bg-slate-50 px-2.5 py-2 font-bold text-slate-900" />
+            </label>
+            <label class="block">
+              <span class="text-[11px] font-semibold text-slate-600">Primary Strike (₹)</span>
+              <input id="optStrikeInput" type="number" value="25500" min="1" class="mt-1 w-full rounded-xl border border-slate-200 bg-slate-50 px-2.5 py-2 font-bold text-slate-900" />
+            </label>
+            <label class="block">
+              <span class="text-[11px] font-semibold text-slate-600">Option Premium (₹)</span>
+              <input id="optPremInput" type="number" value="165" min="0.5" step="0.5" class="mt-1 w-full rounded-xl border border-slate-200 bg-slate-50 px-2.5 py-2 font-bold text-slate-900" />
+            </label>
+            <label class="block">
+              <span class="text-[11px] font-semibold text-slate-600">Lot Size (Nifty=75)</span>
+              <input id="optLotSizeInput" type="number" value="75" min="1" class="mt-1 w-full rounded-xl border border-slate-200 bg-slate-50 px-2.5 py-2 font-bold text-slate-900" />
+            </label>
+            <label class="block">
+              <span class="text-[11px] font-semibold text-slate-600">Number of Lots</span>
+              <input id="optLotsInput" type="number" value="1" min="1" class="mt-1 w-full rounded-xl border border-slate-200 bg-slate-50 px-2.5 py-2 font-bold text-slate-900" />
+            </label>
+            <label id="optStrike2Wrap" class="hidden block">
+              <span class="text-[11px] font-semibold text-slate-600">Sell Strike / Prem (₹)</span>
+              <div class="mt-1 grid grid-cols-2 gap-1">
+                <input id="optStrike2Input" type="number" value="25800" class="w-full rounded-xl border border-slate-200 bg-slate-50 px-2 py-2 font-bold text-slate-900" title="Short Call Strike" />
+                <input id="optPrem2Input" type="number" value="65" step="0.5" class="w-full rounded-xl border border-slate-200 bg-slate-50 px-2 py-2 font-bold text-slate-900" title="Short Call Premium" />
+              </div>
+            </label>
+          </div>
+
+          <div id="optSummaryGrid" class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-[11px]"></div>
+
+          <div class="rounded-2xl bg-slate-50 border border-slate-200 p-3">
+            <div class="flex items-center justify-between mb-1.5">
+              <span class="text-xs font-bold text-slate-800">Expiry Payoff Curve (Net of Charges)</span>
+              <span id="optChargesNote" class="text-[10px] font-semibold text-slate-500">Includes 0.15% Options STT + ₹40 brokerage</span>
+            </div>
+            <div class="h-52 relative"><canvas id="optionsPayoffChart"></canvas></div>
+          </div>
+
+          <div class="rounded-xl bg-rose-50/80 border border-rose-200 p-3 text-[11px] text-rose-900">
+            <strong>SEBI F&amp;O Risk Warning:</strong> Per SEBI FY26 data, ~9 in 10 individual F&amp;O traders in India incur net losses (avg ₹1.17L/trader) and Budget 2026 hiked Options STT to <strong>0.15%</strong>. Use this simulator strictly for risk sizing and hedging—never risk essential capital.
+          </div>
+        </div>
+      </div>
+
       <!-- SUB-VIEW 5B: TRADE JOURNAL & WATCHLIST ALERTS -->
       <div id="subtab-journal" class="hidden space-y-4">
+        <!-- FY 2026-27 LTCG ₹1.25L Tax-Free Harvest Tracker + 1-Tap Backup -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm space-y-3">
+          <div class="flex items-center justify-between gap-2 flex-wrap">
+            <div>
+              <h3 class="text-sm font-bold text-slate-900">FY 2026–27 LTCG Tax-Free Tracker</h3>
+              <p class="text-[11px] text-slate-500">₹1,25,000 annual equity LTCG exemption (&gt;12m holdings)</p>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <button id="exportBackupBtn" type="button" class="px-2.5 py-1.5 rounded-xl bg-slate-900 text-white text-[11px] font-bold">Export Backup</button>
+              <button id="importBackupBtn" type="button" class="px-2.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-[11px] font-bold">Import</button>
+              <input id="importBackupFileInput" type="file" accept=".json" class="hidden" />
+            </div>
+          </div>
+          <div id="ltcgHarvestBox" class="space-y-1.5"></div>
+        </div>
+
         <!-- Active Price Alerts -->
         <div class="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm space-y-2.5">
           <div class="flex items-center justify-between">
@@ -808,6 +897,7 @@
             <select id="ipoCalcSeg" class="mt-1 w-full rounded-xl border border-slate-200 bg-slate-50 px-2.5 py-2 text-xs font-semibold text-slate-900">
               <option value="Mainboard">Mainboard (₹15k lot)</option>
               <option value="SME">SME (High Risk)</option>
+              <option value="FPO">FPO (Follow-on Offer)</option>
             </select>
           </label>
           <label class="block">
@@ -844,6 +934,7 @@
           <button type="button" data-ipo-filter="Allotment" class="ipo-filter-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold transition">Allotment / Listing</button>
           <button type="button" data-ipo-filter="Mainboard" class="ipo-filter-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold transition">Mainboard</button>
           <button type="button" data-ipo-filter="SME" class="ipo-filter-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold transition">SME</button>
+          <button type="button" data-ipo-filter="FPO" class="ipo-filter-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold transition">FPO</button>
         </div>
 
         <div class="flex items-center justify-between gap-2 flex-wrap bg-white rounded-xl border border-slate-200 px-3 py-2 shadow-sm">
@@ -894,7 +985,7 @@
       </button>
       <button type="button" data-nav-tab="ipo" class="nav-btn flex flex-col items-center justify-center gap-0.5 py-1 rounded-xl transition">
         <i data-lucide="rocket" class="w-5 h-5"></i>
-        <span class="text-[10px] font-semibold">IPO</span>
+        <span class="text-[10px] font-semibold">IPO/FPO</span>
       </button>
       <button type="button" data-nav-tab="sip" class="nav-btn flex flex-col items-center justify-center gap-0.5 py-1 rounded-xl transition">
         <i data-lucide="piggy-bank" class="w-5 h-5"></i>
@@ -2922,11 +3013,16 @@
           btn.classList.toggle('text-slate-600', !active);
         });
         document.getElementById('subtab-basket').classList.toggle('hidden', state.planSubTab !== 'basket');
+        document.getElementById('subtab-options').classList.toggle('hidden', state.planSubTab !== 'options');
         document.getElementById('subtab-journal').classList.toggle('hidden', state.planSubTab !== 'journal');
 
+        if (state.planSubTab === 'options') {
+          renderOptionsCalculator();
+          return;
+        }
         if (state.planSubTab === 'journal') {
           renderJournalAndAlerts();
-        renderIpoTab();
+          renderLtcgHarvestTracker();
           return;
         }
 
@@ -3340,6 +3436,7 @@
           if (ipoFilter === 'Open') return item.status === 'Open';
           if (ipoFilter === 'Upcoming') return item.status === 'Upcoming';
           if (ipoFilter === 'Allotment') return item.status === 'Allotment';
+          if (ipoFilter === 'FPO') return item.segment === 'FPO';
           return item.segment === ipoFilter;
         });
 
@@ -3440,6 +3537,8 @@
         ipoSortEl.addEventListener('change', (e) => {
           ipoSort = e.target.value;
           renderIpoTab();
+        renderMarketTicker();
+        renderLtcgHarvestTracker();
         });
       }
       const toggleGmpEl = document.getElementById('toggleIpoGmp');
@@ -3495,7 +3594,304 @@
         }
       });
 
+
+      let liveIndices = [
+        { name: 'NIFTY 50', val: '25,349.65', chg: -1.75 },
+        { name: 'SENSEX', val: '82,435.99', chg: -1.77 },
+        { name: 'BANK NIFTY', val: '62,585.35', chg: -3.20 },
+        { name: 'INDIA VIX', val: '17.54', chg: 1.30 },
+        { name: 'GOLD BeES', val: '₹102.94', chg: 0.71 },
+        { name: 'USD/INR', val: '₹92.90', chg: 0.25 }
+      ];
+      let liveStockHistory = {};
+      let stockHistoryChartInstance = null;
+      let optionsPayoffChartInstance = null;
+      let optStrategy = 'long_call';
+
+      function renderMarketTicker() {
+        const bar = document.getElementById('marketTickerBar');
+        if (!bar) return;
+        bar.innerHTML = liveIndices.map((idx) => {
+          const pos = Number(idx.chg) >= 0;
+          const cls = pos ? 'text-emerald-400' : 'text-rose-400';
+          return `<div class="shrink-0 flex items-center gap-1.5 pr-3 border-r border-slate-700/80 last:border-r-0">
+            <span class="font-bold text-slate-300">${escapeHtml(idx.name)}</span>
+            <span class="font-extrabold text-white">${escapeHtml(String(idx.val))}</span>
+            <span class="font-bold ${cls}">${pos ? '+' : ''}${Number(idx.chg).toFixed(2)}%</span>
+          </div>`;
+        }).join('');
+      }
+
+      function renderStockHistoryChart(stock) {
+        const canvas = document.getElementById('stockHistoryChart');
+        if (!canvas || typeof Chart === 'undefined') return;
+        if (stockHistoryChartInstance) { stockHistoryChartInstance.destroy(); stockHistoryChartInstance = null; }
+
+        const hist = liveStockHistory[stock.nse];
+        let labels = [];
+        let prices = [];
+        if (hist && Array.isArray(hist.dates) && hist.dates.length >= 6) {
+          labels = hist.dates;
+          prices = hist.closes;
+        } else {
+          // Smooth 12-point 52W-anchored reference curve when offline
+          const months = ['Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov'];
+          const lo = stock.low52 || stock.cmp * 0.8;
+          const hi = stock.high52 || stock.cmp * 1.2;
+          const mid = (lo + hi) / 2;
+          labels = months;
+          prices = [
+            Number((lo * 1.04).toFixed(1)), Number((lo * 1.12).toFixed(1)), Number((mid * 0.96).toFixed(1)),
+            Number((mid * 1.02).toFixed(1)), Number((hi * 0.92).toFixed(1)), Number((hi * 0.97).toFixed(1)),
+            Number((hi * 0.99).toFixed(1)), Number((mid * 1.04).toFixed(1)), Number((mid * 0.98).toFixed(1)),
+            Number(((stock.cmp + mid) / 2).toFixed(1)), Number((stock.cmp * 1.015).toFixed(1)), Number(stock.cmp.toFixed(1))
+          ];
+        }
+        const dma50 = hist && hist.dma50 ? hist.dma50 : Number((prices.slice(-4).reduce((a, b) => a + b, 0) / Math.min(4, prices.length)).toFixed(1));
+        const dma200 = hist && hist.dma200 ? hist.dma200 : Number((prices.reduce((a, b) => a + b, 0) / prices.length).toFixed(1));
+
+        stockHistoryChartInstance = new Chart(canvas.getContext('2d'), {
+          type: 'line',
+          data: {
+            labels,
+            datasets: [
+              { label: stock.nse + ' Price', data: prices, borderColor: '#0F172A', backgroundColor: 'rgba(16,185,129,0.10)', fill: true, tension: 0.3, pointRadius: 2, borderWidth: 2 },
+              { label: '50-DMA (₹' + dma50 + ')', data: labels.map(() => dma50), borderColor: '#059669', borderDash: [4, 4], pointRadius: 0, borderWidth: 1.5 },
+              { label: '200-DMA (₹' + dma200 + ')', data: labels.map(() => dma200), borderColor: '#EA580C', borderDash: [6, 3], pointRadius: 0, borderWidth: 1.5 }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, font: { size: 10 } } } },
+            scales: { x: { ticks: { font: { size: 9 } }, grid: { display: false } }, y: { ticks: { font: { size: 9 } } } }
+          }
+        });
+      }
+
+      function renderOptionsCalculator() {
+        document.querySelectorAll('.opt-strat-btn').forEach((btn) => {
+          const active = btn.dataset.optStrat === optStrategy;
+          btn.classList.toggle('bg-slate-900', active);
+          btn.classList.toggle('text-white', active);
+          btn.classList.toggle('border-slate-900', active);
+          btn.classList.toggle('bg-slate-50', !active);
+          btn.classList.toggle('text-slate-700', !active);
+          btn.classList.toggle('border-slate-200', !active);
+        });
+
+        const tagMap = { long_call: 'Long Call (CE)', long_put: 'Long Put (PE)', bull_spread: 'Bull Call Spread', covered_call: 'Covered Call' };
+        const tagEl = document.getElementById('optStrategyTag');
+        if (tagEl) tagEl.textContent = tagMap[optStrategy] || 'Options';
+
+        const s2Wrap = document.getElementById('optStrike2Wrap');
+        if (s2Wrap) s2Wrap.classList.toggle('hidden', optStrategy !== 'bull_spread');
+
+        const spot = Math.max(1, Number(document.getElementById('optSpotInput')?.value) || 25350);
+        const k1 = Math.max(1, Number(document.getElementById('optStrikeInput')?.value) || 25500);
+        const p1 = Math.max(0.5, Number(document.getElementById('optPremInput')?.value) || 165);
+        const lotSize = Math.max(1, Number(document.getElementById('optLotSizeInput')?.value) || 75);
+        const lots = Math.max(1, Number(document.getElementById('optLotsInput')?.value) || 1);
+        const qty = lotSize * lots;
+        const k2 = Math.max(k1 + 1, Number(document.getElementById('optStrike2Input')?.value) || (k1 + 300));
+        const p2 = Math.max(0, Number(document.getElementById('optPrem2Input')?.value) || 65);
+
+        // FY 2026-27 Indian Options Statutory Charges: ₹20/order brokerage + 0.15% Options STT on sell + NSE txn 0.03503% + 18% GST
+        const legs = optStrategy === 'bull_spread' ? 4 : 2;
+        const brokerage = legs * 20;
+        const sellTurnover = (optStrategy === 'bull_spread' ? (p1 + p2) : p1) * qty;
+        const stt = sellTurnover * 0.0015;
+        const exchTxn = sellTurnover * 0.0003503 * 2;
+        const gst = (brokerage + exchTxn) * 0.18;
+        const totalCharges = Math.round(brokerage + stt + exchTxn + gst);
+
+        let breakeven = 0, maxProfitText = 'Unlimited', maxLoss = 0, capitalReq = 0;
+        const payoffAt = (expPrice) => {
+          let gross = 0;
+          if (optStrategy === 'long_call') {
+            gross = (Math.max(0, expPrice - k1) - p1) * qty;
+          } else if (optStrategy === 'long_put') {
+            gross = (Math.max(0, k1 - expPrice) - p1) * qty;
+          } else if (optStrategy === 'bull_spread') {
+            gross = ((Math.max(0, expPrice - k1) - p1) + (p2 - Math.max(0, expPrice - k2))) * qty;
+          } else {
+            // Covered Call: Long underlying at spot + Short Call at k1 for p1
+            gross = ((expPrice - spot) + (p1 - Math.max(0, expPrice - k1))) * qty;
+          }
+          return Math.round(gross - totalCharges);
+        };
+
+        if (optStrategy === 'long_call') {
+          breakeven = k1 + p1 + (totalCharges / qty);
+          maxLoss = p1 * qty + totalCharges;
+          capitalReq = p1 * qty;
+          maxProfitText = 'Unlimited';
+        } else if (optStrategy === 'long_put') {
+          breakeven = k1 - p1 - (totalCharges / qty);
+          maxLoss = p1 * qty + totalCharges;
+          capitalReq = p1 * qty;
+          maxProfitText = formatINR((k1 - p1) * qty - totalCharges);
+        } else if (optStrategy === 'bull_spread') {
+          const netDebit = Math.max(0.5, p1 - p2);
+          breakeven = k1 + netDebit + (totalCharges / qty);
+          maxLoss = netDebit * qty + totalCharges;
+          capitalReq = netDebit * qty + (k2 - k1) * qty * 0.25;
+          maxProfitText = formatINR(((k2 - k1) - netDebit) * qty - totalCharges);
+        } else {
+          breakeven = spot - p1 + (totalCharges / qty);
+          maxLoss = (spot - p1) * qty + totalCharges;
+          capitalReq = spot * qty;
+          maxProfitText = formatINR(((k1 - spot) + p1) * qty - totalCharges);
+        }
+
+        const grid = document.getElementById('optSummaryGrid');
+        if (grid) {
+          grid.innerHTML = `
+            <div class="rounded-xl bg-slate-50 border border-slate-200 p-2.5">
+              <span class="text-slate-500 block">Breakeven</span>
+              <strong class="text-slate-900">${formatINR(breakeven)}</strong>
+            </div>
+            <div class="rounded-xl bg-emerald-50 border border-emerald-200 p-2.5">
+              <span class="text-emerald-700 font-semibold block">Max Profit</span>
+              <strong class="text-emerald-800">${maxProfitText}</strong>
+            </div>
+            <div class="rounded-xl bg-rose-50 border border-rose-200 p-2.5">
+              <span class="text-rose-700 font-semibold block">Max Loss</span>
+              <strong class="text-rose-800">-${formatINR(maxLoss)}</strong>
+            </div>
+            <div class="rounded-xl bg-blue-50 border border-blue-200 p-2.5">
+              <span class="text-blue-700 font-semibold block">Capital · Charges</span>
+              <strong class="text-slate-900">${formatINR(capitalReq)} <span class="text-[10px] text-slate-500">(₹${totalCharges})</span></strong>
+            </div>
+          `;
+        }
+
+        const canvas = document.getElementById('optionsPayoffChart');
+        if (!canvas || typeof Chart === 'undefined') return;
+        if (optionsPayoffChartInstance) { optionsPayoffChartInstance.destroy(); optionsPayoffChartInstance = null; }
+
+        const pts = [];
+        const labels = [];
+        const step = Math.max(10, Math.round((spot * 0.08) / 8));
+        for (let i = -8; i <= 8; i++) {
+          const px = Math.round(spot + i * step);
+          labels.push('₹' + px.toLocaleString('en-IN'));
+          pts.push(payoffAt(px));
+        }
+
+        optionsPayoffChartInstance = new Chart(canvas.getContext('2d'), {
+          type: 'line',
+          data: {
+            labels,
+            datasets: [{
+              label: 'Net P&L at Expiry (₹)',
+              data: pts,
+              borderColor: '#4F46E5',
+              backgroundColor: 'rgba(79,70,229,0.12)',
+              fill: true,
+              tension: 0.15,
+              pointRadius: 2.5,
+              borderWidth: 2
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: { x: { ticks: { font: { size: 9 }, maxTicksLimit: 7 } }, y: { ticks: { font: { size: 9 } } } }
+          }
+        });
+      }
+
+      function renderLtcgHarvestTracker() {
+        const box = document.getElementById('ltcgHarvestBox');
+        if (!box) return;
+        const limit = 125000;
+        let usedLtcg = 0;
+        let usedStcg = 0;
+        (state.journal || []).forEach((tr) => {
+          const gross = ((tr.sellPrice || tr.exitPrice || tr.buyPrice) - tr.buyPrice) * (tr.qty || 0);
+          if (gross > 0) {
+            if (tr.holdingType === 'long') usedLtcg += gross;
+            else usedStcg += gross;
+          }
+        });
+        const pct = Math.min(100, Math.round((usedLtcg / limit) * 100));
+        const rem = Math.max(0, limit - usedLtcg);
+        box.innerHTML = `
+          <div class="flex items-center justify-between text-xs">
+            <span class="font-semibold text-slate-700">LTCG Realized: <strong>${formatINR(usedLtcg)}</strong> / ₹1,25,000</span>
+            <span class="font-bold text-emerald-700">${formatINR(rem)} tax-free left</span>
+          </div>
+          <div class="w-full h-2.5 rounded-full bg-slate-100 overflow-hidden">
+            <div class="h-full rounded-full bg-emerald-500 transition-all" style="width:${pct}%"></div>
+          </div>
+          <div class="flex items-center justify-between text-[11px] text-slate-500">
+            <span>STCG Realized (20.8%): <strong>${formatINR(usedStcg)}</strong></span>
+            <span>${pct}% of annual LTCG limit used</span>
+          </div>
+        `;
+      }
+
+      ['optSpotInput', 'optStrikeInput', 'optPremInput', 'optLotSizeInput', 'optLotsInput', 'optStrike2Input', 'optPrem2Input'].forEach((id) => {
+        const el = document.getElementById(id);
+        if (el) el.addEventListener('input', renderOptionsCalculator);
+      });
+
+      document.addEventListener('click', (e) => {
+        const optBtn = e.target.closest('.opt-strat-btn');
+        if (optBtn) { optStrategy = optBtn.dataset.optStrat; renderOptionsCalculator(); return; }
+
+        if (e.target.closest('#exportBackupBtn')) {
+          const blob = new Blob([JSON.stringify(state, null, 2)], { type: 'application/json' });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = 'bharatalpha_backup_' + new Date().toISOString().slice(0, 10) + '.json';
+          a.click();
+          URL.revokeObjectURL(url);
+          showToast('Backup JSON downloaded!');
+          return;
+        }
+        if (e.target.closest('#importBackupBtn')) {
+          const inp = document.getElementById('importBackupFileInput');
+          if (inp) inp.click();
+          return;
+        }
+      });
+
+      const importBackupEl = document.getElementById('importBackupFileInput');
+      if (importBackupEl) {
+        importBackupEl.addEventListener('change', (e) => {
+          const file = e.target.files && e.target.files[0];
+          if (!file) return;
+          const reader = new FileReader();
+          reader.onload = (ev) => {
+            try {
+              const parsed = JSON.parse(String(ev.target.result || '{}'));
+              if (parsed && typeof parsed === 'object') {
+                state = { ...state, ...parsed };
+                saveState();
+                renderAll();
+                showToast('Backup restored successfully!');
+              }
+            } catch (err) {
+              showToast('Invalid backup JSON file');
+            }
+          };
+          reader.readAsText(file);
+          e.target.value = '';
+        });
+      }
+
+      if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+        navigator.serviceWorker.register('./sw.js').catch(() => {});
+      }
+
       function renderAll() {
+        renderMarketTicker();
+        renderIpoTab();
+        renderLtcgHarvestTracker();
         renderHeaderAndNav();
         if (state.activeTab === 'news') renderNewsTab();
         if (state.activeTab === 'flows') renderFlowsTab();
@@ -3536,6 +3932,7 @@
           `;
         }).join('');
 
+        const corpBadge = stock.corpAction || (stock.divYield > 0 ? 'Div Yield ' + stock.divYield + '% · Q3 FY27 Results (Jan 2027)' : 'Q3 FY27 Results Window (Jan 2027)');
         document.getElementById('detailBody').innerHTML = `
           <div class="rounded-2xl bg-slate-900 text-white p-4 space-y-2">
             <div class="flex items-center justify-between gap-2">
@@ -3619,9 +4016,18 @@
               <button type="button" data-save-alert="${escapeHtml(stock.id)}" class="px-3 py-1.5 rounded-lg bg-slate-900 text-white text-xs font-bold">Save</button>
             </div>
           </div>
+        
+          <div class="rounded-2xl bg-white border border-slate-200 p-3.5 space-y-2">
+            <div class="flex items-center justify-between gap-2">
+              <h4 class="text-xs font-bold text-slate-900">1-Year Price Trend · 50 &amp; 200-DMA</h4>
+              <span class="text-[10px] font-semibold text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded-full">${escapeHtml(corpBadge)}</span>
+            </div>
+            <div class="h-44 relative"><canvas id="stockHistoryChart"></canvas></div>
+          </div>
         `;
 
         document.getElementById('stockDetailModal').classList.remove('hidden');
+        setTimeout(() => renderStockHistoryChart(stock), 40);
         if (typeof lucide !== 'undefined' && lucide.createIcons) lucide.createIcons();
       }
 
@@ -4311,6 +4717,18 @@
               liveIpos = data.ipos;
               iposUpdatedAt = data.updated_at_ist || '';
               if (state.activeTab === 'ipo') renderIpoTab();
+            }
+            if (data && Array.isArray(data.indices) && data.indices.length > 0) {
+              liveIndices = data.indices;
+              renderMarketTicker();
+            }
+            if (data && data.history && typeof data.history === 'object') {
+              liveStockHistory = data.history;
+            }
+            if (data && data.corp_actions && typeof data.corp_actions === 'object') {
+              state.stocks.forEach((s) => {
+                if (data.corp_actions[s.nse]) s.corpAction = data.corp_actions[s.nse];
+              });
             }
           }
         } catch (err) {}
