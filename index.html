@@ -131,6 +131,26 @@
       to { transform: translateY(0); opacity: 1; }
     }
     .animate-slide-up { animation: slideUp 0.22s ease-out; }
+
+    @keyframes bharatTickerScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .ticker-marquee-wrap {
+      overflow: hidden;
+      position: relative;
+      mask-image: linear-gradient(to right, transparent, black 4%, black 96%, transparent);
+      -webkit-mask-image: linear-gradient(to right, transparent, black 4%, black 96%, transparent);
+    }
+    .ticker-marquee-track {
+      display: flex;
+      width: max-content;
+      animation: bharatTickerScroll 28s linear infinite;
+    }
+    .ticker-marquee-wrap:hover .ticker-marquee-track,
+    .ticker-marquee-wrap:active .ticker-marquee-track {
+      animation-play-state: paused;
+    }
   </style>
 </head>
 <body class="antialiased">
@@ -166,9 +186,16 @@
     </div>
   </header>
 
-  <!-- Live Market Ticker Strip (Auto-updated 3x daily by GitHub Action) -->
+  <!-- Auto-Scrolling Live Market Ticker Strip -->
   <div class="bg-slate-900 text-white border-b border-slate-800">
-    <div id="marketTickerBar" class="max-w-3xl mx-auto px-3.5 py-2 flex items-center gap-3 overflow-x-auto no-scrollbar text-[11px]"></div>
+    <div class="max-w-3xl mx-auto px-3 py-1.5 flex items-center gap-2 text-[11px]">
+      <span class="shrink-0 inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-emerald-500/20 text-emerald-300 font-extrabold text-[10px] tracking-wide">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>LIVE
+      </span>
+      <div class="ticker-marquee-wrap flex-1 min-w-0">
+        <div id="marketTickerBar" class="ticker-marquee-track items-center"></div>
+      </div>
+    </div>
   </div>
 
   <!-- Main Content Container -->
@@ -3611,15 +3638,17 @@
       function renderMarketTicker() {
         const bar = document.getElementById('marketTickerBar');
         if (!bar) return;
-        bar.innerHTML = liveIndices.map((idx) => {
+        const unitHtml = liveIndices.map((idx) => {
           const pos = Number(idx.chg) >= 0;
           const cls = pos ? 'text-emerald-400' : 'text-rose-400';
-          return `<div class="shrink-0 flex items-center gap-1.5 pr-3 border-r border-slate-700/80 last:border-r-0">
+          return `<div class="shrink-0 flex items-center gap-1.5 px-3 border-r border-slate-700/80">
             <span class="font-bold text-slate-300">${escapeHtml(idx.name)}</span>
             <span class="font-extrabold text-white">${escapeHtml(String(idx.val))}</span>
             <span class="font-bold ${cls}">${pos ? '+' : ''}${Number(idx.chg).toFixed(2)}%</span>
           </div>`;
         }).join('');
+        // Duplicate track once for a seamless infinite loop
+        bar.innerHTML = unitHtml + unitHtml;
       }
 
       function renderStockHistoryChart(stock) {
@@ -4680,14 +4709,42 @@
           totalAdded += mergeLiveNewsItems(rssCollected, 'Live RSS synced at ' + nowStr + ' IST (ET Markets & Livemint)');
         }
 
+        // 3. Extra CORS-safe fallback via AllOrigins XML parser if rss2json was rate-limited
+        if (totalAdded === 0 && rssCollected.length === 0) {
+          try {
+            const proxyUrl = 'https://api.allorigins.win/raw?url=' + encodeURIComponent('https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms');
+            const rXml = await fetch(proxyUrl);
+            if (rXml.ok) {
+              const xmlText = await rXml.text();
+              const doc = new DOMParser().parseFromString(xmlText, 'text/xml');
+              const xmlItems = Array.from(doc.querySelectorAll('item')).slice(0, 8).map((node) => ({
+                title: node.querySelector('title')?.textContent || '',
+                summary: node.querySelector('description')?.textContent || '',
+                source: 'Economic Times Markets',
+                date: (node.querySelector('pubDate')?.textContent || 'Live').slice(0, 16),
+                url: node.querySelector('link')?.textContent || ''
+              }));
+              if (xmlItems.length > 0) {
+                const nowStr = new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
+                totalAdded += mergeLiveNewsItems(xmlItems, 'Live online feed synced at ' + nowStr + ' IST');
+              }
+            }
+          } catch (err) {}
+        }
+
+        const liveCount = state.news.filter((n) => n.category === 'Live').length;
         if (btn && manualClick) {
           btn.disabled = false;
           if (totalAdded > 0) {
             state.newsFilter = 'Live';
             renderNewsTab();
-            showToast('Loaded ' + totalAdded + ' fresh market headlines!');
+            showToast('Loaded ' + totalAdded + ' fresh headlines!');
+          } else if (liveCount > 0) {
+            state.newsFilter = 'Live';
+            renderNewsTab();
+            showToast('Up to date — showing ' + liveCount + ' latest live headlines');
           } else {
-            showToast('News is up to date (or offline preview — deploy GitHub kit for auto-sync)');
+            showToast('Could not reach live feed right now — check internet connection');
           }
         }
       }
@@ -4761,6 +4818,7 @@
       renderAll();
       syncLiveMarketData();
       fetchLiveNewsNow(false);
+      setInterval(() => { syncLiveMarketData(); fetchLiveNewsNow(false); }, 300000);
     })();
   </script>
 </body>
