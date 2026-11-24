@@ -1,344 +1,114 @@
 {
-  "updated_at_ist": "24 Nov 2026, 09:15 PM IST",
-  "market_total_listed": 5975,
-  "my_holdings": [],
+  "updatedAt": "2026-11-20 16:00 IST",
+  "source": "GitHub Actions Daily Updater (Yahoo Finance NSE + Public RSS)",
   "prices": {
-    "BAJFINANCE": {
-      "cmp": 1095.5,
-      "high52": 1176.4,
-      "low52": 783.09
-    },
-    "BEL": {
-      "cmp": 395.8,
-      "high52": 472.81,
-      "low52": 354.55
-    },
-    "BHARTIARTL": {
-      "cmp": 2128.5,
-      "high52": 2172.9,
-      "low52": 1718.87
-    },
-    "GOLDBEES": {
-      "cmp": 103.05,
-      "high52": 148.14,
-      "low52": 100.11
-    },
-    "HAL": {
-      "cmp": 4780.0,
-      "high52": 5149.9,
-      "low52": 3472.06
-    },
-    "HCLTECH": {
-      "cmp": 1364.3,
-      "high52": 1713.75,
-      "low52": 1010.59
-    },
     "HDFCBANK": {
-      "cmp": 817.8,
-      "high52": 1000.94,
-      "low52": 669.2
-    },
-    "HINDUNILVR": {
-      "cmp": 2019.1,
-      "high52": 2439.81,
-      "low52": 1741.68
+      "cmp": 811.0,
+      "high52": 990.0,
+      "low52": 750.0
     },
     "ICICIBANK": {
-      "cmp": 1585.5,
+      "cmp": 1640.0,
       "high52": 1645.0,
-      "low52": 1177.67
-    },
-    "INFY": {
-      "cmp": 1103.4,
-      "high52": 1653.52,
-      "low52": 958.44
-    },
-    "ITC": {
-      "cmp": 301.0,
-      "high52": 390.46,
-      "low52": 252.8
-    },
-    "LT": {
-      "cmp": 4099.9,
-      "high52": 4397.05,
-      "low52": 3256.29
-    },
-    "M&M": {
-      "cmp": 3487.4,
-      "high52": 3799.99,
-      "low52": 2744.3
-    },
-    "MARUTI": {
-      "cmp": 14010.0,
-      "high52": 17197.29,
-      "low52": 10985.0
-    },
-    "NTPC": {
-      "cmp": 315.45,
-      "high52": 406.09,
-      "low52": 289.28
-    },
-    "RELIANCE": {
-      "cmp": 1351.0,
-      "high52": 1604.38,
-      "low52": 1152.2
-    },
-    "RVNL": {
-      "cmp": 185.1,
-      "high52": 398.2,
-      "low52": 177.86
+      "low52": 1188.0
     },
     "SBIN": {
-      "cmp": 1132.65,
-      "high52": 1212.84,
-      "low52": 927.73
+      "cmp": 1165.0,
+      "high52": 1235.0,
+      "low52": 934.0
     },
-    "SUNPHARMA": {
-      "cmp": 1860.0,
-      "high52": 2046.9,
-      "low52": 1569.37
+    "BAJFINANCE": {
+      "cmp": 1122.0,
+      "high52": 1178.0,
+      "low52": 788.0
+    },
+    "RELIANCE": {
+      "cmp": 1378.0,
+      "high52": 1612.0,
+      "low52": 1152.0
     },
     "TCS": {
-      "cmp": 2460.0,
-      "high52": 3269.78,
-      "low52": 1955.62
+      "cmp": 2376.0,
+      "high52": 3350.0,
+      "low52": 1976.0
+    },
+    "INFY": {
+      "cmp": 1098.0,
+      "high52": 1728.0,
+      "low52": 980.0
+    },
+    "HCLTECH": {
+      "cmp": 1344.0,
+      "high52": 1780.0,
+      "low52": 1030.0
+    },
+    "BHARTIARTL": {
+      "cmp": 2162.0,
+      "high52": 2172.0,
+      "low52": 1726.0
+    },
+    "LT": {
+      "cmp": 4209.0,
+      "high52": 4440.0,
+      "low52": 3288.0
+    },
+    "HAL": {
+      "cmp": 4809.0,
+      "high52": 5150.0,
+      "low52": 3479.0
+    },
+    "BEL": {
+      "cmp": 402.0,
+      "high52": 435.0,
+      "low52": 265.0
+    },
+    "M&M": {
+      "cmp": 3545.0,
+      "high52": 3840.0,
+      "low52": 2743.0
+    },
+    "MARUTI": {
+      "cmp": 14011.0,
+      "high52": 17372.0,
+      "low52": 10984.0
+    },
+    "SUNPHARMA": {
+      "cmp": 1885.0,
+      "high52": 2048.0,
+      "low52": 1584.0
+    },
+    "ITC": {
+      "cmp": 299.0,
+      "high52": 411.0,
+      "low52": 253.0
+    },
+    "HINDUNILVR": {
+      "cmp": 2052.0,
+      "high52": 2480.0,
+      "low52": 1758.0
     },
     "TITAN": {
-      "cmp": 4680.0,
-      "high52": 5186.7,
-      "low52": 3738.73
+      "cmp": 4620.0,
+      "high52": 5187.0,
+      "low52": 3751.0
+    },
+    "NTPC": {
+      "cmp": 322.0,
+      "high52": 414.0,
+      "low52": 292.0
+    },
+    "RVNL": {
+      "cmp": 191.0,
+      "high52": 401.0,
+      "low52": 178.0
+    },
+    "GOLDBEES": {
+      "cmp": 102.21,
+      "high52": 148.14,
+      "low52": 100.01
     }
   },
-  "news": [
-    {
-      "title": "PE/VC investments in India surge to USD 8.7 billion in October, highest monthly level in five years: EY-IVCA report",
-      "summary": "Private equity and venture capital investments in India surged to USD 8.7 billion in October 2026. This monthly figure is the highest recorded in the past five years, supported by eight large deals totaling USD 7.3 billion. Financial servic",
-      "source": "Economic Times Markets",
-      "date": "Tue, 24 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/stocks/news/pe/vc-investments-in-india-surge-to-usd-8-7-billion-in-october-highest-monthly-level-in-five-years-ey-ivca-report/articleshow/136132831.cms",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Financial Services",
-        "Information Technology"
-      ]
-    },
-    {
-      "title": "Nasdaq drops over 1% as Nvidia-fueled AI rally fades, Anthropic tanks 8%: US Stock Market Live Updates",
-      "summary": "",
-      "source": "Economic Times Markets",
-      "date": "Tue, 24 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/us-stocks/wall-street-guide/stock-market-live-updates-dow-jones-nasdaq-sp-500-nvidia-anthropic-iphone-google-meta-tesla-earnings-treasury-yield-news-24-nov-2026/liveblog/136131363.cms",
-      "sentiment": "Watch",
-      "sectors": [
-        "Information Technology"
-      ]
-    },
-    {
-      "title": "Shift in pension and insurance money to equities dampens long-term G-sec demand: RBI DG",
-      "summary": "The demand for long-term government securities has seen a marginal decline recently. Insurance companies and pension funds are increasingly focusing on equities instead of sovereign debt. This change has impacted the stability of the govern",
-      "source": "Economic Times Markets",
-      "date": "Tue, 24 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/bonds/shift-in-pension-and-insurance-money-to-equities-dampens-long-term-g-sec-demand-rbi-dg/articleshow/136130860.cms",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Capital Goods",
-        "Financial Services"
-      ]
-    },
-    {
-      "title": "A 50 bps jumbo rate hike can lead to financial stability concerns, hurt growth: Report",
-      "summary": "SBI economists have lowered their rate hike expectations for the upcoming RBI policy review. They now anticipate a 0.25 per cent increase rather than the previously expected 0.50 per cent. This adjustment stems from concerns regarding finan",
-      "source": "Economic Times Markets",
-      "date": "Tue, 24 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/stocks/news/a-50-bps-jumbo-rate-hike-can-lead-to-financial-stability-concerns-hurt-growth-report/articleshow/136130764.cms",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Financial Services",
-        "Automobiles"
-      ]
-    },
-    {
-      "title": "AI boom looms over Warsh's Fed as inflation worries grow",
-      "summary": "Chairman Kevin Warsh of the Federal Reserve underscores the transformative impact of artificial intelligence on the economic landscape. While he conveys measured optimism about AI's benefits, he also warns of inflationary risks associated w",
-      "source": "Economic Times Markets",
-      "date": "Tue, 24 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/us-stocks/news/ai-boom-looms-over-warshs-fed-as-inflation-worries-grow/articleshow/136129160.cms",
-      "sentiment": "Caution",
-      "sectors": [
-        "Capital Goods",
-        "Information Technology"
-      ]
-    },
-    {
-      "title": "Anthropic CEO Dario Amodei sells shares worth USD 280.41 million following IPO",
-      "summary": "Dario Amodei, CEO of Anthropic, sold shares worth USD 280.41 million after the company's IPO. He reported holding 202.8 million shares and additional shares through trusts. Anthropic's initial public offering raised USD 81.34 billion and ma",
-      "source": "Economic Times Markets",
-      "date": "Tue, 24 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/us-stocks/news/anthropic-ceo-dario-amodei-sells-shares-worth-usd-280-41-million-following-ipo/articleshow/136129119.cms",
-      "sentiment": "Watch",
-      "sectors": [
-        "Financial Services",
-        "Information Technology"
-      ]
-    },
-    {
-      "title": "Who is Lori Huang? How Jensen Huang\u2019s wife holds the keys to Nvidia founder\u2019s $109 billion fortune through family trusts",
-      "summary": "Jensen Huang and his wife, Lori, jointly control about 870 million Nvidia shares worth more than $109 billion, with much of the family's stake held through trusts and LLCs. Lori is a co-trustee of several trusts and leads the couple's found",
-      "source": "Livemint Markets",
-      "date": "Tue, 24 Nov 2026",
-      "url": "https://www.livemint.com/market/stock-market-news/who-is-lori-huang-how-jensen-huang-s-wife-holds-the-keys-to-nvidia-founder-s-109-billion-fortune-through-family-trusts-11795533775799.html",
-      "sentiment": "Watch",
-      "sectors": [
-        "Financial Services",
-        "Automobiles"
-      ]
-    },
-    {
-      "title": "South Indian Bank shares in focus as RBI approves SBI Mutual Fund to acquire up to 9.99% stake; stock up 612% in 5 years",
-      "summary": "The RBI approved SBI Mutual Fund\u2019s proposal to acquire up to a 9.99% stake in South Indian Bank, subject to regulatory conditions. The approval comes as the bank\u2019s shares hit record highs; it also reported higher second-quarter profit and i",
-      "source": "Livemint Markets",
-      "date": "Tue, 24 Nov 2026",
-      "url": "https://www.livemint.com/market/stock-market-news/south-indian-bank-shares-in-focus-as-rbi-approves-sbi-mutual-fund-to-acquire-up-to-9-99-stake-stock-up-612-in-5-years-11795526894476.html",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Financial Services",
-        "Information Technology"
-      ]
-    },
-    {
-      "title": "830% jump in five years! RMC Switchgears receives  \u20b9522 crore LoI, 3 times its market cap; will shares rebound?",
-      "summary": "RMC Switchgears received a Letter of Intent for an estimated  \u20b9522 crore turnkey distribution-infrastructure project in Maharashtra\u2014nearly three times its  \u20b9173 crore market capitalisation.",
-      "source": "Livemint Markets",
-      "date": "Tue, 24 Nov 2026",
-      "url": "https://www.livemint.com/market/stock-market-news/830-jump-in-five-years-rmc-switchgears-receives-rs-522-crore-loi-3-times-its-market-cap-will-shares-rebound-11795524825577.html",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Construction",
-        "FMCG"
-      ]
-    },
-    {
-      "title": "Explained: Why Gold prices gained and extended a rebound from a 14-month low - 3 reasons",
-      "summary": "Gold recovered after last week\u2019s sharp selloff, trading near $3,630 an ounce on Tuesday. Augmont\u2019s Renisha Chainani sees potential gains toward $3,700\u2013$3,750 if $3,500 support holds. US inflation data, Fed rate expectations and bond yields ",
-      "source": "Livemint Markets",
-      "date": "Tue, 24 Nov 2026",
-      "url": "https://www.livemint.com/market/stock-market-news/explained-why-gold-prices-gained-and-extended-a-rebound-from-a-14-month-low-3-reasons-11795514651749.html",
-      "sentiment": "Caution",
-      "sectors": [
-        "Gold & Commodities"
-      ]
-    },
-    {
-      "title": "Should you buy IDBI shares? Is it a good banking stock to bet on amid Fairfax stake sale deal \u2014 what market experts say",
-      "summary": "IDBI share price today is  \u20b978.48 per share, slightly below the approved acquisition price of  \u20b981 per share to Canada's Fairfax Financial Holdings",
-      "source": "Livemint Markets",
-      "date": "Tue, 24 Nov 2026",
-      "url": "https://www.livemint.com/market/stock-market-news/should-you-buy-idbi-shares-is-it-a-good-banking-stock-to-bet-on-amid-fairfax-stake-sale-deal-what-market-experts-say-11795518804386.html",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Capital Goods",
-        "Financial Services"
-      ]
-    },
-    {
-      "title": "Nvidia's 37% rally wipes out gains for bearish investors; leveraged short ETFs plunge up to 92%",
-      "summary": "GraniteShares' 2x Short Nvidia ETF crashes 63% as chipmaker's sharp rebound triggers massive losses for traders betting against the stock",
-      "source": "Livemint Markets",
-      "date": "Tue, 24 Nov 2026",
-      "url": "https://www.livemint.com/market/nvidias-37-rally-wipes-out-gains-for-bearish-investors-leveraged-short-etfs-plunge-up-to-92-11795515861134.html",
-      "sentiment": "Caution",
-      "sectors": [
-        "Automobiles"
-      ]
-    },
-    {
-      "title": "Pixxel\u2019s big Bengaluru bet: Inside the startup\u2019s plan to build 2.5 lakh sq ft satellite factory near Kempegowda airport",
-      "summary": "Pixxel will set up a 2.5 lakh sq ft satellite manufacturing facility near Bengaluru\u2019s Kempegowda airport. The GigaPixxel unit aims to produce 50 satellites simultaneously by mid-2027, scaling to 200 by mid-2028, boosting Karnataka\u2019s spacete",
-      "source": "Livemint Companies",
-      "date": "Tue, 24 Nov 2026",
-      "url": "https://www.livemint.com/companies/news/pixxels-big-bengaluru-bet-inside-the-startup-s-plan-to-build-2-5-lakh-sq-ft-satellite-factory-near-kempegowda-airport-11795530432336.html",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Information Technology"
-      ]
-    },
-    {
-      "title": "Tata Sons wins ITAT backing for  \u20b91,498 crore interest deduction on group investments",
-      "summary": "The ITAT ruled that Tata Sons may deduct interest on loans used to invest in group companies, subject to limits for expenses linked to tax-exempt income. It said the company\u2019s activities extend beyond passively earning dividends and that it",
-      "source": "Livemint Companies",
-      "date": "Tue, 24 Nov 2026",
-      "url": "https://www.livemint.com/companies/news/tata-sons-wins-itat-backing-for-1-498-crore-interest-deduction-on-group-investments-11795529522443.html",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Information Technology"
-      ]
-    },
-    {
-      "title": "Megaspeed blacklisted by US over alleged Nvidia chip diversion to China; Here's what it means",
-      "summary": "The US Bureau of Industry and Security (BIS), which operates under the Department of Commerce, on Monday placed Megaspeed International and six other companies in Southeast Asia on its Entity List, citing concerns that they were acting cont",
-      "source": "Livemint Companies",
-      "date": "Tue, 24 Nov 2026",
-      "url": "https://www.livemint.com/companies/news/megaspeed-blacklisted-by-us-over-alleged-nvidia-chip-diversion-to-china-heres-what-it-means-11795527414065.html",
-      "sentiment": "Watch",
-      "sectors": [
-        "Information Technology"
-      ]
-    },
-    {
-      "title": "AERA rejects GMR\u2019s distance-based user development fees proposal at Bhogapuram airport",
-      "summary": "The regulator has rejected GMR\u2019s proposal to vary passenger fees by travel distance, but approved domestic departure charges that are significantly higher than at the other two new greenfield airports.",
-      "source": "Livemint Companies",
-      "date": "Tue, 24 Nov 2026",
-      "url": "https://www.livemint.com/companies/news/aera-rejects-gmr-s-distance-based-user-development-fees-proposal-at-bhogapuram-airport-11795526312556.html",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Automobiles"
-      ]
-    },
-    {
-      "title": "Tata Sons reviews Air India, Tata Digital and Tata Electronics after Noel Tata flags losses of nearly  \u20b929,000 crore",
-      "summary": "Tata Sons chairman N Chandrasekaran has begun reviewing businesses flagged by Noel Tata over mounting losses. After Air India, the review is expected to cover Tata\u2019s Dholera semiconductor project, as the group assesses turnaround plans.",
-      "source": "Livemint Companies",
-      "date": "Tue, 24 Nov 2026",
-      "url": "https://www.livemint.com/companies/tata-sons-reviews-air-india-tata-digital-and-tata-electronics-after-noel-tata-flags-losses-of-nearly-29-000-crore-11795527586758.html",
-      "sentiment": "Caution",
-      "sectors": [
-        "Automobiles"
-      ]
-    },
-    {
-      "title": "Who is Neil Mehta? Why is the Indian-origin billionaire donating  \u20b955.72 crore to Trump Accounts?",
-      "summary": "The message accompanying the Mehtas' contribution in the Trump Accounts programme read: \u2018The future is going to be wild and wonderful. Own a piece of it.\u2019",
-      "source": "Livemint Companies",
-      "date": "Tue, 24 Nov 2026",
-      "url": "https://www.livemint.com/companies/people/who-is-neil-mehta-why-is-the-indian-origin-billionaire-donating-55-72-crore-to-trump-accounts-11795525848050.html",
-      "sentiment": "Watch",
-      "sectors": [
-        "Financial Services"
-      ]
-    },
-    {
-      "title": "Taking Stock: Market fails to hold on to day#39;s gains, ends marginally higher",
-      "summary": "<img src=\"https://www.moneycontrol.com/news_image_files/2024/200x200/v/volatile_market1_200.jpg\" alt=\"Taking Stock: Market fails to hold on to day#39;s gains, ends marginally higher\" title=\"Taking Stock: Market fails to hold on to day#39;s ",
-      "source": "Moneycontrol Markets",
-      "date": "Tue, 23 Apr 2024",
-      "url": "https://www.moneycontrol.com/news/local-markets/taking-stock-market-fails-to-holdto-day39s-gains-ends-marginally-higher_17531871.html",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Capital Goods",
-        "Healthcare"
-      ]
-    },
-    {
-      "title": "Sensex, Nifty gain for third day in a row; easing volatility to support bull trend",
-      "summary": "<img src=\"https://www.moneycontrol.com/news_image_files/2024/200x200/S/Share-Market-New-4-4_200.jpg\" alt=\"Sensex, Nifty gain for third day in a row; easing volatility to support bull trend\" title=\"Sensex, Nifty gain for third day in a row; ",
-      "source": "Moneycontrol Markets",
-      "date": "Tue, 23 Apr 2024",
-      "url": "https://www.moneycontrol.com/news/local-markets/sensex-nifty-gain-for-third-daya-row-easing-volatility-to-support-bull-trend_17531821.html",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Capital Goods"
-      ]
-    }
-  ]
+  "news": [],
+  "updated_at_ist": "21 Nov 2026, 08:45 PM IST",
+  "my_holdings": []
 }
