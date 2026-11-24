@@ -2046,7 +2046,7 @@
             if (p.sip) state.sip = { ...state.sip, ...p.sip };
             if (Array.isArray(p.goals)) state.goals = p.goals;
             if (Array.isArray(p.news) && p.news.length) state.news = p.news;
-            if (Array.isArray(p.stocks) && p.stocks.length) state.stocks = p.stocks;
+            if (Array.isArray(p.stocks)) state.stocks = p.stocks;
             if (p.plan && typeof p.plan === 'object') state.plan = p.plan;
             if (p.holdings && typeof p.holdings === 'object') state.holdings = p.holdings;
             if (p.checklists && typeof p.checklists === 'object') state.checklists = p.checklists;
@@ -2507,6 +2507,13 @@
         document.getElementById('maxPeRange').value = state.maxPe;
         document.getElementById('maxPeVal').textContent = state.maxPe + 'x';
 
+        const featuredPill = document.querySelector('[data-stock-filter="All"]');
+        if (featuredPill) featuredPill.textContent = 'Featured (' + state.stocks.length + ')';
+        const holdingsPill = document.querySelector('[data-stock-filter="Holdings"]');
+        if (holdingsPill) {
+          const hCount = state.stocks.filter((s) => state.holdings[s.id] && state.holdings[s.id].qty > 0).length;
+          holdingsPill.textContent = hCount > 0 ? ('My Holdings (' + hCount + ')') : 'My Holdings';
+        }
         document.querySelectorAll('.stock-filter-btn').forEach((btn) => {
           const active = btn.dataset.stockFilter === state.stockFilter;
           btn.classList.toggle('bg-slate-900', active);
@@ -2802,11 +2809,12 @@
                 </div>
               </div>
 
-              <div class="grid grid-cols-2 gap-2 pt-0.5">
-                <button type="button" data-open-detail="${escapeHtml(s.id)}" class="py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold transition">Details, Tax &amp; Alert</button>
-                <button type="button" data-toggle-plan="${escapeHtml(s.id)}" class="py-2 rounded-xl text-xs font-bold transition ${inPlan ? 'bg-emerald-100 text-emerald-800 border border-emerald-300' : 'bg-slate-900 hover:bg-slate-800 text-white'}">
-                  ${inPlan ? '✓ In My Plan (' + state.plan[s.id] + ' sh)' : '+ Add to My Plan'}
+              <div class="flex items-center gap-2 pt-0.5">
+                <button type="button" data-open-detail="${escapeHtml(s.id)}" class="flex-1 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold transition">Details, Tax &amp; Alert</button>
+                <button type="button" data-toggle-plan="${escapeHtml(s.id)}" class="flex-1 py-2 rounded-xl text-xs font-bold transition ${inPlan ? 'bg-emerald-100 text-emerald-800 border border-emerald-300' : 'bg-slate-900 hover:bg-slate-800 text-white'}">
+                  ${inPlan ? '✓ In Plan (' + state.plan[s.id] + ' sh)' : '+ Add to Plan'}
                 </button>
+                <button type="button" data-remove-stock="${escapeHtml(s.id)}" title="Remove from Featured" aria-label="Remove ${escapeHtml(s.nse)}" class="shrink-0 px-2.5 py-2 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 text-xs font-bold transition">Remove</button>
               </div>
             </div>
           `;
@@ -4322,6 +4330,23 @@
 
         const detailBtn = e.target.closest('[data-open-detail]');
         if (detailBtn) { openStockDetail(detailBtn.dataset.openDetail); return; }
+
+        const removeStockBtn = e.target.closest('[data-remove-stock]');
+        if (removeStockBtn) {
+          const sid = removeStockBtn.dataset.removeStock;
+          const target = state.stocks.find((s) => s.id === sid);
+          if (target) {
+            state.stocks = state.stocks.filter((s) => s.id !== sid);
+            delete state.plan[sid];
+            delete state.holdings[sid];
+            delete state.alerts[sid];
+            delete state.checklists[sid];
+            saveState();
+            renderAll();
+            showToast('Removed ' + target.nse + ' from Featured');
+          }
+          return;
+        }
 
         const saveCmpBtn = e.target.closest('[data-save-cmp]');
         if (saveCmpBtn) {
