@@ -256,6 +256,75 @@ def fetch_latest_news():
     return items[:20]
 
 
+
+def fetch_live_ipos():
+    """Fetches current, upcoming, and recently closed NSE/BSE Mainboard & SME IPOs from Zerodha IPO page."""
+    import re
+    ipos = []
+    try:
+        raw = http_get_text("https://zerodha.com/ipo/", referer="https://zerodha.com/", timeout=20)
+        # Extract table rows from Live, Upcoming, and Closed sections
+        sections = [
+            ("Open", r'id="live"[\s\S]*?<tbody[^>]*>([\s\S]*?)</tbody>'),
+            ("Upcoming", r'id="upcoming"[\s\S]*?<tbody[^>]*>([\s\S]*?)</tbody>'),
+            ("Allotment", r'id="closed"[\s\S]*?<tbody[^>]*>([\s\S]*?)</tbody>'),
+        ]
+        seen = set()
+        for status_label, pat in sections:
+            m = re.search(pat, raw, re.IGNORECASE)
+            if not m:
+                continue
+            tbody = m.group(1)
+            rows = re.findall(r"<tr[^>]*>([\s\S]*?)</tr>", tbody, re.IGNORECASE)
+            limit = 8 if status_label != "Allotment" else 4
+            for row_html in rows[:limit]:
+                clean_text = re.sub(r"<[^>]+>", " | ", row_html)
+                parts = [p.strip() for p in re.split(r"\s*\|\s*", clean_text) if p.strip()]
+                if len(parts) < 2:
+                    continue
+                joined = " ".join(parts)
+                seg = "SME" if re.search(r"SME", joined) else "Mainboard"
+                # Price range extraction (e.g. ₹129 – ₹136 or 129 - 136)
+                m_price = re.search(r"(?:₹|Rs\.?\s*)?(\d[\d,]*)\s*[–-]\s*(?:₹|Rs\.?\s*)?(\d[\d,]*)", joined)
+                upper_price = int(m_price.group(2).replace(",", "")) if m_price else 0
+                price_band = f"₹{m_price.group(1)} – ₹{m_price.group(2)}" if m_price else "TBA"
+                # Date range extraction
+                m_date = re.search(r"(\d{1,2}(?:st|nd|rd|th)?\s*[A-Za-z]{0,4}\s*[–-]\s*\d{1,2}(?:st|nd|rd|th)?\s+[A-Za-z]{3}\s+\d{4})", joined)
+                dates_str = m_date.group(1) if m_date else ("Open Now" if status_label == "Open" else "Upcoming")
+                # Pick cleanest company name candidate
+                name = parts[1] if len(parts) > 1 and len(parts[0]) <= 12 and parts[0].isupper() else parts[0]
+                name = re.sub(r"(SME|Mainboard)", "", name).strip()
+                if not name or name.lower() in seen:
+                    continue
+                seen.add(name.lower())
+                verdict = "Check Day-3 QIB & GMP" if status_label == "Open" else ("Wait for Price Band" if upper_price == 0 else "Track Listing")
+                tone = "emerald" if status_label == "Open" and seg == "Mainboard" else ("amber" if seg == "SME" else "blue")
+                ipos.append({
+                    "id": re.sub(r"[^a-z0-9]", "", name.lower())[:20] or f"ipo_{len(ipos)}",
+                    "name": name,
+                    "segment": seg,
+                    "status": status_label,
+                    "dates": dates_str,
+                    "listingDate": "Check RHP",
+                    "priceBand": price_band,
+                    "upperPrice": upper_price,
+                    "lotSize": 0,
+                    "minInv": 0,
+                    "issueSizeCr": 0,
+                    "gmpRs": 0,
+                    "gmpPct": 0,
+                    "qibSub": 0,
+                    "freshPct": 50,
+                    "verdict": verdict,
+                    "verdictTone": tone,
+                    "reason": f"Auto-synced from Zerodha IPO calendar ({seg} · {status_label}). Enter live GMP & Day-3 QIB in the IPO Analyzer above for a custom score."
+                })
+        print(f"Fetched {len(ipos)} live/upcoming Indian IPOs")
+    except Exception as exc:
+        print(f"Skipping IPO fetch: {exc}")
+    return ipos
+
+
 def main():
     ist = timezone(timedelta(hours=5, minutes=30))
     now_ist = datetime.now(ist).strftime("%d %b %Y, %I:%M %p IST")
@@ -350,6 +419,7 @@ def main():
         "my_holdings": holdings,
         "prices": featured_prices,
         "news": fetch_latest_news(),
+        "ipos": fetch_live_ipos(),
     }
     with open("daily_data.json", "w", encoding="utf-8") as f:
         json.dump(daily_payload, f, indent=2)
