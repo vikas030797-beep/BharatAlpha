@@ -1,6 +1,6 @@
 {
-  "updated_at_ist": "23 Nov 2026, 04:58 PM IST",
-  "market_total_listed": 5983,
+  "updated_at_ist": "24 Nov 2026, 09:18 AM IST",
+  "market_total_listed": 5975,
   "my_holdings": [],
   "prices": {
     "BAJFINANCE": {
@@ -14,12 +14,12 @@
       "low52": 354.55
     },
     "BHARTIARTL": {
-      "cmp": 2128.5,
-      "high52": 2172.9,
+      "cmp": NaN,
+      "high52": 2172.3,
       "low52": 1718.87
     },
     "GOLDBEES": {
-      "cmp": 103.05,
+      "cmp": NaN,
       "high52": 148.14,
       "low52": 100.11
     },
@@ -39,7 +39,7 @@
       "low52": 669.2
     },
     "HINDUNILVR": {
-      "cmp": 2019.1,
+      "cmp": NaN,
       "high52": 2439.81,
       "low52": 1741.68
     },
@@ -64,7 +64,7 @@
       "low52": 3256.29
     },
     "M&M": {
-      "cmp": 3487.4,
+      "cmp": NaN,
       "high52": 3799.99,
       "low52": 2744.3
     },
@@ -94,7 +94,7 @@
       "low52": 927.73
     },
     "SUNPHARMA": {
-      "cmp": 1860.0,
+      "cmp": NaN,
       "high52": 2046.9,
       "low52": 1569.37
     },
@@ -111,200 +111,206 @@
   },
   "news": [
     {
-      "title": "Rupee retreats with stocks as rally takes a breather, positive bias lingers",
-      "summary": "After a five-day rise, the Indian rupee faced a setback on Monday, driven by heightened dollar demand from major corporations. This shift in momentum was compounded by profit-taking activities. The rupee settled at 92.91 against the dollar,",
+      "title": "South Korean shares rebound as Huang's Nvidia return lifts AI stocks",
+      "summary": "South Korean shares have bounced back sharply after previously hitting a ten-month low, with the KOSPI index climbing 7.19%. This surge was largely driven by a rebound in technology stocks, particularly following Nvidia CEO Jensen Huang's r",
       "source": "Economic Times Markets",
-      "date": "Mon, 23 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/forex/rupee-retreats-with-stocks-as-rally-takes-a-breather-positive-bias-lingers/articleshow/136098391.cms",
+      "date": "Tue, 24 Nov 2026",
+      "url": "https://economictimes.indiatimes.com/markets/us-stocks/news/south-korean-shares-rebound-as-huangs-nvidia-return-lifts-ai-stocks/articleshow/136118071.cms",
+      "sentiment": "Bullish",
+      "sectors": [
+        "Information Technology",
+        "Automobiles"
+      ]
+    },
+    {
+      "title": "Japanese bond yields fall as lower oil prices ease inflation concerns",
+      "summary": "Japanese government bond yields declined due to falling oil prices that eased inflation concerns. The 10-year JGB yield reached a two-week low of 2.715%. Meanwhile, Japan's benchmark Nikkei 225 index experienced a brief surge of 5% followin",
+      "source": "Economic Times Markets",
+      "date": "Tue, 24 Nov 2026",
+      "url": "https://economictimes.indiatimes.com/markets/bonds/japanese-bond-yields-fall-as-lower-oil-prices-ease-inflation-concerns/articleshow/136118046.cms",
+      "sentiment": "Caution",
+      "sectors": [
+        "Gold & Commodities"
+      ]
+    },
+    {
+      "title": "Dollar climbs as renewed AI euphoria fuels Fed hike bets",
+      "summary": "The dollar is approaching a 20-month peak, thanks to the reinstatement of Nvidia's CEO, which has instilled confidence in the markets. Meanwhile, the euro and sterling struggle against the strong dollar, with the euro hovering near an 18-mo",
+      "source": "Economic Times Markets",
+      "date": "Tue, 24 Nov 2026",
+      "url": "https://economictimes.indiatimes.com/markets/forex/dollar-climbs-as-renewed-ai-euphoria-fuels-fed-hike-bets/articleshow/136118031.cms",
+      "sentiment": "Bullish",
+      "sectors": [
+        "Information Technology"
+      ]
+    },
+    {
+      "title": "Asian stocks rally as Huang's Nvidia return revives AI trade",
+      "summary": "Asian shares saw significant gains as Nvidia's CEO Jensen Huang made a return that relieved market fears. The MSCI Asia-Pacific index rose by 4.6%, while Japan's Nikkei gained 4.5% after a local holiday. This movement followed a 31.5% surge",
+      "source": "Economic Times Markets",
+      "date": "Tue, 24 Nov 2026",
+      "url": "https://economictimes.indiatimes.com/markets/us-stocks/news/asian-stocks-rally-as-huangs-nvidia-return-revives-ai-trade/articleshow/136117829.cms",
+      "sentiment": "Bullish",
+      "sectors": [
+        "Capital Goods",
+        "Information Technology"
+      ]
+    },
+    {
+      "title": "India\u2019s rupee has become an accidental carry star",
+      "summary": "The Reserve Bank of India has made moves that temporarily attract carry traders to the rupee. Recent factors include decreasing oil prices and a shift in foreign investment from artificial intelligence stocks to Indian markets. However, the",
+      "source": "Economic Times Markets",
+      "date": "Tue, 24 Nov 2026",
+      "url": "https://economictimes.indiatimes.com/markets/stocks/news/indias-rupee-has-become-an-accidental-carry-star/articleshow/136117132.cms",
+      "sentiment": "Watch",
+      "sectors": [
+        "Capital Goods",
+        "Financial Services"
+      ]
+    },
+    {
+      "title": "Wall Street soars on Huang's return to Nvidia, Treasury yields rise",
+      "summary": "US stocks rebounded sharply on Monday after Nvidia reinstated Jensen Huang as chief executive following pressure from President Donald Trump, reversing part of last week\u2019s tech-led market rout. Nvidia jumped 31%, helping the Nasdaq 100 rise",
+      "source": "Economic Times Markets",
+      "date": "Tue, 24 Nov 2026",
+      "url": "https://economictimes.indiatimes.com/markets/us-stocks/news/global-markets-wall-street-soars-on-huangs-return-to-nvidia-treasury-yields-rise/articleshow/136116751.cms",
+      "sentiment": "Bullish",
+      "sectors": [
+        "Information Technology",
+        "Automobiles"
+      ]
+    },
+    {
+      "title": "Dividend vs fixed deposits: 5 high yield stocks generating better income than FDs - CyberTech, Majestic Auto, to Premco",
+      "summary": "Investors seeking income from equities may note that CyberTech Systems, Majestic Auto, Jagran Prakashan, IL&amp;amp;FS Investment Managers, and Premco Global recorded yields as high as 19.6%, exceeding the roughly 8%\u20138.6% offered by fixed d",
+      "source": "Livemint Markets",
+      "date": "Tue, 24 Nov 2026",
+      "url": "https://www.livemint.com/market/stock-market-news/dividend-vs-fixed-deposits-5-high-yield-stocks-generating-better-income-than-fds-cybertech-majestic-auto-to-premco-11795463444218.html",
       "sentiment": "Bullish",
       "sectors": [
         "Automobiles"
       ]
     },
     {
-      "title": "German bond yields edge higher as equity rebound eases safe-haven demand",
-      "summary": "Germany's government bond yields increased marginally on Monday as equity markets began to rebound, leading to diminished interest in safe-haven assets. In the wake of a difficult week for stocks, investors indicated a readiness to engage w",
-      "source": "Economic Times Markets",
-      "date": "Mon, 23 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/bonds/german-bond-yields-edge-higher-as-equity-rebound-eases-safe-haven-demand/articleshow/136097404.cms",
+      "title": "Persistent Systems, Ather Energy shares: Top 2 stocks to buy on 25 Nov; check expected returns, stop loss, target price",
+      "summary": "Indian stock market will be closed on Tuesday, 24 November, for Prakash Gurpurb Sri Guru Nanak Dev. The closure follows steep losses on Monday, as the Sensex fell 1.77% and the Nifty 1.75%. Analyst Chandan Taparia recommended Persistent Sys",
+      "source": "Livemint Markets",
+      "date": "Tue, 24 Nov 2026",
+      "url": "https://www.livemint.com/market/stock-market-news/persistent-systems-ather-energy-shares-top-2-stocks-to-buy-on-25-nov-check-expected-returns-stop-loss-target-price-11795486721247.html",
+      "sentiment": "Watch",
+      "sectors": [
+        "Automobiles"
+      ]
+    },
+    {
+      "title": "SEBI issues upcoming IPOs GMP advisory - \u2018publication of such pre-listing premium figures may be detrimental\u2019",
+      "summary": "SEBI urged intermediaries and market participants to stop publishing grey market premium (GMP) figures for IPOs, warning that these unregulated estimates are unverified and cannot reliably predict listing prices or returns. Investors should",
+      "source": "Livemint Markets",
+      "date": "Tue, 24 Nov 2026",
+      "url": "https://www.livemint.com/market/ipo/sebi-issues-upcoming-ipos-gmp-advisory-publication-of-such-pre-listing-premium-figures-may-be-detrimental-11795482712234.html",
       "sentiment": "Watch",
       "sectors": [
         "Financial Services"
       ]
     },
     {
-      "title": "India bonds give up marginal opening gains as profit booking takes over",
-      "summary": "Indian government bonds fell after initial gains due to profit booking by traders and a sharp rupee decline. The benchmark yield of the 6.94% 2036 bond increased to 7.2185% during trading hours. Last week, the yield had dropped significantl",
-      "source": "Economic Times Markets",
-      "date": "Mon, 23 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/bonds/india-bonds-give-up-marginal-opening-gains-as-profit-booking-takes-over/articleshow/136093136.cms",
+      "title": "Asian markets follow Wall Street: Nikkei, Kospi jump up to 8% as Jensen Huang\u2019s return sparks rally in AI stocks",
+      "summary": "Asian stocks rose on Tuesday as Nvidia\u2019s 31.5% surge on Wall Street revived confidence in AI-related shares. South Korea\u2019s KOSPI rose 7.5%, Taiwan\u2019s benchmark gained 9.1% and Japan\u2019s Nikkei climbed 4.5%. Investors remain cautious about AI s",
+      "source": "Livemint Markets",
+      "date": "Tue, 24 Nov 2026",
+      "url": "https://www.livemint.com/market/stock-market-news/asian-markets-follow-wall-street-nikkei-kospi-jump-up-to-8-as-jensen-huang-s-return-sparks-rally-in-ai-stocks-11795485047635.html",
       "sentiment": "Bullish",
+      "sectors": [
+        "Information Technology",
+        "Automobiles"
+      ]
+    },
+    {
+      "title": "AI Trade Resurgence Drives 9% Rally in Taiwanese Stock Index",
+      "summary": "Asian semiconductor-related stocks climbed after Nvidia Corp.\u2019s board reinstated Jensen Huang, resuscitating investor appetite for the artificial intelligence trade.",
+      "source": "Livemint Markets",
+      "date": "Tue, 24 Nov 2026",
+      "url": "https://www.livemint.com/market/ai-trade-resurgence-drives-9-rally-in-taiwanese-stock-index-11795484279756.html",
+      "sentiment": "Bullish",
+      "sectors": [
+        "Information Technology"
+      ]
+    },
+    {
+      "title": "Stock market open today or not? BSE, NSE closed on 24 Nov for Guru Nanak Jayanti? Check holiday calendar",
+      "summary": "Indian equity markets will close on 24 November for Guru Nanak Jayanti. MCX will pause morning trading and reopen from 5 pm to 11:30 pm, while NCDEX remains closed all day. Christmas is the final scheduled market holiday of 2026.",
+      "source": "Livemint Markets",
+      "date": "Tue, 24 Nov 2026",
+      "url": "https://www.livemint.com/market/stock-market-news/stock-market-open-today-or-not-bse-nse-closed-on-24-nov-for-guru-nanak-jayanti-check-holiday-calendar-11795480929821.html",
+      "sentiment": "Watch",
+      "sectors": [
+        "Financial Services"
+      ]
+    },
+    {
+      "title": "FAA launches probe after Amazon delivery drone strikes Michigan home garage, fiber-optic cable",
+      "summary": "An Amazon Prime Air drone crashed into a garage in Huntington Woods, Michigan, after striking a fiber-optic cable during takeoff following a shampoo delivery. The garage sustained minor damage, and no one was injured. The FAA is investigati",
+      "source": "Livemint Companies",
+      "date": "Tue, 24 Nov 2026",
+      "url": "https://www.livemint.com/companies/news/faa-launches-probe-after-amazon-delivery-drone-strikes-michigan-home-garage-fiber-optic-cable-11795490301460.html",
+      "sentiment": "Caution",
+      "sectors": [
+        "Financial Services"
+      ]
+    },
+    {
+      "title": "From Jensen Huang to Steve Jobs: How tech founders made stunning CEO comebacks",
+      "summary": "Nvidia's board reinstated CEO Jensen Huang 11 days later on November 23, 2026, saying that \u201cthe Board is confident that Mr. Huang\u2019s reinstatement poses no national security risk.\u201d",
+      "source": "Livemint Companies",
+      "date": "Tue, 24 Nov 2026",
+      "url": "https://www.livemint.com/companies/people/from-jensen-huang-to-steve-jobs-how-tech-founders-made-stunning-ceo-comebacks-11795489087128.html",
+      "sentiment": "Watch",
+      "sectors": [
+        "Automobiles"
+      ]
+    },
+    {
+      "title": "Nvidia Board decided to reinstate Jensen Huang on Sunday, management was informed at the last minute: Report",
+      "summary": "Nvidia reinstated Jensen Huang as CEO in a rapid board reversal, reportedly following pressure from President Donald Trump and investors. The company said it consulted senior US officials, who provided input supporting the view that Huang\u2019s",
+      "source": "Livemint Companies",
+      "date": "Tue, 24 Nov 2026",
+      "url": "https://www.livemint.com/companies/news/nvidia-board-decided-to-reinstate-jensen-huang-on-sunday-management-was-informed-at-the-last-minute-report-11795487345041.html",
+      "sentiment": "Watch",
       "sectors": [
         "Financial Services",
         "Information Technology"
       ]
     },
     {
-      "title": "Rupee retreats, Goldman calls it a 'port of stability' in AI storm",
-      "summary": "The Indian rupee initially rose to a seven-month high before retreating amid corporate dollar buying. It is on track for a monthly gain of over 2%, bolstered by significant foreign investment in Indian equities. Analysts noted that the rupe",
-      "source": "Economic Times Markets",
-      "date": "Mon, 23 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/forex/rupee-retreats-goldman-calls-it-a-port-of-stability-in-ai-storm/articleshow/136092977.cms",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Information Technology",
-        "Automobiles"
-      ]
-    },
-    {
-      "title": "The great Indian stock market comeback. Can the rally sustain and what should investors do?",
-      "summary": "Indian equities staged a sharp 9.7% rally in eight sessions through November 12, reversing months of underperformance. A sell-off in US AI stocks, triggered by Republican losses in the midterm elections and fears of tighter AI regulation, s",
-      "source": "Economic Times Markets",
-      "date": "Mon, 23 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/stocks/news/the-great-indian-stock-market-comeback-can-the-rally-sustain-and-what-should-investors-do/articleshow/136092236.cms",
-      "sentiment": "Caution",
-      "sectors": [
-        "Information Technology",
-        "Automobiles"
-      ]
-    },
-    {
-      "title": "Manic Monday for Bank Nifty as index crashes over 2000 points \u2014 Check worst hit shares and reasons behind mega plunge",
-      "summary": "Amid stock market crash today, the Bank Nifty had a manic Monday as the index lost over 2,000 points and closed at 3% below its previous close",
-      "source": "Livemint Markets",
-      "date": "Mon, 23 Nov 2026",
-      "url": "https://www.livemint.com/market/stock-market-news/manic-monday-for-bank-nifty-as-index-crashes-over-2000-points-check-worst-hit-shares-and-reasons-behind-mega-plunge-11795430223849.html",
-      "sentiment": "Caution",
-      "sectors": [
-        "Capital Goods",
-        "Financial Services"
-      ]
-    },
-    {
-      "title": "ITC, SAMHI Hotels to Lemon Tree: Top 6 hospitality stocks to buy | Up to 75% listing gain predicted by Ambit Capital",
-      "summary": "Top hospitality stocks to buy: Domestic brokerage Ambit Capital has maintained a positive outlook on the hospitality sector, citing strong demand from corporate travel, meetings etc.",
-      "source": "Livemint Markets",
-      "date": "Mon, 23 Nov 2026",
-      "url": "https://www.livemint.com/market/stock-market-news/itc-samhi-hotels-to-lemon-tree-top-6-hospitality-stocks-to-buy-up-to-75-listing-gain-predicted-by-ambit-capital-11795431513673.html",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Information Technology",
-        "FMCG"
-      ]
-    },
-    {
-      "title": "Stock market crash today wipes out  \u20b96 lakh cr: Red! Sensex down 1,484 points, Nifty below 25,350 - What went wrong?",
-      "summary": "Stock market crash: The Nifty 50 declined 1.75% to 25,349.65, while the Sensex fell 1.77% to 82,435.99, reversing their early gains amid weekly derivatives expiry-related volatility.",
-      "source": "Livemint Markets",
-      "date": "Mon, 23 Nov 2026",
-      "url": "https://www.livemint.com/market/stock-market-news/stock-market-crash-today-wipes-out-rs-6-lakh-cr-red-sensex-down-1-484-points-nifty-below-25-350-what-went-wrong-11795424234403.html",
-      "sentiment": "Watch",
-      "sectors": [
-        "Capital Goods",
-        "Automobiles"
-      ]
-    },
-    {
-      "title": "PSU bank stocks tumble up to 5% after five-day rally, Nifty PSU Bank index crashes 3.2%; what's behind the sell-off?",
-      "summary": "PSU bank stocks fell sharply on Monday as investors booked profits after five consecutive sessions of gains. The Nifty PSU Bank index dropped 3.25%, though it remains up 16% in November. Stronger profits, improving asset quality and growing",
-      "source": "Livemint Markets",
-      "date": "Mon, 23 Nov 2026",
-      "url": "https://www.livemint.com/market/stock-market-news/psu-bank-stocks-tumble-up-to-5-after-five-day-rally-nifty-psu-bank-index-crashes-3-2-whats-behind-the-selloff-11795427367855.html",
-      "sentiment": "Watch",
-      "sectors": [
-        "Financial Services",
-        "Information Technology"
-      ]
-    },
-    {
-      "title": "Crypto investment amid fall: As Bitcoin hovers near $60K levels, experts answer if investors can expect recovery",
-      "summary": "Bitcoin and broader crypto markets staged a modest recovery after a sharp sell-off, but analysts said the trend remains bearish. Bitcoin traded below $60,000 before rebounding. Here's what experts are watching for a durable recovery\u2026",
-      "source": "Livemint Markets",
-      "date": "Mon, 23 Nov 2026",
-      "url": "https://www.livemint.com/market/cryptocurrency/crypto-investment-amid-fall-as-bitcoin-hovers-near-60000-levels-experts-answer-if-investors-can-expect-recovery-markets-11795426061415.html",
-      "sentiment": "Caution",
-      "sectors": [
-        "Capital Goods",
-        "Automobiles"
-      ]
-    },
-    {
-      "title": "Up 114% YTD! Multibagger circuit-to-circuit stock hits 5% upper circuit for 19th straight session; do you own it?",
-      "summary": "SC Agrotech shares rose 5% to an all-time high of  \u20b983.54 after the company secured a  \u20b986 crore domestic agricultural commodities order covering 13,200 metric tonnes. The stock surged 170% in three months amid plans for a 4:5 bonus issue a",
-      "source": "Livemint Markets",
-      "date": "Mon, 23 Nov 2026",
-      "url": "https://www.livemint.com/market/stock-market-news/up-114-in-ytd-multibagger-circuit-to-circuit-stock-hits-5-upper-circuit-for-19th-straight-session-do-you-own-11795427956174.html",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Capital Goods",
-        "Information Technology"
-      ]
-    },
-    {
-      "title": "Brookfield eyes more India deals as valuations become attractive",
-      "summary": "Brookfield is betting on PGP Glass as more than a standalone acquisition. Managing partner Aditya Joshi explains why the firm continues to see attractive opportunities in the industrial and financial services sectors.",
+      "title": "From FBI, intelligence probe to antitrust investigation: Here\u2019s a look at several charges that Nvidia, Jensen Huang face",
+      "summary": "Nvidia CEO Jensen Huang's return has not ended the scrutiny surrounding the chipmaker. From FBI and intelligence inquiries into alleged Chinese links to antitrust, congressional and SEC investigations, the company continues to face multiple",
       "source": "Livemint Companies",
-      "date": "Mon, 23 Nov 2026",
-      "url": "https://www.livemint.com/companies/news/brookfield-india-deals-valuations-pgp-glass-acquisition-private-equity-11795427277475.html",
+      "date": "Tue, 24 Nov 2026",
+      "url": "https://www.livemint.com/companies/news/from-fbi-intelligence-probe-to-antitrust-investigation-here-s-a-look-at-several-charges-that-nvidia-jensen-huang-face-11795487025040.html",
       "sentiment": "Watch",
       "sectors": [
-        "Financial Services"
+        "Automobiles"
       ]
     },
     {
-      "title": "Kalyani family dispute: SC suggests arbitration after mediation fails",
-      "summary": "The court has sought instructions from the parties on the proposal and will hear the matter again after two weeks",
+      "title": "Jensen Huang\u2019s net worth jumps $34 billion as he returns as Nvidia CEO amid Chinese spy \u2018scandal\u2019",
+      "summary": "Jensen Huang made a triumphant return to Nvidia's Santa Clara, California, headquarters on Monday.",
       "source": "Livemint Companies",
-      "date": "Mon, 23 Nov 2026",
-      "url": "https://www.livemint.com/companies/people/baba-kalyani-sugandha-hiremath-family-dispute-supreme-court-arbitration-11795422643554.html",
+      "date": "Tue, 24 Nov 2026",
+      "url": "https://www.livemint.com/companies/people/jensen-huang-s-net-worth-jumps-34-billion-as-he-returns-as-nvidia-ceo-after-chinese-spy-scandal-11795482816527.html",
       "sentiment": "Bullish",
       "sectors": [
         "Financial Services"
       ]
     },
     {
-      "title": "Food companies turn to technology to pack more nutrition into everyday diets",
-      "summary": "FMCG companies are using nutritional innovation to differentiate everyday staples, with Aashirvaad High Protein Atta priced about 55% above regular atta and Eggoz Protein Plus eggs around 37% higher.",
+      "title": "'Jensen! Jensen! Jensen!\u2019: Nvidia employees chant Huang\u2019s name as he makes stunning return as CEO | Watch",
+      "summary": "Nvidia employees celebrated Jensen Huang's return as CEO, chanting his name and distributing cupcakes bearing the message \u201cJensen is back.\u201d However, his reinstatement comes amid questions over the board's handling of the crisis and ongoing ",
       "source": "Livemint Companies",
-      "date": "Mon, 23 Nov 2026",
-      "url": "https://www.livemint.com/companies/news/india-fmcg-companies-nutrition-fortified-foods-protein-products-11795159893908.html",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Automobiles",
-        "FMCG"
-      ]
-    },
-    {
-      "title": "Why Brookfield is betting $1.7 billion on PGP Glass, and how AI could transform its global business",
-      "summary": "Brookfield has agreed to acquire PGP Glass from Blackstone for $1.7 billion. The premium packaging manufacturer serves brands in more than 70 countries.&amp;nbsp;",
-      "source": "Livemint Companies",
-      "date": "Mon, 23 Nov 2026",
-      "url": "https://www.livemint.com/companies/news/why-brookfield-is-betting-1-7-billion-on-pgp-glass-and-how-ai-could-transform-its-global-business-11795423790625.html",
+      "date": "Tue, 24 Nov 2026",
+      "url": "https://www.livemint.com/companies/news/jensen-jensen-jensen-nvidia-employees-chant-huang-s-name-as-he-makes-stunning-return-as-ceo-watch-11795482992167.html",
       "sentiment": "Watch",
       "sectors": [
-        "Information Technology"
-      ]
-    },
-    {
-      "title": "Kalyani Family Dispute:  \u20b91 lakh cr ancestral wealth - Mediation talks fail; SC proposes arbitration | Full details",
-      "summary": "After mediation failed to settle Kalyani family\u2019s inheritance dispute, the Supreme Court asked the parties to consider appointing a sole arbitrator. The dispute involves Baba Kalyani, his sister Sugandha Hiremath and other relatives, with c",
-      "source": "Livemint Companies",
-      "date": "Mon, 23 Nov 2026",
-      "url": "https://www.livemint.com/companies/news/kalyani-family-dispute-rs-1-lakh-cr-ancestral-wealth-mediation-talks-fail-sc-proposes-arbitration-full-details-11795421438091.html",
-      "sentiment": "Watch",
-      "sectors": [
-        "Financial Services"
-      ]
-    },
-    {
-      "title": "\u2018Stringent quality controls with 90 tests\u2019: Bisleri clarifies after FSSAI action over \u2018unsafe\u2019 packaged drinking water",
-      "summary": "FSSAI sanctioned prosecution against Bisleri after testing a packaged water sample and finding bromate levels above the prescribed limit; a referral lab also detected PAHs. Bisleri says subsequent testing found bromate within limits, disput",
-      "source": "Livemint Companies",
-      "date": "Mon, 23 Nov 2026",
-      "url": "https://www.livemint.com/companies/news/stringent-quality-controls-with-90-tests-bisleri-clarifies-after-fssai-action-over-unsafe-packaged-drinking-water-11795419136379.html",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Information Technology",
         "Automobiles"
       ]
     },
@@ -326,17 +332,6 @@
       "source": "Moneycontrol Markets",
       "date": "Tue, 23 Apr 2024",
       "url": "https://www.moneycontrol.com/news/local-markets/sensex-nifty-gain-for-third-daya-row-easing-volatility-to-support-bull-trend_17531821.html",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Capital Goods"
-      ]
-    },
-    {
-      "title": "Mid-day Mood | Cooling volatility sparks market rally, India VIX sees steepest fall in 4 years",
-      "summary": "<img src=\"https://www.moneycontrol.com/news_image_files/2024/200x200/N/Nifty_sensex_marketup-4_200.jpg\" alt=\"Mid-day Mood | Cooling volatility sparks market rally, India VIX sees steepest fall in 4 years\" title=\"Mid-day Mood | Cooling volat",
-      "source": "Moneycontrol Markets",
-      "date": "Tue, 23 Apr 2024",
-      "url": "https://www.moneycontrol.com/news/local-markets/mid-day-mood-|-cooling-volatility-sparks-market-rally-india-vix-sees-steepest-fall4-years_17531481.html",
       "sentiment": "Bullish",
       "sectors": [
         "Capital Goods"
