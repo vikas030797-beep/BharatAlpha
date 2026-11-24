@@ -325,6 +325,116 @@ def fetch_live_ipos():
     return ipos
 
 
+
+def fetch_market_indices():
+    """Fetches Nifty 50, Sensex, Bank Nifty, India VIX, Gold BeES, and USD/INR for top ticker."""
+    mapping = [
+        ("NIFTY 50", "^NSEI", ""),
+        ("SENSEX", "^BSESN", ""),
+        ("BANK NIFTY", "^NSEBANK", ""),
+        ("INDIA VIX", "^INDIAVIX", ""),
+        ("GOLD BeES", "GOLDBEES.NS", "₹"),
+        ("USD/INR", "INR=X", "₹"),
+    ]
+    out = []
+    for label, ticker_sym, prefix in mapping:
+        try:
+            hist = yf.Ticker(ticker_sym).history(period="5d")
+            if len(hist) >= 2:
+                last_c = float(hist["Close"].iloc[-1])
+                prev_c = float(hist["Close"].iloc[-2])
+                chg = round(((last_c - prev_c) / prev_c) * 100, 2) if prev_c > 0 else 0.0
+                out.append({"name": label, "val": f"{prefix}{last_c:,.2f}", "chg": chg})
+        except Exception:
+            continue
+    return out
+
+
+def fetch_history_and_corp_actions(symbols):
+    """Fetches 1Y monthly/bi-weekly closing history + 50/200-DMA + upcoming dividend/earnings dates."""
+    history = {}
+    corp_actions = {}
+    for sym in sorted(set(symbols)):
+        try:
+            t = yf.Ticker(f"{sym}.NS")
+            hist = t.history(period="1y")
+            if not hist.empty and len(hist) >= 20:
+                closes = hist["Close"]
+                dma50 = round(float(closes.tail(50).mean()), 2)
+                dma200 = round(float(closes.tail(200).mean()), 2)
+                sampled = closes.iloc[::max(1, len(closes) // 18)]
+                history[sym] = {
+                    "dates": [d.strftime("%d %b") for d in sampled.index],
+                    "closes": [round(float(v), 2) for v in sampled.values],
+                    "dma50": dma50,
+                    "dma200": dma200,
+                }
+            # Try extracting next earnings/ex-dividend date cleanly
+            try:
+                cal = t.calendar
+                if isinstance(cal, dict):
+                    ed = cal.get("Earnings Date")
+                    exd = cal.get("Ex-Dividend Date")
+                    parts = []
+                    if exd:
+                        parts.append(f"Ex-Div: {str(exd)[:10]}")
+                    if ed:
+                        first_ed = ed[0] if isinstance(ed, list) and ed else ed
+                        parts.append(f"Results: {str(first_ed)[:10]}")
+                    if parts:
+                        corp_actions[sym] = " · ".join(parts)
+            except Exception:
+                pass
+        except Exception:
+            continue
+    return history, corp_actions
+
+
+
+def fetch_upcoming_dividends():
+    """Fetches upcoming NSE equity dividend corporate actions for the Dividends Calendar."""
+    import re as _re
+    results = []
+    try:
+        cj = urllib.request.HTTPCookieJar()
+        opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(cj))
+        opener.addheaders = [
+            ("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"),
+            ("Accept", "application/json, text/plain, */*"),
+            ("Referer", "https://www.nseindia.com/companies-listing/corporate-filings-actions"),
+        ]
+        # Warm session cookie
+        try:
+            opener.open("https://www.nseindia.com", timeout=8).read(256)
+        except Exception:
+            pass
+        resp = opener.open("https://www.nseindia.com/api/corporates-corporateActions?index=equities", timeout=12)
+        rows = json.loads(resp.read().decode("utf-8", errors="ignore"))
+        if isinstance(rows, list):
+            for r in rows:
+                subj = str(r.get("subject") or "")
+                if "dividend" not in subj.lower():
+                    continue
+                m = _re.search(r"(?:rs\.?|inr|₹)\s*([0-9]+(?:\.[0-9]+)?)", subj, _re.I)
+                amt = float(m.group(1)) if m else 0.0
+                div_type = "Interim" if "interim" in subj.lower() else ("Special" if "special" in subj.lower() else "Final")
+                results.append({
+                    "sym": str(r.get("symbol") or "").strip().upper(),
+                    "bse": "",
+                    "name": str(r.get("comp") or r.get("symbol") or "").strip(),
+                    "type": div_type,
+                    "amount": amt,
+                    "exDate": str(r.get("exDate") or "").strip(),
+                    "recordDate": str(r.get("recDate") or r.get("exDate") or "").strip(),
+                    "status": "Upcoming",
+                    "note": subj[:90],
+                })
+                if len(results) >= 20:
+                    break
+    except Exception as e:
+        print(f"Skipping NSE live dividends fetch: {e}")
+    return results
+
 def main():
     ist = timezone(timedelta(hours=5, minutes=30))
     now_ist = datetime.now(ist).strftime("%d %b %Y, %I:%M %p IST")
@@ -413,6 +523,8 @@ def main():
                 "low52": nse_bhav[sym]["low"],
             }
 
+    hist_data, corp_data = fetch_history_and_corp_actions(DEFAULT_NSE_SYMBOLS)
+
     daily_payload = {
         "updated_at_ist": now_ist,
         "market_total_listed": len(compact_rows),
@@ -420,6 +532,10 @@ def main():
         "prices": featured_prices,
         "news": fetch_latest_news(),
         "ipos": fetch_live_ipos(),
+        "indices": fetch_market_indices(),
+        "history": hist_data,
+        "corp_actions": corp_data,
+        "dividends": fetch_upcoming_dividends(),
     }
     with open("daily_data.json", "w", encoding="utf-8") as f:
         json.dump(daily_payload, f, indent=2)
