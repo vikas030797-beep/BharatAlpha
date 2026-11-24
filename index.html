@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="apple-mobile-web-app-title" content="BharatAlpha" />
@@ -24,12 +24,23 @@
       box-sizing: border-box;
       -webkit-tap-highlight-color: transparent;
     }
+    html {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+      overflow-x: clip;
+      -webkit-text-size-adjust: 100%;
+    }
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       background-color: #F8FAFC;
       color: #0F172A;
+      width: 100%;
+      max-width: 100%;
       overflow-x: hidden;
-      padding-bottom: calc(84px + var(--safe-bottom));
+      overflow-x: clip;
+      margin: 0;
+      padding-bottom: calc(88px + var(--safe-bottom));
       transition: background-color 0.2s ease, color 0.2s ease;
     }
     /* Dark Mode Overrides */
@@ -137,14 +148,18 @@
       100% { transform: translateX(-50%); }
     }
     .ticker-marquee-wrap {
+      width: 100%;
+      max-width: 100%;
       overflow: hidden;
       position: relative;
+      contain: layout paint;
       mask-image: linear-gradient(to right, transparent, black 4%, black 96%, transparent);
       -webkit-mask-image: linear-gradient(to right, transparent, black 4%, black 96%, transparent);
     }
     .ticker-marquee-track {
       display: flex;
       width: max-content;
+      will-change: transform;
       animation: bharatTickerScroll 28s linear infinite;
     }
     .ticker-marquee-wrap:hover .ticker-marquee-track,
@@ -169,33 +184,33 @@
 <body class="antialiased">
 
   <!-- Sticky Top App Bar -->
-  <header class="sticky top-0 z-30 bg-white/95 backdrop-blur border-b border-slate-200">
-    <div class="max-w-3xl mx-auto px-3.5 py-2.5 flex items-center justify-between gap-2">
+  <header class="sticky top-0 z-30 w-full max-w-full overflow-x-hidden bg-white/95 backdrop-blur border-b border-slate-200">
+    <div class="max-w-3xl mx-auto px-3 py-2 flex items-center justify-between gap-1.5">
       <div class="flex items-center gap-2 min-w-0">
-        <div class="w-9 h-9 rounded-xl bg-slate-900 text-emerald-400 flex items-center justify-center shrink-0 shadow-sm">
-          <i data-lucide="trending-up" class="w-5 h-5"></i>
+        <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-slate-900 text-emerald-400 flex items-center justify-center shrink-0 shadow-sm">
+          <i data-lucide="trending-up" class="w-4 h-4 sm:w-5 sm:h-5"></i>
         </div>
         <div class="min-w-0">
           <div class="flex items-center gap-1.5">
-            <h1 class="text-base font-extrabold tracking-tight text-slate-900 truncate">BharatAlpha</h1>
-            <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200">NSE · BSE</span>
+            <h1 class="text-sm sm:text-base font-extrabold tracking-tight text-slate-900 truncate">BharatAlpha</h1>
+            <span class="hidden sm:inline-block text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200">NSE · BSE</span>
           </div>
-          <p class="text-[11px] text-slate-500 truncate">Stocks · Tax · SIP · Wealth Plan</p>
+          <p class="text-[10px] sm:text-[11px] text-slate-500 truncate">NSE · BSE · IPO · SIP</p>
         </div>
       </div>
 
-      <div class="flex items-center gap-1.5 shrink-0">
-        <button id="headerBudgetBtn" type="button" class="flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 active:scale-95 transition text-xs font-semibold text-slate-800 border border-slate-200">
+      <div class="flex items-center gap-1 shrink-0">
+        <button id="headerBudgetBtn" type="button" class="flex items-center gap-1 px-2 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 active:scale-95 transition text-[11px] sm:text-xs font-semibold text-slate-800 border border-slate-200">
           <span id="headerBudgetLabel">₹1,00,000</span>
           <span class="text-emerald-600 font-bold" id="headerGoalLabel">+15%</span>
         </button>
-        <button id="themeToggleBtn" type="button" aria-label="Toggle dark mode" class="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-600 transition">
+        <button id="themeToggleBtn" type="button" aria-label="Toggle dark mode" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-600 transition">
           <i id="themeIcon" data-lucide="moon" class="w-4 h-4"></i>
         </button>
-        <button id="openBackupModalBtn" type="button" aria-label="Backup & Restore JSON" title="Backup & Restore JSON" class="w-9 h-9 rounded-full bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 flex items-center justify-center text-emerald-700 transition">
+        <button id="openBackupModalBtn" type="button" aria-label="Backup & Restore JSON" title="Backup & Restore JSON" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 flex items-center justify-center text-emerald-700 transition">
           <i data-lucide="shield-check" class="w-4 h-4"></i>
         </button>
-        <button id="openInstallGuideBtn" type="button" aria-label="iPhone install guide" class="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-600 transition">
+        <button id="openInstallGuideBtn" type="button" aria-label="iPhone install guide" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-600 transition">
           <i data-lucide="smartphone" class="w-4 h-4"></i>
         </button>
       </div>
@@ -203,8 +218,8 @@
   </header>
 
   <!-- Auto-Scrolling Live Market Ticker Strip -->
-  <div class="bg-slate-900 text-white border-b border-slate-800">
-    <div class="max-w-3xl mx-auto px-3 py-1.5 flex items-center gap-2 text-[11px]">
+  <div class="w-full max-w-full overflow-hidden bg-slate-900 text-white border-b border-slate-800">
+    <div class="max-w-3xl mx-auto px-3 py-1.5 flex items-center gap-2 text-[11px] overflow-hidden">
       <span class="shrink-0 inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-emerald-500/20 text-emerald-300 font-extrabold text-[10px] tracking-wide">
         <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>LIVE
       </span>
@@ -215,7 +230,7 @@
   </div>
 
   <!-- Main Content Container -->
-  <main class="max-w-3xl mx-auto px-3.5 pt-3.5 space-y-4">
+  <main class="w-full max-w-3xl mx-auto px-3 pt-3 space-y-4 overflow-x-hidden">
 
     <!-- Compact Top-Down Funnel Bar (horizontally scrollable on iPhone, 6-col grid on desktop) -->
     <div class="flex sm:grid sm:grid-cols-6 gap-1.5 overflow-x-auto no-scrollbar bg-white p-1.5 rounded-2xl border border-slate-200 shadow-sm text-center">
