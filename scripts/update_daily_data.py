@@ -14,6 +14,7 @@ import csv
 from datetime import datetime, timezone, timedelta
 import io
 import json
+import os
 import urllib.request
 import xml.etree.ElementTree as ET
 import yfinance as yf
