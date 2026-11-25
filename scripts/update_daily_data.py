@@ -500,6 +500,270 @@ def fetch_daily_sector_pulse():
             continue
     return out
 
+
+
+def load_alert_config():
+    """Loads alert_stocks.json specifying Market Mood & per-share alert rules."""
+    default_cfg = {
+        "market_mood_enabled": True,
+        "move_threshold_pct": 2.0,
+        "app_url": "https://vikas030797-beep.github.io/BharatAlpha/",
+        "stocks": [],
+    }
+    try:
+        if os.path.exists("alert_stocks.json"):
+            with open("alert_stocks.json", "r", encoding="utf-8") as f:
+                raw = json.load(f)
+            if isinstance(raw, dict):
+                default_cfg.update(raw)
+    except Exception as e:
+        print(f"Skipping alert_stocks.json load: {e}")
+    return default_cfg
+
+
+def _safe_float(v, default=0.0):
+    try:
+        return float(str(v).replace(",", "").replace("₹", "").replace("%", "").strip())
+    except Exception:
+        return default
+
+
+def compute_market_mood(indices, featured_prices):
+    """Computes a 0-100 Market Mood index from Nifty 50, Bank Nifty, India VIX & breadth."""
+    score = 50.0
+    nifty_chg = 0.0
+    bank_chg = 0.0
+    vix_val = 14.5
+    for idx in (indices or []):
+        name = str(idx.get("name") or "").upper()
+        chg = _safe_float(idx.get("chg"), 0.0)
+        val = _safe_float(idx.get("val"), 0.0)
+        if "NIFTY 50" in name:
+            nifty_chg = chg
+        elif "BANK" in name:
+            bank_chg = chg
+        elif "VIX" in name and val > 0:
+            vix_val = val
+
+    score += max(-22.0, min(22.0, nifty_chg * 11.0))
+    score += max(-12.0, min(12.0, bank_chg * 5.0))
+    if vix_val <= 13.0:
+        score += 8.0
+    elif vix_val >= 20.0:
+        score -= 14.0
+    elif vix_val >= 16.5:
+        score -= 7.0
+
+    # Breadth boost from tracked stocks' day change if present
+    up_cnt, tot_cnt = 0, 0
+    for p in (featured_prices or {}).values():
+        if isinstance(p, dict) and p.get("chg") is not None:
+            tot_cnt += 1
+            if float(p.get("chg") or 0) > 0:
+                up_cnt += 1
+    if tot_cnt >= 5:
+        breadth_ratio = up_cnt / tot_cnt
+        score += (breadth_ratio - 0.5) * 18.0
+
+    score = int(round(max(5.0, min(95.0, score))))
+    if score >= 75:
+        label = "Extreme Greed"
+    elif score >= 60:
+        label = "Greed"
+    elif score >= 45:
+        label = "Neutral"
+    elif score >= 30:
+        label = "Fear"
+    else:
+        label = "Extreme Fear"
+
+    return {
+        "score": score,
+        "label": label,
+        "nifty_chg": round(nifty_chg, 2),
+        "bank_chg": round(bank_chg, 2),
+        "vix": round(vix_val, 2),
+    }
+
+
+def fetch_intraday_day_changes(symbols):
+    """Fetches latest price & day % change for alert symbols via yfinance."""
+    out = {}
+    for sym in sorted(set(s.upper() for s in symbols if s)):
+        try:
+            hist = yf.Ticker(f"{sym}.NS").history(period="5d")
+            if hist is not None and len(hist) >= 2:
+                prev_c = float(hist["Close"].iloc[-2])
+                curr_c = float(hist["Close"].iloc[-1])
+                open_c = float(hist["Open"].iloc[-1])
+                high_c = float(hist["High"].iloc[-1])
+                low_c = float(hist["Low"].iloc[-1])
+                chg = round(((curr_c - prev_c) / prev_c) * 100, 2) if prev_c > 0 else 0.0
+                out[sym] = {
+                    "cmp": round(curr_c, 2),
+                    "prev": round(prev_c, 2),
+                    "open": round(open_c, 2),
+                    "high": round(high_c, 2),
+                    "low": round(low_c, 2),
+                    "chg": chg,
+                }
+        except Exception:
+            continue
+    return out
+
+
+def build_notification_payload(alert_cfg, market_mood, indices, featured_prices, alert_quotes, fii_dii_latest, now_ist):
+    """Builds concise title + body for Market Mood and user-selected share alerts."""
+    mood_score = market_mood.get("score", 50)
+    mood_label = market_mood.get("label", "Neutral")
+    time_short = now_ist.split(",")[1].strip() if "," in now_ist else now_ist
+    title = f"BharatAlpha · {mood_label} ({mood_score}/100)"
+
+    lines = []
+    if alert_cfg.get("market_mood_enabled", True):
+        nifty_str, bank_str = "", ""
+        for idx in (indices or []):
+            nm = str(idx.get("name") or "").upper()
+            v = _safe_float(idx.get("val"), 0.0)
+            c = _safe_float(idx.get("chg"), 0.0)
+            sign = "+" if c >= 0 else ""
+            if "NIFTY 50" in nm:
+                nifty_str = f"Nifty {v:,.0f} ({sign}{c:.2f}%)"
+            elif "BANK" in nm:
+                bank_str = f"BankNifty {v:,.0f} ({sign}{c:.2f}%)"
+        if nifty_str or bank_str:
+            lines.append(" · ".join([x for x in [nifty_str, bank_str] if x]))
+        if fii_dii_latest and fii_dii_latest.get("date"):
+            f_val = float(fii_dii_latest.get("fii") or 0)
+            d_val = float(fii_dii_latest.get("dii") or 0)
+            fs = "+" if f_val >= 0 else ""
+            ds = "+" if d_val >= 0 else ""
+            lines.append(f"Flows ({fii_dii_latest['date']}): FII {fs}₹{f_val:,.0f}Cr · DII {ds}₹{d_val:,.0f}Cr")
+
+    threshold = float(alert_cfg.get("move_threshold_pct") or 2.0)
+    triggered = []
+    regular = []
+    for item in (alert_cfg.get("stocks") or []):
+        sym = str(item.get("sym") or "").upper().strip()
+        if not sym:
+            continue
+        q = alert_quotes.get(sym) or {}
+        fp = featured_prices.get(sym) or {}
+        cmp_v = float(q.get("cmp") or fp.get("cmp") or 0)
+        if cmp_v <= 0:
+            continue
+        chg = float(q.get("chg") or 0)
+        sign = "+" if chg >= 0 else ""
+        target = float(item.get("target") or 0)
+        sl = float(item.get("stop_loss") or 0)
+        high52 = float(fp.get("high52") or 0)
+        low52 = float(fp.get("low52") or 0)
+
+        tags = []
+        if target > 0 and cmp_v >= target:
+            tags.append(f"🎯 Target ₹{target:,.0f}")
+        if sl > 0 and cmp_v <= sl:
+            tags.append(f"🛑 SL ₹{sl:,.0f}")
+        if abs(chg) >= threshold:
+            tags.append("🚀 Surge" if chg > 0 else "⚠️ Drop")
+        if high52 > 0 and cmp_v >= high52 * 0.985:
+            tags.append("Near 52W High")
+        elif low52 > 0 and cmp_v <= low52 * 1.015:
+            tags.append("Near 52W Low")
+
+        entry = f"{sym} ₹{cmp_v:,.2f} ({sign}{chg:.2f}%)"
+        if tags:
+            triggered.append(f"• {entry} — {', '.join(tags)}")
+        else:
+            regular.append(f"{sym} {sign}{chg:.1f}%")
+
+    if triggered:
+        lines.append("Alerts:")
+        lines.extend(triggered[:5])
+    elif regular:
+        lines.append("Watch: " + " · ".join(regular[:5]))
+
+    if not lines:
+        return None, None
+    lines.append(f"Updated {time_short}")
+    return title, "\n".join(lines)
+
+
+def dispatch_push_notifications(title, body, app_url):
+    """Dispatches push alerts via OneSignal, Telegram, and/or ntfy if secrets are set."""
+    if not title or not body:
+        return
+
+    # 1. OneSignal Native PWA Push (shows BharatAlpha icon on iPhone)
+    os_app_id = os.environ.get("ONESIGNAL_APP_ID", "").strip()
+    os_api_key = os.environ.get("ONESIGNAL_REST_API_KEY", "").strip()
+    if os_app_id and os_api_key:
+        try:
+            payload = json.dumps({
+                "app_id": os_app_id,
+                "included_segments": ["Subscribed Users"],
+                "headings": {"en": title},
+                "contents": {"en": body},
+                "url": app_url,
+            }).encode("utf-8")
+            req = urllib.request.Request(
+                "https://api.onesignal.com/notifications",
+                data=payload,
+                headers={
+                    "Content-Type": "application/json; charset=utf-8",
+                    "Authorization": f"Key {os_api_key}",
+                },
+                method="POST",
+            )
+            with urllib.request.urlopen(req, timeout=12) as resp:
+                print(f"OneSignal push sent: HTTP {resp.status}")
+        except Exception as e:
+            print(f"OneSignal push skipped/failed: {e}")
+
+    # 2. Telegram Bot Push (instant rock-solid iPhone delivery)
+    tg_token = os.environ.get("TELEGRAM_BOT_TOKEN", "").strip()
+    tg_chat = os.environ.get("TELEGRAM_CHAT_ID", "").strip()
+    if tg_token and tg_chat:
+        try:
+            tg_text = f"*{title}*\n{body}\n\n[Open BharatAlpha]({app_url})"
+            payload = json.dumps({
+                "chat_id": tg_chat,
+                "text": tg_text,
+                "parse_mode": "Markdown",
+                "disable_web_page_preview": True,
+            }).encode("utf-8")
+            req = urllib.request.Request(
+                f"https://api.telegram.org/bot{tg_token}/sendMessage",
+                data=payload,
+                headers={"Content-Type": "application/json"},
+                method="POST",
+            )
+            with urllib.request.urlopen(req, timeout=12) as resp:
+                print(f"Telegram push sent: HTTP {resp.status}")
+        except Exception as e:
+            print(f"Telegram push skipped/failed: {e}")
+
+    # 3. ntfy.sh Push (zero-account topic)
+    ntfy_topic = os.environ.get("NTFY_TOPIC", "").strip()
+    if ntfy_topic:
+        try:
+            url = ntfy_topic if ntfy_topic.startswith("http") else f"https://ntfy.sh/{ntfy_topic}"
+            req = urllib.request.Request(
+                url,
+                data=body.encode("utf-8"),
+                headers={
+                    "Title": title,
+                    "Click": app_url,
+                    "Tags": "chart_with_upwards_trend",
+                },
+                method="POST",
+            )
+            with urllib.request.urlopen(req, timeout=12) as resp:
+                print(f"ntfy push sent: HTTP {resp.status}")
+        except Exception as e:
+            print(f"ntfy push skipped/failed: {e}")
+
+
 def main():
     ist = timezone(timedelta(hours=5, minutes=30))
     now_ist = datetime.now(ist).strftime("%d %b %Y, %I:%M %p IST")
@@ -578,17 +842,26 @@ def main():
 
     holdings = load_my_holdings()
     holding_syms = [h.get("nse", "").upper() for h in holdings if h.get("nse")]
-    featured_prices = fetch_yfinance_52w(DEFAULT_NSE_SYMBOLS + holding_syms)
+    alert_cfg = load_alert_config()
+    alert_syms = [str(s.get("sym") or "").upper() for s in (alert_cfg.get("stocks") or []) if s.get("sym")]
+    all_tracked = list(dict.fromkeys(DEFAULT_NSE_SYMBOLS + holding_syms + alert_syms))
+    featured_prices = fetch_yfinance_52w(all_tracked)
+    alert_quotes = fetch_intraday_day_changes(alert_syms or DEFAULT_NSE_SYMBOLS[:10])
 
-    for sym in set(DEFAULT_NSE_SYMBOLS + holding_syms):
+    for sym in all_tracked:
         if sym not in featured_prices and sym in nse_bhav:
             featured_prices[sym] = {
                 "cmp": nse_bhav[sym]["cmp"],
                 "high52": nse_bhav[sym]["high"],
                 "low52": nse_bhav[sym]["low"],
             }
+        if sym in featured_prices and sym in alert_quotes:
+            featured_prices[sym]["chg"] = alert_quotes[sym]["chg"]
 
     hist_data, corp_data = fetch_history_and_corp_actions(DEFAULT_NSE_SYMBOLS)
+    indices = fetch_market_indices()
+    fii_dii_latest = fetch_fii_dii_latest()
+    market_mood = compute_market_mood(indices, featured_prices)
 
     daily_payload = {
         "updated_at_ist": now_ist,
@@ -597,16 +870,27 @@ def main():
         "prices": featured_prices,
         "news": fetch_latest_news(),
         "ipos": fetch_live_ipos(),
-        "indices": fetch_market_indices(),
+        "indices": indices,
         "history": hist_data,
         "corp_actions": corp_data,
         "dividends": fetch_upcoming_dividends(),
-        "fii_dii_latest": fetch_fii_dii_latest(),
+        "fii_dii_latest": fii_dii_latest,
         "sector_pulse_daily": fetch_daily_sector_pulse(),
+        "market_mood": market_mood,
     }
     with open("daily_data.json", "w", encoding="utf-8") as f:
         json.dump(daily_payload, f, indent=2)
-    print(f"Wrote daily_data.json with {len(featured_prices)} featured prices and {len(daily_payload['news'])} news items")
+    print(f"Wrote daily_data.json with {len(featured_prices)} featured prices, Market Mood {market_mood['score']}/100 ({market_mood['label']})")
+
+    notif_title, notif_body = build_notification_payload(
+        alert_cfg, market_mood, indices, featured_prices, alert_quotes, fii_dii_latest, now_ist
+    )
+    if notif_title and notif_body:
+        dispatch_push_notifications(
+            notif_title,
+            notif_body,
+            alert_cfg.get("app_url") or "https://vikas030797-beep.github.io/BharatAlpha/",
+        )
 
 
 if __name__ == "__main__":
