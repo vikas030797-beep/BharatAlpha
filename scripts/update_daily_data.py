@@ -435,6 +435,71 @@ def fetch_upcoming_dividends():
         print(f"Skipping NSE live dividends fetch: {e}")
     return results
 
+
+def fetch_fii_dii_latest():
+    """Fetches the latest NSE provisional FII/DII cash market net flow (₹ Cr)."""
+    try:
+        cj = urllib.request.HTTPCookieJar()
+        opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(cj))
+        opener.addheaders = [
+            ("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"),
+            ("Accept", "application/json, text/plain, */*"),
+            ("Referer", "https://www.nseindia.com/reports/fii-dii"),
+        ]
+        try:
+            opener.open("https://www.nseindia.com", timeout=8).read(256)
+        except Exception:
+            pass
+        resp = opener.open("https://www.nseindia.com/api/fiidiiTradeReact", timeout=12)
+        rows = json.loads(resp.read().decode("utf-8", errors="ignore"))
+        if isinstance(rows, list) and rows:
+            fii_net, dii_net, dt_str = 0.0, 0.0, ""
+            for r in rows:
+                cat = str(r.get("category") or "").upper()
+                net = float(str(r.get("netValue") or "0").replace(",", ""))
+                if not dt_str and r.get("date"):
+                    dt_str = str(r.get("date"))[:6]
+                if "FII" in cat or "FPI" in cat:
+                    fii_net = round(net, 2)
+                elif "DII" in cat:
+                    dii_net = round(net, 2)
+            if dt_str:
+                return {"date": dt_str.replace("-", " "), "fii": fii_net, "dii": dii_net}
+    except Exception as e:
+        print(f"Skipping NSE live FII/DII fetch: {e}")
+    return None
+
+
+def fetch_daily_sector_pulse():
+    """Fetches daily % change for major NSE sectoral indices via yfinance."""
+    specs = [
+        ("^NSEBANK", "Financial Services", "Nifty Bank"),
+        ("^CNXIT", "Information Technology", "Nifty IT"),
+        ("^CNXAUTO", "Automobiles", "Nifty Auto"),
+        ("^CNXPHARMA", "Healthcare", "Nifty Pharma"),
+        ("^CNXFMCG", "FMCG", "Nifty FMCG"),
+        ("^CNXENERGY", "Oil & Gas", "Nifty Energy"),
+        ("^CNXINFRA", "Construction", "Nifty Infra"),
+        ("^CNXCONSUM", "Consumer Services", "Nifty Consumption"),
+    ]
+    out = []
+    for sym, sec, label in specs:
+        try:
+            hist = yf.Ticker(sym).history(period="5d")
+            if hist is not None and len(hist) >= 2:
+                prev_c = float(hist["Close"].iloc[-2])
+                curr_c = float(hist["Close"].iloc[-1])
+                chg = round(((curr_c - prev_c) / prev_c) * 100, 2) if prev_c > 0 else 0.0
+                out.append({
+                    "sector": sec,
+                    "displayLabel": label,
+                    "chg": chg,
+                    "note": f"Close {curr_c:,.2f} · Auto-synced via GitHub Action",
+                })
+        except Exception:
+            continue
+    return out
+
 def main():
     ist = timezone(timedelta(hours=5, minutes=30))
     now_ist = datetime.now(ist).strftime("%d %b %Y, %I:%M %p IST")
@@ -536,6 +601,8 @@ def main():
         "history": hist_data,
         "corp_actions": corp_data,
         "dividends": fetch_upcoming_dividends(),
+        "fii_dii_latest": fetch_fii_dii_latest(),
+        "sector_pulse_daily": fetch_daily_sector_pulse(),
     }
     with open("daily_data.json", "w", encoding="utf-8") as f:
         json.dump(daily_payload, f, indent=2)
