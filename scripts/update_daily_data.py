@@ -15,6 +15,7 @@ from datetime import datetime, timezone, timedelta
 import io
 import json
 import os
+import re
 import urllib.request
 import xml.etree.ElementTree as ET
 import yfinance as yf
@@ -437,8 +438,28 @@ def fetch_upcoming_dividends():
     return results
 
 
+def _parse_trendlyne_fii_dii(html_text):
+    """Extracts latest provisional FII/DII cash flow from Trendlyne SSR text."""
+    clean = re.sub(r"<[^>]+>", " ", html_text or "")
+    clean = re.sub(r"\s+", " ", clean)
+    pat_fii = r"FII\s+were\s+net\s+(buyers|sellers)\s+of\s+(?:₹|Rs\.?|&#8377;)\s*([\-\d,\.]+)\s*Cr\s+in\s+the\s+cash\s+segment\s+on\s+(\d{1,2}\s+[A-Za-z]{3})\s+\d{4}"
+    pat_dii = r"DII\s+were\s+net\s+(buyers|sellers)\s+of\s+(?:₹|Rs\.?|&#8377;)\s*([\-\d,\.]+)\s*Cr\s+in\s+the\s+cash\s+segment\s+on\s+(\d{1,2}\s+[A-Za-z]{3})\s+\d{4}"
+    mf = re.search(pat_fii, clean, re.I)
+    md = re.search(pat_dii, clean, re.I)
+    if mf and md:
+        f_val = abs(_safe_float(mf.group(2), 0.0))
+        d_val = abs(_safe_float(md.group(2), 0.0))
+        if mf.group(1).lower() == "sellers":
+            f_val = -f_val
+        if md.group(1).lower() == "sellers":
+            d_val = -d_val
+        return {"date": mf.group(3).strip(), "fii": round(f_val, 2), "dii": round(d_val, 2)}
+    return None
+
+
 def fetch_fii_dii_latest():
-    """Fetches the latest NSE provisional FII/DII cash market net flow (₹ Cr)."""
+    """Fetches the latest NSE provisional FII/DII cash market net flow (₹ Cr) with Trendlyne fallback."""
+    # Source 1: NSE direct API (may be blocked on cloud runner IPs by Akamai)
     try:
         cj = urllib.request.HTTPCookieJar()
         opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(cj))
@@ -451,13 +472,13 @@ def fetch_fii_dii_latest():
             opener.open("https://www.nseindia.com", timeout=8).read(256)
         except Exception:
             pass
-        resp = opener.open("https://www.nseindia.com/api/fiidiiTradeReact", timeout=12)
+        resp = opener.open("https://www.nseindia.com/api/fiidiiTradeReact", timeout=10)
         rows = json.loads(resp.read().decode("utf-8", errors="ignore"))
         if isinstance(rows, list) and rows:
             fii_net, dii_net, dt_str = 0.0, 0.0, ""
             for r in rows:
                 cat = str(r.get("category") or "").upper()
-                net = float(str(r.get("netValue") or "0").replace(",", ""))
+                net = _safe_float(r.get("netValue"), 0.0)
                 if not dt_str and r.get("date"):
                     dt_str = str(r.get("date"))[:6]
                 if "FII" in cat or "FPI" in cat:
@@ -467,9 +488,26 @@ def fetch_fii_dii_latest():
             if dt_str:
                 return {"date": dt_str.replace("-", " "), "fii": fii_net, "dii": dii_net}
     except Exception as e:
-        print(f"Skipping NSE live FII/DII fetch: {e}")
-    return None
+        print(f"NSE direct FII/DII blocked/skipped ({e}); trying Trendlyne fallback...")
 
+    # Source 2: Trendlyne SSR Cash Provisional page (works reliably on GitHub Actions)
+    try:
+        req = urllib.request.Request(
+            "https://trendlyne.com/macro-data/fii-dii/latest/cash-pastmonth/",
+            headers={
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+                "Accept": "text/html,application/xhtml+xml,*/*",
+            },
+        )
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            html_text = resp.read().decode("utf-8", errors="ignore")
+        parsed = _parse_trendlyne_fii_dii(html_text)
+        if parsed:
+            print(f"Fetched FII/DII via Trendlyne fallback: {parsed}")
+            return parsed
+    except Exception as e:
+        print(f"Trendlyne FII/DII fallback skipped: {e}")
+    return None
 
 def fetch_daily_sector_pulse():
     """Fetches daily % change for major NSE sectoral indices via yfinance."""
