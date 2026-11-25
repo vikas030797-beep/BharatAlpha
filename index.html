@@ -229,21 +229,53 @@
     </div>
   </div>
 
+
+
+
   <!-- Main Content Container -->
   <main class="w-full max-w-3xl mx-auto px-3 pt-3 space-y-4 overflow-x-hidden">
 
-    <!-- Compact Top-Down Funnel Bar (horizontally scrollable on iPhone, 6-col grid on desktop) -->
-    <div class="flex sm:grid sm:grid-cols-6 gap-1.5 overflow-x-auto no-scrollbar bg-white p-1.5 rounded-2xl border border-slate-200 shadow-sm text-center">
-      <button type="button" data-step-tab="news" class="step-pill shrink-0 py-1.5 px-3 sm:px-1 rounded-full text-[11px] font-bold transition whitespace-nowrap">1. News</button>
-      <button type="button" data-step-tab="flows" class="step-pill shrink-0 py-1.5 px-3 sm:px-1 rounded-full text-[11px] font-bold transition whitespace-nowrap">2. Flows</button>
-      <button type="button" data-step-tab="stocks" class="step-pill shrink-0 py-1.5 px-3 sm:px-1 rounded-full text-[11px] font-bold transition whitespace-nowrap">3. Stocks</button>
-      <button type="button" data-step-tab="ipo" class="step-pill shrink-0 py-1.5 px-3 sm:px-1 rounded-full text-[11px] font-bold transition whitespace-nowrap">4. IPO/FPO</button>
-      <button type="button" data-step-tab="sip" class="step-pill shrink-0 py-1.5 px-3 sm:px-1 rounded-full text-[11px] font-bold transition whitespace-nowrap">5. SIP/Goal</button>
-      <button type="button" data-step-tab="plan" class="step-pill shrink-0 py-1.5 px-3 sm:px-1 rounded-full text-[11px] font-bold transition whitespace-nowrap">6. Plan</button>
-    </div>
+
 
     <!-- ==================== TAB 1: NEWS & POLICY ANALYZER ==================== -->
-    <section id="tab-news" class="tab-section space-y-4">
+        <section id="tab-news" class="tab-section space-y-4">
+      <!-- Pre-Market & Market Mood Card (inside News tab) -->
+      <div id="newsMarketMoodCard" class="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm space-y-3">
+        <div class="flex items-start justify-between gap-2">
+          <div>
+            <div class="flex items-center gap-1.5 flex-wrap">
+              <h2 class="text-sm font-extrabold text-slate-900">Market Mood &amp; Pre-Market Pulse</h2>
+              <span id="moodSessionBadge" class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-100 text-slate-700">Live Session</span>
+            </div>
+            <p id="moodUpdatedLabel" class="text-[11px] text-slate-500 mt-0.5">Auto-updates 7x daily · Nifty, Bank Nifty, VIX &amp; FII/DII</p>
+          </div>
+          <div class="text-right shrink-0">
+            <span id="moodScoreBadge" class="inline-flex items-center px-2.5 py-1 rounded-xl bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs font-extrabold">Greed · 72</span>
+          </div>
+        </div>
+
+        <!-- Visual Mood Meter Bar -->
+        <div class="space-y-1">
+          <div class="relative h-2.5 w-full rounded-full overflow-hidden" style="background: linear-gradient(90deg, #ef4444 0%, #f59e0b 35%, #eab308 50%, #22c55e 75%, #10b981 100%);">
+            <div id="moodNeedle" class="absolute top-0 bottom-0 w-1.5 bg-slate-900 rounded-full shadow ring-2 ring-white transition-all duration-300" style="left: 72%;"></div>
+          </div>
+          <div class="flex items-center justify-between text-[10px] font-semibold text-slate-400">
+            <span>Extreme Fear</span>
+            <span>Neutral</span>
+            <span>Extreme Greed</span>
+          </div>
+        </div>
+
+        <!-- 3-Column Live Index Snapshot -->
+        <div id="moodIndicesGrid" class="grid grid-cols-3 gap-2 text-center"></div>
+
+        <!-- Latest FII/DII & Quick Pre-Market News Filter -->
+        <div class="flex items-center justify-between gap-2 pt-2 border-t border-slate-100 text-[11px]">
+          <span id="moodFiiSummary" class="text-slate-600 font-semibold truncate">FII/DII syncs at 7:45 PM IST</span>
+          <button type="button" data-news-filter="Mood" class="shrink-0 px-2.5 py-1 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 font-bold text-[10px]">Pre-Market News ↓</button>
+        </div>
+      </div>
+
       <div class="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm space-y-3">
         <div class="flex items-center justify-between gap-2">
           <div>
@@ -286,6 +318,7 @@
 
       <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
         <button type="button" data-news-filter="All" class="news-filter-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold transition">All Catalysts</button>
+        <button type="button" data-news-filter="Mood" class="news-filter-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold transition">Pre-Market &amp; Mood</button>
         <button type="button" data-news-filter="Live" class="news-filter-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold transition">Live Feed</button>
         <button type="button" data-news-filter="Policy" class="news-filter-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold transition">Govt Policy &amp; Budget</button>
         <button type="button" data-news-filter="Geopolitics" class="news-filter-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs font-semibold transition">Global &amp; Macro</button>
@@ -302,7 +335,7 @@
         <div class="flex items-center justify-between gap-2 flex-wrap">
           <div>
             <h2 class="text-sm font-extrabold text-slate-900">FII vs DII Cash Flows (₹ Cr)</h2>
-            <p id="fiiDiiSubtitle" class="text-[11px] text-slate-500">NSE/BSE Cash Market · Switch Daily, Monthly &amp; Full Year</p>
+            <p id="fiiDiiSubtitle" class="text-[11px] text-slate-500">NSE provisional FII/DII posts after ~6:30 PM IST (auto-synced 7:45 PM IST)</p>
           </div>
           <div class="flex items-center gap-1 bg-slate-100 p-1 rounded-xl">
             <button type="button" data-fiidii-view="daily" class="fiidii-view-btn px-2.5 py-1 rounded-lg text-[11px] font-bold transition">Daily</button>
@@ -1189,6 +1222,8 @@
 
   <!-- In-page Toast Notification -->
     <!-- Backup & Restore JSON Safety Modal -->
+
+
   <div id="backupModal" class="hidden fixed inset-0 z-50 modal-backdrop flex items-end sm:items-center justify-center p-0 sm:p-4">
     <div class="bg-white w-full max-w-md rounded-t-3xl sm:rounded-3xl max-h-[88vh] overflow-y-auto p-5 modal-sheet-safe shadow-2xl animate-slide-up space-y-3.5">
       <div class="flex items-center justify-between">
@@ -3976,7 +4011,7 @@
         ipoSortEl.addEventListener('change', (e) => {
           ipoSort = e.target.value;
           renderIpoTab();
-        renderMarketTicker();
+        renderMarketTicker(); renderMarketMoodBar();
         renderLtcgHarvestTracker();
         });
       }
@@ -4355,6 +4390,77 @@
           } catch (err) {}
           return;
         }
+
+        if (e.target.closest('#openAlertsModalBtn') || e.target.closest('#moodBarAlertsBtn')) {
+          renderAlertsModal();
+          document.getElementById('alertsModal').classList.remove('hidden');
+          return;
+        }
+        if (e.target.closest('#closeAlertsModalBtn')) {
+          document.getElementById('alertsModal').classList.add('hidden');
+          return;
+        }
+        const bellCardBtn = e.target.closest('[data-toggle-alert]');
+        if (bellCardBtn) {
+          toggleShareAlert(bellCardBtn.dataset.toggleAlert);
+          return;
+        }
+        const remAlertBtn = e.target.closest('[data-remove-alert-sym]');
+        if (remAlertBtn) {
+          toggleShareAlert(remAlertBtn.dataset.removeAlertSym);
+          return;
+        }
+        if (e.target.closest('#alertAddSymbolBtn')) {
+          const inp = document.getElementById('alertAddSymbolInput');
+          const sym = (inp && inp.value || '').trim().toUpperCase().replace(/[^A-Z0-9&-]/g, '');
+          if (!sym) { showToast('Enter a valid NSE symbol'); return; }
+          if (!isAlertEnabled(sym)) {
+            alertPrefs.stocks.unshift({ sym, target: 0, stop_loss: 0 });
+            saveAlertPrefs();
+            renderAlertsModal();
+            if (state.activeTab === 'stocks') renderStocksTab();
+            showToast('Added ' + sym + ' to alert list');
+          } else {
+            showToast(sym + ' is already in your alert list');
+          }
+          if (inp) inp.value = '';
+          return;
+        }
+        if (e.target.closest('#alertSelectAllFeaturedBtn')) {
+          ['ICICIBANK','HDFCBANK','TCS','INFY','RELIANCE','LT','HAL','BEL','TATAPOWER','GOLDBEES'].forEach((sym) => {
+            if (!isAlertEnabled(sym)) alertPrefs.stocks.push({ sym, target: 0, stop_loss: 0 });
+          });
+          saveAlertPrefs();
+          renderAlertsModal();
+          if (state.activeTab === 'stocks') renderStocksTab();
+          showToast('Core 10 shares added to alerts');
+          return;
+        }
+        if (e.target.closest('#copyAlertJsonBtn')) {
+          const jsonStr = JSON.stringify(buildAlertConfigExport(), null, 2);
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(jsonStr).then(() => showToast('Copied alert_stocks.json! Paste on GitHub'));
+          } else {
+            showToast('Copy ready — use Download button');
+          }
+          return;
+        }
+        if (e.target.closest('#downloadAlertJsonBtn')) {
+          const jsonStr = JSON.stringify(buildAlertConfigExport(), null, 2);
+          const blob = new Blob([jsonStr], { type: 'application/json' });
+          const a = document.createElement('a');
+          a.href = URL.createObjectURL(blob);
+          a.download = 'alert_stocks.json';
+          a.click();
+          showToast('Downloaded alert_stocks.json');
+          return;
+        }
+        if (e.target.closest('#enableOneSignalBtn')) {
+          const inp = document.getElementById('oneSignalAppIdInput');
+          initOneSignalPush(inp ? inp.value : '');
+          return;
+        }
+
         if (e.target.closest('#openBackupModalBtn')) {
           renderBackupModalStats();
           document.getElementById('backupModal').classList.remove('hidden');
@@ -4482,7 +4588,7 @@
       }
 
       function renderAll() {
-        renderMarketTicker();
+        renderMarketTicker(); renderMarketMoodBar();
         renderIpoTab();
         renderLtcgHarvestTracker();
         renderHeaderAndNav();
@@ -5471,6 +5577,218 @@
         }
       });
 
+
+      // ==================== MARKET MOOD & PER-SHARE ALERTS ENGINE ====================
+      const ALERT_PREFS_KEY = 'bharatalpha_alert_prefs_v1';
+      let alertPrefs = {
+        market_mood_enabled: true,
+        move_threshold_pct: 2.0,
+        app_url: 'https://vikas030797-beep.github.io/BharatAlpha/',
+        onesignal_app_id: '',
+        stocks: [
+          { sym: 'ICICIBANK', target: 0, stop_loss: 0 },
+          { sym: 'HDFCBANK', target: 0, stop_loss: 0 },
+          { sym: 'TCS', target: 0, stop_loss: 0 },
+          { sym: 'INFY', target: 0, stop_loss: 0 },
+          { sym: 'RELIANCE', target: 0, stop_loss: 0 },
+          { sym: 'LT', target: 0, stop_loss: 0 },
+          { sym: 'HAL', target: 0, stop_loss: 0 },
+          { sym: 'BEL', target: 0, stop_loss: 0 },
+          { sym: 'TATAPOWER', target: 0, stop_loss: 0 },
+          { sym: 'GOLDBEES', target: 0, stop_loss: 0 }
+        ]
+      };
+      let liveMarketMood = { score: 72, label: 'Greed', nifty_chg: 1.85, bank_chg: 1.79, vix: 13.8 };
+
+      function loadAlertPrefs() {
+        try {
+          const saved = localStorage.getItem(ALERT_PREFS_KEY);
+          if (saved) {
+            const parsed = JSON.parse(saved);
+            if (parsed && Array.isArray(parsed.stocks)) {
+              alertPrefs = { ...alertPrefs, ...parsed };
+            }
+          }
+        } catch (e) {}
+        updateAlertBadge();
+      }
+
+      function saveAlertPrefs() {
+        try {
+          localStorage.setItem(ALERT_PREFS_KEY, JSON.stringify(alertPrefs));
+        } catch (e) {}
+        updateAlertBadge();
+      }
+
+      function isAlertEnabled(sym) {
+        const u = String(sym || '').toUpperCase().trim();
+        return alertPrefs.stocks.some((x) => x.sym === u);
+      }
+
+      function toggleShareAlert(sym) {
+        const u = String(sym || '').toUpperCase().trim();
+        if (!u) return;
+        const idx = alertPrefs.stocks.findIndex((x) => x.sym === u);
+        if (idx >= 0) {
+          alertPrefs.stocks.splice(idx, 1);
+          showToast('Alerts OFF for ' + u + ' · Open 🔔 to sync GitHub');
+        } else {
+          alertPrefs.stocks.unshift({ sym: u, target: 0, stop_loss: 0 });
+          showToast('Alerts ON for ' + u + ' · Open 🔔 to sync GitHub');
+        }
+        saveAlertPrefs();
+        if (state.activeTab === 'stocks') renderStocksTab();
+        if (!document.getElementById('alertsModal').classList.contains('hidden')) renderAlertsModal();
+      }
+
+      function updateAlertBadge() {
+        const badge = document.getElementById('alertBellBadge');
+        if (badge) badge.textContent = String(alertPrefs.stocks.length);
+      }
+
+      function renderMarketMoodBar() {
+        const scoreEl = document.getElementById('moodScoreBadge');
+        const needleEl = document.getElementById('moodNeedle');
+        const sessEl = document.getElementById('moodSessionBadge');
+        const gridEl = document.getElementById('moodIndicesGrid');
+        const fiiEl = document.getElementById('moodFiiSummary');
+
+        const sc = Number((liveMarketMood && liveMarketMood.score) || 65);
+        const lbl = (liveMarketMood && liveMarketMood.label) || 'Greed';
+        if (scoreEl) {
+          scoreEl.textContent = lbl + ' · ' + sc + '/100';
+          scoreEl.className = 'inline-flex items-center px-2.5 py-1 rounded-xl border text-xs font-extrabold ' + (
+            sc >= 60 ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
+            : sc <= 40 ? 'bg-rose-50 text-rose-700 border-rose-200'
+            : 'bg-amber-50 text-amber-800 border-amber-200'
+          );
+        }
+        if (needleEl) {
+          needleEl.style.left = Math.max(4, Math.min(96, sc)) + '%';
+        }
+        if (sessEl) {
+          const nowIst = new Date(Date.now() + (5.5 * 60 + new Date().getTimezoneOffset()) * 60000);
+          const mins = nowIst.getHours() * 60 + nowIst.getMinutes();
+          const day = nowIst.getDay();
+          if (day === 0 || day === 6) sessEl.textContent = 'Weekend Prep';
+          else if (mins < 555) sessEl.textContent = 'Pre-Market Cues';
+          else if (mins <= 930) sessEl.textContent = 'Live Market';
+          else sessEl.textContent = 'Post-Market Wrap';
+        }
+        if (gridEl) {
+          const picks = (liveIndices || []).filter((x) => /NIFTY 50|BANK NIFTY|SENSEX|VIX/i.test(x.name || '')).slice(0, 3);
+          const cards = picks.length ? picks : [
+            { name: 'NIFTY 50', val: 25819.25, chg: 1.85 },
+            { name: 'BANK NIFTY', val: 63703.25, chg: 1.79 },
+            { name: 'SENSEX', val: 83938.28, chg: 1.82 }
+          ];
+          gridEl.innerHTML = cards.map((idx) => {
+            const up = Number(idx.chg || 0) >= 0;
+            const sign = up ? '+' : '';
+            return `
+              <div class="bg-slate-50 border border-slate-200 rounded-xl p-2">
+                <p class="text-[10px] font-bold text-slate-500 truncate">${escapeHtml(idx.name)}</p>
+                <p class="text-xs font-extrabold text-slate-900 mt-0.5">${Number(idx.val || 0).toLocaleString('en-IN', { maximumFractionDigits: 2 })}</p>
+                <p class="text-[10px] font-bold ${up ? 'text-emerald-600' : 'text-rose-600'}">${sign}${Number(idx.chg || 0).toFixed(2)}%</p>
+              </div>
+            `;
+          }).join('');
+        }
+        if (fiiEl && typeof fiiDiiDailyData !== 'undefined' && fiiDiiDailyData.length > 0) {
+          const d = fiiDiiDailyData[0];
+          const fs = d.fii >= 0 ? '+' : '';
+          const ds = d.dii >= 0 ? '+' : '';
+          fiiEl.textContent = 'Flows (' + d.date + '): FII ' + fs + '₹' + Math.round(d.fii).toLocaleString('en-IN') + 'Cr · DII ' + ds + '₹' + Math.round(d.dii).toLocaleString('en-IN') + 'Cr';
+        }
+      }
+
+
+      function buildAlertConfigExport() {
+        return {
+          market_mood_enabled: !!alertPrefs.market_mood_enabled,
+          move_threshold_pct: Number(alertPrefs.move_threshold_pct) || 2.0,
+          app_url: alertPrefs.app_url || 'https://vikas030797-beep.github.io/BharatAlpha/',
+          stocks: alertPrefs.stocks.map((x) => ({
+            sym: x.sym,
+            target: Number(x.target) || 0,
+            stop_loss: Number(x.stop_loss) || 0
+          }))
+        };
+      }
+
+      function renderAlertsModal() {
+        const moodCb = document.getElementById('alertMoodToggle');
+        const threshSel = document.getElementById('alertThresholdSelect');
+        const cntEl = document.getElementById('alertSelectedCount');
+        const listEl = document.getElementById('alertStocksList');
+        const osInput = document.getElementById('oneSignalAppIdInput');
+        if (moodCb) moodCb.checked = !!alertPrefs.market_mood_enabled;
+        if (threshSel) threshSel.value = String(alertPrefs.move_threshold_pct || 2);
+        if (cntEl) cntEl.textContent = String(alertPrefs.stocks.length);
+        if (osInput && alertPrefs.onesignal_app_id) osInput.value = alertPrefs.onesignal_app_id;
+        if (!listEl) return;
+
+        if (!alertPrefs.stocks.length) {
+          listEl.innerHTML = '<div class="p-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-500 text-center">No shares selected yet. Add any NSE symbol above or tap 🔔 on any stock card.</div>';
+          return;
+        }
+        listEl.innerHTML = alertPrefs.stocks.map((item) => {
+          const match = state.stocks.find((s) => s.nse === item.sym);
+          const cmpTxt = match && match.cmp ? ('CMP ₹' + Number(match.cmp).toLocaleString('en-IN')) : 'Custom NSE';
+          return `
+            <div class="p-2.5 rounded-xl bg-white border border-slate-200 space-y-1.5">
+              <div class="flex items-center justify-between gap-2">
+                <div class="flex items-center gap-2 min-w-0">
+                  <span class="font-extrabold text-slate-900">${escapeHtml(item.sym)}</span>
+                  <span class="text-[10px] text-slate-500">${cmpTxt}</span>
+                </div>
+                <button type="button" data-remove-alert-sym="${escapeHtml(item.sym)}" class="px-2 py-0.5 rounded-lg bg-rose-50 text-rose-700 border border-rose-200 text-[10px] font-bold">Remove</button>
+              </div>
+              <div class="grid grid-cols-2 gap-1.5">
+                <label class="flex items-center gap-1 bg-slate-50 border border-slate-200 rounded-lg px-2 py-1 text-[10px] text-slate-600">
+                  <span class="shrink-0">🎯 Tgt ₹</span>
+                  <input type="number" step="0.5" data-alert-target="${escapeHtml(item.sym)}" value="${item.target || ''}" placeholder="Optional" class="w-full bg-transparent text-slate-900 font-bold outline-none text-xs" />
+                </label>
+                <label class="flex items-center gap-1 bg-slate-50 border border-slate-200 rounded-lg px-2 py-1 text-[10px] text-slate-600">
+                  <span class="shrink-0">🛑 SL ₹</span>
+                  <input type="number" step="0.5" data-alert-sl="${escapeHtml(item.sym)}" value="${item.stop_loss || ''}" placeholder="Optional" class="w-full bg-transparent text-slate-900 font-bold outline-none text-xs" />
+                </label>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+
+      function initOneSignalPush(appId) {
+        const cleanId = String(appId || '').trim();
+        const statusEl = document.getElementById('oneSignalStatusText');
+        if (!cleanId) {
+          showToast('Paste your OneSignal App ID first');
+          return;
+        }
+        alertPrefs.onesignal_app_id = cleanId;
+        saveAlertPrefs();
+        if (statusEl) statusEl.textContent = 'Connecting OneSignal Web Push...';
+        window.OneSignalDeferred = window.OneSignalDeferred || [];
+        if (!document.getElementById('onesignal-sdk-script')) {
+          const s = document.createElement('script');
+          s.id = 'onesignal-sdk-script';
+          s.src = 'https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js';
+          s.defer = true;
+          document.head.appendChild(s);
+        }
+        window.OneSignalDeferred.push(async function(OneSignal) {
+          try {
+            await OneSignal.init({ appId: cleanId, allowLocalhostAsSecureOrigin: true });
+            await OneSignal.Notifications.requestPermission();
+            if (statusEl) statusEl.textContent = '✓ BharatAlpha Push enabled! Add keys to GitHub Secrets to receive 7x/day alerts.';
+            showToast('BharatAlpha push notifications enabled!');
+          } catch (err) {
+            if (statusEl) statusEl.textContent = 'Open BharatAlpha from your iPhone Home Screen (iOS 16.4+) to allow push.';
+          }
+        });
+      }
+
       async function syncLiveMarketData() {
         try {
           const res = await fetch('./daily_data.json?t=' + Date.now());
@@ -5493,7 +5811,7 @@
             }
             if (data && Array.isArray(data.indices) && data.indices.length > 0) {
               liveIndices = data.indices;
-              renderMarketTicker();
+              renderMarketTicker(); renderMarketMoodBar();
             }
             if (data && data.history && typeof data.history === 'object') {
               liveStockHistory = data.history;
@@ -5519,6 +5837,10 @@
               liveSectorPulse = data.sector_pulse_daily;
               sectorPulseDate = (data.updated_at_ist || '').split(',')[0] || sectorPulseDate;
               if (state.activeTab === 'flows' && state.flowPeriod === 'daily_pulse') renderFlowsTab();
+            }
+            if (data && data.market_mood && typeof data.market_mood.score === 'number') {
+              liveMarketMood = data.market_mood;
+              renderMarketMoodBar();
             }
             if (state.activeTab === 'stocks') renderStocksTab();
             else if (state.activeTab === 'plan') renderPlanTab();
@@ -5550,9 +5872,28 @@
       }
 
       loadState();
+      loadAlertPrefs();
+      renderMarketMoodBar();
       renderAll();
       syncLiveMarketData();
       fetchLiveNewsNow(false);
+
+      document.addEventListener('change', (e) => {
+        if (e.target && e.target.id === 'alertMoodToggle') {
+          alertPrefs.market_mood_enabled = !!e.target.checked;
+          saveAlertPrefs();
+        } else if (e.target && e.target.id === 'alertThresholdSelect') {
+          alertPrefs.move_threshold_pct = parseFloat(e.target.value) || 2.0;
+          saveAlertPrefs();
+        } else if (e.target && e.target.dataset && e.target.dataset.alertTarget) {
+          const item = alertPrefs.stocks.find((x) => x.sym === e.target.dataset.alertTarget);
+          if (item) { item.target = parseFloat(e.target.value) || 0; saveAlertPrefs(); }
+        } else if (e.target && e.target.dataset && e.target.dataset.alertSl) {
+          const item = alertPrefs.stocks.find((x) => x.sym === e.target.dataset.alertSl);
+          if (item) { item.stop_loss = parseFloat(e.target.value) || 0; saveAlertPrefs(); }
+        }
+      });
+
       setInterval(() => { syncLiveMarketData(); fetchLiveNewsNow(false); }, 300000);
     })();
   </script>
