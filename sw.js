@@ -1,4 +1,4 @@
-const CACHE_NAME = 'bharatalpha-v11';
+const CACHE_NAME = 'bharatalpha-v13';
 const CORE_ASSETS = ['./', './index.html', './manifest.json', './icon-192.png'];
 
 self.addEventListener('install', (e) => {
