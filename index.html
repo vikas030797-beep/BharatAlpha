@@ -297,6 +297,29 @@
 
     <!-- ==================== TAB 2: SECTOR MONEY FLOWS ==================== -->
     <section id="tab-flows" class="tab-section hidden space-y-4">
+      <!-- FII vs DII Cash Market Flows: Daily / Monthly / Full Year 2026 -->
+      <div class="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm space-y-3">
+        <div class="flex items-center justify-between gap-2 flex-wrap">
+          <div>
+            <h2 class="text-sm font-extrabold text-slate-900">FII vs DII Cash Flows (₹ Cr)</h2>
+            <p id="fiiDiiSubtitle" class="text-[11px] text-slate-500">NSE/BSE Cash Market · Switch Daily, Monthly &amp; Full Year</p>
+          </div>
+          <div class="flex items-center gap-1 bg-slate-100 p-1 rounded-xl">
+            <button type="button" data-fiidii-view="daily" class="fiidii-view-btn px-2.5 py-1 rounded-lg text-[11px] font-bold transition">Daily</button>
+            <button type="button" data-fiidii-view="monthly" class="fiidii-view-btn px-2.5 py-1 rounded-lg text-[11px] font-bold transition">Monthly</button>
+            <button type="button" data-fiidii-view="yearly" class="fiidii-view-btn px-2.5 py-1 rounded-lg text-[11px] font-bold transition">Full Year</button>
+          </div>
+        </div>
+
+        <div id="fiiDiiKpiGrid" class="grid grid-cols-3 gap-2 text-center"></div>
+
+        <div class="h-52 relative w-full">
+          <canvas id="fiiDiiFlowChart"></canvas>
+        </div>
+
+        <div id="fiiDiiRowsList" class="divide-y divide-slate-100 text-xs max-h-56 overflow-y-auto"></div>
+      </div>
+
       <div class="bg-slate-900 text-white rounded-2xl p-4 shadow-sm">
         <div class="flex items-start justify-between gap-3">
           <div>
@@ -314,11 +337,16 @@
         <div class="flex items-center justify-between gap-2">
           <div>
             <h2 class="text-sm font-bold text-slate-900">Where Big Investors Are Buying</h2>
-            <p class="text-xs text-slate-500">Net FPI Equity Flows (₹ Crore)</p>
+            <p id="sectorFlowSubtitle" class="text-xs text-slate-500">Net FPI Equity Flows (₹ Crore) · NSDL/CDSL Fortnightly &amp; Monthly</p>
           </div>
           <select id="flowPeriodSelect" class="text-xs font-semibold bg-slate-100 border border-slate-200 rounded-lg px-2.5 py-1.5 text-slate-700 focus:outline-none">
-            <option value="nov">Nov 1–15, 2026</option>
-            <option value="oct">Oct 16–31, 2026</option>
+            <option value="daily_pulse">Daily Sector Pulse (% Chg)</option>
+            <option value="nov" selected>Nov 1–15, 2026 (Fortnight)</option>
+            <option value="oct">Oct 16–31, 2026 (Fortnight)</option>
+            <option value="rolling30">Last 30 Days (Oct 16–Nov 15)</option>
+            <option value="oct_full">Oct 2026 (Full Month)</option>
+            <option value="sep_full">Sep 2026 (Full Month)</option>
+            <option value="ytd2026">2026 Multi-Month (FY27 YTD)</option>
           </select>
         </div>
         <div class="relative h-72 w-full">
@@ -1200,17 +1228,17 @@
 
       // ==================== VERIFIED GROUNDED DATA (NOV 2026) ====================
       const SECTOR_FLOWS = [
-        { sector: 'Financial Services', novFlow: 43102, octFlow: -883, hasStocks: true, note: '51.1% of all Nov 1–15 FPI buying' },
-        { sector: 'Telecommunication', novFlow: 7570, octFlow: 11065, hasStocks: true, note: 'Steady foreign accumulation' },
-        { sector: 'Automobiles', novFlow: 7551, octFlow: -1098, hasStocks: true, note: 'Sharp ₹8,649 Cr fortnightly swing' },
-        { sector: 'Consumer Services', novFlow: 6519, octFlow: -662, hasStocks: true, note: 'Domestic demand turnaround' },
-        { sector: 'Information Technology', novFlow: 5080, octFlow: 10915, hasStocks: true, note: 'Continued net buying' },
-        { sector: 'FMCG', novFlow: 3042, octFlow: -1559, hasStocks: true, note: 'Reversed October outflows' },
-        { sector: 'Construction', novFlow: 2929, octFlow: -516, hasStocks: true, note: 'Capex & infra EPC inflows' },
-        { sector: 'Oil & Gas', novFlow: 2036, octFlow: -970, hasStocks: true, note: 'Benefiting from lower crude' },
-        { sector: 'Healthcare', novFlow: 998, octFlow: -57, hasStocks: true, note: 'Turned positive on US specialty' },
-        { sector: 'Power', novFlow: 705, octFlow: -765, hasStocks: true, note: 'Renewables & grid expansion' },
-        { sector: 'Capital Goods', displayLabel: 'Capital Goods & Defence', novFlow: -3781, octFlow: -825, hasStocks: true, note: 'CDSL groups Defence (HAL, BEL) under Capital Goods · FPI profit-booking; DIIs accumulating' }
+        { sector: 'Financial Services', novFlow: 43102, octFlow: -883, octFull: -12205, sepFull: -13147, ytdFlow: -28636, hasStocks: true, note: '51.1% of all Nov 1–15 FPI buying; reversed Apr–Oct outflows' },
+        { sector: 'Telecommunication', novFlow: 7570, octFlow: 11065, octFull: 7135, sepFull: -3414, ytdFlow: 43545, hasStocks: true, note: 'Strongest 2026 cumulative FPI inflows (+₹43,545 Cr)' },
+        { sector: 'Automobiles', novFlow: 7551, octFlow: -1098, octFull: -7631, sepFull: -6212, ytdFlow: -27245, hasStocks: true, note: 'Sharp ₹8,649 Cr fortnightly reversal after FY27 selling' },
+        { sector: 'Consumer Services', novFlow: 6519, octFlow: -662, octFull: -1850, sepFull: 2333, ytdFlow: 8420, hasStocks: true, note: 'Steady domestic demand & new-age retail accumulation' },
+        { sector: 'Information Technology', novFlow: 5080, octFlow: 10915, octFull: 13514, sepFull: -998, ytdFlow: -9190, hasStocks: true, note: 'Strong Oct–Nov turnaround (+₹18,594 Cr) after Jan–Sep selling' },
+        { sector: 'FMCG', novFlow: 3042, octFlow: -1559, octFull: -9731, sepFull: -3000, ytdFlow: -24549, hasStocks: true, note: 'Reversed 7-month selling streak in Nov 1–15' },
+        { sector: 'Construction', novFlow: 2929, octFlow: -516, octFull: -1620, sepFull: -1450, ytdFlow: -3210, hasStocks: true, note: 'Capex & infra EPC inflows picking up in Nov' },
+        { sector: 'Oil & Gas', novFlow: 2036, octFlow: -970, octFull: -4120, sepFull: -6854, ytdFlow: -14890, hasStocks: true, note: 'Benefiting from softer crude oil prices' },
+        { sector: 'Healthcare', novFlow: 998, octFlow: -57, octFull: -420, sepFull: 2117, ytdFlow: 4950, hasStocks: true, note: 'Defensive pharma & US specialty inflows' },
+        { sector: 'Power', novFlow: 705, octFlow: -765, octFull: -2140, sepFull: -1820, ytdFlow: -5640, hasStocks: true, note: 'Renewables & grid expansion theme' },
+        { sector: 'Capital Goods', displayLabel: 'Capital Goods & Defence', novFlow: -3781, octFlow: -825, octFull: -2490, sepFull: -1680, ytdFlow: -8950, hasStocks: true, note: 'CDSL groups Defence (HAL, BEL) under Capital Goods · FPI profit-booking; DIIs accumulating' }
       ];
 
       const DEFAULT_NEWS = [
@@ -2161,6 +2189,16 @@
           .replace(/"/g, '&quot;');
       }
 
+      function getSectorPeriodValue(s, period) {
+        if (!s) return 0;
+        if (period === 'oct') return s.octFlow || 0;
+        if (period === 'rolling30') return (s.novFlow || 0) + (s.octFlow || 0);
+        if (period === 'oct_full') return s.octFull ?? s.octFlow ?? 0;
+        if (period === 'sep_full') return s.sepFull ?? 0;
+        if (period === 'ytd2026') return s.ytdFlow ?? 0;
+        return s.novFlow || 0;
+      }
+
       function getSectorFlow(sectorName) {
         const match = SECTOR_FLOWS.find((s) => s.sector === sectorName);
         return match ? match.novFlow : 0;
@@ -2262,6 +2300,18 @@
 
       // ==================== CHART INSTANCES ====================
       let sectorFlowChart = null;
+      let fiiDiiChart = null;
+      let fiiDiiView = 'daily';
+      let liveSectorPulse = [
+        { sector: 'Information Technology', displayLabel: 'Nifty IT', chg: 1.69, note: '31,850.80 · TCS +3.53%, TechM +1.79%, HCL +1.48%' },
+        { sector: 'Healthcare', displayLabel: 'Nifty Pharma', chg: -0.35, note: '28,288.85 · Defensive outperformance' },
+        { sector: 'FMCG', displayLabel: 'Nifty FMCG', chg: -0.46, note: '48,312.55 · ITC +0.64%' },
+        { sector: 'Consumer Services', displayLabel: 'Nifty Midcap 100', chg: -1.01, note: '61,403.20 · Broader midcap index' },
+        { sector: 'Construction', displayLabel: 'Nifty 500', chg: -1.41, note: '23,748.15 · Broad NSE 500 market' },
+        { sector: 'Automobiles', displayLabel: 'Nifty 50 Benchmark', chg: -1.75, note: '25,349.65 · Headline benchmark' },
+        { sector: 'Financial Services', displayLabel: 'Nifty Bank', chg: -3.17, note: '62,585.35 · Profit-booking after record high' }
+      ];
+      let sectorPulseDate = '23 Nov 2026';
       let planAllocationChart = null;
       let sipGrowthChart = null;
       let goalAllocationChart = null;
@@ -2276,9 +2326,23 @@
       function renderSectorFlowChart() {
         const canvas = document.getElementById('sectorFlowChart');
         if (!canvas || typeof Chart === 'undefined') return;
-        const isNov = state.flowPeriod === 'nov';
-        const labels = SECTOR_FLOWS.map((s) => s.displayLabel || s.sector);
-        const values = SECTOR_FLOWS.map((s) => (isNov ? s.novFlow : s.octFlow));
+        const isPulse = state.flowPeriod === 'daily_pulse';
+        const subEl = document.getElementById('sectorFlowSubtitle');
+        if (subEl) {
+          subEl.textContent = isPulse
+            ? ('Daily NSE Sectoral Index Move (% Chg · ' + sectorPulseDate + ')')
+            : 'Net FPI Equity Flows (₹ Crore) · NSDL/CDSL Fortnightly & Monthly';
+        }
+        let labels = [], values = [];
+        if (isPulse) {
+          const sortedPulse = [...liveSectorPulse].sort((a, b) => (b.chg || 0) - (a.chg || 0));
+          labels = sortedPulse.map((s) => s.displayLabel || s.sector);
+          values = sortedPulse.map((s) => Number(s.chg || 0));
+        } else {
+          const sortedFlows = [...SECTOR_FLOWS].sort((a, b) => getSectorPeriodValue(b, state.flowPeriod) - getSectorPeriodValue(a, state.flowPeriod));
+          labels = sortedFlows.map((s) => s.displayLabel || s.sector);
+          values = sortedFlows.map((s) => getSectorPeriodValue(s, state.flowPeriod));
+        }
         const colors = values.map((v) => (v >= 0 ? '#059669' : '#DC2626'));
 
         if (sectorFlowChart) { sectorFlowChart.destroy(); sectorFlowChart = null; }
@@ -2287,7 +2351,7 @@
           data: {
             labels,
             datasets: [{
-              label: isNov ? 'Nov 1–15 Net Flow (₹ Cr)' : 'Oct 16–31 Net Flow (₹ Cr)',
+              label: isPulse ? ('1D Sector Move (%) · ' + sectorPulseDate) : ({ nov: 'Nov 1–15 Net Flow (₹ Cr)', oct: 'Oct 16–31 Net Flow (₹ Cr)', rolling30: 'Last 30 Days Net Flow (₹ Cr)', oct_full: 'Oct 2026 Full Month (₹ Cr)', sep_full: 'Sep 2026 Full Month (₹ Cr)', ytd2026: '2026 Cumulative Flow (₹ Cr)' }[state.flowPeriod] || 'Net Flow (₹ Cr)'),
               data: values,
               backgroundColor: colors,
               borderRadius: 6,
@@ -2532,11 +2596,175 @@
         }).join('');
       }
 
+      // Verified 2026 NSE/BSE Provisional Cash Market FII & DII Flows (₹ Cr)
+      let fiiDiiDailyData = [
+        { date: '23 Nov', fii: 5673, dii: -2760 },
+        { date: '20 Nov', fii: 10308, dii: -4860 },
+        { date: '19 Nov', fii: 7411, dii: -1357 },
+        { date: '18 Nov', fii: 5867, dii: -3160 },
+        { date: '17 Nov', fii: 4195, dii: 197 },
+        { date: '16 Nov', fii: 4865, dii: -3519 },
+        { date: '13 Nov', fii: 5737, dii: -2254 }
+      ];
+      const fiiDiiMonthly2026 = [
+        { label: 'Jan 26', fii: -41435, dii: 69221 },
+        { label: 'Feb 26', fii: -6641, dii: 38423 },
+        { label: 'Mar 26', fii: -122540, dii: 142960 },
+        { label: 'Apr 26', fii: -70135, dii: 51064 },
+        { label: 'May 26', fii: -55963, dii: 82669 },
+        { label: 'Jun 26', fii: -49029, dii: 85800 },
+        { label: 'Jul 26', fii: -5779, dii: 35099 },
+        { label: 'Aug 26', fii: -7532, dii: 58268 },
+        { label: 'Sep 26', fii: -44013, dii: 76030 },
+        { label: 'Oct 26', fii: -45162, dii: 62220 },
+        { label: 'Nov 26*', fii: 103873, dii: -57878 }
+      ];
+
+      function fmtCr(val) {
+        const n = Math.round(Number(val) || 0);
+        return (n >= 0 ? '+₹' : '-₹') + Math.abs(n).toLocaleString('en-IN') + ' Cr';
+      }
+
+      function renderFiiDiiSection() {
+        document.querySelectorAll('.fiidii-view-btn').forEach((btn) => {
+          const active = btn.dataset.fiidiiView === fiiDiiView;
+          btn.classList.toggle('bg-slate-900', active);
+          btn.classList.toggle('text-white', active);
+          btn.classList.toggle('text-slate-600', !active);
+        });
+
+        const kpiEl = document.getElementById('fiiDiiKpiGrid');
+        const rowsEl = document.getElementById('fiiDiiRowsList');
+        const subEl = document.getElementById('fiiDiiSubtitle');
+        if (!kpiEl || !rowsEl) return;
+
+        let chartLabels = [];
+        let fiiSeries = [];
+        let diiSeries = [];
+        let kpiFii = 0, kpiDii = 0, kpiLabel = '';
+        let tableRows = [];
+
+        if (fiiDiiView === 'daily') {
+          const ordered = [...fiiDiiDailyData].reverse();
+          chartLabels = ordered.map((d) => d.date);
+          fiiSeries = ordered.map((d) => d.fii);
+          diiSeries = ordered.map((d) => d.dii);
+          const latest = fiiDiiDailyData[0] || { date: 'Latest', fii: 0, dii: 0 };
+          kpiFii = latest.fii;
+          kpiDii = latest.dii;
+          kpiLabel = latest.date;
+          if (subEl) subEl.textContent = 'Last ' + fiiDiiDailyData.length + ' trading sessions · NSE/BSE Cash Provisional';
+          tableRows = fiiDiiDailyData.map((d) => ({ period: d.date + ' 2026', fii: d.fii, dii: d.dii }));
+        } else if (fiiDiiView === 'monthly') {
+          chartLabels = fiiDiiMonthly2026.map((m) => m.label);
+          fiiSeries = fiiDiiMonthly2026.map((m) => m.fii);
+          diiSeries = fiiDiiMonthly2026.map((m) => m.dii);
+          const cur = fiiDiiMonthly2026[fiiDiiMonthly2026.length - 1];
+          kpiFii = cur.fii;
+          kpiDii = cur.dii;
+          kpiLabel = cur.label;
+          if (subEl) subEl.textContent = 'Month-by-month CY 2026 (Jan – Nov* MTD) · Cash Market';
+          tableRows = [...fiiDiiMonthly2026].reverse().map((m) => ({ period: m.label, fii: m.fii, dii: m.dii }));
+        } else {
+          // Full Year 2026 (Quarterly Breakdown + Full-Year YTD Totals)
+          const qData = [
+            { period: 'Q1 2026 (Jan–Mar)', fii: fiiDiiMonthly2026.slice(0, 3).reduce((a, b) => a + b.fii, 0), dii: fiiDiiMonthly2026.slice(0, 3).reduce((a, b) => a + b.dii, 0) },
+            { period: 'Q2 2026 (Apr–Jun)', fii: fiiDiiMonthly2026.slice(3, 6).reduce((a, b) => a + b.fii, 0), dii: fiiDiiMonthly2026.slice(3, 6).reduce((a, b) => a + b.dii, 0) },
+            { period: 'Q3 2026 (Jul–Sep)', fii: fiiDiiMonthly2026.slice(6, 9).reduce((a, b) => a + b.fii, 0), dii: fiiDiiMonthly2026.slice(6, 9).reduce((a, b) => a + b.dii, 0) },
+            { period: 'Q4 2026* (Oct–Nov)', fii: fiiDiiMonthly2026.slice(9).reduce((a, b) => a + b.fii, 0), dii: fiiDiiMonthly2026.slice(9).reduce((a, b) => a + b.dii, 0) }
+          ];
+          chartLabels = ['Q1 26', 'Q2 26', 'Q3 26', 'Q4 26*'];
+          fiiSeries = qData.map((q) => q.fii);
+          diiSeries = qData.map((q) => q.dii);
+          kpiFii = fiiDiiMonthly2026.reduce((a, b) => a + b.fii, 0);
+          kpiDii = fiiDiiMonthly2026.reduce((a, b) => a + b.dii, 0);
+          kpiLabel = 'CY 2026 YTD';
+          if (subEl) subEl.textContent = 'Full-Year 2026 YTD (Jan – 23 Nov 2026) · Quarterly Breakdown';
+          tableRows = [...qData, { period: 'Total CY 2026 YTD', fii: kpiFii, dii: kpiDii }];
+        }
+
+        const comb = kpiFii + kpiDii;
+        kpiEl.innerHTML = `
+          <div class="rounded-xl bg-slate-50 border border-slate-200 p-2">
+            <span class="text-[10px] font-semibold text-slate-500 block">FII (${escapeHtml(kpiLabel)})</span>
+            <strong class="text-xs font-extrabold ${kpiFii >= 0 ? 'text-emerald-700' : 'text-rose-700'}">${fmtCr(kpiFii)}</strong>
+          </div>
+          <div class="rounded-xl bg-slate-50 border border-slate-200 p-2">
+            <span class="text-[10px] font-semibold text-slate-500 block">DII (${escapeHtml(kpiLabel)})</span>
+            <strong class="text-xs font-extrabold ${kpiDii >= 0 ? 'text-emerald-700' : 'text-rose-700'}">${fmtCr(kpiDii)}</strong>
+          </div>
+          <div class="rounded-xl bg-slate-50 border border-slate-200 p-2">
+            <span class="text-[10px] font-semibold text-slate-500 block">Combined Net</span>
+            <strong class="text-xs font-extrabold ${comb >= 0 ? 'text-emerald-700' : 'text-rose-700'}">${fmtCr(comb)}</strong>
+          </div>
+        `;
+
+        rowsEl.innerHTML = tableRows.map((r) => {
+          const net = r.fii + r.dii;
+          const isTotal = r.period.startsWith('Total');
+          return `
+            <div class="flex items-center justify-between py-2 gap-1 ${isTotal ? 'font-extrabold bg-slate-50 px-2 rounded-lg' : ''}">
+              <span class="font-semibold text-slate-700 truncate">${escapeHtml(r.period)}</span>
+              <div class="flex items-center gap-2 shrink-0 text-[11px]">
+                <span class="${r.fii >= 0 ? 'text-emerald-700' : 'text-rose-700'} font-bold">FII ${fmtCr(r.fii).replace(' Cr', '')}</span>
+                <span class="${r.dii >= 0 ? 'text-blue-700' : 'text-amber-700'} font-bold">DII ${fmtCr(r.dii).replace(' Cr', '')}</span>
+              </div>
+            </div>
+          `;
+        }).join('');
+
+        const canvas = document.getElementById('fiiDiiFlowChart');
+        if (!canvas || typeof Chart === 'undefined') return;
+        if (fiiDiiChart) { fiiDiiChart.destroy(); fiiDiiChart = null; }
+        fiiDiiChart = new Chart(canvas.getContext('2d'), {
+          type: 'bar',
+          data: {
+            labels: chartLabels,
+            datasets: [
+              { label: 'FII Net (₹ Cr)', data: fiiSeries, backgroundColor: '#10B981', borderRadius: 4 },
+              { label: 'DII Net (₹ Cr)', data: diiSeries, backgroundColor: '#3B82F6', borderRadius: 4 }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { position: 'bottom', labels: { color: getChartTextColor(), boxWidth: 10, font: { size: 10 } } }
+            },
+            scales: {
+              x: { ticks: { color: getChartTextColor(), font: { size: 9 } }, grid: { display: false } },
+              y: { ticks: { color: getChartTextColor(), font: { size: 9 } }, grid: { color: getChartGridColor() } }
+            }
+          }
+        });
+      }
+
       function renderFlowsTab() {
+        renderFiiDiiSection();
         renderSectorFlowChart();
         const container = document.getElementById('sectorFlowCards');
+        if (state.flowPeriod === 'daily_pulse') {
+          const sortedPulse = [...liveSectorPulse].sort((a, b) => (b.chg || 0) - (a.chg || 0));
+          container.innerHTML = sortedPulse.map((s) => {
+            const val = Number(s.chg || 0);
+            const isPos = val >= 0;
+            return `
+              <div class="bg-white rounded-2xl border border-slate-200 p-3.5 shadow-sm flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center justify-between gap-2">
+                    <h4 class="text-xs font-bold text-slate-900">${escapeHtml(s.displayLabel || s.sector)}</h4>
+                    <span class="text-xs font-extrabold ${isPos ? 'text-emerald-600' : 'text-rose-600'}">${isPos ? '+' : ''}${val.toFixed(2)}%</span>
+                  </div>
+                  <p class="text-[11px] text-slate-500 mt-1">${escapeHtml(s.note || 'Daily NSE Sectoral Index')}</p>
+                </div>
+                <button type="button" data-jump-sector="${escapeHtml(s.sector)}" class="mt-2 w-full py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-[11px] font-semibold transition">Screen ${escapeHtml(s.sector)} Stocks →</button>
+              </div>
+            `;
+          }).join('');
+          return;
+        }
         container.innerHTML = SECTOR_FLOWS.map((s) => {
-          const val = state.flowPeriod === 'nov' ? s.novFlow : s.octFlow;
+          const val = getSectorPeriodValue(s, state.flowPeriod);
           const isPos = val >= 0;
           const flowText = (isPos ? '+₹' : '-₹') + Math.abs(val).toLocaleString('en-IN') + ' Cr';
           const actionBtn = s.hasStocks
@@ -2810,9 +3038,9 @@
                     : '<span class="px-1.5 py-0.5 rounded-md text-[10px] font-bold bg-sky-50 text-sky-700">NSE</span>';
                 return `
                   <div class="bg-white rounded-2xl border border-slate-200 px-3.5 py-3 shadow-sm flex items-center justify-between gap-2.5">
-                    <div class="min-w-0 flex-1">
+                    <div data-preview-nse-sym="${escapeHtml(keySym)}" role="button" tabindex="0" class="min-w-0 flex-1 cursor-pointer group">
                       <div class="flex items-center gap-1.5 flex-wrap">
-                        <span class="text-xs font-extrabold text-slate-900">${escapeHtml(keySym)}</span>
+                        <span class="text-xs font-extrabold text-slate-900 group-hover:text-emerald-700 transition">${escapeHtml(keySym)} <span class="text-slate-400 font-semibold">›</span></span>
                         ${exchBadge}
                         ${item.bse ? `<span class="text-[10px] font-mono text-slate-400">BSE:${escapeHtml(item.bse)}</span>` : ''}
                         <span class="px-1.5 py-0.5 rounded-md text-[10px] font-bold ${chgColor}">${chgSign}${chgVal.toFixed(2)}%</span>
@@ -2891,10 +3119,10 @@
 
           return `
             <div class="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm space-y-3">
-              <div class="flex items-start justify-between gap-2">
+              <div data-open-detail="${escapeHtml(s.id)}" role="button" tabindex="0" class="flex items-start justify-between gap-2 cursor-pointer group">
                 <div class="min-w-0">
                   <div class="flex items-center gap-1.5 flex-wrap">
-                    <h3 class="text-sm font-extrabold text-slate-900">${escapeHtml(s.name)}</h3>
+                    <h3 class="text-sm font-extrabold text-slate-900 group-hover:text-emerald-700 transition">${escapeHtml(s.name)} <span class="text-slate-400 font-semibold text-xs">›</span></h3>
                     <span class="text-[10px] font-bold px-2 py-0.5 rounded-full border ${scoreBadge}">Score ${s.score}/100</span>
                     ${h ? '<span class="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-emerald-600 text-white">Invested</span>' : ''}
                     ${hasAlert ? '<span class="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-amber-50 text-amber-700 border border-amber-200">Alert</span>' : ''}
@@ -3844,33 +4072,49 @@
         bar.innerHTML = unitHtml + unitHtml;
       }
 
-      function renderStockHistoryChart(stock) {
+      let currentDetailStock = null;
+      let stockChartRange = '1Y';
+
+      function renderStockHistoryChart(stock, range) {
+        if (!stock) return;
+        currentDetailStock = stock;
+        if (range) stockChartRange = range;
+        document.querySelectorAll('.stock-chart-range-btn').forEach((btn) => {
+          const active = btn.dataset.chartRange === stockChartRange;
+          btn.classList.toggle('bg-slate-900', active);
+          btn.classList.toggle('text-white', active);
+          btn.classList.toggle('bg-slate-100', !active);
+          btn.classList.toggle('text-slate-600', !active);
+        });
         const canvas = document.getElementById('stockHistoryChart');
         if (!canvas || typeof Chart === 'undefined') return;
         if (stockHistoryChartInstance) { stockHistoryChartInstance.destroy(); stockHistoryChartInstance = null; }
 
         const hist = liveStockHistory[stock.nse];
-        let labels = [];
-        let prices = [];
+        let fullLabels = [];
+        let fullPrices = [];
         if (hist && Array.isArray(hist.dates) && hist.dates.length >= 6) {
-          labels = hist.dates;
-          prices = hist.closes;
+          fullLabels = hist.dates;
+          fullPrices = hist.closes;
         } else {
-          // Smooth 12-point 52W-anchored reference curve when offline
           const months = ['Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov'];
           const lo = stock.low52 || stock.cmp * 0.8;
           const hi = stock.high52 || stock.cmp * 1.2;
           const mid = (lo + hi) / 2;
-          labels = months;
-          prices = [
+          fullLabels = months;
+          fullPrices = [
             Number((lo * 1.04).toFixed(1)), Number((lo * 1.12).toFixed(1)), Number((mid * 0.96).toFixed(1)),
             Number((mid * 1.02).toFixed(1)), Number((hi * 0.92).toFixed(1)), Number((hi * 0.97).toFixed(1)),
             Number((hi * 0.99).toFixed(1)), Number((mid * 1.04).toFixed(1)), Number((mid * 0.98).toFixed(1)),
             Number(((stock.cmp + mid) / 2).toFixed(1)), Number((stock.cmp * 1.015).toFixed(1)), Number(stock.cmp.toFixed(1))
           ];
         }
-        const dma50 = hist && hist.dma50 ? hist.dma50 : Number((prices.slice(-4).reduce((a, b) => a + b, 0) / Math.min(4, prices.length)).toFixed(1));
-        const dma200 = hist && hist.dma200 ? hist.dma200 : Number((prices.reduce((a, b) => a + b, 0) / prices.length).toFixed(1));
+        const sliceCount = stockChartRange === '3M' ? Math.max(4, Math.ceil(fullPrices.length * 0.30))
+          : (stockChartRange === '6M' ? Math.max(6, Math.ceil(fullPrices.length * 0.55)) : fullPrices.length);
+        const labels = fullLabels.slice(-sliceCount);
+        const prices = fullPrices.slice(-sliceCount);
+        const dma50 = hist && hist.dma50 ? hist.dma50 : Number((fullPrices.slice(-4).reduce((a, b) => a + b, 0) / Math.min(4, fullPrices.length)).toFixed(1));
+        const dma200 = hist && hist.dma200 ? hist.dma200 : Number((fullPrices.reduce((a, b) => a + b, 0) / fullPrices.length).toFixed(1));
 
         stockHistoryChartInstance = new Chart(canvas.getContext('2d'), {
           type: 'line',
@@ -4297,6 +4541,23 @@
             <p class="text-[11px] text-slate-300">52-Week Range: ${formatINR(stock.low52)} – ${formatINR(stock.high52)} · Mkt Cap: ₹${Number(stock.mcapCr || 0).toLocaleString('en-IN')} Cr</p>
           </div>
 
+          <!-- Interactive Price & 50/200-DMA Chart (Top of Modal) -->
+          <div class="rounded-2xl bg-white border border-slate-200 p-3.5 space-y-2.5 shadow-sm">
+            <div class="flex items-center justify-between gap-2 flex-wrap">
+              <div>
+                <h4 class="text-xs font-extrabold text-slate-900">Price Trend · 50 &amp; 200-DMA</h4>
+                <span class="text-[10px] font-semibold text-indigo-700">${escapeHtml(corpBadge)}</span>
+              </div>
+              <div class="flex items-center gap-1">
+                <button type="button" data-chart-range="3M" class="stock-chart-range-btn px-2 py-1 rounded-lg text-[10px] font-bold transition">3M</button>
+                <button type="button" data-chart-range="6M" class="stock-chart-range-btn px-2 py-1 rounded-lg text-[10px] font-bold transition">6M</button>
+                <button type="button" data-chart-range="1Y" class="stock-chart-range-btn px-2 py-1 rounded-lg text-[10px] font-bold transition">1Y</button>
+                <a href="https://www.tradingview.com/chart/?symbol=${encodeURIComponent((stock.nse && stock.nse !== stock.bse ? 'NSE:' + stock.nse : 'BSE:' + (stock.bse || stock.nse)))}" target="_blank" rel="noopener noreferrer" class="ml-1 px-2 py-1 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 text-[10px] font-bold whitespace-nowrap">Live Candles ↗</a>
+              </div>
+            </div>
+            <div class="h-48 relative w-full"><canvas id="stockHistoryChart"></canvas></div>
+          </div>
+
           <!-- Post-Tax & Brokerage Breakdown -->
           <div class="rounded-2xl bg-slate-50 border border-slate-200 p-3.5 space-y-2">
             <div class="flex items-center justify-between">
@@ -4366,17 +4627,14 @@
             </div>
           </div>
         
-          <div class="rounded-2xl bg-white border border-slate-200 p-3.5 space-y-2">
-            <div class="flex items-center justify-between gap-2">
-              <h4 class="text-xs font-bold text-slate-900">1-Year Price Trend · 50 &amp; 200-DMA</h4>
-              <span class="text-[10px] font-semibold text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded-full">${escapeHtml(corpBadge)}</span>
-            </div>
-            <div class="h-44 relative"><canvas id="stockHistoryChart"></canvas></div>
-          </div>
+
         `;
 
-        document.getElementById('stockDetailModal').classList.remove('hidden');
-        setTimeout(() => renderStockHistoryChart(stock), 40);
+        const modalEl = document.getElementById('stockDetailModal');
+        modalEl.classList.remove('hidden');
+        const sheet = modalEl.querySelector('.overflow-y-auto');
+        if (sheet) sheet.scrollTop = 0;
+        requestAnimationFrame(() => setTimeout(() => renderStockHistoryChart(stock, '1Y'), 40));
         if (typeof lucide !== 'undefined' && lucide.createIcons) lucide.createIcons();
       }
 
@@ -4514,6 +4772,7 @@
 
       // Flows period
       document.getElementById('flowPeriodSelect').addEventListener('change', (e) => { state.flowPeriod = e.target.value; renderFlowsTab(); });
+      document.querySelectorAll('.fiidii-view-btn').forEach((btn) => btn.addEventListener('click', () => { fiiDiiView = btn.dataset.fiidiiView; renderFiiDiiSection(); }));
 
       // Stocks filters, tax mode, brokerage & custom rules
       document.getElementById('stockSearchInput').addEventListener('input', (e) => { state.searchQuery = e.target.value; renderStocksTab(); });
@@ -4936,6 +5195,48 @@
           renderStocksTab();
           return;
         }
+        const rangeBtn = e.target.closest('.stock-chart-range-btn');
+        if (rangeBtn && currentDetailStock) {
+          renderStockHistoryChart(currentDetailStock, rangeBtn.dataset.chartRange);
+          return;
+        }
+        const previewBtn = e.target.closest('[data-preview-nse-sym]');
+        if (previewBtn) {
+          const sym = previewBtn.dataset.previewNseSym;
+          let stock = state.stocks.find((s) => s.nse.toUpperCase() === sym.toUpperCase() || s.bse === sym);
+          if (stock) {
+            openStockDetail(stock.id);
+            return;
+          }
+          const entry = nseAllStocks.find((x) => (x.sym || '').toUpperCase() === sym.toUpperCase() || x.bse === sym);
+          if (entry) {
+            const cmp = entry.cmp > 0 ? entry.cmp : 100;
+            const codeKey = entry.sym || entry.bse;
+            const id = 'mkt_' + codeKey.toLowerCase().replace(/[^a-z0-9]/g, '');
+            const tempStock = {
+              id,
+              name: entry.name || codeKey,
+              nse: entry.sym || entry.bse,
+              bse: entry.bse || (entry.exch === 'BSE' ? entry.sym : 'NSE'),
+              sector: entry.exch === 'BSE' ? 'BSE Listed Equity' : 'NSE/BSE Listed Equity',
+              cmp,
+              high52: entry.high > cmp ? entry.high : Number((cmp * 1.18).toFixed(2)),
+              low52: entry.low > 0 && entry.low < cmp ? entry.low : Number((cmp * 0.82).toFixed(2)),
+              mcapCr: 0, pe: 20, divYield: 0, roe: 15, roce: 15,
+              ttmSalesCr: 0, ttmProfitCr: 0, profitCagr3y: 12, debtEquity: 0.3,
+              balanceNote: (entry.exch || 'NSE') + (entry.bse ? ' · BSE ' + entry.bse : ''),
+              orderBookLabel: (entry.exch || 'NSE') + ' Listed Share',
+              orderBookDetail: 'Tap + Track in All NSE & BSE to save to Featured.',
+              hasBigOrderBook: false, isLowDebt: true, fiiPct: 10, diiPct: 10, fcfCr: 0,
+              thesis: 'Live NSE/BSE directory preview.'
+            };
+            // Temporarily pass through openStockDetail via helper
+            state.stocks.push(tempStock);
+            openStockDetail(tempStock.id);
+            state.stocks = state.stocks.filter((s) => s.id !== tempStock.id);
+          }
+          return;
+        }
         const trackBtn = e.target.closest('[data-track-nse-sym]');
         if (trackBtn) {
           const sym = trackBtn.dataset.trackNseSym;
@@ -5205,6 +5506,19 @@
             if (data && Array.isArray(data.dividends) && data.dividends.length > 0) {
               liveDividends = data.dividends;
               dividendsUpdatedAt = data.updated_at_ist || dividendsUpdatedAt;
+            }
+            if (data && data.fii_dii_latest && data.fii_dii_latest.date) {
+              const latest = data.fii_dii_latest;
+              if (!fiiDiiDailyData.some((d) => d.date === latest.date)) {
+                fiiDiiDailyData.unshift({ date: latest.date, fii: Number(latest.fii) || 0, dii: Number(latest.dii) || 0 });
+                fiiDiiDailyData = fiiDiiDailyData.slice(0, 12);
+                if (state.activeTab === 'flows') renderFiiDiiSection();
+              }
+            }
+            if (data && Array.isArray(data.sector_pulse_daily) && data.sector_pulse_daily.length > 0) {
+              liveSectorPulse = data.sector_pulse_daily;
+              sectorPulseDate = (data.updated_at_ist || '').split(',')[0] || sectorPulseDate;
+              if (state.activeTab === 'flows' && state.flowPeriod === 'daily_pulse') renderFlowsTab();
             }
             if (state.activeTab === 'stocks') renderStocksTab();
             else if (state.activeTab === 'plan') renderPlanTab();
