@@ -1,5 +1,5 @@
 {
-  "updated_at_ist": "25 Nov 2026, 03:37 PM IST",
+  "updated_at_ist": "25 Nov 2026, 03:55 PM IST",
   "market_total_listed": 5974,
   "my_holdings": [],
   "prices": {
@@ -248,7 +248,7 @@
     },
     {
       "title": "Who is Balaji Thiagarajan? Meet Flipkart\u2019s new interim CEO as Kalyan Krishnamurthy exits e-commerce giant",
-      "summary": "Balaji Thiagaraj is set to take over as the interim CEO of the Flipkart Group, the company said on Wednesday.",
+      "summary": "Balaji Thiagarajan is set to take over as the interim CEO of the Flipkart Group, the company said on Wednesday.",
       "source": "Livemint Companies",
       "date": "Wed, 25 Nov 2026",
       "url": "https://www.livemint.com/companies/people/who-is-balaji-thiagarajan-meet-flipkart-s-new-interim-ceo-as-kalyan-krishnamurthy-exits-e-commerce-giant-11795547837555.html",
@@ -345,8 +345,8 @@
     },
     {
       "name": "SENSEX",
-      "val": "84,127.87",
-      "chg": 2.05
+      "val": "83,938.28",
+      "chg": 1.82
     },
     {
       "name": "BANK NIFTY",
@@ -1359,5 +1359,56 @@
     "TCS": "Ex-Div: 2026-10-14 \u00b7 Results: 2027-01-11",
     "TITAN": "Ex-Div: 2026-07-09 \u00b7 Results: 2027-02-10"
   },
-  "dividends": []
+  "dividends": [],
+  "fii_dii_latest": null,
+  "sector_pulse_daily": [
+    {
+      "sector": "Financial Services",
+      "displayLabel": "Nifty Bank",
+      "chg": 1.79,
+      "note": "Close 63,703.25 \u00b7 Auto-synced via GitHub Action"
+    },
+    {
+      "sector": "Information Technology",
+      "displayLabel": "Nifty IT",
+      "chg": 1.12,
+      "note": "Close 32,207.55 \u00b7 Auto-synced via GitHub Action"
+    },
+    {
+      "sector": "Automobiles",
+      "displayLabel": "Nifty Auto",
+      "chg": 1.16,
+      "note": "Close 28,821.50 \u00b7 Auto-synced via GitHub Action"
+    },
+    {
+      "sector": "Healthcare",
+      "displayLabel": "Nifty Pharma",
+      "chg": 2.38,
+      "note": "Close 28,961.90 \u00b7 Auto-synced via GitHub Action"
+    },
+    {
+      "sector": "FMCG",
+      "displayLabel": "Nifty FMCG",
+      "chg": 3.79,
+      "note": "Close 50,143.50 \u00b7 Auto-synced via GitHub Action"
+    },
+    {
+      "sector": "Oil & Gas",
+      "displayLabel": "Nifty Energy",
+      "chg": 0.04,
+      "note": "Close 36,669.20 \u00b7 Auto-synced via GitHub Action"
+    },
+    {
+      "sector": "Construction",
+      "displayLabel": "Nifty Infra",
+      "chg": 0.71,
+      "note": "Close 9,598.35 \u00b7 Auto-synced via GitHub Action"
+    },
+    {
+      "sector": "Consumer Services",
+      "displayLabel": "Nifty Consumption",
+      "chg": 1.86,
+      "note": "Close 12,490.60 \u00b7 Auto-synced via GitHub Action"
+    }
+  ]
 }
