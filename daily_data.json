@@ -1,5 +1,5 @@
 {
-  "updated_at_ist": "25 Nov 2026, 08:24 PM IST",
+  "updated_at_ist": "25 Nov 2026, 08:47 PM IST",
   "market_total_listed": 5912,
   "my_holdings": [],
   "prices": {
@@ -121,6 +121,29 @@
   },
   "news": [
     {
+      "title": "Carlyle pares 7.4% stake in Piramal Pharma for over Rs 2,211 crore",
+      "summary": "The Carlyle Group has divested 7.4 percent of its stake in Piramal Pharma through an open market deal, selling approximately 9.86 crore shares at an average rate of Rs 224.17 each. As a result, its stake decreased from 17.93 percent to 10.5",
+      "source": "Economic Times Markets",
+      "date": "Wed, 25 Nov 2026",
+      "url": "https://economictimes.indiatimes.com/markets/stocks/news/carlyle-pares-7-4-stake-in-piramal-pharma-for-over-rs-2211-crore/articleshow/136165837.cms",
+      "sentiment": "Watch",
+      "sectors": [
+        "Healthcare"
+      ]
+    },
+    {
+      "title": "RBI raises share of domestically held gold reserves, data shows",
+      "summary": "As of September, the Reserve Bank of India has expanded its domestic gold reserves to 880.52 metric tonnes. This figure comprises 740.13 metric tonnes held in the country and 140.39 metric tonnes stored internationally. However, the proport",
+      "source": "Economic Times Markets",
+      "date": "Wed, 25 Nov 2026",
+      "url": "https://economictimes.indiatimes.com/markets/forex/forex-news/rbi-raises-share-of-domestically-held-gold-reserves-data-shows/articleshow/136165807.cms",
+      "sentiment": "Watch",
+      "sectors": [
+        "Financial Services",
+        "Automobiles"
+      ]
+    },
+    {
       "title": "Two in five Indian family offices, UHNIs have engaged with crypto amid regulatory caution",
       "summary": "Around 41 percent of high-net-worth investors in India are delving into the world of cryptocurrencies and virtual digital assets, despite many only possessing a fundamental comprehension of this evolving landscape. Regulatory ambiguity pose",
       "source": "Economic Times Markets",
@@ -144,7 +167,7 @@
       ]
     },
     {
-      "title": "US Stock Market Live Updates: Dow Jones plunges 900 pts, Nasdaq over 3% as AI rout intensifies",
+      "title": "US Stock Market Live Updates: Dow Jones plunges 1,000 pts, Nasdaq over 4% as AI rout intensifies",
       "summary": "",
       "source": "Economic Times Markets",
       "date": "Wed, 25 Nov 2026",
@@ -167,27 +190,15 @@
       ]
     },
     {
-      "title": "Sebi mulls early payout of up to 80% of sale proceeds to FPOs in commodity derivatives market",
-      "summary": "Sebi introduced a proposal for an early pay-out framework designed to assist Farmer Producer Organisations. This framework would allow FPOs to access up to 80 percent of sale proceeds before contract expiry. The initiative aims to alleviate",
-      "source": "Economic Times Markets",
+      "title": "Nvidia stock loses momentum after Huang's return as CEO, down another 9%; why are investors dumping AI stocks again?",
+      "summary": "Nvidia shares fell 9% at Wednesday\u2019s open, extending a two-day decline to 14.5% as investors weighed rising AI infrastructure costs, higher borrowing costs, governance uncertainty and potential regulation.&amp;nbsp;",
+      "source": "Livemint Markets",
       "date": "Wed, 25 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/stocks/news/sebi-mulls-early-payout-of-up-to-80-of-sale-proceeds-to-fpos-in-commodity-derivatives-market/articleshow/136162861.cms",
-      "sentiment": "Watch",
+      "url": "https://www.livemint.com/market/stock-market-news/nvidia-stock-loses-momentum-after-huangs-return-as-ceo-down-another-9-why-are-investors-dumping-ai-stocks-again-11795618514162.html",
+      "sentiment": "Bullish",
       "sectors": [
-        "Capital Goods",
-        "Automobiles"
-      ]
-    },
-    {
-      "title": "RBI may opt for 25 bps rate hike as oil eases, inflation risks persist: Baroda BNP Paribas MF CIO",
-      "summary": "The Reserve Bank of India is projected to implement a 0.25 percent interest rate hike in December. While decreasing crude oil prices could alleviate some inflation worries, many senior executives advocate for a measured strategy due to the ",
-      "source": "Economic Times Markets",
-      "date": "Wed, 25 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/stocks/news/rbi-may-opt-for-25-bps-rate-hike-as-oil-eases-inflation-risks-persist-baroda-bnp-paribas-mf-cio/articleshow/136162711.cms",
-      "sentiment": "Caution",
-      "sectors": [
-        "Financial Services",
-        "Automobiles"
+        "Construction",
+        "Information Technology"
       ]
     },
     {
@@ -248,14 +259,48 @@
       ]
     },
     {
-      "title": "Global convulsions, courtesy AI stocks, creates a $385 billion winner \u2014 India",
-      "summary": "The MSCI India index has added nearly $385 billion in value so far in November, as a market long shunned for its lack of AI plays emerges as a bright spot for global investors.",
-      "source": "Livemint Markets",
+      "title": "Anthropic made record $81.3bn in IPO, but where the money is going? why public shareholders have little say?",
+      "summary": "Anthropic's record $81.3 billion IPO and $120 billion fundraising effort have created a massive AI war chest. But early investors, insiders and public shareholders have different stakes in the company.",
+      "source": "Livemint Companies",
       "date": "Wed, 25 Nov 2026",
-      "url": "https://www.livemint.com/market/stock-market-news/india-stock-market-sensex-nifty-today-ai-stocks-11795607301635.html",
-      "sentiment": "Watch",
+      "url": "https://www.livemint.com/companies/anthropic-made-record-81-3bn-in-ipo-but-where-the-money-is-going-why-public-shareholders-have-little-say-11795606790039.html",
+      "sentiment": "Bullish",
       "sectors": [
         "Information Technology"
+      ]
+    },
+    {
+      "title": "Tata Steel open to revisiting APL Apollo deal structure after investor backlash",
+      "summary": "Tata Steel's management is discussing possible changes with APL Apollo after shareholders raised concerns over debt, valuations and the financial implications of the proposed transactions.",
+      "source": "Livemint Companies",
+      "date": "Wed, 25 Nov 2026",
+      "url": "https://www.livemint.com/companies/news/tata-steel-open-to-revisiting-apl-apollo-deal-structure-after-investor-backlash-11795616029618.html",
+      "sentiment": "Watch",
+      "sectors": [
+        "Automobiles"
+      ]
+    },
+    {
+      "title": "Wipro secures over $500 million contract from energy major BP",
+      "summary": "The deal spanning around seven years will bring an average of about $75 million in annual business for Wipro and see 3,000 BP employees move to the IT services company, offering a boost to CEO Srini Pallia\u2019s growth efforts.",
+      "source": "Livemint Companies",
+      "date": "Wed, 25 Nov 2026",
+      "url": "https://www.livemint.com/companies/news/wipro-bags-500-million-contract-from-bp-11795614860412.html",
+      "sentiment": "Bullish",
+      "sectors": [
+        "Information Technology",
+        "Automobiles"
+      ]
+    },
+    {
+      "title": "Air India CEO Tewolde targets  \u20b96,000 crore in savings under \u2018one group\u2019 push",
+      "summary": "The restructuring brings Air India and Air India Express closer through shared back-end functions while keeping their flying permits separate.",
+      "source": "Livemint Companies",
+      "date": "Wed, 25 Nov 2026",
+      "url": "https://www.livemint.com/companies/news/air-india-ceo-tewolde-targets-6-000-crore-in-savings-under-one-group-push-11795615847512.html",
+      "sentiment": "Watch",
+      "sectors": [
+        "Financial Services"
       ]
     },
     {
@@ -278,52 +323,6 @@
       "sentiment": "Watch",
       "sectors": [
         "Financial Services"
-      ]
-    },
-    {
-      "title": "Cognizant in talks to take over parts of S&amp;P Global's Capital IQ ops",
-      "summary": "The deal could transfer about 1,500 employees in data and ops functions of S&amp;amp;P Global's Capital IQ to Cognizant's payroll.&amp;nbsp;",
-      "source": "Livemint Companies",
-      "date": "Wed, 25 Nov 2026",
-      "url": "https://www.livemint.com/companies/news/cognizant-in-talks-to-take-over-parts-of-s-p-globals-capital-iq-ops-11795608689504.html",
-      "sentiment": "Watch",
-      "sectors": [
-        "Financial Services"
-      ]
-    },
-    {
-      "title": "Tech Mahindra CEO Mohit Joshi on the company's next big goal: \u2018Become a world-beating IT company\u2019",
-      "summary": "Joshi said the first three years of the company's transformation were focused on achieving world-class standards and catching up with competitors. However, the company has made progress beyond that objective over the past year and is now lo",
-      "source": "Livemint Companies",
-      "date": "Wed, 25 Nov 2026",
-      "url": "https://www.livemint.com/companies/news/tech-mahindra-ceo-mohit-joshi-on-the-companys-next-big-goal-become-a-world-beating-it-company-11795604349549.html",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Information Technology",
-        "Automobiles"
-      ]
-    },
-    {
-      "title": "GTA VI made $3.79 billion in a day, but who really wins? Why Take-Two isn\u2019t the only one cashing in on the record debut",
-      "summary": "GTA VI generated $3.79 billion in first-day sales, but Take-Two isn't the only winner. Gaming platforms, retailers and GTA Online could also benefit.",
-      "source": "Livemint Companies",
-      "date": "Wed, 25 Nov 2026",
-      "url": "https://www.livemint.com/companies/news/gta-vi-made-3-79-billion-in-a-day-but-who-really-wins-why-take-two-isn-t-the-only-one-cashing-in-on-the-record-debut-11795604645129.html",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Consumer Services"
-      ]
-    },
-    {
-      "title": "Mint Explainer | What Huang's return says about founder-led power",
-      "summary": "Nvidia founder Jensen Huang\u2019s return has raised concerns around the power that singular individuals wield on specific industries. What are the challenges behind such founder-led power?",
-      "source": "Livemint Companies",
-      "date": "Wed, 25 Nov 2026",
-      "url": "https://www.livemint.com/companies/explainer-does-huang-s-return-prove-a-new-league-of-tech-leaders-11795598781662.html",
-      "sentiment": "Watch",
-      "sectors": [
-        "Capital Goods",
-        "Power"
       ]
     },
     {
