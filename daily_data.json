@@ -1,318 +1,315 @@
 {
-  "updated_at_ist": "25 Nov 2026, 09:21 AM IST",
+  "updated_at_ist": "25 Nov 2026, 02:17 PM IST",
   "market_total_listed": 5974,
   "my_holdings": [],
   "prices": {
     "BAJFINANCE": {
-      "cmp": 1126.0,
+      "cmp": 1125.05,
       "high52": 1176.4,
       "low52": 783.09
     },
     "BEL": {
-      "cmp": 398.2,
+      "cmp": 402.6,
       "high52": 472.81,
       "low52": 354.55
     },
     "BHARTIARTL": {
-      "cmp": 2139.4,
+      "cmp": 2123.8,
       "high52": 2172.9,
       "low52": 1718.87
     },
     "GOLDBEES": {
-      "cmp": 101.0,
+      "cmp": 100.45,
       "high52": 148.14,
-      "low52": 100.11
+      "low52": 99.9
     },
     "HAL": {
-      "cmp": 4797.1,
+      "cmp": 4892.6,
       "high52": 5149.9,
       "low52": 3472.06
     },
     "HCLTECH": {
-      "cmp": 1380.0,
+      "cmp": 1371.2,
       "high52": 1713.75,
       "low52": 1010.59
     },
     "HDFCBANK": {
-      "cmp": 844.3,
+      "cmp": 844.25,
       "high52": 1000.94,
       "low52": 669.2
     },
     "HINDUNILVR": {
-      "cmp": 2038.9,
+      "cmp": 2126.0,
       "high52": 2439.81,
       "low52": 1741.68
     },
     "ICICIBANK": {
-      "cmp": 1641.0,
-      "high52": 1645.0,
+      "cmp": 1635.4,
+      "high52": 1650.0,
       "low52": 1177.67
     },
     "INFY": {
-      "cmp": 1138.9,
+      "cmp": 1125.3,
       "high52": 1653.52,
       "low52": 958.44
     },
     "ITC": {
-      "cmp": 304.3,
+      "cmp": 310.25,
       "high52": 390.46,
       "low52": 252.8
     },
     "LT": {
-      "cmp": 4134.0,
+      "cmp": 4153.0,
       "high52": 4397.05,
       "low52": 3256.29
     },
     "M&M": {
-      "cmp": 3464.1,
+      "cmp": 3482.6,
       "high52": 3799.99,
       "low52": 2744.3
     },
     "MARUTI": {
-      "cmp": 14235.0,
+      "cmp": 14119.0,
       "high52": 17197.29,
       "low52": 10985.0
     },
     "NTPC": {
-      "cmp": 316.0,
+      "cmp": 315.1,
       "high52": 406.09,
       "low52": 289.28
     },
     "RELIANCE": {
-      "cmp": 1370.6,
+      "cmp": 1370.8,
       "high52": 1604.38,
       "low52": 1152.2
     },
     "RVNL": {
-      "cmp": 188.45,
+      "cmp": 184.42,
       "high52": 398.2,
       "low52": 177.86
     },
     "SBIN": {
-      "cmp": 1145.25,
+      "cmp": 1138.55,
       "high52": 1212.84,
       "low52": 927.73
     },
     "SUNPHARMA": {
-      "cmp": 1864.0,
+      "cmp": 1881.9,
       "high52": 2046.9,
       "low52": 1569.37
     },
     "TCS": {
-      "cmp": 2505.0,
+      "cmp": 2495.0,
       "high52": 3269.78,
       "low52": 1955.62
     },
     "TITAN": {
-      "cmp": 4629.5,
+      "cmp": 4650.2,
       "high52": 5186.7,
       "low52": 3738.73
     }
   },
   "news": [
     {
-      "title": "Gold Silver Rates Live Updates: Gold falls over 2% as rate hike bets rise; silver edges lower",
-      "summary": "",
+      "title": "Why are investors betting on Abercrombie's growth story?",
+      "summary": "Abercrombie &amp; Fitch shares surged 22% after record third-quarter sales and earnings beat estimates. The retailer also raised its full-year outlook, boosting optimism ahead of the holiday season.",
       "source": "Economic Times Markets",
       "date": "Wed, 25 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/stocks/live-blog/live-updates-gold-rate-today-25th-november-24k-22k-20k-18-carat-mcx-gold-silver-price-in-delhi-hyderabad-chennai-bengaluru-citywise/liveblog/136146334.cms",
+      "url": "https://economictimes.indiatimes.com/markets/us-stocks/wall-street-guide/why-are-investors-betting-on-abercrombies-growth-story/slideshow/136151161.cms",
+      "sentiment": "Bullish",
+      "sectors": [
+        "FMCG",
+        "Consumer Services"
+      ]
+    },
+    {
+      "title": "India bonds inch higher as oil steadies ahead of RBI verdict",
+      "summary": "Indian government bonds have experienced a modest rise, driven by declining oil prices and consistent US Treasury yields. With the Reserve Bank of India's policy decision approaching, traders are treading carefully and shying away from larg",
+      "source": "Economic Times Markets",
+      "date": "Wed, 25 Nov 2026",
+      "url": "https://economictimes.indiatimes.com/markets/bonds/india-bonds-inch-higher-as-oil-steadies-ahead-of-rbi-verdict/articleshow/136149265.cms",
+      "sentiment": "Watch",
+      "sectors": [
+        "Financial Services"
+      ]
+    },
+    {
+      "title": "HPE shares crash 17%, stock suffers its worst-ever single-day fall. Here's why",
+      "summary": "Hewlett Packard Enterprise shares plunged 17.1%, their steepest single-day fall since 2015, despite record quarterly revenue and stronger FY2027 guidance. Concerns over shrinking margins, rising component costs and supply constraints trigge",
+      "source": "Economic Times Markets",
+      "date": "Wed, 25 Nov 2026",
+      "url": "https://economictimes.indiatimes.com/markets/us-stocks/news/hpe-shares-crash-17-stock-suffers-its-worst-ever-single-day-fall-heres-why/slideshow/136148964.cms",
+      "sentiment": "Caution",
+      "sectors": [
+        "Automobiles"
+      ]
+    },
+    {
+      "title": "Rupee jumps 23 paise to 92.62 against US dollar in early trade",
+      "summary": "The rupee appreciated by 23 paise to 92.62 against the US dollar in early trade on Wednesday. This increase was driven by significant foreign-fund inflows and a surge in domestic equity markets. Meanwhile, Brent crude prices fell by 1.30 pe",
+      "source": "Economic Times Markets",
+      "date": "Wed, 25 Nov 2026",
+      "url": "https://economictimes.indiatimes.com/markets/forex/rupee-jumps-23-paise-to-92-62-against-us-dollar-in-early-trade/articleshow/136147947.cms",
+      "sentiment": "Bullish",
+      "sectors": [
+        "Automobiles"
+      ]
+    },
+    {
+      "title": "APL Apollo Tubes among 4 Nifty500 stocks closing below VWAP",
+      "summary": "Four Nifty500 stocks, including APL Apollo Tubes and Kaynes Technology India, closed more than 2% below their respective Volume Weighted Average Prices (VWAPs) on November 23, according to StockEdge technical scan data.",
+      "source": "Economic Times Markets",
+      "date": "Wed, 25 Nov 2026",
+      "url": "https://economictimes.indiatimes.com/markets/stocks/news/apl-apollo-tubes-among-4-nifty500-stocks-closing-below-vwap/slideshow/136147553.cms",
+      "sentiment": "Watch",
+      "sectors": [
+        "Capital Goods"
+      ]
+    },
+    {
+      "title": "PB Fintech among 3 Nifty500 stocks flashing RSI uptrend signal",
+      "summary": "The signal is triggered when a stock's Relative Strength Index (RSI) crosses above 50 from below, indicating strengthening price momentum. RSI is a widely used technical indicator that helps traders assess momentum and trend strength.",
+      "source": "Economic Times Markets",
+      "date": "Wed, 25 Nov 2026",
+      "url": "https://economictimes.indiatimes.com/markets/stocks/news/pb-fintech-among-3-nifty500-stocks-flashing-rsi-uptrend-signal/slideshow/136147231.cms",
+      "sentiment": "Watch",
+      "sectors": [
+        "Capital Goods"
+      ]
+    },
+    {
+      "title": "Rollercoaster ride in stock market today: Nifty pares gains by 270 points, Sensex crashes over 900 from day's high",
+      "summary": "Sensex and Nifty rose today, supported by foreign fund inflows and lower oil prices, but surrendered much of their early gains as investors booked profits. Weak Asian markets and overnight US losses weighed on sentiment, leaving traders cau",
+      "source": "Livemint Markets",
+      "date": "Wed, 25 Nov 2026",
+      "url": "https://www.livemint.com/market/stock-market-news/rollercoaster-ride-in-stock-market-today-nifty-pares-gains-by-270-points-sensex-crashes-over-900-from-days-high-11795593625240.html",
+      "sentiment": "Bullish",
+      "sectors": [
+        "Automobiles"
+      ]
+    },
+    {
+      "title": "FIIs back with a bang! Inflows return to Indian stocks after 2-month sell-off; 14 sectors attracted foreign money | List",
+      "summary": "Foreign investors poured $13 billion into Indian equities over 14 November trading sessions, reversing September and October outflows. Lower oil prices, easing geopolitical concerns, attractive valuations and stronger-than-expected earnings",
+      "source": "Livemint Markets",
+      "date": "Wed, 25 Nov 2026",
+      "url": "https://www.livemint.com/market/stock-market-news/fiis-back-with-a-bang-inflows-return-to-indian-stocks-after-2-month-sell-off-14-sectors-attracted-foreign-money-list-11795589040172.html",
+      "sentiment": "Watch",
+      "sectors": [
+        "Financial Services",
+        "Automobiles"
+      ]
+    },
+    {
+      "title": "MCX rates: Gold crashes 13%, silver plunges 20% in Nov 2026; is worst over? What should precious metals investors do?",
+      "summary": "MCX rates: Gold and silver have plunged in November as a stronger dollar, higher US yields and investors unwinding positions pressure prices. Analysts say both metals are deeply oversold, but warn that further declines remain possible.",
+      "source": "Livemint Markets",
+      "date": "Wed, 25 Nov 2026",
+      "url": "https://www.livemint.com/market/commodities/mcx-rates-gold-crashes-13-silver-plunges-20-in-nov-2026-is-worst-over-what-should-precious-metals-investors-do-11795589063705.html",
       "sentiment": "Caution",
       "sectors": [
         "Gold & Commodities"
       ]
     },
     {
-      "title": "India pension funds pivot to bonds as equity exposure nears cap",
-      "summary": "As India\u2019s largest pension funds edge closer to the equity caps, a strategic pivot towards government bonds has been observed. UTI Pension Fund is channeling 50% of its new investments into government bonds, a marked increase from last year",
-      "source": "Economic Times Markets",
+      "title": "Jio Financial Services vs Reliance vs Jio Platforms shares: Which Mukesh Ambani's stock to buy amid Dalal Street rally?",
+      "summary": "Best Mukesh Ambani stock to buy: Experts believe Reliance Industries shares offer better valuations followed by Jio Platforms and Jio Financial Services shares",
+      "source": "Livemint Markets",
       "date": "Wed, 25 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/bonds/india-pension-funds-pivot-to-bonds-as-equity-exposure-nears-cap/articleshow/136146220.cms",
+      "url": "https://www.livemint.com/market/stock-market-news/jio-financial-services-vs-reliance-vs-jio-platforms-shares-which-mukesh-ambanis-stock-to-buy-amid-dalal-street-rally-11795586335156.html",
+      "sentiment": "Bullish",
+      "sectors": [
+        "Capital Goods",
+        "Telecommunication"
+      ]
+    },
+    {
+      "title": "Traders pull back from closing auction ahead of Sebi\u2019s revised framework",
+      "summary": "Sebi will restore the 30-minute VWAP calculation on derivatives expiry days while retaining CAS on other trading days, leaving traders to operate under two different closing-price mechanisms.",
+      "source": "Livemint Markets",
+      "date": "Wed, 25 Nov 2026",
+      "url": "https://www.livemint.com/market/sebi-cas-rules-vwap-restoration-auction-volumes-11795584139102.html",
+      "sentiment": "Watch",
+      "sectors": [
+        "Automobiles"
+      ]
+    },
+    {
+      "title": "HFCL vs Sterlite Technologies: Both multibagger stocks hit 5% lower circuit again - Which one should you buy?",
+      "summary": "HFCL and Sterlite Technologies hit 5% lower circuits as sharp corrections followed strong rallies. Analyst Mayank Jain sees HFCL support at  \u20b9165\u2013171 and Sterlite support at  \u20b9500\u2013530; a break below these zones could deepen losses.&amp;nbsp",
+      "source": "Livemint Markets",
+      "date": "Wed, 25 Nov 2026",
+      "url": "https://www.livemint.com/market/stock-market-news/hfcl-vs-sterlite-technologies-both-multibagger-stocks-hit-5-lower-circuit-again-which-one-should-you-buy-11795587553516.html",
+      "sentiment": "Bullish",
+      "sectors": [
+        "Capital Goods",
+        "Information Technology"
+      ]
+    },
+    {
+      "title": "Flipkart CEO Kalyan Krishnamurthy to step down next month; Walmart begins search for successor",
+      "summary": "Flipkart CEO Kalyan Krishnamurthy will step down on December 4, with Balaji Thiagarajan taking interim charge. The exit comes amid delays to the company's IPO plans and growing questions over its future strategy.",
+      "source": "Livemint Companies",
+      "date": "Wed, 25 Nov 2026",
+      "url": "https://www.livemint.com/companies/people/flipkart-ceo-kalyan-krishnamurthy-to-step-down-next-month-walmart-begins-search-for-successor-11795593915821.html",
+      "sentiment": "Watch",
+      "sectors": [
+        "Information Technology"
+      ]
+    },
+    {
+      "title": "Tata Steel working on tweaking APL Apollo Tubes deal amid questions of fairness: Report",
+      "summary": "Tata Steel is reportedly considering changes to its proposed APL Apollo Tubes deal to address concerns from minority shareholders, potentially by reducing debt costs and restructuring APL Apollo\u2019s debt. The transactions, subject to approval",
+      "source": "Livemint Companies",
+      "date": "Wed, 25 Nov 2026",
+      "url": "https://www.livemint.com/companies/news/tata-steel-working-on-tweaking-apl-apollo-tubes-deal-amid-questions-of-fairness-report-11795592277062.html",
+      "sentiment": "Watch",
+      "sectors": [
+        "Financial Services"
+      ]
+    },
+    {
+      "title": "Equal heir? Lakshmi Venu takes TVS partition fight to Madras HC",
+      "summary": "Lakshmi Venu had sent a notice to her father asking him to give effect to a fair and lawful partition.",
+      "source": "Livemint Companies",
+      "date": "Wed, 25 Nov 2026",
+      "url": "https://www.livemint.com/companies/news/lakshmi-venu-moves-madras-high-court-for-equal-share-in-tvs-group-assets-11795589056917.html",
+      "sentiment": "Watch",
+      "sectors": [
+        "Financial Services"
+      ]
+    },
+    {
+      "title": "TVS feud: Lakshmi Venu moves Madras High Court for partition of Venu Srinivasan family assets",
+      "summary": "Lakshmi Venu has sued in the Madras High Court seeking partition of her branch of the TVS family\u2019s joint assets. She says the 2020 family arrangement did not divide assets within her immediate family and alleges her brother received benefic",
+      "source": "Livemint Companies",
+      "date": "Wed, 25 Nov 2026",
+      "url": "https://www.livemint.com/companies/people/tvs-feud-lakshmi-venu-moves-madras-high-court-for-partition-of-venu-srinivasan-family-assets-11795589824873.html",
       "sentiment": "Bullish",
       "sectors": [
         "Financial Services"
       ]
     },
     {
-      "title": "Dollar takes breather ahead of US data on Fed path; Aussie jumps on CPI",
-      "summary": "The US dollar remained steady as traders awaited important inflation and growth data prior to December. Economists expect the Federal Reserve to increase interest rates, which is currently predicted at 97%. In Japan, service-sector prices s",
-      "source": "Economic Times Markets",
+      "title": "Black Friday is here\u2014and it's no longer just a discount weekend for India's malls",
+      "summary": "Mall operators expect tenant sales to grow 15-20% this year, as retailers increasingly use the discount period to drive purchases beyond the festive season.",
+      "source": "Livemint Companies",
       "date": "Wed, 25 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/forex/forex-news/dollar-takes-breather-ahead-of-us-data-on-fed-path-aussie-jumps-on-cpi/articleshow/136145689.cms",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Information Technology",
-        "Gold & Commodities"
-      ]
-    },
-    {
-      "title": "Gold ticks lower ahead of US inflation data",
-      "summary": "Gold prices dipped slightly following a notable drop, primarily influenced by the Federal Reserve's aggressive stance on interest rates. Investors are on high alert as US inflation data is set to be released later today. Meanwhile, consumer",
-      "source": "Economic Times Markets",
-      "date": "Wed, 25 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/commodities/news/gold-ticks-lower-ahead-of-us-inflation-data/articleshow/136145643.cms",
+      "url": "https://www.livemint.com/companies/news/black-friday-discount-weekend-shopping-india-malls-11795579441759.html",
       "sentiment": "Watch",
       "sectors": [
-        "Financial Services",
         "Consumer Services"
       ]
     },
     {
-      "title": "Sensex Today | Nifty 50 | Stock Market Live Updates: GIFT Nifty signals a positive start; Asian shares trade lower",
-      "summary": "",
-      "source": "Economic Times Markets",
+      "title": "Once bitten: Naveen Jindal chooses low debt over brother Sajjan\u2019s big steel bet",
+      "summary": "For Naveen Jindal, India\u2019s growing steel market offers enough opportunity without taking on too much financial risk. India\u2019s steel capacity, now about 220 million tonnes, is expected to rise to 300 million tonnes by 2031, with the governmen",
+      "source": "Livemint Companies",
       "date": "Wed, 25 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/stocks/live-blog/bse-sensex-today-nifty50-stock-market-live-updates-gift-nifty-tata-steel-hindalco-share-price-25-november-2026/liveblog/136145716.cms",
+      "url": "https://www.livemint.com/companies/news/two-brothers-two-steel-strategies-naveen-shuns-debt-while-sajjan-chases-scale-11795536538050.html",
       "sentiment": "Watch",
       "sectors": [
         "Financial Services"
-      ]
-    },
-    {
-      "title": "Market timers get schooled as S&amp;P 500 swings rip up playbooks",
-      "summary": "Investors face turmoil when navigating the stock market's unpredictable waves, especially after dramatic declines like last week's Nasdaq drop. Rapid recoveries can follow, but those who miss critical upward shifts often see their returns s",
-      "source": "Economic Times Markets",
-      "date": "Wed, 25 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/us-stocks/news/market-timers-get-schooled-with-swings/articleshow/136145370.cms",
-      "sentiment": "Watch",
-      "sectors": [
-        "Capital Goods",
-        "Information Technology"
-      ]
-    },
-    {
-      "title": "Mahanadi Coalfields IPO allotment to be out today; How to check status on KFin Tech, BSE, NSE | Step-by-step guide",
-      "summary": "Mahanadi Coalfields IPO allotment will be out on 25 November. Applicants can check their status through Kfin Technologies, BSE or NSE using their PAN, demat account or application number. Refunds and demat credits are scheduled for 26 Novem",
-      "source": "Livemint Markets",
-      "date": "Wed, 25 Nov 2026",
-      "url": "https://www.livemint.com/market/ipo/mahanadi-coalfields-ipo-allotment-to-be-out-today-how-to-check-status-on-kfin-tech-bse-nse-step-by-step-guide-11795571152208.html",
-      "sentiment": "Watch",
-      "sectors": [
-        "Financial Services"
-      ]
-    },
-    {
-      "title": "NLC India Renewables IPO: Big growth pipeline, but key risks remain",
-      "summary": "Backed by a Navratna PSU, the company has a 16,204-MW renewable energy pipeline, but high customer concentration and regional dependence pose risks.",
-      "source": "Livemint Markets",
-      "date": "Wed, 25 Nov 2026",
-      "url": "https://www.livemint.com/market/ipo/nlc-india-renewables-ipo-big-growth-pipeline-but-key-risks-remain-11795516359857.html",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Power"
-      ]
-    },
-    {
-      "title": "Indian shares may open higher as foreign inflows, lower oil prices aid sentiment",
-      "summary": "GIFT Nifty futures were at 25,738 points, as of 7:43 a.m. IST (0213 GMT), indicating a positive start for the benchmark Nifty 50 index, which closed at 25,349.65 on Monday.",
-      "source": "Livemint Markets",
-      "date": "Wed, 25 Nov 2026",
-      "url": "https://www.livemint.com/market/stock-market-news/indian-shares-may-open-higher-as-foreign-inflows-lower-oil-prices-aid-sentiment-11795573521883.html",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Financial Services"
-      ]
-    },
-    {
-      "title": "Top stocks to watch today: Tata Steel, Lenskart, Adani Enterprises, PhysicsWallah, Hindalco, ABB, and 9 others in focus",
-      "summary": "Sensex and Nifty 50 are expected to open higher on Wednesday, supported by GIFT Nifty, despite weakness in Asian and US markets. After the Sensex\u2019s steepest one-day fall in over four months, investors will track 15 stocks, including ABB Ind",
-      "source": "Livemint Markets",
-      "date": "Wed, 25 Nov 2026",
-      "url": "https://www.livemint.com/market/stock-market-news/top-stocks-to-watch-today-tata-steel-lenskart-adani-enterprises-physicswallah-hindalco-abb-and-9-others-in-focus-11795571323811.html",
-      "sentiment": "Watch",
-      "sectors": [
-        "Financial Services"
-      ]
-    },
-    {
-      "title": "Stock market outlook today,25 Nov:Sensex, Nifty prediction-DJIA, S&amp;P, NASDAQ, GIFT Nifty, Kospi, Nikkei, Taiwan cues",
-      "summary": "Indian equities faced a weak outlook after the Sensex and Nifty suffered their steepest daily declines in months, closing down 1.77% and 1.75%. Profit-booking hit banking, financial and metal stocks, while analysts flagged support near 25,0",
-      "source": "Livemint Markets",
-      "date": "Wed, 25 Nov 2026",
-      "url": "https://www.livemint.com/market/stock-market-news/stock-market-outlook-today-25-nov-sensex-nifty-prediction-djia-s-p-nasdaq-gift-nifty-kospi-nikkei-taiwan-cues-11795566965791.html",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Financial Services",
-        "Information Technology"
-      ]
-    },
-    {
-      "title": "Raja Venkatraman recommends three stocks for 25 November",
-      "summary": "Market expert Raja Venkatraman shares his top stock picks for 25 November. Here\u2019s his technical outlook and trade strategy.",
-      "source": "Livemint Markets",
-      "date": "Wed, 25 Nov 2026",
-      "url": "https://www.livemint.com/market/stock-market-news/raja-venkatraman-recommends-three-stocks-for-25-november-11795522828180.html",
-      "sentiment": "Watch",
-      "sectors": [
-        "Financial Services"
-      ]
-    },
-    {
-      "title": "iPhone assembler Foxconn faces pressure to settle payments in India; BCD Emprasa seeks  \u20b9143 cr in insolvency proceedings",
-      "summary": "Foxconn is facing payment delays involving several vendors in India, with BCD Emprasa seeking  \u20b9143 crore in unpaid dues through insolvency proceedings. The dispute comes as the Taiwanese manufacturer looks to expand its manufacturing opera",
-      "source": "Livemint Companies",
-      "date": "Wed, 25 Nov 2026",
-      "url": "https://www.livemint.com/companies/news/iphone-assembler-foxconn-faces-pressure-to-settle-payments-in-india-bcd-emprasa-seeks-143-cr-in-insolvency-proceedings-11795577685824.html",
-      "sentiment": "Watch",
-      "sectors": [
-        "Automobiles"
-      ]
-    },
-    {
-      "title": "\u2018Maybe I should do it\u2019: Donald Trump on US government taking a stake in chipmaker Nvidia",
-      "summary": "Donald Trump said he is open to the US government taking a stake in Nvidia, citing Intel\u2019s existing government stake and the chipmaker\u2019s importance to US competition with China in artificial intelligence. The remarks follow Nvidia\u2019s decisio",
-      "source": "Livemint Companies",
-      "date": "Wed, 25 Nov 2026",
-      "url": "https://www.livemint.com/companies/news/maybe-i-should-do-it-donald-trump-on-us-government-taking-a-stake-in-chipmaker-nvidia-11795577763442.html",
-      "sentiment": "Watch",
-      "sectors": [
-        "Financial Services"
-      ]
-    },
-    {
-      "title": "What is \u2018Code Red\u2019 declared by Microsoft after historic Outlook, Teams outage on Nov 12-13? Explained",
-      "summary": "Microsoft declared a \u201cCode Red\u201d to overhaul how it prevents and responds to major service failures, according to a memo seen by Reuters. Here's all you need to know about it.",
-      "source": "Livemint Companies",
-      "date": "Wed, 25 Nov 2026",
-      "url": "https://www.livemint.com/companies/what-is-code-red-declared-microsoft-after-historic-outlook-teams-outage-on-november-explained-11795577119032.html",
-      "sentiment": "Watch",
-      "sectors": [
-        "Information Technology",
-        "Automobiles"
-      ]
-    },
-    {
-      "title": "JSW building a China base for its maiden car venture",
-      "summary": "JSW Motors has set up a fully-owned company, Wuhu JSW Business Consultancy Co Ltd, in Wuhu in Anhui province, according to filings reviewed by Mint, and is now hiring senior executives there to work on car projects and build an engineering ",
-      "source": "Livemint Companies",
-      "date": "Wed, 25 Nov 2026",
-      "url": "https://www.livemint.com/companies/jsw-motor-car-chinese-engineering-wuhu-chery-11795509827077.html",
-      "sentiment": "Watch",
-      "sectors": [
-        "Automobiles"
-      ]
-    },
-    {
-      "title": "SpaceX-Tesla merger: Elon Musk\u2019s companies assemble teams to discuss \u2018biggest ever\u2019 $3.2 trillion deal",
-      "summary": "Tesla and SpaceX have formed committees, with five directors and three investment banks, to evaluate a potential $3.2 trillion all-stock merger. The companies are reportedly negotiating a deal that could be announced as soon as December.",
-      "source": "Livemint Companies",
-      "date": "Wed, 25 Nov 2026",
-      "url": "https://www.livemint.com/companies/news/spacextesla-merger-elon-musk-s-companies-assemble-teams-to-discuss-biggest-ever-3-2-trillion-deal-11795572495864.html",
-      "sentiment": "Watch",
-      "sectors": [
-        "Financial Services",
-        "Automobiles"
-      ]
-    },
-    {
-      "title": "Nvidia all-hands meeting: Jensen Huang tells employees he is in therapy, still doesn\u2019t believe in a succession plan",
-      "summary": "Jensen Huang apologized to Nvidia employees after returning as CEO, saying he had made serious mistakes and was in therapy. He denied political pressure behind his reinstatement and rejected claims he was above the law. Huang also defended ",
-      "source": "Livemint Companies",
-      "date": "Wed, 25 Nov 2026",
-      "url": "https://www.livemint.com/companies/people/nvidia-all-hands-meeting-jensen-huang-tells-employees-he-is-in-therapy-still-doesn-t-believe-in-a-succession-plan-11795568676430.html",
-      "sentiment": "Watch",
-      "sectors": [
-        "Capital Goods",
-        "Automobiles"
       ]
     },
     {
@@ -343,33 +340,33 @@
   "indices": [
     {
       "name": "NIFTY 50",
-      "val": "25,729.80",
-      "chg": 1.5
+      "val": "25,761.25",
+      "chg": 1.62
     },
     {
       "name": "SENSEX",
-      "val": "82,435.99",
-      "chg": -1.77
+      "val": "83,872.77",
+      "chg": 1.74
     },
     {
       "name": "BANK NIFTY",
-      "val": "63,881.10",
-      "chg": 2.07
+      "val": "63,566.85",
+      "chg": 1.57
     },
     {
       "name": "INDIA VIX",
-      "val": "16.90",
-      "chg": -4.52
+      "val": "17.80",
+      "chg": 0.56
     },
     {
       "name": "GOLD BeES",
-      "val": "\u20b9101.02",
-      "chg": -1.97
+      "val": "\u20b9100.44",
+      "chg": -2.53
     },
     {
       "name": "USD/INR",
-      "val": "\u20b992.67",
-      "chg": -0.26
+      "val": "\u20b992.22",
+      "chg": -0.75
     }
   ],
   "history": {
@@ -416,8 +413,8 @@
         982.1,
         1070.0
       ],
-      "dma50": 1006.46,
-      "dma200": 980.42
+      "dma50": 1006.44,
+      "dma200": 980.41
     },
     "BEL": {
       "dates": [
@@ -462,8 +459,8 @@
         376.85,
         395.1
       ],
-      "dma50": 386.4,
-      "dma200": 413.04
+      "dma50": 386.48,
+      "dma200": 413.07
     },
     "BHARTIARTL": {
       "dates": [
@@ -508,8 +505,8 @@
         1905.0,
         2056.9
       ],
-      "dma50": 1927.03,
-      "dma200": 1883.64
+      "dma50": 1926.72,
+      "dma200": 1883.56
     },
     "GOLDBEES": {
       "dates": [
@@ -554,7 +551,7 @@
         120.2,
         118.13
       ],
-      "dma50": 117.87,
+      "dma50": 117.86,
       "dma200": 122.77
     },
     "HAL": {
@@ -600,8 +597,8 @@
         4989.0,
         5043.0
       ],
-      "dma50": 4818.07,
-      "dma200": 4476.62
+      "dma50": 4819.98,
+      "dma200": 4477.1
     },
     "HCLTECH": {
       "dates": [
@@ -646,8 +643,8 @@
         1380.0,
         1430.5
       ],
-      "dma50": 1319.11,
-      "dma200": 1277.25
+      "dma50": 1318.93,
+      "dma200": 1277.21
     },
     "HDFCBANK": {
       "dates": [
@@ -738,8 +735,8 @@
         1876.01,
         1963.38
       ],
-      "dma50": 1905.69,
-      "dma200": 2082.82
+      "dma50": 1907.44,
+      "dma200": 2083.25
     },
     "ICICIBANK": {
       "dates": [
@@ -784,8 +781,8 @@
         1397.0,
         1500.0
       ],
-      "dma50": 1420.92,
-      "dma200": 1361.59
+      "dma50": 1420.81,
+      "dma200": 1361.56
     },
     "INFY": {
       "dates": [
@@ -830,8 +827,8 @@
         1135.2,
         1167.4
       ],
-      "dma50": 1074.27,
-      "dma200": 1138.99
+      "dma50": 1074.0,
+      "dma200": 1138.92
     },
     "ITC": {
       "dates": [
@@ -876,8 +873,8 @@
         263.5,
         278.85
       ],
-      "dma50": 270.89,
-      "dma200": 285.4
+      "dma50": 271.01,
+      "dma200": 285.43
     },
     "LT": {
       "dates": [
@@ -922,8 +919,8 @@
         3627.1,
         4050.0
       ],
-      "dma50": 3873.41,
-      "dma200": 3937.02
+      "dma50": 3873.79,
+      "dma200": 3937.12
     },
     "M&M": {
       "dates": [
@@ -968,8 +965,8 @@
         2920.9,
         3127.5
       ],
-      "dma50": 3045.09,
-      "dma200": 3164.16
+      "dma50": 3045.46,
+      "dma200": 3164.25
     },
     "MARUTI": {
       "dates": [
@@ -1014,8 +1011,8 @@
         11489.0,
         12652.0
       ],
-      "dma50": 12087.4,
-      "dma200": 13163.28
+      "dma50": 12085.08,
+      "dma200": 13162.7
     },
     "NTPC": {
       "dates": [
@@ -1060,7 +1057,7 @@
         312.16,
         313.7
       ],
-      "dma50": 316.33,
+      "dma50": 316.32,
       "dma200": 347.84
     },
     "RELIANCE": {
@@ -1152,8 +1149,8 @@
         199.45,
         193.69
       ],
-      "dma50": 195.77,
-      "dma200": 243.4
+      "dma50": 195.69,
+      "dma200": 243.38
     },
     "SBIN": {
       "dates": [
@@ -1198,8 +1195,8 @@
         962.6,
         1006.4
       ],
-      "dma50": 1001.99,
-      "dma200": 1035.48
+      "dma50": 1001.86,
+      "dma200": 1035.45
     },
     "SUNPHARMA": {
       "dates": [
@@ -1244,8 +1241,8 @@
         1758.8,
         1829.0
       ],
-      "dma50": 1817.1,
-      "dma200": 1821.63
+      "dma50": 1817.46,
+      "dma200": 1821.72
     },
     "TCS": {
       "dates": [
@@ -1290,8 +1287,8 @@
         2465.0,
         2495.7
       ],
-      "dma50": 2305.14,
-      "dma200": 2342.76
+      "dma50": 2304.94,
+      "dma200": 2342.71
     },
     "TITAN": {
       "dates": [
@@ -1336,8 +1333,8 @@
         4444.8,
         4834.6
       ],
-      "dma50": 4655.13,
-      "dma200": 4491.64
+      "dma50": 4655.55,
+      "dma200": 4491.75
     }
   },
   "corp_actions": {
