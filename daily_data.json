@@ -1,6 +1,6 @@
 {
-  "updated_at_ist": "26 Nov 2026, 04:34 PM IST",
-  "market_total_listed": 5915,
+  "updated_at_ist": "26 Nov 2026, 08:42 PM IST",
+  "market_total_listed": 5873,
   "my_holdings": [],
   "prices": {
     "BAJFINANCE": {
@@ -121,6 +121,41 @@
   },
   "news": [
     {
+      "title": "Market Trading Guide: Tech Mahindra, Angel One among 5 stock recommendations for Friday",
+      "summary": "Market experts recommend five stocks for Friday, including Tech Mahindra, Angel One, Tata Consumer, Kansai Nerolac and Agarwal Eye, outlining entry levels, stop losses and upside targets.",
+      "source": "Economic Times Markets",
+      "date": "Thu, 26 Nov 2026",
+      "url": "https://economictimes.indiatimes.com/markets/stocks/news/market-trading-guide-tech-mahindra-angel-one-among-5-stock-recommendations-for-friday/slideshow/136196068.cms",
+      "sentiment": "Caution",
+      "sectors": [
+        "Information Technology",
+        "Automobiles"
+      ]
+    },
+    {
+      "title": "India bonds tumble as Brent tops $95 per barrel, RBI flags food inflation risks",
+      "summary": "Indian government bonds experienced a decline as oil prices increased due to geopolitical tensions in the Middle East. The Reserve Bank of India emphasized broad-based food inflation pressures, complicating the economic landscape. Retail in",
+      "source": "Economic Times Markets",
+      "date": "Thu, 26 Nov 2026",
+      "url": "https://economictimes.indiatimes.com/markets/bonds/india-bonds-tumble-as-brent-tops-95-per-barrel-rbi-flags-food-inflation-risks/articleshow/136193320.cms",
+      "sentiment": "Caution",
+      "sectors": [
+        "Financial Services",
+        "Consumer Services"
+      ]
+    },
+    {
+      "title": "NSE among 6 stocks hitting 52-week highs; stock rallies up to 35% in a month",
+      "summary": "Six BSE 100 stocks, including NSE, DLF and Prestige Estates, hit fresh 52-week highs on Thursday. NSE led monthly gains, surging 35%, followed by Prestige Estates at 32%.",
+      "source": "Economic Times Markets",
+      "date": "Thu, 26 Nov 2026",
+      "url": "https://economictimes.indiatimes.com/markets/stocks/news/nse-among-6-stocks-hitting-52-week-highs-stock-rallies-up-to-35-in-a-month/slideshow/136192775.cms",
+      "sentiment": "Bullish",
+      "sectors": [
+        "Information Technology"
+      ]
+    },
+    {
       "title": "Spike in oil prices partly reverses rupee rally, forward premiums surge",
       "summary": "The Indian rupee has faced depreciation as a result of escalating oil prices combined with pressures from surrounding currencies. With Brent crude exceeding $96 per barrel, worries about India's import costs and inflation have intensified. ",
       "source": "Economic Times Markets",
@@ -133,220 +168,159 @@
       ]
     },
     {
-      "title": "Rupee falls 20 paise to 92.40 against US dollar in early trade",
-      "summary": "The rupee fell 20 paise to 92.40 against the US dollar in early trade. Higher crude oil prices and proposed tariffs by the US administration increased dollar demand. Foreign fund inflows supported the rupee but it faced pressure from rising",
+      "title": "HDFC Bank Share Price Live Updates: HDFC Bank Stock Price History",
+      "summary": "",
       "source": "Economic Times Markets",
       "date": "Thu, 26 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/forex/rupee-falls-20-paise-to-92-40-against-us-dollar-in-early-trade/articleshow/136179591.cms",
+      "url": "https://economictimes.indiatimes.com/markets/stocks/stock-liveblog/hdfc-bank-share-price-live-26-nov-2026/liveblog/136181934.cms",
       "sentiment": "Watch",
       "sectors": [
-        "Information Technology",
-        "Automobiles"
-      ]
-    },
-    {
-      "title": "India bonds tumble as Brent tops $95 per barrel, RBI flags food inflation risks",
-      "summary": "Indian government bonds fell as oil prices surged, raising concerns about inflation and economic stability. The Reserve Bank of India highlighted rising food inflation pressures, indicating widespread price increases. Higher oil prices may ",
-      "source": "Economic Times Markets",
-      "date": "Thu, 26 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/bonds/india-bonds-tumble-as-brent-tops-95-per-barrel-rbi-flags-food-inflation-risks/articleshow/136179562.cms",
-      "sentiment": "Watch",
-      "sectors": [
-        "Capital Goods",
         "Financial Services"
       ]
     },
     {
-      "title": "Why is SanDisk stock falling despite surging profits?",
-      "summary": "SanDisk shares tumble amid fading AI optimism, declining NAND price forecasts and semiconductor sector weakness. Despite strong earnings and data centre demand, investors fear potential memory-chip oversupply and weakening future profitabil",
+      "title": "SBI Life Share Price Live Updates: SBI Life Stock Price History",
+      "summary": "",
       "source": "Economic Times Markets",
       "date": "Thu, 26 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/us-stocks/news/why-is-sandisk-stock-falling-despite-surging-profits/slideshow/136179318.cms",
+      "url": "https://economictimes.indiatimes.com/markets/stocks/stock-liveblog/sbi-life-stock-price-live-updates-26-nov-2026/liveblog/136181870.cms",
+      "sentiment": "Watch",
+      "sectors": [
+        "Financial Services"
+      ]
+    },
+    {
+      "title": "What will happen to gold rates? Crash or surge after the US Fed FOMC meeting outcome - Scenarios explained",
+      "summary": "Investors are watching the Federal Reserve\u2019s December meeting for clues about gold and silver prices after a sharp 2026 correction. Persistent inflation may prompt further rate hikes, supporting the dollar and pressuring bullion, while a pa",
+      "source": "Livemint Markets",
+      "date": "Thu, 26 Nov 2026",
+      "url": "https://www.livemint.com/market/commodities/what-will-happen-to-gold-rates-crash-or-surge-after-the-us-fed-fomc-meeting-outcome-scenarios-explained-11795701687070.html",
       "sentiment": "Caution",
-      "sectors": [
-        "Information Technology"
-      ]
-    },
-    {
-      "title": "Adani firms plan public bond sale to raise at least Rs 2,000 crore",
-      "summary": "Adani Enterprises and Adani Power are planning public bond offerings to raise at least Rs 20 billion ($220 million), according to sources. The fundraising could help revive India's subdued public debt market, where issuances have lagged the",
-      "source": "Economic Times Markets",
-      "date": "Thu, 26 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/bonds/adani-firms-plan-public-bond-sale-to-raise-at-least-220-million/articleshow/136178950.cms",
-      "sentiment": "Watch",
-      "sectors": [
-        "Power",
-        "Automobiles"
-      ]
-    },
-    {
-      "title": "Eternal, Adani Enterprises among 10 stocks with highest FII buying in Q2. How many do you have?",
-      "summary": "In the September 2026 quarter, Foreign Institutional Investors (FIIs) boosted their stakes in various firms, notably in Eternal and Adani Enterprises, despite facing mixed performance trends in stock values. While ICICI Bank and the Life In",
-      "source": "Economic Times Markets",
-      "date": "Thu, 26 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/stocks/news/eternal-adani-enterprises-among-10-stocks-with-highest-fii-buying-in-q2-how-many-do-you-have/slideshow/136178864.cms",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Financial Services"
-      ]
-    },
-    {
-      "title": "Redington shares jump as Apple expands India retail network; how much does the iPhone maker contribute to its revenue?",
-      "summary": "Redington shares rose nearly 2% after Apple announced a new Hyderabad store, expanding its Indian retail network. Apple accounts for 30% of Redington\u2019s revenue. Redington reported second-quarter revenue growth of 48% and a 50% increase in p",
-      "source": "Livemint Markets",
-      "date": "Thu, 26 Nov 2026",
-      "url": "https://www.livemint.com/market/stock-market-news/redington-shares-jump-as-apple-expands-india-retail-network-how-much-does-the-iphone-maker-contribute-to-its-revenue-11795689140478.html",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Financial Services",
-        "Information Technology"
-      ]
-    },
-    {
-      "title": "Small-cap stock under  \u20b9100: Metal stock jumps following stock market rally; do you own?",
-      "summary": "Small-cap stock under  \u20b9100: The small-cap stock witnessed a jump after reporting strong set of numbers during the July- September quarter for the financial year 2026-27. (FY27).",
-      "source": "Livemint Markets",
-      "date": "Thu, 26 Nov 2026",
-      "url": "https://www.livemint.com/market/stock-market-news/smallcap-stock-under-100-metal-stock-bombay-coated-and-special-steels-jumps-following-stock-market-rally-11795685519467.html",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Financial Services"
-      ]
-    },
-    {
-      "title": "Gold price today in India  \u20b958,500 away from record high; right time to buy amid rebound from 14-month low?",
-      "summary": "Gold price drop in 2026: The MCX gold rate today is around  \u20b91,22,2500 per 10 gm, around  \u20b958,500 below the record high of  \u20b91,80,779 made in January 2026",
-      "source": "Livemint Markets",
-      "date": "Thu, 26 Nov 2026",
-      "url": "https://www.livemint.com/market/commodities/gold-price-today-in-india-rs-58-500-away-from-record-high-right-time-to-buy-amid-rebound-from-14-month-low-11795679635348.html",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Capital Goods",
-        "Gold & Commodities"
-      ]
-    },
-    {
-      "title": "BPCL vs IOCL vs HPCL: Jefferies names its top OMC stocks to buy as crude prices fall | Check target prices, rationale",
-      "summary": "Jefferies turned bullish on BPCL and IOC, retaining Buy ratings and price targets of  \u20b9380 and  \u20b9175, respectively, as lower crude prices improve fuel marketing and refining margins. It kept HPCL at Underperform with a  \u20b9310 target, citing ",
-      "source": "Livemint Markets",
-      "date": "Thu, 26 Nov 2026",
-      "url": "https://www.livemint.com/market/stock-market-news/bpcl-vs-iocl-vs-hpcl-jefferies-names-its-top-omc-stocks-to-buy-as-crude-prices-fall-check-target-prices-rationale-11795681099588.html",
-      "sentiment": "Watch",
-      "sectors": [
-        "Information Technology",
-        "Automobiles"
-      ]
-    },
-    {
-      "title": "Allied Blenders shares: After 50% jump in 6 months, Elara Securities sees 25% more returns; assigns Buy rating | Target",
-      "summary": "Allied Blenders shares have risen nearly 50% in six months. Elara Securities sees further upside, setting a  \u20b91,000 target and forecasting 40% EPS CAGR through FY29. Its outlook rests on premium brands, new products, geographic expansion an",
-      "source": "Livemint Markets",
-      "date": "Thu, 26 Nov 2026",
-      "url": "https://www.livemint.com/market/stock-market-news/allied-blenders-shares-after-50-jump-in-6-months-elara-securities-sees-25-more-returns-assigns-buy-rating-target-11795682211839.html",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Financial Services"
-      ]
-    },
-    {
-      "title": "Gold rate today in Chennai, Hyderabad, Bangalore: Check 26 November MCX yellow metal prices details",
-      "summary": "Gold rate today: On the domestic front, gold prices on the Multi Commodity Exchange (MCX) opened 1.2% higher at  \u20b91,22,740 per 10 grams.",
-      "source": "Livemint Markets",
-      "date": "Thu, 26 Nov 2026",
-      "url": "https://www.livemint.com/market/commodities/gold-rate-today-in-chennai-hyderabad-bangalore-check-26-november-mcx-yellow-metal-prices-details-11795681144857.html",
-      "sentiment": "Bullish",
       "sectors": [
         "Gold & Commodities"
       ]
     },
     {
-      "title": "Bombay HC to hear Tata Trusts' lawsuits against Chandrasekaran\u2019s reappointment on Friday ahead of Nov 30 board meeting",
-      "summary": "The Bombay HC will hear two Tata trusts\u2019 lawsuits challenging N Chandrasekaran\u2019s reappointment as Tata Sons chairman and CEO. The trusts say the board resolution lacked the affirmative votes required by the company\u2019s articles.",
-      "source": "Livemint Companies",
+      "title": "Turned Nvidia CEO affair saga into a money machine? From $500 to $1 million: How a trader rode Huang's roller coaster",
+      "summary": "A Reddit user claims to have turned $500 into more than $1 million in about two weeks through high-risk Nvidia options trades. The bets capitalised on sharp share-price swings following Jensen Huang\u2019s return as CEO. The account and profits ",
+      "source": "Livemint Markets",
       "date": "Thu, 26 Nov 2026",
-      "url": "https://www.livemint.com/companies/bombay-hc-to-hear-tata-trusts-lawsuits-against-chandrasekaran-s-reappointment-on-friday-ahead-of-nov-30-board-meeting-11795689108826.html",
+      "url": "https://www.livemint.com/market/stock-market-news/turned-nvidia-ceo-affair-saga-into-a-money-machine-from-500-to-1-million-how-a-trader-rode-huangs-roller-coaster-11795700006715.html",
       "sentiment": "Bullish",
       "sectors": [
-        "Capital Goods"
+        "Information Technology"
       ]
     },
     {
-      "title": "Top 10 names | EdelGive Hurun India Philanthropy List 2026: From Shiv Nadar &amp; family, Gautam Adani to Bajaj",
-      "summary": "EdelGive Hurun India Philanthropy List 2026: 219 philanthropists donated a combined  \u20b911,554 crore in FY26, up 11% from the previous year. The top 10 gave  \u20b96,572 crore, accounting for 57% of total donations. Check full list here\u2026&amp;nbsp;",
+      "title": "A big shift for gold trading? JPMorgan, HSBC and StoneX complete first digital gold deals- What to know",
+      "summary": "London's gold market takes a digital step as JPMorgan and HSBC complete first-of-their-kind trades using fractional ownership of physical gold.",
+      "source": "Livemint Markets",
+      "date": "Thu, 26 Nov 2026",
+      "url": "https://www.livemint.com/market/a-big-shift-for-gold-trading-jpmorgan-hsbc-and-stonex-complete-first-digital-gold-deals-what-to-know-11795699216476.html",
+      "sentiment": "Watch",
+      "sectors": [
+        "Gold & Commodities"
+      ]
+    },
+    {
+      "title": "NSE is now world's third-largest listed exchange by market cap, overtakes Nasdaq, LSE: Which two exchanges are ahead?",
+      "summary": "NSE's market capitalisation stood at approximately $64.1 billion, placing it ahead of Deutsche Boerse, valued at $63.4 billion, London Stock Exchange Group at $62.4 billion, Nasdaq at $59.4 billion and HKEX at $57.1 billion, the news outlet",
+      "source": "Livemint Markets",
+      "date": "Thu, 26 Nov 2026",
+      "url": "https://www.livemint.com/market/stock-market-news/nse-is-now-worlds-third-largest-listed-exchange-by-market-cap-overtakes-nasdaq-lse-which-two-exchanges-are-ahead-11795697484423.html",
+      "sentiment": "Watch",
+      "sectors": [
+        "Information Technology"
+      ]
+    },
+    {
+      "title": "Circuit-to-circuit stock finds no seller for 21 days in a row | Bonus, stock split, dividend record date awaited",
+      "summary": "Circuit-to-circuit stock: The stock hit a fresh all-time high of  \u20b992.09 on Thursday, November 26, after rising 4.99% during the session.",
+      "source": "Livemint Markets",
+      "date": "Thu, 26 Nov 2026",
+      "url": "https://www.livemint.com/market/stock-market-news/circuittocircuit-stock-sc-agrotech-finds-no-seller-for-21-days-in-a-row-bonus-stock-split-dividend-record-date-11795694308081.html",
+      "sentiment": "Bullish",
+      "sectors": [
+        "Information Technology"
+      ]
+    },
+    {
+      "title": "Nifty surges over 12% in November, eyes biggest monthly gain in six years; BSE, Eternal, Trent among top gainers",
+      "summary": "The Nifty 50 has rebounded 12.3% in November, putting it on track for its strongest monthly gain since April 2020. Lower oil prices, changing global AI investment sentiment and improved earnings prospects have supported the recovery, while ",
+      "source": "Livemint Markets",
+      "date": "Thu, 26 Nov 2026",
+      "url": "https://www.livemint.com/market/stock-market-news/nifty-surges-over-12-in-november-eyes-biggest-monthly-gain-in-six-years-bse-eternal-trent-among-top-gainers-11795694066553.html",
+      "sentiment": "Bullish",
+      "sectors": [
+        "Information Technology"
+      ]
+    },
+    {
+      "title": "JioStar faces fresh workforce changes as seven TV channel sales gather pace; what happens to employees? Report reveals",
+      "summary": "JioStar is negotiating the sale of seven television channels by March 2027, as required by the Competition Commission of India. Employees associated with these television businesses will reportedly move to the acquiring companies as part of",
       "source": "Livemint Companies",
       "date": "Thu, 26 Nov 2026",
-      "url": "https://www.livemint.com/companies/people/top-10-names-edelgive-hurun-india-philanthropy-list-2026-from-shiv-nadar-family-gautam-adani-to-bajaj-11795685535304.html",
+      "url": "https://www.livemint.com/companies/news/jiostar-faces-fresh-workforce-changes-as-seven-tv-channel-sales-gather-pace-what-happens-to-employees-report-reveals-11795699201104.html",
+      "sentiment": "Watch",
+      "sectors": [
+        "Financial Services",
+        "Telecommunication"
+      ]
+    },
+    {
+      "title": "Raymond taps Jaideep Ahlawat as \u2018Friend of the Brand\u2019 to revive retro Bollywood fashion: All you need to know",
+      "summary": "Jaideep Ahlawat has joined Raymond Lifestyle\u2019s Chairman\u2019s Collection as \u2018Friend of Brand\u2019. Unveiled on Nov 25 in Mumbai, the collaboration draws inspiration from Bollywood fashion of 1960s, 1970s and 1980s, reinterpreting retro styles throu",
+      "source": "Livemint Companies",
+      "date": "Thu, 26 Nov 2026",
+      "url": "https://www.livemint.com/companies/people/raymond-taps-jaideep-ahlawat-as-friend-of-the-brand-to-revive-retro-bollywood-fashion-all-you-need-to-know-11795703077416.html",
       "sentiment": "Watch",
       "sectors": [
         "Automobiles"
       ]
     },
     {
-      "title": "Nvidia board\u2019s flip flop on Jensen Huang as CEO puts its AA credit rating at risk- Why S&amp;P is considering a downgrade?",
-      "summary": "Nvidia has reinstated Jensen Huang as CEO, but S&amp;amp;P Global Ratings has placed its AA credit rating on watch for a possible downgrade over governance concerns.",
+      "title": "Singh, Srinivasan ask charity commissioner to rein in Tata suit",
+      "summary": "Two Tata trusts have challenged N Chandrasekaran\u2019s reappointment as Tata Sons chairman and sought to block his deciding vote. Vice-chairman Venu Srinivasan and trustee Vijay Singh separately asked Maharashtra\u2019s Charity Commissioner to inter",
       "source": "Livemint Companies",
       "date": "Thu, 26 Nov 2026",
-      "url": "https://www.livemint.com/companies/news/nvidia-board-s-flip-flop-on-jensen-huang-as-ceo-puts-its-aa-credit-rating-at-risk-why-s-p-is-considering-a-downgrad-11795685706714.html",
-      "sentiment": "Caution",
+      "url": "https://www.livemint.com/companies/singh-srinivasan-ask-charity-commissioner-to-rein-in-tata-suit-11795701927969.html",
+      "sentiment": "Watch",
       "sectors": [
-        "Financial Services",
+        "Capital Goods",
         "Information Technology"
       ]
     },
     {
-      "title": "Mint Explainer | AI, global headwinds test campus hiring for the class of 2027",
-      "summary": "Placement cells are widening recruiter outreach while firms rely on pre-placement offers across engineering and MBA campuses.",
+      "title": "Flipkart\u2019s incoming CEO faces a multi-front battle",
+      "summary": "A stalled IPO, disgruntled employees and rising competition will test the new CEO, who must also manage a sprawling portfolio of capital-intensive businesses.",
       "source": "Livemint Companies",
       "date": "Thu, 26 Nov 2026",
-      "url": "https://www.livemint.com/companies/iit-placements-2027-hiring-trends-salaries-ai-jobs-11795668053761.html",
+      "url": "https://www.livemint.com/companies/news/flipkarts-incoming-ceo-faces-a-multi-front-battle-11795691496329.html",
       "sentiment": "Watch",
       "sectors": [
         "Financial Services"
       ]
     },
     {
-      "title": "Why is GE Shipping buying its own stock instead of new ships with its Iran war windfall?",
-      "summary": "GE Shipping has decided to put off all fleet expansions until prices come down.",
+      "title": "US-based GEF Capital prepares to ramp up India climate-tech investments",
+      "summary": "Over the next 4-5 years, the PE firm will invest in 3-4 mid-market companies every year with cheques ranging from $30 million to $60 million. The investments will be in companies across energy transition, electric mobility, industrial decar",
       "source": "Livemint Companies",
       "date": "Thu, 26 Nov 2026",
-      "url": "https://www.livemint.com/companies/news/ge-shipping-share-buyback-ship-acquisition-strategy-11795668141551.html",
+      "url": "https://www.livemint.com/companies/news/usbased-gef-capital-prepares-to-ramp-up-india-climate-tech-investments-pe-firm-11795687202336.html",
       "sentiment": "Watch",
       "sectors": [
-        "Financial Services"
+        "Automobiles"
       ]
     },
     {
-      "title": "Shareholders who said no before now hold the key to APL Apollo's big bet",
-      "summary": "The vote comes amid a history of investor resistance, with five of 11 special resolutions at its 2025 and 2026 AGMs failing to secure the required 75% approval.",
+      "title": "US closed cloud loophole for China. Now Nvidia\u2019s B300 GPUs are on sale. Who\u2019s buying? What changes for global market?",
+      "summary": "Nvidia's B300 chips are flooding the resale market after the US closed a cloud computing loophole for China. What does this mean for global AI demand?",
       "source": "Livemint Companies",
       "date": "Thu, 26 Nov 2026",
-      "url": "https://www.livemint.com/companies/news/apl-apollo-shareholders-tata-steel-28000-crore-deal-vote-11795672935764.html",
-      "sentiment": "Watch",
-      "sectors": [
-        "Financial Services"
-      ]
-    },
-    {
-      "title": "Taking Stock: Market fails to hold on to day#39;s gains, ends marginally higher",
-      "summary": "<img src=\"https://www.moneycontrol.com/news_image_files/2024/200x200/v/volatile_market1_200.jpg\" alt=\"Taking Stock: Market fails to hold on to day#39;s gains, ends marginally higher\" title=\"Taking Stock: Market fails to hold on to day#39;s ",
-      "source": "Moneycontrol Markets",
-      "date": "Tue, 23 Apr 2024",
-      "url": "https://www.moneycontrol.com/news/local-markets/taking-stock-market-fails-to-holdto-day39s-gains-ends-marginally-higher_17531871.html",
+      "url": "https://www.livemint.com/companies/us-closed-cloud-loophole-for-china-now-nvidia-s-b300-gpus-are-on-sale-who-s-buying-what-changes-for-global-market-11795691475319.html",
       "sentiment": "Bullish",
       "sectors": [
-        "Capital Goods",
-        "Healthcare"
-      ]
-    },
-    {
-      "title": "Sensex, Nifty gain for third day in a row; easing volatility to support bull trend",
-      "summary": "<img src=\"https://www.moneycontrol.com/news_image_files/2024/200x200/S/Share-Market-New-4-4_200.jpg\" alt=\"Sensex, Nifty gain for third day in a row; easing volatility to support bull trend\" title=\"Sensex, Nifty gain for third day in a row; ",
-      "source": "Moneycontrol Markets",
-      "date": "Tue, 23 Apr 2024",
-      "url": "https://www.moneycontrol.com/news/local-markets/sensex-nifty-gain-for-third-daya-row-easing-volatility-to-support-bull-trend_17531821.html",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Capital Goods"
+        "Information Technology"
       ]
     }
   ],
@@ -379,8 +353,8 @@
     },
     {
       "name": "USD/INR",
-      "val": "\u20b992.54",
-      "chg": -0.29
+      "val": "\u20b992.43",
+      "chg": -0.4
     }
   ],
   "history": {
