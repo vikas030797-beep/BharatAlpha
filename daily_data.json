@@ -1,5 +1,5 @@
 {
-  "updated_at_ist": "26 Nov 2026, 08:42 PM IST",
+  "updated_at_ist": "26 Nov 2026, 11:20 PM IST",
   "market_total_listed": 5873,
   "my_holdings": [],
   "prices": {
@@ -121,6 +121,18 @@
   },
   "news": [
     {
+      "title": "Ashiana Housing JV buys 10-acre land in Chennai for senior living project, eyes Rs 1,100 cr revenue",
+      "summary": "Ashiana Housing Ltd recently revealed its acquisition of nearly 10 acres in Chennai aimed at a senior living initiative. In collaboration with Arihant Foundations, the project estimates a saleable area of around 9 lakh square feet, with an ",
+      "source": "Economic Times Markets",
+      "date": "Thu, 26 Nov 2026",
+      "url": "https://economictimes.indiatimes.com/markets/digital-real-estate/realty-news/ashiana-housing-jv-buys-10-acre-land-in-chennai-for-senior-living-project-eyes-rs-1100-cr-revenue/articleshow/136197134.cms",
+      "sentiment": "Bullish",
+      "sectors": [
+        "Information Technology",
+        "Automobiles"
+      ]
+    },
+    {
       "title": "Market Trading Guide: Tech Mahindra, Angel One among 5 stock recommendations for Friday",
       "summary": "Market experts recommend five stocks for Friday, including Tech Mahindra, Angel One, Tata Consumer, Kansai Nerolac and Agarwal Eye, outlining entry levels, stop losses and upside targets.",
       "source": "Economic Times Markets",
@@ -179,14 +191,27 @@
       ]
     },
     {
-      "title": "SBI Life Share Price Live Updates: SBI Life Stock Price History",
-      "summary": "",
-      "source": "Economic Times Markets",
+      "title": "Buyback alert! Supriya Lifescience sets December 2 board meeting to consider share buyback; details here",
+      "summary": "Supriya Lifescience will consider a share buyback at a December 2, 2026, board meeting, subject to approvals. In Q2 FY27, net profit fell 42% to  \u20b929.25 crore, while revenue rose 3.2% to  \u20b9206.30 crore. Lower margins reflected product-mix c",
+      "source": "Livemint Markets",
       "date": "Thu, 26 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/stocks/stock-liveblog/sbi-life-stock-price-live-updates-26-nov-2026/liveblog/136181870.cms",
+      "url": "https://www.livemint.com/market/stock-market-news/buyback-alert-supriya-lifescience-sets-december-2-board-meeting-to-consider-share-buyback-details-here-11795714356991.html",
+      "sentiment": "Bullish",
+      "sectors": [
+        "Information Technology",
+        "Automobiles"
+      ]
+    },
+    {
+      "title": "Nifty 50 to hit 29,000? J.P. Morgan calls Indian stocks a 'safe haven' from AI trades; sees 12% upside. Key reasons",
+      "summary": "J.P. Morgan sees Indian equities as a potential safe haven for investors diversifying beyond AI-focused trades and forecasts the Nifty 50 at 29,000 by the end of 2027. The index has rebounded sharply in November, while other global brokerag",
+      "source": "Livemint Markets",
+      "date": "Thu, 26 Nov 2026",
+      "url": "https://www.livemint.com/market/stock-market-news/nifty-50-to-hit-29-000-j-p-morgan-calls-indian-stocks-a-safe-haven-from-ai-trades-sees-12-upside-key-reasons-11795710323279.html",
       "sentiment": "Watch",
       "sectors": [
-        "Financial Services"
+        "Information Technology",
+        "Automobiles"
       ]
     },
     {
@@ -234,29 +259,42 @@
       ]
     },
     {
-      "title": "Circuit-to-circuit stock finds no seller for 21 days in a row | Bonus, stock split, dividend record date awaited",
-      "summary": "Circuit-to-circuit stock: The stock hit a fresh all-time high of  \u20b992.09 on Thursday, November 26, after rising 4.99% during the session.",
-      "source": "Livemint Markets",
+      "title": "JioStar enters US streaming market with 7 Indian channels on Fubo; here\u2019s how much it costs for Hindi entertainment",
+      "summary": "JioStar is bringing popular Indian TV channels, including Star Plus, Colors, MTV India and more in North America. The launch came with an introductory price, effective from November 16.",
+      "source": "Livemint Companies",
       "date": "Thu, 26 Nov 2026",
-      "url": "https://www.livemint.com/market/stock-market-news/circuittocircuit-stock-sc-agrotech-finds-no-seller-for-21-days-in-a-row-bonus-stock-split-dividend-record-date-11795694308081.html",
-      "sentiment": "Bullish",
+      "url": "https://www.livemint.com/companies/news/jiostar-enters-us-streaming-market-with-7-indian-channels-on-fubo-here-s-how-much-it-costs-for-hindi-entertainment-11795712140816.html",
+      "sentiment": "Watch",
       "sectors": [
-        "Information Technology"
+        "Information Technology",
+        "Telecommunication"
       ]
     },
     {
-      "title": "Nifty surges over 12% in November, eyes biggest monthly gain in six years; BSE, Eternal, Trent among top gainers",
-      "summary": "The Nifty 50 has rebounded 12.3% in November, putting it on track for its strongest monthly gain since April 2020. Lower oil prices, changing global AI investment sentiment and improved earnings prospects have supported the recovery, while ",
-      "source": "Livemint Markets",
+      "title": "Can charity money be used to fight Tata Sons listing? Vijay Singh seeks urgent probe",
+      "summary": "Tata Trusts trustee Vijay Singh has approached the Charity Commissioner, questioning the use of charitable funds for a legal battle that could affect Tata Sons' listing.",
+      "source": "Livemint Companies",
       "date": "Thu, 26 Nov 2026",
-      "url": "https://www.livemint.com/market/stock-market-news/nifty-surges-over-12-in-november-eyes-biggest-monthly-gain-in-six-years-bse-eternal-trent-among-top-gainers-11795694066553.html",
-      "sentiment": "Bullish",
+      "url": "https://www.livemint.com/companies/news/can-charity-money-be-used-to-fight-tata-sons-listing-vijay-singh-seeks-urgent-probe-11795705578505.html",
+      "sentiment": "Watch",
       "sectors": [
-        "Information Technology"
+        "Financial Services"
       ]
     },
     {
-      "title": "JioStar faces fresh workforce changes as seven TV channel sales gather pace; what happens to employees? Report reveals",
+      "title": "Explained: What is \u2018Starmind\u2019? SpaceX gets FCC nod for 1 million space-based data centres - Full details",
+      "summary": "The project, called Starmind, is designed to harness solar energy in space to power AI computing systems, process data in orbit and transmit results back to Earth through high-speed laser links connected to the Starlink network.",
+      "source": "Livemint Companies",
+      "date": "Thu, 26 Nov 2026",
+      "url": "https://www.livemint.com/companies/news/explained-what-is-starmind-spacex-gets-fcc-nod-for-1-million-space-based-data-centres-full-details-11795706894438.html",
+      "sentiment": "Bullish",
+      "sectors": [
+        "Financial Services",
+        "Power"
+      ]
+    },
+    {
+      "title": "JioStar faces fresh workforce changes as sale of 7 TV channels gathers pace, says report; what happens to employees?",
       "summary": "JioStar is negotiating the sale of seven television channels by March 2027, as required by the Competition Commission of India. Employees associated with these television businesses will reportedly move to the acquiring companies as part of",
       "source": "Livemint Companies",
       "date": "Thu, 26 Nov 2026",
@@ -291,36 +329,26 @@
       ]
     },
     {
-      "title": "Flipkart\u2019s incoming CEO faces a multi-front battle",
-      "summary": "A stalled IPO, disgruntled employees and rising competition will test the new CEO, who must also manage a sprawling portfolio of capital-intensive businesses.",
-      "source": "Livemint Companies",
-      "date": "Thu, 26 Nov 2026",
-      "url": "https://www.livemint.com/companies/news/flipkarts-incoming-ceo-faces-a-multi-front-battle-11795691496329.html",
-      "sentiment": "Watch",
-      "sectors": [
-        "Financial Services"
-      ]
-    },
-    {
-      "title": "US-based GEF Capital prepares to ramp up India climate-tech investments",
-      "summary": "Over the next 4-5 years, the PE firm will invest in 3-4 mid-market companies every year with cheques ranging from $30 million to $60 million. The investments will be in companies across energy transition, electric mobility, industrial decar",
-      "source": "Livemint Companies",
-      "date": "Thu, 26 Nov 2026",
-      "url": "https://www.livemint.com/companies/news/usbased-gef-capital-prepares-to-ramp-up-india-climate-tech-investments-pe-firm-11795687202336.html",
-      "sentiment": "Watch",
-      "sectors": [
-        "Automobiles"
-      ]
-    },
-    {
-      "title": "US closed cloud loophole for China. Now Nvidia\u2019s B300 GPUs are on sale. Who\u2019s buying? What changes for global market?",
-      "summary": "Nvidia's B300 chips are flooding the resale market after the US closed a cloud computing loophole for China. What does this mean for global AI demand?",
-      "source": "Livemint Companies",
-      "date": "Thu, 26 Nov 2026",
-      "url": "https://www.livemint.com/companies/us-closed-cloud-loophole-for-china-now-nvidia-s-b300-gpus-are-on-sale-who-s-buying-what-changes-for-global-market-11795691475319.html",
+      "title": "Taking Stock: Market fails to hold on to day#39;s gains, ends marginally higher",
+      "summary": "<img src=\"https://www.moneycontrol.com/news_image_files/2024/200x200/v/volatile_market1_200.jpg\" alt=\"Taking Stock: Market fails to hold on to day#39;s gains, ends marginally higher\" title=\"Taking Stock: Market fails to hold on to day#39;s ",
+      "source": "Moneycontrol Markets",
+      "date": "Tue, 23 Apr 2024",
+      "url": "https://www.moneycontrol.com/news/local-markets/taking-stock-market-fails-to-holdto-day39s-gains-ends-marginally-higher_17531871.html",
       "sentiment": "Bullish",
       "sectors": [
-        "Information Technology"
+        "Capital Goods",
+        "Healthcare"
+      ]
+    },
+    {
+      "title": "Sensex, Nifty gain for third day in a row; easing volatility to support bull trend",
+      "summary": "<img src=\"https://www.moneycontrol.com/news_image_files/2024/200x200/S/Share-Market-New-4-4_200.jpg\" alt=\"Sensex, Nifty gain for third day in a row; easing volatility to support bull trend\" title=\"Sensex, Nifty gain for third day in a row; ",
+      "source": "Moneycontrol Markets",
+      "date": "Tue, 23 Apr 2024",
+      "url": "https://www.moneycontrol.com/news/local-markets/sensex-nifty-gain-for-third-daya-row-easing-volatility-to-support-bull-trend_17531821.html",
+      "sentiment": "Bullish",
+      "sectors": [
+        "Capital Goods"
       ]
     }
   ],
