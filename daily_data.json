@@ -1,40 +1,40 @@
 {
-  "updated_at_ist": "27 Nov 2026, 03:15 PM IST",
-  "market_total_listed": 5877,
+  "updated_at_ist": "27 Nov 2026, 04:30 PM IST",
+  "market_total_listed": 5850,
   "my_holdings": [],
   "prices": {
     "BAJFINANCE": {
-      "cmp": 1081.05,
+      "cmp": 1080.0,
       "high52": 1176.4,
       "low52": 783.09,
-      "chg": -1.53
+      "chg": -1.63
     },
     "BEL": {
-      "cmp": 410.3,
+      "cmp": 411.45,
       "high52": 472.81,
       "low52": 354.55
     },
     "BHARTIARTL": {
-      "cmp": 2062.9,
+      "cmp": 2067.9,
       "high52": 2172.9,
       "low52": 1718.87,
-      "chg": -1.88
+      "chg": -1.65
     },
     "GOLDBEES": {
-      "cmp": 103.82,
+      "cmp": 103.78,
       "high52": 148.14,
       "low52": 99.88
     },
     "HAL": {
-      "cmp": 5075.0,
+      "cmp": 5074.0,
       "high52": 5149.9,
       "low52": 3472.06
     },
     "HCLTECH": {
-      "cmp": 1422.0,
+      "cmp": 1424.1,
       "high52": 1713.75,
       "low52": 1010.59,
-      "chg": -3.17
+      "chg": -3.03
     },
     "HDFCBANK": {
       "cmp": 857.25,
@@ -43,53 +43,53 @@
       "chg": -0.55
     },
     "HINDUNILVR": {
-      "cmp": 2127.0,
+      "cmp": 2117.2,
       "high52": 2439.81,
       "low52": 1741.68
     },
     "ICICIBANK": {
-      "cmp": 1593.8,
+      "cmp": 1593.4,
       "high52": 1652.0,
       "low52": 1177.67,
-      "chg": -1.07
+      "chg": -1.09
     },
     "INFY": {
-      "cmp": 1154.2,
+      "cmp": 1151.3,
       "high52": 1653.52,
       "low52": 958.44,
-      "chg": -2.43
+      "chg": -2.68
     },
     "ITC": {
-      "cmp": 304.15,
+      "cmp": 304.7,
       "high52": 390.46,
       "low52": 252.8
     },
     "LT": {
-      "cmp": 4112.0,
+      "cmp": 4108.5,
       "high52": 4397.05,
       "low52": 3256.29,
-      "chg": -0.49
+      "chg": -0.57
     },
     "M&M": {
-      "cmp": 3442.0,
+      "cmp": 3450.0,
       "high52": 3799.99,
       "low52": 2744.3
     },
     "MARUTI": {
-      "cmp": 13750.0,
+      "cmp": 13765.0,
       "high52": 17197.29,
       "low52": 10985.0
     },
     "NTPC": {
-      "cmp": 318.3,
+      "cmp": 319.75,
       "high52": 406.09,
       "low52": 289.28
     },
     "RELIANCE": {
-      "cmp": 1374.9,
+      "cmp": 1382.6,
       "high52": 1604.38,
       "low52": 1152.2,
-      "chg": -1.53
+      "chg": -0.97
     },
     "RVNL": {
       "cmp": 190.7,
@@ -97,29 +97,52 @@
       "low52": 177.86
     },
     "SBIN": {
-      "cmp": 1125.55,
+      "cmp": 1123.9,
       "high52": 1212.84,
       "low52": 927.73,
-      "chg": -0.98
+      "chg": -1.12
     },
     "SUNPHARMA": {
-      "cmp": 1905.0,
+      "cmp": 1899.9,
       "high52": 2046.9,
       "low52": 1569.37
     },
     "TCS": {
-      "cmp": 2574.0,
+      "cmp": 2572.5,
       "high52": 3269.78,
       "low52": 1955.62,
-      "chg": -2.51
+      "chg": -2.57
     },
     "TITAN": {
-      "cmp": 4697.1,
+      "cmp": 4675.3,
       "high52": 5186.7,
       "low52": 3738.73
     }
   },
   "news": [
+    {
+      "title": "Eurozone bond yields rise as investors return to riskier assets, oil prices rebound",
+      "summary": "Eurozone government bond yields edged higher as investors shifted back towards riskier assets and oil prices rebounded amid escalating Middle East tensions. Markets also assessed the European Central Bank's policy outlook, with money market",
+      "source": "Economic Times Markets",
+      "date": "Fri, 27 Nov 2026",
+      "url": "https://economictimes.indiatimes.com/markets/us-stocks/news/eurozone-bond-yields-rise-as-investors-return-to-riskier-assets-oil-prices-rebound/articleshow/136218279.cms",
+      "sentiment": "Bullish",
+      "sectors": [
+        "Financial Services"
+      ]
+    },
+    {
+      "title": "Rupee rally takes a hit as AI trade revival dents shares, currency sees weekly dip",
+      "summary": "The Indian rupee has seen a downturn against the US dollar, driven by a drop in local stocks and a rise in oil prices. Interestingly, foreign investments in Indian equities have rebounded, reaching approximately $16 billion this month. With",
+      "source": "Economic Times Markets",
+      "date": "Fri, 27 Nov 2026",
+      "url": "https://economictimes.indiatimes.com/markets/forex/rupee-rally-takes-a-hit-as-ai-trade-revival-dents-shares-currency-sees-weekly-dip/articleshow/136218142.cms",
+      "sentiment": "Bullish",
+      "sectors": [
+        "Information Technology",
+        "Automobiles"
+      ]
+    },
     {
       "title": "Can SpaceX's AI ambitions drive further upside in its stock?",
       "summary": "SpaceX shares rally on bullish trading signals as Elon Musk expands the company's AI ambitions. Strong revenue growth and a proposed satellite data centre network fuel optimism, despite valuation concerns.",
@@ -157,38 +180,25 @@
       ]
     },
     {
-      "title": "ICICI Bank Share Price Live Updates: ICICI Bank Dividend Updates",
+      "title": "Nestle India Share Price Live Updates: Nestle India Bonus Updates",
       "summary": "",
       "source": "Economic Times Markets",
       "date": "Fri, 27 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/stocks/stock-liveblog/icici-bank-stock-price-today-live-27-nov-2026/liveblog/136209072.cms",
-      "sentiment": "Bullish",
+      "url": "https://economictimes.indiatimes.com/markets/stocks/stock-liveblog/nestle-india-share-price-today-live-27-nov-2026/liveblog/136209163.cms",
+      "sentiment": "Watch",
       "sectors": [
         "Financial Services"
       ]
     },
     {
-      "title": "HDFC Bank, SBI, 8 other stocks JPMorgan is bullish on as markets gear up to enter 2027. See full list",
-      "summary": "As we step into 2027, Indian equities show promise, buoyed by favorable economic indicators. JPMorgan has rated ten stocks as Overweight, signaling significant growth potential in contenders like HDFC Bank, SBI, and Bajaj Finance. However, ",
-      "source": "Economic Times Markets",
+      "title": "US stock market open or closed today Friday, 27 Nov? Check NYSE and Nasdaq trading schedule, holiday calendar",
+      "summary": "NYSE and Nasdaq will close at 1:00 pm ET on Black Friday, November 27, after opening at their usual time. Indian investors can trade from 8:00 pm to 11:30 pm IST. Normal hours resume Monday, November 30, following the weekend.",
+      "source": "Livemint Markets",
       "date": "Fri, 27 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/stocks/news/hdfc-bank-sbi-8-other-stocks-jpmorgan-is-bullish-on-as-markets-gear-up-to-enter-2027-see-full-list/slideshow/136208713.cms",
-      "sentiment": "Bullish",
+      "url": "https://www.livemint.com/market/stock-market-news/us-stock-market-open-or-closed-today-friday-27-nov-check-nyse-and-nasdaq-trading-schedule-holiday-calendar-11795773710345.html",
+      "sentiment": "Watch",
       "sectors": [
-        "Financial Services",
-        "Automobiles"
-      ]
-    },
-    {
-      "title": "HCL Technologies among 7 stocks showing White Marubozu Pattern",
-      "summary": "The pattern indicates strong buying momentum during the session, with prices moving steadily higher from the opening level to the close. It is commonly used in technical analysis to identify bullish price momentum.",
-      "source": "Economic Times Markets",
-      "date": "Fri, 27 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/stocks/news/hcl-technologies-among-7-stocks-showing-white-marubozu-pattern/slideshow/136208369.cms",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Information Technology",
-        "Automobiles"
+        "Information Technology"
       ]
     },
     {
@@ -246,17 +256,6 @@
       "sentiment": "Bullish",
       "sectors": [
         "Information Technology",
-        "Automobiles"
-      ]
-    },
-    {
-      "title": "Why Asahi India Glass may keep sparkling, irrespective of ICE or EV growth",
-      "summary": "Strong auto demand, improving product mix and architectural glass profitability are supporting Asahi India Glass, even as its rich valuation and input-cost risks warrant attention.",
-      "source": "Livemint Markets",
-      "date": "Fri, 27 Nov 2026",
-      "url": "https://www.livemint.com/market/mark-to-market/asahi-india-glass-automotive-glass-architectural-glass-auto-ancillary-stocks-electric-vehicles-passenger-vehicles-11795762126510.html",
-      "sentiment": "Bullish",
-      "sectors": [
         "Automobiles"
       ]
     },
@@ -327,39 +326,62 @@
       "sectors": [
         "Information Technology"
       ]
+    },
+    {
+      "title": "Taking Stock: Market fails to hold on to day#39;s gains, ends marginally higher",
+      "summary": "<img src=\"https://www.moneycontrol.com/news_image_files/2024/200x200/v/volatile_market1_200.jpg\" alt=\"Taking Stock: Market fails to hold on to day#39;s gains, ends marginally higher\" title=\"Taking Stock: Market fails to hold on to day#39;s ",
+      "source": "Moneycontrol Markets",
+      "date": "Tue, 23 Apr 2024",
+      "url": "https://www.moneycontrol.com/news/local-markets/taking-stock-market-fails-to-holdto-day39s-gains-ends-marginally-higher_17531871.html",
+      "sentiment": "Bullish",
+      "sectors": [
+        "Capital Goods",
+        "Healthcare"
+      ]
+    },
+    {
+      "title": "Sensex, Nifty gain for third day in a row; easing volatility to support bull trend",
+      "summary": "<img src=\"https://www.moneycontrol.com/news_image_files/2024/200x200/S/Share-Market-New-4-4_200.jpg\" alt=\"Sensex, Nifty gain for third day in a row; easing volatility to support bull trend\" title=\"Sensex, Nifty gain for third day in a row; ",
+      "source": "Moneycontrol Markets",
+      "date": "Tue, 23 Apr 2024",
+      "url": "https://www.moneycontrol.com/news/local-markets/sensex-nifty-gain-for-third-daya-row-easing-volatility-to-support-bull-trend_17531821.html",
+      "sentiment": "Bullish",
+      "sectors": [
+        "Capital Goods"
+      ]
     }
   ],
   "ipos": [],
   "indices": [
     {
       "name": "NIFTY 50",
-      "val": "25,593.85",
-      "chg": -1.12
+      "val": "25,607.20",
+      "chg": -1.07
     },
     {
       "name": "SENSEX",
-      "val": "83,402.53",
-      "chg": -1.1
+      "val": "83,339.26",
+      "chg": -1.17
     },
     {
       "name": "BANK NIFTY",
-      "val": "63,038.60",
+      "val": "63,040.90",
       "chg": -0.78
     },
     {
       "name": "INDIA VIX",
-      "val": "16.51",
-      "chg": -1.94
+      "val": "16.55",
+      "chg": -1.75
     },
     {
       "name": "GOLD BeES",
-      "val": "\u20b9103.83",
-      "chg": 2.84
+      "val": "\u20b9103.78",
+      "chg": 2.79
     },
     {
       "name": "USD/INR",
       "val": "\u20b992.98",
-      "chg": 0.81
+      "chg": 0.8
     }
   ],
   "history": {
@@ -406,8 +428,8 @@
         926.0,
         1064.85
       ],
-      "dma50": 1008.59,
-      "dma200": 982.06
+      "dma50": 1008.57,
+      "dma200": 982.05
     },
     "BEL": {
       "dates": [
@@ -452,8 +474,8 @@
         371.2,
         394.55
       ],
-      "dma50": 386.63,
-      "dma200": 412.78
+      "dma50": 386.65,
+      "dma200": 412.79
     },
     "BHARTIARTL": {
       "dates": [
@@ -498,8 +520,8 @@
         1891.7,
         2072.1
       ],
-      "dma50": 1936.5,
-      "dma200": 1884.79
+      "dma50": 1936.6,
+      "dma200": 1884.81
     },
     "GOLDBEES": {
       "dates": [
@@ -590,7 +612,7 @@
         4854.4,
         4999.0
       ],
-      "dma50": 4823.44,
+      "dma50": 4823.42,
       "dma200": 4483.64
     },
     "HCLTECH": {
@@ -636,8 +658,8 @@
         1424.2,
         1407.0
       ],
-      "dma50": 1329.08,
-      "dma200": 1275.48
+      "dma50": 1329.12,
+      "dma200": 1275.49
     },
     "HDFCBANK": {
       "dates": [
@@ -728,8 +750,8 @@
         1832.82,
         1971.6
       ],
-      "dma50": 1916.25,
-      "dma200": 2081.45
+      "dma50": 1916.05,
+      "dma200": 2081.4
     },
     "ICICIBANK": {
       "dates": [
@@ -774,7 +796,7 @@
         1385.0,
         1589.0
       ],
-      "dma50": 1429.72,
+      "dma50": 1429.71,
       "dma200": 1364.01
     },
     "INFY": {
@@ -820,8 +842,8 @@
         1141.84,
         1154.1
       ],
-      "dma50": 1080.28,
-      "dma200": 1134.91
+      "dma50": 1080.22,
+      "dma200": 1134.9
     },
     "ITC": {
       "dates": [
@@ -866,8 +888,8 @@
         262.0,
         278.8
       ],
-      "dma50": 272.83,
-      "dma200": 285.47
+      "dma50": 272.84,
+      "dma200": 285.48
     },
     "LT": {
       "dates": [
@@ -912,8 +934,8 @@
         3636.0,
         4185.0
       ],
-      "dma50": 3881.02,
-      "dma200": 3938.94
+      "dma50": 3880.95,
+      "dma200": 3938.92
     },
     "M&M": {
       "dates": [
@@ -958,8 +980,8 @@
         2889.0,
         3290.6
       ],
-      "dma50": 3059.97,
-      "dma200": 3164.44
+      "dma50": 3060.13,
+      "dma200": 3164.48
     },
     "MARUTI": {
       "dates": [
@@ -1004,8 +1026,8 @@
         11200.0,
         12928.0
       ],
-      "dma50": 12142.2,
-      "dma200": 13157.55
+      "dma50": 12142.5,
+      "dma200": 13157.62
     },
     "NTPC": {
       "dates": [
@@ -1050,8 +1072,8 @@
         300.13,
         328.75
       ],
-      "dma50": 315.9,
-      "dma200": 347.6
+      "dma50": 315.93,
+      "dma200": 347.61
     },
     "RELIANCE": {
       "dates": [
@@ -1096,8 +1118,8 @@
         1209.0,
         1324.4
       ],
-      "dma50": 1252.74,
-      "dma200": 1319.61
+      "dma50": 1252.89,
+      "dma200": 1319.65
     },
     "RVNL": {
       "dates": [
@@ -1188,8 +1210,8 @@
         963.0,
         1042.0
       ],
-      "dma50": 1006.99,
-      "dma200": 1036.48
+      "dma50": 1006.95,
+      "dma200": 1036.47
     },
     "SUNPHARMA": {
       "dates": [
@@ -1234,8 +1256,8 @@
         1745.1,
         1904.5
       ],
-      "dma50": 1820.24,
-      "dma200": 1824.42
+      "dma50": 1820.13,
+      "dma200": 1824.39
     },
     "TCS": {
       "dates": [
@@ -1280,7 +1302,7 @@
         2529.0,
         2475.4
       ],
-      "dma50": 2322.04,
+      "dma50": 2322.01,
       "dma200": 2337.68
     },
     "TITAN": {
@@ -1326,8 +1348,8 @@
         4380.9,
         5005.0
       ],
-      "dma50": 4642.23,
-      "dma200": 4498.59
+      "dma50": 4641.79,
+      "dma200": 4498.48
     }
   },
   "corp_actions": {
@@ -1359,56 +1381,56 @@
       "sector": "Financial Services",
       "displayLabel": "Nifty Bank",
       "chg": -0.78,
-      "note": "Close 63,038.60 \u00b7 Auto-synced via GitHub Action"
+      "note": "Close 63,040.90 \u00b7 Auto-synced via GitHub Action"
     },
     {
       "sector": "Information Technology",
       "displayLabel": "Nifty IT",
-      "chg": -1.84,
-      "note": "Close 32,771.25 \u00b7 Auto-synced via GitHub Action"
+      "chg": -1.88,
+      "note": "Close 32,758.10 \u00b7 Auto-synced via GitHub Action"
     },
     {
       "sector": "Automobiles",
       "displayLabel": "Nifty Auto",
-      "chg": -1.54,
-      "note": "Close 28,181.75 \u00b7 Auto-synced via GitHub Action"
+      "chg": -1.48,
+      "note": "Close 28,199.90 \u00b7 Auto-synced via GitHub Action"
     },
     {
       "sector": "Healthcare",
       "displayLabel": "Nifty Pharma",
       "chg": -0.4,
-      "note": "Close 28,974.55 \u00b7 Auto-synced via GitHub Action"
+      "note": "Close 28,973.55 \u00b7 Auto-synced via GitHub Action"
     },
     {
       "sector": "FMCG",
       "displayLabel": "Nifty FMCG",
-      "chg": -0.98,
-      "note": "Close 49,186.40 \u00b7 Auto-synced via GitHub Action"
+      "chg": -0.93,
+      "note": "Close 49,212.45 \u00b7 Auto-synced via GitHub Action"
     },
     {
       "sector": "Oil & Gas",
       "displayLabel": "Nifty Energy",
-      "chg": -0.05,
-      "note": "Close 36,860.80 \u00b7 Auto-synced via GitHub Action"
+      "chg": 0.15,
+      "note": "Close 36,935.00 \u00b7 Auto-synced via GitHub Action"
     },
     {
       "sector": "Construction",
       "displayLabel": "Nifty Infra",
-      "chg": -0.98,
-      "note": "Close 9,509.65 \u00b7 Auto-synced via GitHub Action"
+      "chg": -0.74,
+      "note": "Close 9,532.90 \u00b7 Auto-synced via GitHub Action"
     },
     {
       "sector": "Consumer Services",
       "displayLabel": "Nifty Consumption",
-      "chg": -0.93,
-      "note": "Close 12,263.30 \u00b7 Auto-synced via GitHub Action"
+      "chg": -0.86,
+      "note": "Close 12,271.85 \u00b7 Auto-synced via GitHub Action"
     }
   ],
   "market_mood": {
     "score": 18,
     "label": "Extreme Fear",
-    "nifty_chg": -1.12,
+    "nifty_chg": -1.07,
     "bank_chg": -0.78,
-    "vix": 16.51
+    "vix": 16.55
   }
 }
