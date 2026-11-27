@@ -2633,6 +2633,7 @@
 
       // Verified 2026 NSE/BSE Provisional Cash Market FII & DII Flows (₹ Cr)
       let fiiDiiDailyData = [
+      { date: '26 Nov', fii: 5843.33, dii: 5630.72 },
         { date: '25 Nov', fii: 4479, dii: 4019 },
         { date: '23 Nov', fii: 5673, dii: -2760 },
         { date: '20 Nov', fii: 10308, dii: -4860 },
@@ -5828,11 +5829,15 @@
             }
             if (data && data.fii_dii_latest && data.fii_dii_latest.date) {
               const latest = data.fii_dii_latest;
-              if (!fiiDiiDailyData.some((d) => d.date === latest.date)) {
+              const existingIdx = fiiDiiDailyData.findIndex((d) => d.date === latest.date);
+              if (existingIdx >= 0) {
+                fiiDiiDailyData[existingIdx] = { date: latest.date, fii: Number(latest.fii) || 0, dii: Number(latest.dii) || 0 };
+              } else {
                 fiiDiiDailyData.unshift({ date: latest.date, fii: Number(latest.fii) || 0, dii: Number(latest.dii) || 0 });
                 fiiDiiDailyData = fiiDiiDailyData.slice(0, 12);
-                if (state.activeTab === 'flows') renderFiiDiiSection();
               }
+              if (state.activeTab === 'flows') renderFiiDiiSection();
+              renderMarketMoodBar();
             }
             if (data && Array.isArray(data.sector_pulse_daily) && data.sector_pulse_daily.length > 0) {
               liveSectorPulse = data.sector_pulse_daily;
