@@ -1,6 +1,6 @@
 {
-  "updated_at_ist": "27 Nov 2026, 04:30 PM IST",
-  "market_total_listed": 5850,
+  "updated_at_ist": "27 Nov 2026, 08:36 PM IST",
+  "market_total_listed": 5847,
   "my_holdings": [],
   "prices": {
     "BAJFINANCE": {
@@ -121,6 +121,51 @@
   },
   "news": [
     {
+      "title": "Capital market industry hopes for relief in capital gains taxation in Budget 2027-28: Axis Capital MD",
+      "summary": "The capital market industry is hoping for some relief in capital gains taxation, including a possible reduction in short-term capital gains tax, in the upcoming Union Budget 2027-28, said Lakha Nair, Managing Director and Head of Corporate ",
+      "source": "Economic Times Markets",
+      "date": "Fri, 27 Nov 2026",
+      "url": "https://economictimes.indiatimes.com/markets/stocks/news/capital-market-industry-hopes-for-relief-in-capital-gains-taxation-in-budget-2027-28-axis-capital-md/articleshow/136224186.cms",
+      "sentiment": "Bullish",
+      "sectors": [
+        "Construction"
+      ]
+    },
+    {
+      "title": "US stocks open higher as battered AI shares claw back losses: Stock Market Live Updates",
+      "summary": "",
+      "source": "Economic Times Markets",
+      "date": "Fri, 27 Nov 2026",
+      "url": "https://economictimes.indiatimes.com/markets/us-stocks/wall-street-guide/stock-market-live-updates-dow-jones-nasdaq-sp-500-gold-silver-price-coreqeave-nebius-meta-nvidia-ai-stocks-fed-rate-hike-treasury-yield-news-27th-november-2026/liveblog/136223511.cms",
+      "sentiment": "Watch",
+      "sectors": [
+        "Information Technology"
+      ]
+    },
+    {
+      "title": "India bonds slump as oil spike adds to RBI hike bets",
+      "summary": "Indian government bonds experienced a decline this week, largely influenced by rising oil prices and US Treasury yields. The benchmark bond yield reached its highest point in a week at 7.2650% on Friday. Analysts are anticipating a potentia",
+      "source": "Economic Times Markets",
+      "date": "Fri, 27 Nov 2026",
+      "url": "https://economictimes.indiatimes.com/markets/bonds/india-bonds-slump-as-oil-spike-adds-to-rbi-hike-bets/articleshow/136221243.cms",
+      "sentiment": "Watch",
+      "sectors": [
+        "Financial Services",
+        "Consumer Services"
+      ]
+    },
+    {
+      "title": "Ion Exchange India among 6 stocks hitting 52-week low; shares slipped up to 20% in a month",
+      "summary": "Six BSE 1000 stocks, including Dishman Carbogen Amcis, Happiest Minds and TCI Express, touched fresh 52-week lows on Friday amid weakness in the broader market.",
+      "source": "Economic Times Markets",
+      "date": "Fri, 27 Nov 2026",
+      "url": "https://economictimes.indiatimes.com/markets/stocks/news/ion-exchange-india-among-6-stocks-hitting-52-week-low-shares-slipped-up-to-20-in-a-month/slideshow/136219516.cms",
+      "sentiment": "Watch",
+      "sectors": [
+        "Financial Services"
+      ]
+    },
+    {
       "title": "Eurozone bond yields rise as investors return to riskier assets, oil prices rebound",
       "summary": "Eurozone government bond yields edged higher as investors shifted back towards riskier assets and oil prices rebounded amid escalating Middle East tensions. Markets also assessed the European Central Bank's policy outlook, with money market",
       "source": "Economic Times Markets",
@@ -144,150 +189,44 @@
       ]
     },
     {
-      "title": "Can SpaceX's AI ambitions drive further upside in its stock?",
-      "summary": "SpaceX shares rally on bullish trading signals as Elon Musk expands the company's AI ambitions. Strong revenue growth and a proposed satellite data centre network fuel optimism, despite valuation concerns.",
-      "source": "Economic Times Markets",
-      "date": "Fri, 27 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/us-stocks/news/can-spacexs-ai-ambitions-drive-further-upside-in-its-stock/slideshow/136213079.cms",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Information Technology",
-        "Automobiles"
-      ]
-    },
-    {
-      "title": "India bonds decline ahead of fresh debt sale as elevated oil prices fan inflation worries",
-      "summary": "Indian government bonds decreased in early trading due to rising oil prices and cautious investor sentiment. The benchmark 6.94% 2036 bond yield increased significantly amid higher expectations for a rate hike. New Delhi is set to raise 330",
-      "source": "Economic Times Markets",
-      "date": "Fri, 27 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/bonds/india-bonds-decline-ahead-of-fresh-debt-sale-as-elevated-oil-prices-fan-inflation-worries/articleshow/136211546.cms",
-      "sentiment": "Watch",
-      "sectors": [
-        "Financial Services",
-        "Automobiles"
-      ]
-    },
-    {
-      "title": "Nvidia stock plunges 35% from record high: Is it a buying opportunity?",
-      "summary": "Nvidia has lost over $2 trillion in market value as shares plunged 35% from record highs amid concerns about the sustainability of AI investments. Despite the correction, strong hyperscaler demand supports growth projections, with revenue e",
-      "source": "Economic Times Markets",
-      "date": "Fri, 27 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/us-stocks/news/nvidia-stock-plunges-35-from-record-high-is-it-a-buying-opportunity/slideshow/136209377.cms",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Information Technology",
-        "Automobiles"
-      ]
-    },
-    {
-      "title": "Nestle India Share Price Live Updates: Nestle India Bonus Updates",
-      "summary": "",
-      "source": "Economic Times Markets",
-      "date": "Fri, 27 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/stocks/stock-liveblog/nestle-india-share-price-today-live-27-nov-2026/liveblog/136209163.cms",
-      "sentiment": "Watch",
-      "sectors": [
-        "Financial Services"
-      ]
-    },
-    {
-      "title": "US stock market open or closed today Friday, 27 Nov? Check NYSE and Nasdaq trading schedule, holiday calendar",
-      "summary": "NYSE and Nasdaq will close at 1:00 pm ET on Black Friday, November 27, after opening at their usual time. Indian investors can trade from 8:00 pm to 11:30 pm IST. Normal hours resume Monday, November 30, following the weekend.",
+      "title": "Tata Steel-APL Apollo deal under Sebi scrutiny? What Chairman Tuhin Kanta Pandey said on minority shareholders",
+      "summary": "Sebi Chairman Tuhin Kanta Pandey said protecting minority shareholders is a priority as the regulator examines Tata Steel\u2019s proposed transaction with APL Apollo. Investors and proxy advisers have questioned the deal\u2019s structure, warning it ",
       "source": "Livemint Markets",
       "date": "Fri, 27 Nov 2026",
-      "url": "https://www.livemint.com/market/stock-market-news/us-stock-market-open-or-closed-today-friday-27-nov-check-nyse-and-nasdaq-trading-schedule-holiday-calendar-11795773710345.html",
+      "url": "https://www.livemint.com/market/tata-steel-apl-apollo-deal-under-sebi-scrutiny-what-chairman-tuhin-kanta-pandey-said-on-minority-shareholders-11795787306824.html",
       "sentiment": "Watch",
       "sectors": [
         "Information Technology"
       ]
     },
     {
-      "title": "Gold ETFs vs Gold Mutual Funds: Amid ups and downs in rates, which is better instrument to buy for good returns?",
-      "summary": "Gold ETFs vs Gold Mutual Funds: Gold ETFs are generally better for lower costs, but they require a demat account for investing",
+      "title": "Sterlite Electric, Svatantra Microfin among 8 firms cleared for IPOs",
+      "summary": "The other six firms are: Gaurik Fashions Ltd, Emerald Jewel Industry India Ltd, Beauty Garage Ltd, Noble Hygiene Ltd, MP Steel (India) Ltd, and Kataria Dhulchand Pannalal Jewellers Ltd",
       "source": "Livemint Markets",
       "date": "Fri, 27 Nov 2026",
-      "url": "https://www.livemint.com/market/stock-market-news/gold-etfs-vs-gold-mutual-funds-amid-ups-and-downs-in-rates-which-is-better-instrument-to-buy-for-good-returns-11795767297944.html",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Gold & Commodities"
-      ]
-    },
-    {
-      "title": "Silver price prediction: After 67% crash from peak, is the white metal finally close to a bottom? Key levels to watch",
-      "summary": "Silver has plunged nearly 67% from its January record, but PL Capital sees possible support at $37\u201339.50 an ounce. A chart pattern and improving RSI suggest early stabilisation, not a confirmed reversal. Investors are watching $43 for a rec",
-      "source": "Livemint Markets",
-      "date": "Fri, 27 Nov 2026",
-      "url": "https://www.livemint.com/market/commodities/silver-price-prediction-after-67-crash-from-peak-is-the-white-metal-finally-close-to-a-bottom-key-levels-to-watch-11795768037657.html",
-      "sentiment": "Caution",
-      "sectors": [
-        "Automobiles",
-        "Gold & Commodities"
-      ]
-    },
-    {
-      "title": "Gold vs silver: Precious metals prices crashed and rebounded - which of them could deliver better returns in 2027?",
-      "summary": "Gold vs Silver: On the domestic futures market, MCX gold fell around 13% in November, while silver plunged nearly 20%, as a stronger US dollar, elevated bond yields and expectations of tighter US monetary policy triggered heavy selling.",
-      "source": "Livemint Markets",
-      "date": "Fri, 27 Nov 2026",
-      "url": "https://www.livemint.com/market/commodities/gold-vs-silver-precious-metals-prices-crashed-and-rebounded-which-of-them-could-deliver-better-returns-in-2027-11795767982019.html",
-      "sentiment": "Caution",
-      "sectors": [
-        "Automobiles",
-        "Gold & Commodities"
-      ]
-    },
-    {
-      "title": "Up 57% YTD! Healthcare stock shows resilience against the Indian stock market crash; should you buy? Target, stop-loss",
-      "summary": "Healthcare stock Park Medi World opened at  \u20b9240.81 and touched an intraday high of  \u20b9240.81 and a low of  \u20b9231.81 during the intraday session.",
-      "source": "Livemint Markets",
-      "date": "Fri, 27 Nov 2026",
-      "url": "https://www.livemint.com/market/stock-market-news/up-55-ytd-healthcare-stock-park-medi-world-shows-resilience-against-the-indian-stock-market-crash-should-you-buy-11795765259630.html",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Healthcare"
-      ]
-    },
-    {
-      "title": "Is a US Fed rate hike confirmed in Dec meet? How will it impact Sensex, Nifty, Gold as US PCE inflation rises in October",
-      "summary": "Sensex and Nifty fell on Friday as higher crude prices and Middle East tensions weighed on sentiment, despite institutional buying. Hotter-than-expected US core inflation has raised expectations of a possible December Fed rate hike, which c",
-      "source": "Livemint Markets",
-      "date": "Fri, 27 Nov 2026",
-      "url": "https://www.livemint.com/market/stock-market-news/us-pce-inflation-rises-in-oct-is-a-us-fed-rate-hike-confirmed-in-dec-meet-how-will-it-impact-sensex-nifty-and-gold-11795764103649.html",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Information Technology",
-        "Automobiles"
-      ]
-    },
-    {
-      "title": "Who is Diipa Khosla? Founder of ayurveda-inspired beauty brand Ind\u0113 Wild, which received investment from Nikhil Kamath",
-      "summary": "Who is Diipa Khosla? Founder of ayurveda-inspired beauty brand Ind\u0113 Wild which received funding from Zerodha co-founder Nikhil Kamath's investment platform WTF. Here's all you need to know\u2026&amp;nbsp;",
-      "source": "Livemint Companies",
-      "date": "Fri, 27 Nov 2026",
-      "url": "https://www.livemint.com/companies/people/who-is-diipa-buller-khosla-founder-ayurveda-inspired-beauty-brand-ind-wild-investment-zerodha-nikhil-kamath-wtf-11795751520746.html",
+      "url": "https://www.livemint.com/market/ipo/sebi-approves-eight-ipos-sterlite-electric-svatantra-microfin-11795783678926.html",
       "sentiment": "Watch",
       "sectors": [
-        "Financial Services"
+        "FMCG"
       ]
     },
     {
-      "title": "Urban Company forays into AC market, announces the launch of two new air conditioners under 'Native' brand: Here's why",
-      "summary": "Urban Company has entered India's residential AC market with its Native Ultra and Ultra Air range, priced from  \u20b955,499. The company is offering a five-year unconditional warranty, including gas refills, as it looks to leverage its experien",
-      "source": "Livemint Companies",
+      "title": "South Korea's Kospi crashes 48% from record high: How the AI trade unwind is hitting investors and pension funds",
+      "summary": "South Korea\u2019s Kospi has fallen 48% from its record high as investors reassess AI-related investments. The downturn cut the National Pension Service\u2019s assets by 202 trillion won by the end of September, despite strong returns earlier in the ",
+      "source": "Livemint Markets",
       "date": "Fri, 27 Nov 2026",
-      "url": "https://www.livemint.com/companies/news/urban-company-forays-into-ac-market-announces-the-launch-of-two-new-air-conditioners-under-native-brand-heres-why-11795764096385.html",
+      "url": "https://www.livemint.com/market/stock-market-news/south-koreas-kospi-crashes-48-from-record-high-how-the-ai-trade-unwind-is-hitting-investors-and-pension-funds-11795784179412.html",
       "sentiment": "Watch",
       "sectors": [
-        "Information Technology",
-        "Automobiles"
+        "Information Technology"
       ]
     },
     {
-      "title": "SAP layoffs: German software major considering 10,000 job cuts, 9% of global workforce could be hit \u2014 Check which depts",
-      "summary": "SAP is reportedly considering cutting around 10,000 jobs, or 9% of its workforce, as it restructures for the AI era. While the total remains subject to change, here's which teams may be particularly affected\u2026",
-      "source": "Livemint Companies",
+      "title": "RBI rolls back tighter daily CRR requirement as banking liquidity slips into deficit",
+      "summary": "RBI reverses its move to raise the minimum daily CRR maintenance requirement from 90% to 99%, effective 1 December.",
+      "source": "Livemint Markets",
       "date": "Fri, 27 Nov 2026",
-      "url": "https://www.livemint.com/companies/news/sap-layoffs-german-software-major-considering-10-000-job-cuts-9-of-global-workforce-could-be-hit-check-which-depts-11795762014958.html",
+      "url": "https://www.livemint.com/market/rbi-reverses-daily-crr-rule-as-bank-liquidity-tightens-11795780978865.html",
       "sentiment": "Watch",
       "sectors": [
         "Financial Services",
@@ -295,35 +234,93 @@
       ]
     },
     {
-      "title": "Delhi HC rejects Tata Projects plea to stop Noida airport operator from encashing  \u20b9329 crore bank guarantees",
-      "summary": "The court said the money involved could be recovered later if Tata Projects succeeds in proving that the encashment was wrong.",
+      "title": "Gokaldas Exports to Trident: Textile stocks gain up to 8% as global brands turn to India; what's the opportunity?",
+      "summary": "Indian textile shares rose after Reuters reported that global fashion brands shifted garment orders from Bangladesh amid labour unrest and rising costs. India emerged as the main beneficiary, with Gokaldas Exports gaining as much as 11%. Bu",
+      "source": "Livemint Markets",
+      "date": "Fri, 27 Nov 2026",
+      "url": "https://www.livemint.com/market/stock-market-news/gokaldas-exports-to-trident-textile-stocks-gain-up-to-8-as-global-brands-turn-to-india-whats-the-opportunity-11795782603918.html",
+      "sentiment": "Bullish",
+      "sectors": [
+        "Capital Goods",
+        "Financial Services"
+      ]
+    },
+    {
+      "title": "Jaipur leads jewellery searches with 78% growth, Delhi tops gold testing centre searches at 58%, says report",
+      "summary": "Searches for jewellery showrooms in India rose 53% year-on-year, while searches for gold testing centres and buyers increased 36% and 34%, respectively, according to Justdial. The trends suggest consumers are exploring purchases, purity che",
+      "source": "Livemint Markets",
+      "date": "Fri, 27 Nov 2026",
+      "url": "https://www.livemint.com/market/commodities/jaipur-leads-jewellery-searches-with-78-growth-delhi-tops-gold-testing-centre-searches-at-58-says-report-11795779411777.html",
+      "sentiment": "Bullish",
+      "sectors": [
+        "Financial Services",
+        "Consumer Services"
+      ]
+    },
+    {
+      "title": "IBM ends US visa and green card sponsorship for most consulting jobs: What happens to Indian tech workers?",
+      "summary": "IBM is ending US visa and green card sponsorship for most jobs in its consulting division. Affected employees can reportedly relocate abroad or leave by 31 December, putting pressure on foreign workers, including many Indian professionals.",
       "source": "Livemint Companies",
       "date": "Fri, 27 Nov 2026",
-      "url": "https://www.livemint.com/companies/delhi-high-court-tata-projects-plea-noida-airport-operator-encashing-329-crore-bank-guarantees-11795761653360.html",
+      "url": "https://www.livemint.com/companies/news/ibm-ends-us-visa-and-green-card-sponsorship-for-most-consulting-jobs-what-happens-to-indian-tech-workers-11795787786263.html",
       "sentiment": "Watch",
       "sectors": [
         "Financial Services"
       ]
     },
     {
-      "title": "Swiggy's Instamart cuts 340 jobs as losses widen; offers severance, health benefits to affected staff",
-      "summary": "The layoffs come even as Instamart steps up investments and introduces new initiatives to strengthen its position in the increasingly competitive market.",
+      "title": "No HDFC bank SMS alerts for UPI payments up to  \u20b9500 from 1st January 2027 - here's why; what customers should know",
+      "summary": "From 1 January 2027, HDFC Bank will stop sending SMS alerts for UPI transactions of  \u20b9500 or less. Email alerts will continue for all UPI payments, provided customers have a valid registered email address. SMS alerts will remain for transac",
       "source": "Livemint Companies",
       "date": "Fri, 27 Nov 2026",
-      "url": "https://www.livemint.com/companies/news/swiggys-quick-commerce-arm-instamart-to-lay-off-340-employees-amid-restructuring-ai-push-11795759734638.html",
-      "sentiment": "Caution",
+      "url": "https://www.livemint.com/companies/news/no-hdfc-bank-sms-alerts-for-upi-payments-up-to-500-from-1st-january-2027-heres-why-what-customers-should-know-11795787590342.html",
+      "sentiment": "Watch",
       "sectors": [
-        "Automobiles"
+        "Financial Services"
       ]
     },
     {
-      "title": "Nvidia chip buyers told to rule out Chinese firms as customers to access advanced GPUs under new US curbs",
-      "summary": "Nvidia chip sellers have warned neocloud providers they could lose access to advanced GPUs if they rent computing capacity to Chinese firms. The warning follows new US restrictions targeting China's remote access to AI chips.",
+      "title": "Manish Chokhani lauds IIT Madras as India\u2019s startup factory: Here are some of the top companies founded by its alumni",
+      "summary": "Manish Chokhani shared a list of startups founded or co-founded by IIT Madras alumni. It includes companies such as Zetwerk, ofBusiness, Ather Energy, Zenoti, Darwinbox, Hasura and EaseMyTrip.",
       "source": "Livemint Companies",
       "date": "Fri, 27 Nov 2026",
-      "url": "https://www.livemint.com/companies/news/nvidia-chip-buyers-told-to-rule-out-chinese-firms-as-customers-to-access-advanced-gpus-under-new-us-curbs-11795751648276.html",
+      "url": "https://www.livemint.com/companies/start-ups/manish-chokhani-lauds-iit-madras-as-india-s-startup-factory-here-are-some-of-the-top-companies-founded-by-its-alumni-11795785348413.html",
+      "sentiment": "Watch",
+      "sectors": [
+        "Information Technology"
+      ]
+    },
+    {
+      "title": "No stay for Tata Trusts: HC lets Tata Sons board meet, casting vote intact",
+      "summary": "The Bombay High Court on Friday refused to grant interim relief to Sir Dorabji Tata Trust and RD Tata Trust, allowing Tata Sons to proceed with its board meeting on Monday, with any outcome subject to the court\u2019s final ruling",
+      "source": "Livemint Companies",
+      "date": "Fri, 27 Nov 2026",
+      "url": "https://www.livemint.com/companies/tata-trusts-vs-tata-sons-bombay-high-court-11795785693009.html",
       "sentiment": "Bullish",
       "sectors": [
+        "Financial Services"
+      ]
+    },
+    {
+      "title": "HSBC\u2019s AI-led restructuring: Finance employees in Hyderabad, Pune asked to relocate to three other cities",
+      "summary": "HSBC is consolidating finance support functions across India, with roles in Hyderabad and Pune set to be phased out. Affected employees will be offered relocation support to move to Chennai, Gurugram or Bengaluru, as the lender accelerates ",
+      "source": "Livemint Companies",
+      "date": "Fri, 27 Nov 2026",
+      "url": "https://www.livemint.com/companies/news/hsbcs-ai-led-restructuring-finance-employees-in-hyderabad-pune-asked-to-relocate-to-three-other-cities-11795780769992.html",
+      "sentiment": "Watch",
+      "sectors": [
+        "Financial Services"
+      ]
+    },
+    {
+      "title": "Casio launches new G-Shock pilot watch with unusual Kevlar, nylon and metal strap, priced at \u00a3920 in the UK",
+      "summary": "Casio has launched a new G-Shock Gravitymaster pilot watch with a strap combining Kevlar, nylon and metal. The GWR-B3000SC-1A also features solar charging, Bluetooth and radio-controlled timekeeping. It is priced at \u00a3920 in the UK.",
+      "source": "Livemint Companies",
+      "date": "Fri, 27 Nov 2026",
+      "url": "https://www.livemint.com/companies/news/casio-launches-new-g-shock-pilot-watch-with-unusual-kevlar-nylon-and-metal-strap-priced-at-920-in-the-uk-11795779674147.html",
+      "sentiment": "Watch",
+      "sectors": [
+        "Power",
         "Information Technology"
       ]
     },
