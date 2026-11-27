@@ -439,11 +439,42 @@ def fetch_upcoming_dividends():
 
 
 def _parse_trendlyne_fii_dii(html_text):
-    """Extracts latest provisional FII/DII cash flow from Trendlyne SSR text."""
-    clean = re.sub(r"<[^>]+>", " ", html_text or "")
+    """Extracts latest provisional FII/DII cash flow from Trendlyne SSR HTML.
+
+    Prefers Trendlyne's top 'FII / DII Activity' summary card (which updates
+    same-day after NSE provisional release), and falls back to the prose
+    summary sentence only if the top card is unavailable.
+    """
+    import html as _html
+    decoded = _html.unescape(html_text or "")
+    clean = re.sub(r"<[^>]+>", " ", decoded)
     clean = re.sub(r"\s+", " ", clean)
-    pat_fii = r"FII\s+were\s+net\s+(buyers|sellers)\s+of\s+(?:₹|Rs\.?|&#8377;)\s*([\-\d,\.]+)\s*Cr\s+in\s+the\s+cash\s+segment\s+on\s+(\d{1,2}\s+[A-Za-z]{3})\s+\d{4}"
-    pat_dii = r"DII\s+were\s+net\s+(buyers|sellers)\s+of\s+(?:₹|Rs\.?|&#8377;)\s*([\-\d,\.]+)\s*Cr\s+in\s+the\s+cash\s+segment\s+on\s+(\d{1,2}\s+[A-Za-z]{3})\s+\d{4}"
+
+    # 1. Primary: Top summary card e.g.
+    #    "FII / DII Activity Nov. 26, 2026 FII ₹5843.33 Cr DII ₹5630.72 Cr"
+    #    Handles negative signs before or after ₹/Rs., commas, and month abbreviations (Nov., Sept., May).
+    card_pat = (
+        r"FII\s*/\s*DII\s+Activity\s+"
+        r"(?:([A-Za-z]{3,9})\.?\s+(\d{1,2}),?\s+\d{4}|(\d{1,2})\s+([A-Za-z]{3,9})\.?\s+\d{4})"
+        r".{0,160}?FII\s*([\+\-]?\s*(?:₹|Rs\.?)?\s*[\+\-]?\s*[\d,]+(?:\.\d+)?)\s*Cr"
+        r".{0,160}?DII\s*([\+\-]?\s*(?:₹|Rs\.?)?\s*[\+\-]?\s*[\d,]+(?:\.\d+)?)\s*Cr"
+    )
+    mc = re.search(card_pat, clean, re.I)
+    if mc:
+        if mc.group(1) and mc.group(2):
+            mon_raw, day_raw = mc.group(1), mc.group(2)
+        else:
+            day_raw, mon_raw = mc.group(3), mc.group(4)
+        mon_abbr = mon_raw[:3].title()
+        day_str = str(int(day_raw))
+        f_val = _safe_float(re.sub(r"[₹Rs\s]", "", mc.group(5), flags=re.I), 0.0)
+        d_val = _safe_float(re.sub(r"[₹Rs\s]", "", mc.group(6), flags=re.I), 0.0)
+        if f_val != 0.0 or d_val != 0.0:
+            return {"date": f"{day_str} {mon_abbr}", "fii": round(f_val, 2), "dii": round(d_val, 2)}
+
+    # 2. Fallback: Prose summary sentence (sometimes lags the top card by 1 trading day)
+    pat_fii = r"FII\s+were\s+net\s+(buyers|sellers)\s+of\s+(?:₹|Rs\.?)\s*([\-\d,\.]+)\s*Cr\s+in\s+the\s+cash\s+segment\s+on\s+(\d{1,2}\s+[A-Za-z]{3})\s+\d{4}"
+    pat_dii = r"DII\s+were\s+net\s+(buyers|sellers)\s+of\s+(?:₹|Rs\.?)\s*([\-\d,\.]+)\s*Cr\s+in\s+the\s+cash\s+segment\s+on\s+(\d{1,2}\s+[A-Za-z]{3})\s+\d{4}"
     mf = re.search(pat_fii, clean, re.I)
     md = re.search(pat_dii, clean, re.I)
     if mf and md:
