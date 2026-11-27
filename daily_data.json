@@ -1,125 +1,149 @@
 {
-  "updated_at_ist": "27 Nov 2026, 11:57 AM IST",
+  "updated_at_ist": "27 Nov 2026, 01:53 PM IST",
   "market_total_listed": 5877,
   "my_holdings": [],
   "prices": {
     "BAJFINANCE": {
-      "cmp": 1093.0,
+      "cmp": 1080.25,
       "high52": 1176.4,
       "low52": 783.09,
-      "chg": -0.41
+      "chg": -1.62
     },
     "BEL": {
-      "cmp": 411.05,
+      "cmp": 411.3,
       "high52": 472.81,
       "low52": 354.55
     },
     "BHARTIARTL": {
-      "cmp": 2074.5,
+      "cmp": 2061.2,
       "high52": 2172.9,
       "low52": 1718.87,
-      "chg": -1.33
+      "chg": -1.94
     },
     "GOLDBEES": {
-      "cmp": 102.92,
+      "cmp": 103.65,
       "high52": 148.14,
       "low52": 99.88
     },
     "HAL": {
-      "cmp": 5131.0,
+      "cmp": 5116.9,
       "high52": 5149.9,
       "low52": 3472.06
     },
     "HCLTECH": {
-      "cmp": 1431.5,
+      "cmp": 1437.7,
       "high52": 1713.75,
       "low52": 1010.59,
-      "chg": -2.54
+      "chg": -2.1
     },
     "HDFCBANK": {
-      "cmp": 862.85,
+      "cmp": 862.65,
       "high52": 1000.94,
       "low52": 669.2,
-      "chg": 0.09
+      "chg": 0.08
     },
     "HINDUNILVR": {
-      "cmp": 2137.6,
+      "cmp": 2137.7,
       "high52": 2439.81,
       "low52": 1741.68
     },
     "ICICIBANK": {
-      "cmp": 1598.4,
+      "cmp": 1592.9,
       "high52": 1652.0,
       "low52": 1177.67,
-      "chg": -0.78
+      "chg": -1.13
     },
     "INFY": {
-      "cmp": 1156.3,
+      "cmp": 1160.8,
       "high52": 1653.52,
       "low52": 958.44,
-      "chg": -2.26
+      "chg": -1.88
     },
     "ITC": {
-      "cmp": 304.95,
+      "cmp": 305.2,
       "high52": 390.46,
       "low52": 252.8
     },
     "LT": {
-      "cmp": 4130.9,
+      "cmp": 4118.3,
       "high52": 4397.05,
       "low52": 3256.29,
-      "chg": -0.03
+      "chg": -0.33
     },
     "M&M": {
-      "cmp": 3475.5,
+      "cmp": 3470.9,
       "high52": 3799.99,
       "low52": 2744.3
     },
     "MARUTI": {
-      "cmp": 13902.0,
+      "cmp": 13762.0,
       "high52": 17197.29,
       "low52": 10985.0
     },
     "NTPC": {
-      "cmp": 321.25,
+      "cmp": 320.45,
       "high52": 406.09,
       "low52": 289.28
     },
     "RELIANCE": {
-      "cmp": 1385.1,
+      "cmp": 1383.8,
       "high52": 1604.38,
       "low52": 1152.2,
-      "chg": -0.8
+      "chg": -0.89
     },
     "RVNL": {
-      "cmp": 190.68,
+      "cmp": 191.57,
       "high52": 398.2,
       "low52": 177.86
     },
     "SBIN": {
-      "cmp": 1129.15,
+      "cmp": 1129.2,
       "high52": 1212.84,
       "low52": 927.73,
-      "chg": -0.66
+      "chg": -0.68
     },
     "SUNPHARMA": {
-      "cmp": 1908.2,
+      "cmp": 1901.9,
       "high52": 2046.9,
       "low52": 1569.37
     },
     "TCS": {
-      "cmp": 2576.1,
+      "cmp": 2593.7,
       "high52": 3269.78,
       "low52": 1955.62,
-      "chg": -2.43
+      "chg": -1.74
     },
     "TITAN": {
-      "cmp": 4687.0,
+      "cmp": 4705.3,
       "high52": 5186.7,
       "low52": 3738.73
     }
   },
   "news": [
+    {
+      "title": "Can SpaceX's AI ambitions drive further upside in its stock?",
+      "summary": "SpaceX shares rally on bullish trading signals as Elon Musk expands the company's AI ambitions. Strong revenue growth and a proposed satellite data centre network fuel optimism, despite valuation concerns.",
+      "source": "Economic Times Markets",
+      "date": "Fri, 27 Nov 2026",
+      "url": "https://economictimes.indiatimes.com/markets/us-stocks/news/can-spacexs-ai-ambitions-drive-further-upside-in-its-stock/slideshow/136213079.cms",
+      "sentiment": "Bullish",
+      "sectors": [
+        "Information Technology",
+        "Automobiles"
+      ]
+    },
+    {
+      "title": "India bonds decline ahead of fresh debt sale as elevated oil prices fan inflation worries",
+      "summary": "Indian government bonds decreased in early trading due to rising oil prices and cautious investor sentiment. The benchmark 6.94% 2036 bond yield increased significantly amid higher expectations for a rate hike. New Delhi is set to raise 330",
+      "source": "Economic Times Markets",
+      "date": "Fri, 27 Nov 2026",
+      "url": "https://economictimes.indiatimes.com/markets/bonds/india-bonds-decline-ahead-of-fresh-debt-sale-as-elevated-oil-prices-fan-inflation-worries/articleshow/136211546.cms",
+      "sentiment": "Watch",
+      "sectors": [
+        "Financial Services",
+        "Automobiles"
+      ]
+    },
     {
       "title": "Nvidia stock plunges 35% from record high: Is it a buying opportunity?",
       "summary": "Nvidia has lost over $2 trillion in market value as shares plunged 35% from record highs amid concerns about the sustainability of AI investments. Despite the correction, strong hyperscaler demand supports growth projections, with revenue e",
@@ -169,106 +193,116 @@
       ]
     },
     {
-      "title": "Sun TV Network among 4 stocks closing above VWAP",
-      "summary": "Four Nifty500 stocks closed more than 2% above their respective volume-weighted average prices on November 26, according to StockEdge\u2019s technical scan, indicating that they ended the session above their average traded levels.",
-      "source": "Economic Times Markets",
-      "date": "Fri, 27 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/stocks/news/sun-tv-network-among-4-stocks-closing-above-vwap/slideshow/136208195.cms",
-      "sentiment": "Watch",
-      "sectors": [
-        "Automobiles"
-      ]
-    },
-    {
-      "title": "Gold jumps 2%, silver surges 5% as bullion rebounds from multi-month lows: Gold Silver Rates Live Updates",
-      "summary": "",
-      "source": "Economic Times Markets",
-      "date": "Fri, 27 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/stocks/live-blog/live-updates-gold-rate-today-27th-november-24k-22k-20k-18-carat-mcx-gold-silver-price-in-delhi-hyderabad-chennai-bengaluru-citywise/liveblog/136208041.cms",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Gold & Commodities"
-      ]
-    },
-    {
-      "title": "APL Apollo Tubes shares jump 4% after 28% crash in a week as SEBI may scrutinise Tata Steel deal | Buy, sell or hold?",
-      "summary": "APL Apollo Tubes share price opened at  \u20b91,505 apiece today, as compared to previous close of  \u20b91,481.50 on Thursday and touched an intraday high of  \u20b91,544.30 on 27 November.",
+      "title": "Up 57% YTD! Healthcare stock shows resilience against the Indian stock market crash; should you buy? Target, stop-loss",
+      "summary": "Healthcare stock Park Medi World opened at  \u20b9240.81 and touched an intraday high of  \u20b9240.81 and a low of  \u20b9231.81 during the intraday session.",
       "source": "Livemint Markets",
       "date": "Fri, 27 Nov 2026",
-      "url": "https://www.livemint.com/market/stock-market-news/apl-apollo-tubes-shares-jump-4-after-28-crash-in-a-week-as-sebi-may-scrutinise-tata-steel-deal-buy-sell-or-hold-11795758411479.html",
+      "url": "https://www.livemint.com/market/stock-market-news/up-55-ytd-healthcare-stock-park-medi-world-shows-resilience-against-the-indian-stock-market-crash-should-you-buy-11795765259630.html",
       "sentiment": "Bullish",
       "sectors": [
-        "Automobiles"
+        "Healthcare"
       ]
     },
     {
-      "title": "Small-cap, big jump! Waaree Renewable shares rise 14% on this order win; energy stock still 35% below 52-week high",
-      "summary": "Waaree Renewable Technologies shares rose nearly 14% after the company won a 120 MWp solar project covering module supply and turnkey EPC work. The unnamed domestic customer\u2019s project is due for completion by FY28; its contract value was no",
+      "title": "US PCE inflation rises in Oct: Is a US Fed rate hike confirmed in Dec meet? How will it impact Sensex, Nifty, and Gold?",
+      "summary": "Sensex and Nifty fell on Friday as higher crude prices and Middle East tensions weighed on sentiment, despite institutional buying. Hotter-than-expected US core inflation has raised expectations of a possible December Fed rate hike, which c",
       "source": "Livemint Markets",
       "date": "Fri, 27 Nov 2026",
-      "url": "https://www.livemint.com/market/stock-market-news/smallcap-big-jump-waaree-renewable-shares-rise-14-on-this-order-win-energy-stock-still-35-below-52-week-high-11795756038934.html",
+      "url": "https://www.livemint.com/market/stock-market-news/us-pce-inflation-rises-in-oct-is-a-us-fed-rate-hike-confirmed-in-dec-meet-how-will-it-impact-sensex-nifty-and-gold-11795764103649.html",
       "sentiment": "Bullish",
-      "sectors": [
-        "Capital Goods",
-        "Power"
-      ]
-    },
-    {
-      "title": "Why IT stocks are down today? TCS, Infosys, Wipro lead losses as Sensex, Nifty fall | Time to buy for returns ahead?",
-      "summary": "TCS shares were among the top Nifty IT laggards in early trade on Friday. The stock declined 2.75% to  \u20b92,567.70 at 9:30 am, compared with its previous closing price",
-      "source": "Livemint Markets",
-      "date": "Fri, 27 Nov 2026",
-      "url": "https://www.livemint.com/market/stock-market-news/why-it-stocks-are-down-today-tcs-infosys-wipro-lead-losses-as-sensex-nifty-fall-time-to-buy-for-returns-ahead-11795755363384.html",
-      "sentiment": "Caution",
       "sectors": [
         "Information Technology",
         "Automobiles"
       ]
     },
     {
-      "title": "Gold price today 27 November 2026: MCX gold rate jumps but still 31% down from record high; is it the right time to buy?",
-      "summary": "Gold price today 27 November 2026: The MCX gold rate today opened higher at  \u20b91,24,300 per 10 gm and touched an intraday high of  \u20b91,24,787 within a few minutes of the Opening Bell",
+      "title": "Why Asahi India Glass may keep sparkling, irrespective of ICE or EV growth",
+      "summary": "Strong auto demand, improving product mix and architectural glass profitability are supporting Asahi India Glass, even as its rich valuation and input-cost risks warrant attention.",
       "source": "Livemint Markets",
       "date": "Fri, 27 Nov 2026",
-      "url": "https://www.livemint.com/market/commodities/gold-price-today-27-november-2026-mcx-gold-rate-jumps-but-still-31-down-from-record-high-is-it-the-right-time-to-buy-11795752383038.html",
+      "url": "https://www.livemint.com/market/mark-to-market/asahi-india-glass-automotive-glass-architectural-glass-auto-ancillary-stocks-electric-vehicles-passenger-vehicles-11795762126510.html",
       "sentiment": "Bullish",
       "sectors": [
+        "Automobiles"
+      ]
+    },
+    {
+      "title": "Why is Indian stock market falling today? Nifty down to near 25,700, Sensex crashes 600 points | Top 3 reasons explained",
+      "summary": "Stock market today: Experts believe weakness in the Indian Rupee, renewed inflation fear, and US Fed rate hike buzz are the top 3 reasons that are dragging key benchmark indices on Dalal Street",
+      "source": "Livemint Markets",
+      "date": "Fri, 27 Nov 2026",
+      "url": "https://www.livemint.com/market/stock-market-news/why-is-indian-stock-market-falling-today-nifty-down-to-near-25-700-sensex-crashes-700-points-top-3-reasons-explained-11795761327368.html",
+      "sentiment": "Caution",
+      "sectors": [
         "Capital Goods",
+        "Automobiles"
+      ]
+    },
+    {
+      "title": "Railway stock Jupiter Wagons shares fall 7.5% after 29% surge in 2 days post Woojin JV: Should you buy the multibagger?",
+      "summary": "Jupiter Wagons shares fell 7.5% on Friday as investors booked profits after a 29% rally in 2 sessions, sparked by its joint venture with South Korea\u2019s Woojin Industrial Systems. Jupiter Wagons will own 80% of the venture, which plans to man",
+      "source": "Livemint Markets",
+      "date": "Fri, 27 Nov 2026",
+      "url": "https://www.livemint.com/market/stock-market-news/railway-stock-jupiter-wagons-shares-fall-7-5-after-29-surge-in-2-days-post-woojin-jv-should-you-buy-the-multibagger-11795760304111.html",
+      "sentiment": "Bullish",
+      "sectors": [
+        "Construction"
+      ]
+    },
+    {
+      "title": "Siemens' expanding order book has margin, valuation hurdles",
+      "summary": "The key question for investors is if Siemens can convert its expanding order book into higher earnings.",
+      "source": "Livemint Markets",
+      "date": "Fri, 27 Nov 2026",
+      "url": "https://www.livemint.com/market/mark-to-market/siemens-expanding-order-book-margin-valuation-hurdles-11795755446407.html",
+      "sentiment": "Bullish",
+      "sectors": [
+        "Capital Goods"
+      ]
+    },
+    {
+      "title": "Urban Company forays into AC market, announces the launch of two new air conditioners under 'Native' brand: Here's why",
+      "summary": "Urban Company has entered India's residential AC market with its Native Ultra and Ultra Air range, priced from  \u20b955,499. The company is offering a five-year unconditional warranty, including gas refills, as it looks to leverage its experien",
+      "source": "Livemint Companies",
+      "date": "Fri, 27 Nov 2026",
+      "url": "https://www.livemint.com/companies/news/urban-company-forays-into-ac-market-announces-the-launch-of-two-new-air-conditioners-under-native-brand-heres-why-11795764096385.html",
+      "sentiment": "Watch",
+      "sectors": [
+        "Information Technology",
+        "Automobiles"
+      ]
+    },
+    {
+      "title": "SAP layoffs: German software major considering 10,000 job cuts, 9% of global workforce could be hit \u2014 Check which depts",
+      "summary": "SAP is reportedly considering cutting around 10,000 jobs, or 9% of its workforce, as it restructures for the AI era. While the total remains subject to change, here's which teams may be particularly affected\u2026",
+      "source": "Livemint Companies",
+      "date": "Fri, 27 Nov 2026",
+      "url": "https://www.livemint.com/companies/news/sap-layoffs-german-software-major-considering-10-000-job-cuts-9-of-global-workforce-could-be-hit-check-which-depts-11795762014958.html",
+      "sentiment": "Watch",
+      "sectors": [
+        "Financial Services",
         "Information Technology"
       ]
     },
     {
-      "title": "Gold finance stocks rally! Manappuram, Muthoot Finance gain up to 4% as MCX gold prices recover - Which stock to buy?",
-      "summary": "Gold finance stocks rose as bullion recovered from a more than one-year low, lifting sentiment toward lenders reliant on gold-backed loans. Antique Stock Broking prefers Manappuram Finance but flags near-term asset quality risks and possibl",
-      "source": "Livemint Markets",
+      "title": "Delhi HC rejects Tata Projects plea to stop Noida airport operator from encashing  \u20b9329 crore bank guarantees",
+      "summary": "The court said the money involved could be recovered later if Tata Projects succeeds in proving that the encashment was wrong.",
+      "source": "Livemint Companies",
       "date": "Fri, 27 Nov 2026",
-      "url": "https://www.livemint.com/market/stock-market-news/gold-finance-stocks-rally-manappuram-muthoot-finance-gain-up-to-4-as-mcx-gold-prices-recover-which-stock-to-buy-11795754757869.html",
-      "sentiment": "Bullish",
+      "url": "https://www.livemint.com/companies/delhi-high-court-tata-projects-plea-noida-airport-operator-encashing-329-crore-bank-guarantees-11795761653360.html",
+      "sentiment": "Watch",
       "sectors": [
-        "Gold & Commodities"
+        "Financial Services"
       ]
     },
     {
-      "title": "MCX gold price impact on jewellery stocks: Why Titan, PC Jeweller, Kalyan Jewellers shares are shining up to 4% today?",
-      "summary": "Jewellery stocks rose on Friday as gold rebounded from a more than one-year low. Titan, Kalyan Jewellers, Thangamayil Jewellery and PC Jeweller gained, while analysts cautioned that the recovery may not last.&amp;nbsp;",
-      "source": "Livemint Markets",
-      "date": "Fri, 27 Nov 2026",
-      "url": "https://www.livemint.com/market/stock-market-news/mcx-gold-price-impact-on-jewellery-stocks-why-titan-pc-jeweller-kalyan-jewellers-shares-are-shining-up-to-4-today-11795753148273.html",
-      "sentiment": "Bullish",
-      "sectors": [
-        "Consumer Services",
-        "Gold & Commodities"
-      ]
-    },
-    {
-      "title": "Swiggy's quick commerce arm Instamart to lay off 340 employees amid restructuring, AI push",
+      "title": "Swiggy's Instamart cuts 340 jobs as losses widen; offers severance, health benefits to affected staff",
       "summary": "The layoffs come even as Instamart steps up investments and introduces new initiatives to strengthen its position in the increasingly competitive market.",
       "source": "Livemint Companies",
       "date": "Fri, 27 Nov 2026",
       "url": "https://www.livemint.com/companies/news/swiggys-quick-commerce-arm-instamart-to-lay-off-340-employees-amid-restructuring-ai-push-11795759734638.html",
-      "sentiment": "Watch",
+      "sentiment": "Caution",
       "sectors": [
-        "Information Technology",
         "Automobiles"
       ]
     },
@@ -293,72 +327,39 @@
       "sectors": [
         "Information Technology"
       ]
-    },
-    {
-      "title": "Elon Musk's SpaceX share giveaway could be worth $18 billion: What will US children get?",
-      "summary": "Elon Musk plans to give every US child two SpaceX shares worth nearly $18 billion collectively, with one share from the company and another from him personally. He also plans to extend the giveaway annually.",
-      "source": "Livemint Companies",
-      "date": "Fri, 27 Nov 2026",
-      "url": "https://www.livemint.com/companies/people/elon-musks-spacex-share-giveaway-could-be-worth-18-billion-what-will-us-children-get-11795744860683.html",
-      "sentiment": "Watch",
-      "sectors": [
-        "Automobiles"
-      ]
-    },
-    {
-      "title": "Kalyan Silks promoters eye minority stake sale at up to  \u20b93,000 cr valuation",
-      "summary": "The deal may involve a 20% stake sale, with the capital likely to be a mix of primary and secondary share sales. Kalyan Silks has hired Mumbai-based investment bank O3 Capital to arrange the transaction.",
-      "source": "Livemint Companies",
-      "date": "Fri, 27 Nov 2026",
-      "url": "https://www.livemint.com/companies/news/kalyan-silks-promoters-explore-minority-stake-sale-at-upto-rs-3-000-cr-valn-11795687123191.html",
-      "sentiment": "Watch",
-      "sectors": [
-        "Financial Services"
-      ]
-    },
-    {
-      "title": "GSK spinoff Haleon eyes billion-dollar Healthkart bet",
-      "summary": "GSK spinoff Haleon is looking to tap India\u2019s fast-growing health and wellness market through a controlling stake in homegrown nutrition and supplements platform HealthKart. The deal, still in its early stages, could value the company at $1.",
-      "source": "Livemint Companies",
-      "date": "Fri, 27 Nov 2026",
-      "url": "https://www.livemint.com/companies/gsk-consumer-healthkart-acquisition-deal-11795688783370.html",
-      "sentiment": "Watch",
-      "sectors": [
-        "Capital Goods"
-      ]
     }
   ],
   "ipos": [],
   "indices": [
     {
       "name": "NIFTY 50",
-      "val": "25,717.75",
-      "chg": -0.64
+      "val": "25,681.45",
+      "chg": -0.78
     },
     {
       "name": "SENSEX",
-      "val": "83,609.64",
-      "chg": -0.85
+      "val": "83,563.98",
+      "chg": -0.91
     },
     {
       "name": "BANK NIFTY",
-      "val": "63,330.15",
-      "chg": -0.32
+      "val": "63,286.00",
+      "chg": -0.39
     },
     {
       "name": "INDIA VIX",
-      "val": "16.70",
-      "chg": -0.82
+      "val": "16.19",
+      "chg": -3.87
     },
     {
       "name": "GOLD BeES",
-      "val": "\u20b9102.93",
-      "chg": 2.82
+      "val": "\u20b9103.68",
+      "chg": 3.57
     },
     {
       "name": "USD/INR",
-      "val": "\u20b992.88",
-      "chg": 0.7
+      "val": "\u20b992.86",
+      "chg": 0.67
     }
   ],
   "history": {
@@ -405,8 +406,8 @@
         926.0,
         1064.85
       ],
-      "dma50": 1008.83,
-      "dma200": 982.12
+      "dma50": 1008.57,
+      "dma200": 982.05
     },
     "BEL": {
       "dates": [
@@ -451,7 +452,7 @@
         371.2,
         394.55
       ],
-      "dma50": 386.64,
+      "dma50": 386.65,
       "dma200": 412.79
     },
     "BHARTIARTL": {
@@ -497,8 +498,8 @@
         1891.7,
         2072.1
       ],
-      "dma50": 1936.73,
-      "dma200": 1884.84
+      "dma50": 1936.46,
+      "dma200": 1884.78
     },
     "GOLDBEES": {
       "dates": [
@@ -543,7 +544,7 @@
         118.13,
         116.86
       ],
-      "dma50": 117.38,
+      "dma50": 117.4,
       "dma200": 122.69
     },
     "HAL": {
@@ -589,8 +590,8 @@
         4854.4,
         4999.0
       ],
-      "dma50": 4824.56,
-      "dma200": 4483.92
+      "dma50": 4824.28,
+      "dma200": 4483.85
     },
     "HCLTECH": {
       "dates": [
@@ -635,8 +636,8 @@
         1424.2,
         1407.0
       ],
-      "dma50": 1329.27,
-      "dma200": 1275.52
+      "dma50": 1329.4,
+      "dma200": 1275.55
     },
     "HDFCBANK": {
       "dates": [
@@ -727,7 +728,7 @@
         1832.82,
         1971.6
       ],
-      "dma50": 1912.02,
+      "dma50": 1912.03,
       "dma200": 2082.46
     },
     "ICICIBANK": {
@@ -773,8 +774,8 @@
         1385.0,
         1589.0
       ],
-      "dma50": 1429.81,
-      "dma200": 1364.04
+      "dma50": 1429.7,
+      "dma200": 1364.01
     },
     "INFY": {
       "dates": [
@@ -819,8 +820,8 @@
         1141.84,
         1154.1
       ],
-      "dma50": 1080.32,
-      "dma200": 1134.92
+      "dma50": 1080.41,
+      "dma200": 1134.95
     },
     "ITC": {
       "dates": [
@@ -911,8 +912,8 @@
         3636.0,
         4185.0
       ],
-      "dma50": 3881.4,
-      "dma200": 3939.03
+      "dma50": 3881.14,
+      "dma200": 3938.97
     },
     "M&M": {
       "dates": [
@@ -957,8 +958,8 @@
         2889.0,
         3290.6
       ],
-      "dma50": 3060.64,
-      "dma200": 3164.61
+      "dma50": 3060.55,
+      "dma200": 3164.59
     },
     "MARUTI": {
       "dates": [
@@ -1003,8 +1004,8 @@
         11200.0,
         12928.0
       ],
-      "dma50": 12145.24,
-      "dma200": 13158.31
+      "dma50": 12142.44,
+      "dma200": 13157.61
     },
     "NTPC": {
       "dates": [
@@ -1049,7 +1050,7 @@
         300.13,
         328.75
       ],
-      "dma50": 315.96,
+      "dma50": 315.95,
       "dma200": 347.61
     },
     "RELIANCE": {
@@ -1095,8 +1096,8 @@
         1209.0,
         1324.4
       ],
-      "dma50": 1252.94,
-      "dma200": 1319.66
+      "dma50": 1252.92,
+      "dma200": 1319.65
     },
     "RVNL": {
       "dates": [
@@ -1141,8 +1142,8 @@
         188.41,
         201.7
       ],
-      "dma50": 195.05,
-      "dma200": 242.05
+      "dma50": 195.06,
+      "dma200": 242.06
     },
     "SBIN": {
       "dates": [
@@ -1233,8 +1234,8 @@
         1745.1,
         1904.5
       ],
-      "dma50": 1820.3,
-      "dma200": 1824.43
+      "dma50": 1820.17,
+      "dma200": 1824.4
     },
     "TCS": {
       "dates": [
@@ -1279,8 +1280,8 @@
         2529.0,
         2475.4
       ],
-      "dma50": 2322.08,
-      "dma200": 2337.69
+      "dma50": 2322.43,
+      "dma200": 2337.78
     },
     "TITAN": {
       "dates": [
@@ -1325,8 +1326,8 @@
         4380.9,
         5005.0
       ],
-      "dma50": 4642.03,
-      "dma200": 4498.54
+      "dma50": 4642.39,
+      "dma200": 4498.63
     }
   },
   "corp_actions": {
@@ -1357,57 +1358,57 @@
     {
       "sector": "Financial Services",
       "displayLabel": "Nifty Bank",
-      "chg": -0.32,
-      "note": "Close 63,330.15 \u00b7 Auto-synced via GitHub Action"
+      "chg": -0.39,
+      "note": "Close 63,286.00 \u00b7 Auto-synced via GitHub Action"
     },
     {
       "sector": "Information Technology",
       "displayLabel": "Nifty IT",
-      "chg": -1.59,
-      "note": "Close 32,856.15 \u00b7 Auto-synced via GitHub Action"
+      "chg": -1.13,
+      "note": "Close 33,009.45 \u00b7 Auto-synced via GitHub Action"
     },
     {
       "sector": "Automobiles",
       "displayLabel": "Nifty Auto",
-      "chg": -0.59,
-      "note": "Close 28,455.65 \u00b7 Auto-synced via GitHub Action"
+      "chg": -1.01,
+      "note": "Close 28,335.25 \u00b7 Auto-synced via GitHub Action"
     },
     {
       "sector": "Healthcare",
       "displayLabel": "Nifty Pharma",
-      "chg": 0.07,
-      "note": "Close 29,111.20 \u00b7 Auto-synced via GitHub Action"
+      "chg": -0.28,
+      "note": "Close 29,010.45 \u00b7 Auto-synced via GitHub Action"
     },
     {
       "sector": "FMCG",
       "displayLabel": "Nifty FMCG",
-      "chg": -0.44,
-      "note": "Close 49,454.70 \u00b7 Auto-synced via GitHub Action"
+      "chg": -0.51,
+      "note": "Close 49,421.40 \u00b7 Auto-synced via GitHub Action"
     },
     {
       "sector": "Oil & Gas",
       "displayLabel": "Nifty Energy",
-      "chg": 0.28,
-      "note": "Close 36,983.75 \u00b7 Auto-synced via GitHub Action"
+      "chg": 0.21,
+      "note": "Close 36,957.70 \u00b7 Auto-synced via GitHub Action"
     },
     {
       "sector": "Construction",
       "displayLabel": "Nifty Infra",
-      "chg": -0.36,
-      "note": "Close 9,569.30 \u00b7 Auto-synced via GitHub Action"
+      "chg": -0.7,
+      "note": "Close 9,536.45 \u00b7 Auto-synced via GitHub Action"
     },
     {
       "sector": "Consumer Services",
       "displayLabel": "Nifty Consumption",
-      "chg": -0.41,
-      "note": "Close 12,326.90 \u00b7 Auto-synced via GitHub Action"
+      "chg": -0.56,
+      "note": "Close 12,309.35 \u00b7 Auto-synced via GitHub Action"
     }
   ],
   "market_mood": {
-    "score": 27,
-    "label": "Extreme Fear",
-    "nifty_chg": -0.64,
-    "bank_chg": -0.32,
-    "vix": 16.7
+    "score": 32,
+    "label": "Fear",
+    "nifty_chg": -0.78,
+    "bank_chg": -0.39,
+    "vix": 16.19
   }
 }
