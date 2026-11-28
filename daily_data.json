@@ -1,5 +1,5 @@
 {
-  "updated_at_ist": "27 Nov 2026, 08:36 PM IST",
+  "updated_at_ist": "28 Nov 2026, 10:55 AM IST",
   "market_total_listed": 5847,
   "my_holdings": [],
   "prices": {
@@ -21,7 +21,7 @@
       "chg": -1.65
     },
     "GOLDBEES": {
-      "cmp": 103.78,
+      "cmp": NaN,
       "high52": 148.14,
       "low52": 99.88
     },
@@ -114,74 +114,109 @@
       "chg": -2.57
     },
     "TITAN": {
-      "cmp": 4675.3,
+      "cmp": NaN,
       "high52": 5186.7,
       "low52": 3738.73
     }
   },
   "news": [
     {
-      "title": "Capital market industry hopes for relief in capital gains taxation in Budget 2027-28: Axis Capital MD",
-      "summary": "The capital market industry is hoping for some relief in capital gains taxation, including a possible reduction in short-term capital gains tax, in the upcoming Union Budget 2027-28, said Lakha Nair, Managing Director and Head of Corporate ",
+      "title": "From war premium to demand concerns: What is driving the sharp fall in crude oil prices?",
+      "summary": "Crude oil prices have fallen sharply from their September highs as geopolitical risk premiums fade and concerns over oversupply and slowing demand take centre stage. Rising production from non-OPEC countries, resilient Middle Eastern export",
       "source": "Economic Times Markets",
-      "date": "Fri, 27 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/stocks/news/capital-market-industry-hopes-for-relief-in-capital-gains-taxation-in-budget-2027-28-axis-capital-md/articleshow/136224186.cms",
-      "sentiment": "Bullish",
+      "date": "Sat, 28 Nov 2026",
+      "url": "https://economictimes.indiatimes.com/markets/commodities/news/from-war-premium-to-demand-concerns-what-is-driving-the-sharp-fall-in-crude-oil-prices/articleshow/136238953.cms",
+      "sentiment": "Watch",
       "sectors": [
-        "Construction"
+        "Automobiles"
       ]
     },
     {
-      "title": "US stocks open higher as battered AI shares claw back losses: Stock Market Live Updates",
-      "summary": "",
+      "title": "Microcap winners: Greaves Cotton, Thomas Cook among 10 stocks with gains of up to 50%",
+      "summary": "Ten microcap stocks, led by Greaves Cotton, Thomas Cook India and Tanla Platforms, gained up to 50.21% over two months, outperforming the Nifty Microcap 250's broader decline.",
       "source": "Economic Times Markets",
-      "date": "Fri, 27 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/us-stocks/wall-street-guide/stock-market-live-updates-dow-jones-nasdaq-sp-500-gold-silver-price-coreqeave-nebius-meta-nvidia-ai-stocks-fed-rate-hike-treasury-yield-news-27th-november-2026/liveblog/136223511.cms",
+      "date": "Sat, 28 Nov 2026",
+      "url": "https://economictimes.indiatimes.com/markets/stocks/news/microcap-winners-greaves-cotton-thomas-cook-among-10-stocks-with-gains-of-up-to-50/slideshow/136238905.cms",
+      "sentiment": "Bullish",
+      "sectors": [
+        "Financial Services"
+      ]
+    },
+    {
+      "title": "Gold pares gains as Fed hike risks linger, eyes first weekly rise in three weeks",
+      "summary": "Gold prices saw a notable uptick as investors seized the opportunity for bargain purchases, despite a robust US dollar and escalating yields causing some hesitance. After reaching a 15-month low recently, spot gold has recorded a potential ",
+      "source": "Economic Times Markets",
+      "date": "Sat, 28 Nov 2026",
+      "url": "https://economictimes.indiatimes.com/markets/commodities/news/gold-pares-gains-as-fed-hike-risks-linger-eyes-first-weekly-rise-in-three-weeks/articleshow/136237788.cms",
+      "sentiment": "Bullish",
+      "sectors": [
+        "Automobiles",
+        "Gold & Commodities"
+      ]
+    },
+    {
+      "title": "Dollar set for weekly gain as risk appetite returns",
+      "summary": "The Australian dollar and other risk-sensitive currencies strengthened on Friday, buoyed by a positive shift in market sentiment. The US dollar also noted slight gains for the week amid ongoing volatility in equity markets. Anticipation sur",
+      "source": "Economic Times Markets",
+      "date": "Sat, 28 Nov 2026",
+      "url": "https://economictimes.indiatimes.com/markets/forex/forex-news/dollar-set-for-weekly-gain-as-risk-appetite-returns/articleshow/136237831.cms",
       "sentiment": "Watch",
+      "sectors": [
+        "Gold & Commodities"
+      ]
+    },
+    {
+      "title": "European shares log strong weekly gains; markets await Spanish election",
+      "summary": "Investors in Europe are feeling optimistic as the benchmark share index climbs to a one-week high, with the pan-European STOXX 600 index up 1% after earlier losses. All eyes are now on Spain's upcoming snap election, which could reshape pol",
+      "source": "Economic Times Markets",
+      "date": "Sat, 28 Nov 2026",
+      "url": "https://economictimes.indiatimes.com/markets/us-stocks/news/european-shares-log-strong-weekly-gains-markets-await-spanish-election/articleshow/136237685.cms",
+      "sentiment": "Bullish",
       "sectors": [
         "Information Technology"
       ]
     },
     {
-      "title": "India bonds slump as oil spike adds to RBI hike bets",
-      "summary": "Indian government bonds experienced a decline this week, largely influenced by rising oil prices and US Treasury yields. The benchmark bond yield reached its highest point in a week at 7.2650% on Friday. Analysts are anticipating a potentia",
+      "title": "Wall St Week Ahead: Volatile stock market confronts jobs data, rate view as next tests",
+      "summary": "Investor anxiety rises in response to ongoing fluctuations in AI stocks as the U.S. employment report draws near. The labor market data expected next week could significantly influence the Federal Reserve's interest rate strategies. Althoug",
       "source": "Economic Times Markets",
-      "date": "Fri, 27 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/bonds/india-bonds-slump-as-oil-spike-adds-to-rbi-hike-bets/articleshow/136221243.cms",
-      "sentiment": "Watch",
-      "sectors": [
-        "Financial Services",
-        "Consumer Services"
-      ]
-    },
-    {
-      "title": "Ion Exchange India among 6 stocks hitting 52-week low; shares slipped up to 20% in a month",
-      "summary": "Six BSE 1000 stocks, including Dishman Carbogen Amcis, Happiest Minds and TCI Express, touched fresh 52-week lows on Friday amid weakness in the broader market.",
-      "source": "Economic Times Markets",
-      "date": "Fri, 27 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/stocks/news/ion-exchange-india-among-6-stocks-hitting-52-week-low-shares-slipped-up-to-20-in-a-month/slideshow/136219516.cms",
-      "sentiment": "Watch",
-      "sectors": [
-        "Financial Services"
-      ]
-    },
-    {
-      "title": "Eurozone bond yields rise as investors return to riskier assets, oil prices rebound",
-      "summary": "Eurozone government bond yields edged higher as investors shifted back towards riskier assets and oil prices rebounded amid escalating Middle East tensions. Markets also assessed the European Central Bank's policy outlook, with money market",
-      "source": "Economic Times Markets",
-      "date": "Fri, 27 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/us-stocks/news/eurozone-bond-yields-rise-as-investors-return-to-riskier-assets-oil-prices-rebound/articleshow/136218279.cms",
+      "date": "Sat, 28 Nov 2026",
+      "url": "https://economictimes.indiatimes.com/markets/us-stocks/news/wall-st-week-ahead-volatile-stock-market-confronts-jobs-data-rate-view-as-next-tests/articleshow/136237710.cms",
       "sentiment": "Bullish",
       "sectors": [
-        "Financial Services"
+        "Financial Services",
+        "Information Technology"
       ]
     },
     {
-      "title": "Rupee rally takes a hit as AI trade revival dents shares, currency sees weekly dip",
-      "summary": "The Indian rupee has seen a downturn against the US dollar, driven by a drop in local stocks and a rise in oil prices. Interestingly, foreign investments in Indian equities have rebounded, reaching approximately $16 billion this month. With",
-      "source": "Economic Times Markets",
-      "date": "Fri, 27 Nov 2026",
-      "url": "https://economictimes.indiatimes.com/markets/forex/rupee-rally-takes-a-hit-as-ai-trade-revival-dents-shares-currency-sees-weekly-dip/articleshow/136218142.cms",
+      "title": "Defence stocks set for fresh rally? BEL, Solar Industries, HAL - Motilal Oswal names 3 shares to buy as big orders loom",
+      "summary": "Motilal Oswal remains positive on defence stocks, naming BEL, Solar Industries and HAL as preferred picks. It expects government spending, domestic manufacturing and large procurement programmes to support future orders and execution.",
+      "source": "Livemint Markets",
+      "date": "Sat, 28 Nov 2026",
+      "url": "https://www.livemint.com/market/stock-market-news/defence-stocks-set-for-fresh-rally-bel-solar-industries-hal-motilal-oswal-names-3-shares-to-buy-as-big-orders-loom-11795769903953.html",
+      "sentiment": "Bullish",
+      "sectors": [
+        "Capital Goods",
+        "Power"
+      ]
+    },
+    {
+      "title": "Multibagger defence stock to buy: 200% YTD returns! Why is share rising? Experts explain with 4 reasons | Target, SL",
+      "summary": "Multibagger defence stock has risen from  \u20b9425.60 to  \u20b91,278.80 per share in 2026, delivering 200% returns to its shareholders",
+      "source": "Livemint Markets",
+      "date": "Sat, 28 Nov 2026",
+      "url": "https://www.livemint.com/market/stock-market-news/multibagger-defence-stock-to-buy-up-200-ytd-returns-why-is-share-rising-experts-explain-with-4-reasons-target-sl-11795836918691.html",
+      "sentiment": "Bullish",
+      "sectors": [
+        "Capital Goods"
+      ]
+    },
+    {
+      "title": "Upcoming stock split, bonus issue record dates next week, Nov 30-Dec 4: Tech Mahindra, Indus Finance, Interarch, Beeyu",
+      "summary": "Investors will track several corporate actions from November 30 to December 4: Tech Mahindra\u2019s 1:1 bonus issue, Indus Finance\u2019s 5:9 bonus issue, Interarch Building Solutions\u2019 1:5 stock split and Beeyu Overseas\u2019 capital reduction. No stocks ",
+      "source": "Livemint Markets",
+      "date": "Sat, 28 Nov 2026",
+      "url": "https://www.livemint.com/market/stock-market-news/upcoming-stock-split-bonus-issue-record-dates-next-week-nov-30-dec-4-tech-mahindra-indus-finance-interarch-beeyu-11795837936736.html",
       "sentiment": "Bullish",
       "sectors": [
         "Information Technology",
@@ -189,139 +224,106 @@
       ]
     },
     {
-      "title": "Tata Steel-APL Apollo deal under Sebi scrutiny? What Chairman Tuhin Kanta Pandey said on minority shareholders",
-      "summary": "Sebi Chairman Tuhin Kanta Pandey said protecting minority shareholders is a priority as the regulator examines Tata Steel\u2019s proposed transaction with APL Apollo. Investors and proxy advisers have questioned the deal\u2019s structure, warning it ",
+      "title": "Best 3 stocks to buy: Manappuram Finance, BEL, SBI Life by Sumeet Bagadia | Targets, stoploss, Nifty, Bank Nifty outlook",
+      "summary": "Stock market prediction: Despite the latest correction, the broader technical bias remains bullish, says Sumeet Bagadia of Choice Broking",
       "source": "Livemint Markets",
-      "date": "Fri, 27 Nov 2026",
-      "url": "https://www.livemint.com/market/tata-steel-apl-apollo-deal-under-sebi-scrutiny-what-chairman-tuhin-kanta-pandey-said-on-minority-shareholders-11795787306824.html",
+      "date": "Sat, 28 Nov 2026",
+      "url": "https://www.livemint.com/market/stock-market-news/best-3-stocks-to-buy-manappuram-finance-bel-sbi-life-by-sumeet-bagadia-targets-stoploss-nifty-bank-nifty-outlook-11795833212780.html",
       "sentiment": "Watch",
-      "sectors": [
-        "Information Technology"
-      ]
-    },
-    {
-      "title": "Sterlite Electric, Svatantra Microfin among 8 firms cleared for IPOs",
-      "summary": "The other six firms are: Gaurik Fashions Ltd, Emerald Jewel Industry India Ltd, Beauty Garage Ltd, Noble Hygiene Ltd, MP Steel (India) Ltd, and Kataria Dhulchand Pannalal Jewellers Ltd",
-      "source": "Livemint Markets",
-      "date": "Fri, 27 Nov 2026",
-      "url": "https://www.livemint.com/market/ipo/sebi-approves-eight-ipos-sterlite-electric-svatantra-microfin-11795783678926.html",
-      "sentiment": "Watch",
-      "sectors": [
-        "FMCG"
-      ]
-    },
-    {
-      "title": "South Korea's Kospi crashes 48% from record high: How the AI trade unwind is hitting investors and pension funds",
-      "summary": "South Korea\u2019s Kospi has fallen 48% from its record high as investors reassess AI-related investments. The downturn cut the National Pension Service\u2019s assets by 202 trillion won by the end of September, despite strong returns earlier in the ",
-      "source": "Livemint Markets",
-      "date": "Fri, 27 Nov 2026",
-      "url": "https://www.livemint.com/market/stock-market-news/south-koreas-kospi-crashes-48-from-record-high-how-the-ai-trade-unwind-is-hitting-investors-and-pension-funds-11795784179412.html",
-      "sentiment": "Watch",
-      "sectors": [
-        "Information Technology"
-      ]
-    },
-    {
-      "title": "RBI rolls back tighter daily CRR requirement as banking liquidity slips into deficit",
-      "summary": "RBI reverses its move to raise the minimum daily CRR maintenance requirement from 90% to 99%, effective 1 December.",
-      "source": "Livemint Markets",
-      "date": "Fri, 27 Nov 2026",
-      "url": "https://www.livemint.com/market/rbi-reverses-daily-crr-rule-as-bank-liquidity-tightens-11795780978865.html",
-      "sentiment": "Watch",
-      "sectors": [
-        "Financial Services",
-        "Information Technology"
-      ]
-    },
-    {
-      "title": "Gokaldas Exports to Trident: Textile stocks gain up to 8% as global brands turn to India; what's the opportunity?",
-      "summary": "Indian textile shares rose after Reuters reported that global fashion brands shifted garment orders from Bangladesh amid labour unrest and rising costs. India emerged as the main beneficiary, with Gokaldas Exports gaining as much as 11%. Bu",
-      "source": "Livemint Markets",
-      "date": "Fri, 27 Nov 2026",
-      "url": "https://www.livemint.com/market/stock-market-news/gokaldas-exports-to-trident-textile-stocks-gain-up-to-8-as-global-brands-turn-to-india-whats-the-opportunity-11795782603918.html",
-      "sentiment": "Bullish",
       "sectors": [
         "Capital Goods",
         "Financial Services"
       ]
     },
     {
-      "title": "Jaipur leads jewellery searches with 78% growth, Delhi tops gold testing centre searches at 58%, says report",
-      "summary": "Searches for jewellery showrooms in India rose 53% year-on-year, while searches for gold testing centres and buyers increased 36% and 34%, respectively, according to Justdial. The trends suggest consumers are exploring purchases, purity che",
+      "title": "Bitcoin slips back below $60,000, missing out on Wall Street rally from Thanksgiving break",
+      "summary": "The divergence was particularly notable given that Bitcoin had advanced alongside US equity futures earlier in the day",
       "source": "Livemint Markets",
-      "date": "Fri, 27 Nov 2026",
-      "url": "https://www.livemint.com/market/commodities/jaipur-leads-jewellery-searches-with-78-growth-delhi-tops-gold-testing-centre-searches-at-58-says-report-11795779411777.html",
+      "date": "Sat, 28 Nov 2026",
+      "url": "https://www.livemint.com/market/cryptocurrency/bitcoin-slips-back-below-60-000-missing-out-on-wall-street-rally-from-thanksgiving-break-11795829583101.html",
       "sentiment": "Bullish",
+      "sectors": [
+        "Capital Goods",
+        "FMCG"
+      ]
+    },
+    {
+      "title": "Five Indian stocks with critical ties to Nvidia's AI ecosystem",
+      "summary": "Looking for Indian stocks linked to Nvidia? Here are five companies with exposure to Nvidia's AI ecosystem.",
+      "source": "Livemint Markets",
+      "date": "Sat, 28 Nov 2026",
+      "url": "https://www.livemint.com/market/stock-market-news/five-indian-stocks-with-critical-ties-to-nvidias-ai-ecosystem-11795782232160.html",
+      "sentiment": "Watch",
+      "sectors": [
+        "Information Technology"
+      ]
+    },
+    {
+      "title": "OpenAI vs Apple: What is the trade secrets dispute, and why are the two tech giants heading for a legal battle?",
+      "summary": "OpenAI has countersued Apple, accusing it of stealing trade secrets, pressuring suppliers and using restrictive employment agreements to block talent from joining rivals, escalating a legal battle as both companies eye the AI hardware marke",
+      "source": "Livemint Companies",
+      "date": "Sat, 28 Nov 2026",
+      "url": "https://www.livemint.com/companies/news/openai-vs-apple-what-is-the-trade-secrets-dispute-and-why-are-the-two-tech-giants-heading-for-a-legal-battle-11795830326678.html",
+      "sentiment": "Watch",
+      "sectors": [
+        "Information Technology"
+      ]
+    },
+    {
+      "title": "From Jensen Huang to H-1B curbs, campus interviews get tougher as hiring narrows",
+      "summary": "As AI automates entry-level work, recruiters are offering higher pay for selective, specialized hires while testing engineering and management candidates on ethics, data rules and global shifts.",
+      "source": "Livemint Companies",
+      "date": "Sat, 28 Nov 2026",
+      "url": "https://www.livemint.com/companies/news/campus-placements-2027-ai-hiring-interview-questions-11795759366908.html",
+      "sentiment": "Bullish",
+      "sectors": [
+        "Information Technology",
+        "Automobiles"
+      ]
+    },
+    {
+      "title": "India Inc tightens third-party vendor checks over data breach liability ahead of DPDP Act deadline",
+      "summary": "From unapproved AI tools to sub-processor disclosures, companies are overhauling third-party risk checks before the May 2027 deadline.",
+      "source": "Livemint Companies",
+      "date": "Sat, 28 Nov 2026",
+      "url": "https://www.livemint.com/companies/news/dpdp-act-vendor-data-security-compliance-deadline-2027-11795750619761.html",
+      "sentiment": "Bullish",
+      "sectors": [
+        "Information Technology"
+      ]
+    },
+    {
+      "title": "How Kotak took on Wall Street giants to dominate India's equity capital markets",
+      "summary": "In fiscal 2026, Kotak Mahindra Capital Co managed 22 IPOs and seven QIPs that together raised  \u20b91.76 trillion. The same year, the investment bank led several marquee transactions. These include Tata Capital's  \u20b915,512-crore IPO, the largest",
+      "source": "Livemint Companies",
+      "date": "Sat, 28 Nov 2026",
+      "url": "https://www.livemint.com/companies/kotak-investment-banking-carves-out-ecm-top-spot-as-ipo-underwriting-competition-intensifies-11795609285380.html",
+      "sentiment": "Watch",
       "sectors": [
         "Financial Services",
-        "Consumer Services"
+        "Automobiles"
       ]
     },
     {
-      "title": "IBM ends US visa and green card sponsorship for most consulting jobs: What happens to Indian tech workers?",
-      "summary": "IBM is ending US visa and green card sponsorship for most jobs in its consulting division. Affected employees can reportedly relocate abroad or leave by 31 December, putting pressure on foreign workers, including many Indian professionals.",
+      "title": "Armani heirs consider buying small slice of fashion house in stake sale, sources say",
+      "summary": "ARMANI-M",
       "source": "Livemint Companies",
-      "date": "Fri, 27 Nov 2026",
-      "url": "https://www.livemint.com/companies/news/ibm-ends-us-visa-and-green-card-sponsorship-for-most-consulting-jobs-what-happens-to-indian-tech-workers-11795787786263.html",
-      "sentiment": "Watch",
-      "sectors": [
-        "Financial Services"
-      ]
-    },
-    {
-      "title": "No HDFC bank SMS alerts for UPI payments up to  \u20b9500 from 1st January 2027 - here's why; what customers should know",
-      "summary": "From 1 January 2027, HDFC Bank will stop sending SMS alerts for UPI transactions of  \u20b9500 or less. Email alerts will continue for all UPI payments, provided customers have a valid registered email address. SMS alerts will remain for transac",
-      "source": "Livemint Companies",
-      "date": "Fri, 27 Nov 2026",
-      "url": "https://www.livemint.com/companies/news/no-hdfc-bank-sms-alerts-for-upi-payments-up-to-500-from-1st-january-2027-heres-why-what-customers-should-know-11795787590342.html",
-      "sentiment": "Watch",
-      "sectors": [
-        "Financial Services"
-      ]
-    },
-    {
-      "title": "Manish Chokhani lauds IIT Madras as India\u2019s startup factory: Here are some of the top companies founded by its alumni",
-      "summary": "Manish Chokhani shared a list of startups founded or co-founded by IIT Madras alumni. It includes companies such as Zetwerk, ofBusiness, Ather Energy, Zenoti, Darwinbox, Hasura and EaseMyTrip.",
-      "source": "Livemint Companies",
-      "date": "Fri, 27 Nov 2026",
-      "url": "https://www.livemint.com/companies/start-ups/manish-chokhani-lauds-iit-madras-as-india-s-startup-factory-here-are-some-of-the-top-companies-founded-by-its-alumni-11795785348413.html",
-      "sentiment": "Watch",
-      "sectors": [
-        "Information Technology"
-      ]
-    },
-    {
-      "title": "No stay for Tata Trusts: HC lets Tata Sons board meet, casting vote intact",
-      "summary": "The Bombay High Court on Friday refused to grant interim relief to Sir Dorabji Tata Trust and RD Tata Trust, allowing Tata Sons to proceed with its board meeting on Monday, with any outcome subject to the court\u2019s final ruling",
-      "source": "Livemint Companies",
-      "date": "Fri, 27 Nov 2026",
-      "url": "https://www.livemint.com/companies/tata-trusts-vs-tata-sons-bombay-high-court-11795785693009.html",
+      "date": "Sat, 28 Nov 2026",
+      "url": "https://www.livemint.com/companies/armani-heirs-consider-buying-small-slice-of-fashion-house-in-stake-sale-sources-say-11795805621602.html",
       "sentiment": "Bullish",
       "sectors": [
         "Financial Services"
       ]
     },
     {
-      "title": "HSBC\u2019s AI-led restructuring: Finance employees in Hyderabad, Pune asked to relocate to three other cities",
-      "summary": "HSBC is consolidating finance support functions across India, with roles in Hyderabad and Pune set to be phased out. Affected employees will be offered relocation support to move to Chennai, Gurugram or Bengaluru, as the lender accelerates ",
+      "title": "Verizon in Talks to Buy Fidium in $6 Billion Deal, FT Says",
+      "summary": "Verizon Communications Inc. is in talks to buy the broadband operator Fidium in a $6 billion deal, the Financial Times reported, a move that would expand its network and allow the mobile giant to target more internet service subscribers acr",
       "source": "Livemint Companies",
-      "date": "Fri, 27 Nov 2026",
-      "url": "https://www.livemint.com/companies/news/hsbcs-ai-led-restructuring-finance-employees-in-hyderabad-pune-asked-to-relocate-to-three-other-cities-11795780769992.html",
-      "sentiment": "Watch",
+      "date": "Sat, 28 Nov 2026",
+      "url": "https://www.livemint.com/companies/verizon-in-talks-to-buy-fidium-in-6-billion-deal-ft-says-11795804342081.html",
+      "sentiment": "Bullish",
       "sectors": [
         "Financial Services"
-      ]
-    },
-    {
-      "title": "Casio launches new G-Shock pilot watch with unusual Kevlar, nylon and metal strap, priced at \u00a3920 in the UK",
-      "summary": "Casio has launched a new G-Shock Gravitymaster pilot watch with a strap combining Kevlar, nylon and metal. The GWR-B3000SC-1A also features solar charging, Bluetooth and radio-controlled timekeeping. It is priced at \u00a3920 in the UK.",
-      "source": "Livemint Companies",
-      "date": "Fri, 27 Nov 2026",
-      "url": "https://www.livemint.com/companies/news/casio-launches-new-g-shock-pilot-watch-with-unusual-kevlar-nylon-and-metal-strap-priced-at-920-in-the-uk-11795779674147.html",
-      "sentiment": "Watch",
-      "sectors": [
-        "Power",
-        "Information Technology"
       ]
     },
     {
@@ -368,17 +370,17 @@
     {
       "name": "INDIA VIX",
       "val": "16.55",
-      "chg": -1.75
+      "chg": -1.72
     },
     {
       "name": "GOLD BeES",
-      "val": "\u20b9103.78",
-      "chg": 2.79
+      "val": "\u20b9nan",
+      "chg": NaN
     },
     {
       "name": "USD/INR",
-      "val": "\u20b992.98",
-      "chg": 0.8
+      "val": "\u20b992.99",
+      "chg": 0.58
     }
   ],
   "history": {
@@ -563,8 +565,8 @@
         118.13,
         116.86
       ],
-      "dma50": 116.92,
-      "dma200": 122.57
+      "dma50": 117.19,
+      "dma200": 122.67
     },
     "HAL": {
       "dates": [
@@ -1345,8 +1347,8 @@
         4380.9,
         5005.0
       ],
-      "dma50": 4641.79,
-      "dma200": 4498.48
+      "dma50": 4641.11,
+      "dma200": 4497.59
     }
   },
   "corp_actions": {
